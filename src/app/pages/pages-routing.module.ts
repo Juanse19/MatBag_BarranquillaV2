@@ -49,6 +49,11 @@ const routes: Routes = [{
       loadChildren: () => import('./sic-syncro/sic-syncro.module')
         .then(m => m.SicSyncroModule),
     },
+    {
+      path: 'conveyor',
+      loadChildren: () => import('./conveyor/conveyor.module')
+        .then(m => m.ConveyorModule),
+    },
     // {
     //   path: 'animation',
     //   loadChildren: () => import('./animation/animation.module')

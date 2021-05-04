@@ -54,6 +54,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WindowComponent2} from './OrderPopup/orderPopup.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { SystemOperationComponent } from './rooms/system-operation/system-operation.component';
 
 @NgModule({
   imports: [
@@ -104,6 +105,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     JacComponent,
     WindowComponent,
     WindowComponent2,
+    SystemOperationComponent,
   ],
 })
 export class DashboardModule { }

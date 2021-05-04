@@ -253,13 +253,6 @@ export class PagesMenu {
       link: '/pages/users/list',
       children: undefined,
     };
-    const animationMenu: NbMenuItem = {
-      title: 'WCS',
-      icon: 'monitor-outline',
-      link: '/pages/animation/animationsvg',
-      // link: '/pages/analytics/analytics',
-      children: undefined,
-    };
     const analyticsMenu: NbMenuItem = {
       title: 'Analitica',
       icon: 'bar-chart-outline',
@@ -297,6 +290,35 @@ export class PagesMenu {
           title: 'Syncro',
           link: '/pages/sic-syncro/syncro',
         },
+      ],
+    };
+
+    const functionMenu: NbMenuItem = {
+      title: 'Informacion',
+      icon: 'archive-outline',
+      // link: '/pages/analytics/analytics',
+      children: [
+        {
+          title: 'Asignar Aeronilínea al Make Up',
+          link: '/pages/conveyor/assign',
+        },
+        {
+          title: 'Equipos',
+          link: '/pages/conveyor/team',
+        },
+        {
+          title: 'Funcionamiento del sistema',
+          link: '/pages/conveyor/functioning',
+        },
+        {
+          title: 'Paros por acumulación',
+          link: '/pages/conveyor/accumulation',
+        },
+        
+        // {
+        //   title: 'Info',
+        //   link: '/pages/conveyor/info',
+        // },
       ],
     };
 
@@ -368,7 +390,8 @@ export class PagesMenu {
         if (hasAccess) {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
-          return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
+          // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
+          return [...dashboardMenu, functionMenu, userMenu, alarmMenu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];
