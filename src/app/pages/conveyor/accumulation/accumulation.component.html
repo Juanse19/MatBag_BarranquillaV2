@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        Paros por acumulación de equipaje
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table
+      class="dash-smart-table"
+      [settings]="settings"
+      [source]="UspStoppagesByBaggage"
+      (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>

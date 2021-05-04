@@ -1,0 +1,25 @@
+<div class="col-12">
+    <nb-card size="large">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Tiempo de funcionamiento por equipo">
+            <nb-card-body>
+                <ng2-smart-table class="example-smart-table"
+                                 [settings]="settings"
+                                 [source]="source"
+                                 (deleteConfirm)="onDeleteConfirm($event)">
+                </ng2-smart-table>
+              </nb-card-body>
+        </nb-tab>
+        <nb-tab tabTitle="Estado por equipo">
+            <ng2-smart-table class="example-smart-table"
+            [settings]="settings1"
+            [source]="source"
+            (deleteConfirm)="onDeleteConfirm($event)">
+        </ng2-smart-table>
+        </nb-tab>
+        <!-- <nb-tab tabTitle="Full width tab #3">
+          <span>Content #3</span>
+        </nb-tab> -->
+      </nb-tabset>
+    </nb-card>
+  </div>
