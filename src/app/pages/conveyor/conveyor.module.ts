@@ -11,6 +11,14 @@ import { FunctioningComponent } from './functioning/functioning.component';
 import { AccumulationComponent } from './accumulation/accumulation.component';
 import { AssignComponent } from './assign/assign.component';
 import { InfoComponent } from './info/info.component';
+import { Bhs1Component } from './bhs1/bhs1.component';
+import { Bhs2Component } from './bhs2/bhs2.component';
+import { Bhs3Component } from './bhs3/bhs3.component';
+import { Bhs4Component } from './bhs4/bhs4.component';
+import { Bhs5Component } from './bhs5/bhs5.component';
+import { Bhs6Component } from './bhs6/bhs6.component';
+import { Bhs7Component } from './bhs7/bhs7.component';
+import { Bhs8Component } from './bhs8/bhs8.component';
 
 
 @NgModule({
@@ -21,6 +29,14 @@ import { InfoComponent } from './info/info.component';
     AccumulationComponent,
     AssignComponent,
     InfoComponent,
+    Bhs1Component,
+    Bhs2Component,
+    Bhs3Component,
+    Bhs4Component,
+    Bhs5Component,
+    Bhs6Component,
+    Bhs7Component,
+    Bhs8Component,
   ],
   imports: [
     CommonModule,

@@ -55,6 +55,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { WindowComponent2} from './OrderPopup/orderPopup.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { SystemOperationComponent } from './rooms/system-operation/system-operation.component';
+import { BhsArrivalComponent } from './rooms/bhs-arrival/bhs-arrival.component';
 
 @NgModule({
   imports: [
@@ -106,6 +107,7 @@ import { SystemOperationComponent } from './rooms/system-operation/system-operat
     WindowComponent,
     WindowComponent2,
     SystemOperationComponent,
+    BhsArrivalComponent,
   ],
 })
 export class DashboardModule { }

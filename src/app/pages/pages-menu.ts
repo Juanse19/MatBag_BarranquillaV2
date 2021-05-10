@@ -18,10 +18,48 @@ export class PagesMenu {
   getMenu(): Observable<NbMenuItem[]> {
     const dashboardMenu = [
       {
-        title: 'Dashboard',
+        title: 'BHS Salida',
         icon: 'monitor-outline',
         link: '/pages/iot-dashboard',
-        children: undefined,
+        children: [
+          {
+            title: 'Dashboard Salida',
+            link: '/pages/iot-dashboard',
+          },
+          
+          {
+            title: 'Línea de transferencia',
+            link: '/pages/conveyor/bhs1',
+          },
+          {
+            title: 'alimentación de seguridad',
+            link: '/pages/conveyor/bhs2',
+          },
+          {
+            title: 'Make Up',
+            link: '/pages/conveyor/bhs3',
+          },
+          {
+            title: 'Línea de alarma',
+            link: '/pages/conveyor/bhs4',
+          },
+          {
+            title: 'Registro de alimentación de seguridad',
+            link: '/pages/conveyor/bhs5',
+          },
+          {
+            title: 'Línea de resolución en pantalla',
+            link: '/pages/conveyor/bhs6',
+          },
+          {
+            title: 'Línea clara',
+            link: '/pages/conveyor/bhs7',
+          },
+          {
+            title: 'codificación manual',
+            link: '/pages/conveyor/bhs8',
+          },
+        ],
       },
     ];
 
@@ -298,10 +336,7 @@ export class PagesMenu {
       icon: 'archive-outline',
       // link: '/pages/analytics/analytics',
       children: [
-        {
-          title: 'Asignar Aeronilínea al Make Up',
-          link: '/pages/conveyor/assign',
-        },
+        
         {
           title: 'Equipos',
           link: '/pages/conveyor/team',
@@ -319,6 +354,58 @@ export class PagesMenu {
         //   title: 'Info',
         //   link: '/pages/conveyor/info',
         // },
+      ],
+    };
+
+    const paraMenu: NbMenuItem = {
+      title: 'Parametrización',
+      icon: 'book-outline',
+      // link: '/pages/charts/charts-report',
+      children:[
+        {
+          title: 'Asignar Aeronilínea al Make Up',
+          link: '/pages/conveyor/assign',
+        },
+      ],
+    };
+
+    const repocbisMenu: NbMenuItem = {
+      title: 'Reportes CBIS',
+      icon: 'pie-chart-outline',
+      // link: '/pages/charts/charts-report',
+      children:[
+        {
+          title: 'Datos del equipaje',
+          link: '/pages/charts/report',
+        },
+        {
+          title: 'Seguimiento en Fotoceldas Criticas',
+          link: '/pages/charts/charts-report',
+        },
+        {
+          title: 'Fallas en el BHS',
+          link: '/pages/charts/charts-report',
+        },
+        {
+          title: 'Eventos del BHS',
+          link: '/pages/charts/charts-report',
+        },
+        {
+          title: 'Estadísticas del EDS ',
+          link: '/pages/charts/charts-report',
+        },
+        {
+          title: 'Desempeño del ATR',
+          link: '/pages/charts/charts-report',
+        },
+        {
+          title: 'Volumen del sistema de equipaje',
+          link: '/pages/charts/charts-report',
+        },
+        {
+          title: 'Estadísticas del CBRA',
+          link: '/pages/charts/report',
+        },
       ],
     };
 
@@ -391,7 +478,7 @@ export class PagesMenu {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
           // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
-          return [...dashboardMenu, functionMenu, userMenu, alarmMenu];
+          return [...dashboardMenu, paraMenu, functionMenu, repocbisMenu, userMenu, alarmMenu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];
