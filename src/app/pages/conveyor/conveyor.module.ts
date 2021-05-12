@@ -19,6 +19,8 @@ import { Bhs5Component } from './bhs5/bhs5.component';
 import { Bhs6Component } from './bhs6/bhs6.component';
 import { Bhs7Component } from './bhs7/bhs7.component';
 import { Bhs8Component } from './bhs8/bhs8.component';
+import { BhsArrivalComponent } from './../dashboard/rooms/bhs-arrival/bhs-arrival.component';
+import { DashboardModule } from './../dashboard/dashboard.module';
 
 
 @NgModule({

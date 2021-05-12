@@ -1,4 +1,8 @@
-<h1>Aerolineas</h1>
+<nb-card>
+<nb-card-header>
+  <h1>Aerolineas</h1>
+</nb-card-header>
+
 <div class="row">
     <div class="col-md-12 col-lg-4 col-xxxl-4">
       <nb-card>
@@ -25,7 +29,7 @@
           <ng2-smart-table
           class="dash-smart-table"
           [settings]="settings1"
-          [source]="Carr1"
+          [source]="CarrData"
           >
         </ng2-smart-table>
         </nb-card-body>
@@ -42,7 +46,7 @@
           <ng2-smart-table
           class="dash-smart-table"
           [settings]="settings2"
-          [source]="Carr2"
+          [source]="CarrData"
           >
         </ng2-smart-table>
         </nb-card-body>
@@ -52,3 +56,4 @@
       </nb-card>
     </div>
   </div>
+</nb-card>

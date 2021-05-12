@@ -19,7 +19,7 @@ export interface Airline {
 interface Carr {
   idAirline: number;
   airline_Name: string;
-  cod_Airline: number;
+  icao_designator: number;
   carrusel: number;
 }
 
@@ -68,7 +68,7 @@ export class AssignComponent implements OnInit {
 
   
 
-  source1: LocalDataSource = new LocalDataSource();
+  source: LocalDataSource = new LocalDataSource();
   public AirData: Airline[];
 
   settings1 = {
@@ -85,12 +85,15 @@ export class AssignComponent implements OnInit {
         title: 'Nombre aerolínea',
         type: 'string',
       },
-      cod_Airline: {
+      icao_designator: {
         title: 'Código aerolínea',
         type: 'string',
       },
     },
   };
+
+  source1: LocalDataSource = new LocalDataSource();
+  public CarrData: Carr[];
 
   settings2 = {
     mode: 'external',
@@ -106,7 +109,7 @@ export class AssignComponent implements OnInit {
         title: 'Nombre aerolínea',
         type: 'string',
       },
-      cod_Airline: {
+      icao_designator: {
         title: 'Código aerolínea',
         type: 'string',
       },
@@ -147,6 +150,7 @@ export class AssignComponent implements OnInit {
   //   this.Carr2 = data;
   // });
   this.ChargeAirline();
+  this.ChargeCarr();
   }
 
   ChargeAirline() {
@@ -159,7 +163,7 @@ export class AssignComponent implements OnInit {
     //   if(res == null){
     //     return null;
     //  }
-      this.source1.load(res);
+      this.source.load(res);
     });
     const contador = interval(60000)
     contador.subscribe((n) => {
@@ -168,6 +172,31 @@ export class AssignComponent implements OnInit {
       .subscribe((res: any[]) => {
         //REPORTOCUPATION=res;
         this.AirData = res;
+        this.source.load(res);
+      });
+    });
+
+  } 
+
+  ChargeCarr() {
+    this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any[]) => {
+      //REPORTOCUPATION=res;
+      console.log("Report Ocupacion:", res);
+      this.CarrData = res;
+    //   if(res == null){
+    //     return null;
+    //  }
+      this.source1.load(res);
+    });
+    const contador = interval(60000)
+    contador.subscribe((n) => {
+      this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel')
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any[]) => {
+        //REPORTOCUPATION=res;
+        this.CarrData = res;
         this.source1.load(res);
       });
     });
