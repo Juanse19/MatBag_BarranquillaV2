@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-bhs5',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Bhs5Component implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  back() {
+    this.router.navigate(['/pages/iot-dashboard']);
+    return false;
+  }
 }

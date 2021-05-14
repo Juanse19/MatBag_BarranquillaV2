@@ -2,7 +2,7 @@
 <nb-card-header>
   <h1>Aerolineas</h1>
 </nb-card-header>
-
+<nb-card-body>
 <div class="row">
     <div class="col-md-12 col-lg-4 col-xxxl-4">
       <nb-card>
@@ -12,6 +12,7 @@
           class="example-smart-table"
           [settings]="settings"
           [source]="AirData"
+          (click)="onClick($event)"
           >
         </ng2-smart-table>
         </nb-card-body>
@@ -29,7 +30,7 @@
           <ng2-smart-table
           class="dash-smart-table"
           [settings]="settings1"
-          [source]="CarrData"
+          [source]="Carr1Data"
           >
         </ng2-smart-table>
         </nb-card-body>
@@ -43,10 +44,10 @@
       <nb-card>
         <nb-card-header>Make up 2</nb-card-header>
         <nb-card-body>
-          <ng2-smart-table
+          <ng2-smart-table 
           class="dash-smart-table"
           [settings]="settings2"
-          [source]="CarrData"
+          [source]="Carr2Data"
           >
         </ng2-smart-table>
         </nb-card-body>
@@ -56,4 +57,5 @@
       </nb-card>
     </div>
   </div>
+</nb-card-body>
 </nb-card>

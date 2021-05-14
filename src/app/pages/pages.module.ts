@@ -14,6 +14,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesMenu } from './pages-menu';
 import { NbMenuModule } from '@nebular/theme';
 import { AuthModule } from '../@auth/auth.module';
+import { ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -26,6 +27,8 @@ const PAGES_COMPONENTS = [
     DashboardModule,
     NbMenuModule,
     MiscellaneousModule,
+    ScheduleAllModule, 
+    RecurrenceEditorAllModule,
     AuthModule.forRoot(),
   ],
   declarations: [

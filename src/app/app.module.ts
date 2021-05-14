@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AuthModule } from './@auth/auth.module';
+import { ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
 
 import {
   NbChatModule,
@@ -31,6 +32,8 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    ScheduleAllModule, 
+    RecurrenceEditorAllModule,
 
     AuthModule.forRoot(),
 

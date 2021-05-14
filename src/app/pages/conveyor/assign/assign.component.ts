@@ -34,6 +34,7 @@ export class AssignComponent implements OnInit {
   private alive = true;
   mostrar: Boolean;
 
+  selected: number;
   Air = [];
   Carr1 = [];
   Carr2 = [];
@@ -93,7 +94,7 @@ export class AssignComponent implements OnInit {
   };
 
   source1: LocalDataSource = new LocalDataSource();
-  public CarrData: Carr[];
+  public Carr1Data: Carr[];
 
   settings2 = {
     mode: 'external',
@@ -116,6 +117,8 @@ export class AssignComponent implements OnInit {
     },
   };
 
+  source2: LocalDataSource = new LocalDataSource();
+  public Carr2Data: Carr[];
 
   constructor(
     public accessChecker: NbAccessChecker,
@@ -138,19 +141,15 @@ export class AssignComponent implements OnInit {
   }
 
   ngOnInit() {
-  //  this.Dashboardv1Service.getAirData().subscribe((data: any[]) => {
-  //   this.Air = data;
-  //  });
-
-  //  this.Dashboardv1Service.getCarrData().subscribe((data: any[]) => {
-  //   this.Carr1 = data;
-  // });
-    
-  // this.Dashboardv1Service.getCarrData().subscribe((data: any[]) => {
-  //   this.Carr2 = data;
-  // });
+  
   this.ChargeAirline();
-  this.ChargeCarr();
+  this.ChargeCarr1();
+  this.ChargeCarr2();
+  }
+
+
+  public seletoggleSelection (){
+
   }
 
   ChargeAirline() {
@@ -158,7 +157,7 @@ export class AssignComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any[]) => {
       //REPORTOCUPATION=res;
-      console.log("Report Ocupacion:", res);
+      // console.log("Report Ocupacion:", res);
       this.AirData = res;
     //   if(res == null){
     //     return null;
@@ -178,13 +177,13 @@ export class AssignComponent implements OnInit {
 
   } 
 
-  ChargeCarr() {
-    this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel')
+  ChargeCarr1() {
+    this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel?id='+1)
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any[]) => {
       //REPORTOCUPATION=res;
-      console.log("Report Ocupacion:", res);
-      this.CarrData = res;
+      // console.log("Carr1", res);
+      this.Carr1Data = res;
     //   if(res == null){
     //     return null;
     //  }
@@ -192,16 +191,57 @@ export class AssignComponent implements OnInit {
     });
     const contador = interval(60000)
     contador.subscribe((n) => {
-      this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel')
+      this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel?id='+1)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any[]) => {
         //REPORTOCUPATION=res;
-        this.CarrData = res;
+        this.Carr1Data = res;
         this.source1.load(res);
       });
     });
-
   } 
+
+  ChargeCarr2() {
+    this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel?id='+2)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any[]) => {
+      //REPORTOCUPATION=res;
+      // console.log("Carr2", res);
+      this.Carr2Data = res;
+    //   if(res == null){
+    //     return null;
+    //  }
+      this.source2.load(res);
+    });
+    const contador = interval(60000)
+    contador.subscribe((n) => {
+      this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetCarrusel?id='+2)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any[]) => {
+        //REPORTOCUPATION=res;
+        this.Carr2Data = res;
+        this.source2.load(res);
+      });
+    });
+  } 
+
+  receiveMessage($event) {
+    this.selected = $event
+    console.log($event)
+    // console.log(this.machine);
+  }
+
+  onClick(event) {
+    console.log(event);
+    console.log(event.srcElement.attributes.Id);
+    // var idAttr = event.srcElement.attributes.id;
+    // var value = idAttr.nodeValue;
+    // console.log(value);
+  }
+
+  carrusel1(){
+
+  }
 
   // onDeleteConfirm(event): void {
   //   if (window.confirm('Are you sure you want to delete?')) {

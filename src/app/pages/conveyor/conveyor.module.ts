@@ -19,8 +19,10 @@ import { Bhs5Component } from './bhs5/bhs5.component';
 import { Bhs6Component } from './bhs6/bhs6.component';
 import { Bhs7Component } from './bhs7/bhs7.component';
 import { Bhs8Component } from './bhs8/bhs8.component';
-import { BhsArrivalComponent } from './../dashboard/rooms/bhs-arrival/bhs-arrival.component';
-import { DashboardModule } from './../dashboard/dashboard.module';
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import {DxSchedulerModule} from 'devextreme-angular';
+import { ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { DashboardModule } from './../dashboard/dashboard.module';
     Bhs6Component,
     Bhs7Component,
     Bhs8Component,
+    SchedulerComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,10 @@ import { DashboardModule } from './../dashboard/dashboard.module';
     NbCardModule,
     NbIconModule,
     NbTabsetModule,
+    DxSchedulerModule,
+    ScheduleAllModule,
+    RecurrenceEditorAllModule,
+    FormsModule,
   ],
 })
 export class ConveyorModule { }

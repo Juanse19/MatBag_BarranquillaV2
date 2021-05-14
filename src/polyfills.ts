@@ -54,7 +54,8 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-
+ import "core-js/es7/reflect";
+ import "zone.js/dist/zone";
 /**
  * Date, currency, decimal and percent pipes.
  * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10

@@ -28,11 +28,11 @@ export class PagesMenu {
           },
           
           {
-            title: 'Línea de transferencia',
+            title: 'Transfer Line',
             link: '/pages/conveyor/bhs1',
           },
           {
-            title: 'alimentación de seguridad',
+            title: 'Security Feed',
             link: '/pages/conveyor/bhs2',
           },
           {
@@ -40,23 +40,23 @@ export class PagesMenu {
             link: '/pages/conveyor/bhs3',
           },
           {
-            title: 'Línea de alarma',
+            title: 'Alarm Line',
             link: '/pages/conveyor/bhs4',
           },
           {
-            title: 'Registro de alimentación de seguridad',
+            title: 'Secuurity Feed Check In',
             link: '/pages/conveyor/bhs5',
           },
           {
-            title: 'Línea de resolución en pantalla',
+            title: 'Clear Line',
             link: '/pages/conveyor/bhs6',
           },
           {
-            title: 'Línea clara',
+            title: 'On Screen Resolution Line',
             link: '/pages/conveyor/bhs7',
           },
           {
-            title: 'codificación manual',
+            title: 'Manuel Encode',
             link: '/pages/conveyor/bhs8',
           },
         ],
@@ -365,6 +365,10 @@ export class PagesMenu {
         {
           title: 'Asignar Aeronilínea al Make Up',
           link: '/pages/conveyor/assign',
+        },
+        {
+          title: 'Scheduler',
+          link: '/pages/conveyor/scheduler',
         },
       ],
     };
