@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConveyorRoutingModule } from './conveyor-routing.module';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule } from '@nebular/theme';
+import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module'; 
 import { ConveyorComponent } from './conveyor.component';
@@ -23,6 +23,10 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import {DxSchedulerModule} from 'devextreme-angular';
 import { ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
 import { FormsModule } from '@angular/forms';
+import { Ib1Component } from './ib1/ib1.component';
+import { Ib2Component } from './ib2/ib2.component';
+import { Ib3Component } from './ib3/ib3.component';
+
 
 
 @NgModule({
@@ -42,6 +46,9 @@ import { FormsModule } from '@angular/forms';
     Bhs7Component,
     Bhs8Component,
     SchedulerComponent,
+    Ib1Component,
+    Ib2Component,
+    Ib3Component,
   ],
   imports: [
     CommonModule,
@@ -62,6 +69,8 @@ import { FormsModule } from '@angular/forms';
     ScheduleAllModule,
     RecurrenceEditorAllModule,
     FormsModule,
+    NbTooltipModule,
+    NbPopoverModule,
   ],
 })
 export class ConveyorModule { }

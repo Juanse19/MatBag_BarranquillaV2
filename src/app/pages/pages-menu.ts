@@ -44,7 +44,7 @@ export class PagesMenu {
             link: '/pages/conveyor/bhs4',
           },
           {
-            title: 'Secuurity Feed Check In',
+            title: 'Security Feed Check In',
             link: '/pages/conveyor/bhs5',
           },
           {
@@ -56,7 +56,7 @@ export class PagesMenu {
             link: '/pages/conveyor/bhs7',
           },
           {
-            title: 'Manuel Encode',
+            title: 'Manual Encode',
             link: '/pages/conveyor/bhs8',
           },
         ],
@@ -345,10 +345,10 @@ export class PagesMenu {
           title: 'Funcionamiento del sistema',
           link: '/pages/conveyor/functioning',
         },
-        {
-          title: 'Paros por acumulación',
-          link: '/pages/conveyor/accumulation',
-        },
+        // {
+        //   title: 'Paros por acumulación',
+        //   link: '/pages/conveyor/accumulation',
+        // },
         
         // {
         //   title: 'Info',
@@ -381,6 +381,18 @@ export class PagesMenu {
         {
           title: 'Dashboard Llegada',
           link: '/pages/conveyor/info',
+        },
+        {
+          title: 'Inbound 1',
+          link: '/pages/conveyor/ib1',
+        },
+        {
+          title: 'Inbound 2',
+          link: '/pages/conveyor/ib2',
+        },
+        {
+          title: 'Inbound 3',
+          link: '/pages/conveyor/ib3',
         },
       ],
     };

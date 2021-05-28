@@ -1,18 +1,16 @@
 <nb-card>
-  <nb-card-header>
-    <nav class="navigation">
-      <a href="#" (click)="back()" class="link back-link" aria-label="Back">
-        <nb-icon icon="arrow-back"></nb-icon>
-      </a>
-    </nav>
-  </nb-card-header>
+    <nb-card-header>
+        <nav class="navigation">
+            <a href="#" (click)="back()" class="link back-link" aria-label="Back">
+                <nb-icon icon="arrow-back"></nb-icon>
+            </a>
+        </nav>
+    </nb-card-header>
     <nb-card-body>
         <div class="room-layout">
             <!-- <img src="./assets/bhs/BHS1.png" alt="" /> -->
 
-            <svg xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="60 80 262.63 140.06">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="60 80 262.63 140.06">
                 
             
                     <image
@@ -63,7 +61,12 @@
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 27.png"
                     />
-                  
+                    <image
+                    width="1920"
+                    height="1080"
+                    transform="translate(0 18.86) scale(0.24)"
+                    xlink:href="./assets/svg/Recurso 217.png"
+                  /> 
                     <image
                       width="1920"
                       height="1080"
@@ -127,12 +130,12 @@
                       xlink:href="./assets/svg/Recurso 216.png"
                     />
                   
-                    <image
+                    <!-- <image
                       width="1920"
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 217.png"
-                    />
+                    /> -->
                   
                     <image
                       width="1920"
@@ -154,9 +157,36 @@
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 220.png"
                     />
-                  
+                
+                    <text x="134.93" y="168.89" class="st5" [nbPopover]="card" nbPopoverPlacement="left">{{dataBanda1.b1}}</text>
+                    <text x="173.193" y="160.89" class="st5" [nbPopover]="card">{{dataBanda1.b2}}</text>
+                    <text x="192.193" y="135.89" class="st5" [nbPopover]="card">{{dataBanda1.b3}}</text>
+                    <text x="215.93" y="129.89" class="st5" [nbPopover]="card">{{dataBanda1.b4}}</text>
+                    <text x="168.93" y="130.89" class="st5" [nbPopover]="card">{{dataBanda1.b5}}</text>
+                    <text x="136.193" y="150.89" class="st5" [nbPopover]="card" nbPopoverPlacement="left">{{dataBanda1.b6}}</text>
+                    <text x="170.193" y="144.89" class="st5" [nbPopover]="card">{{dataBanda1.b7}}</text>
+                    <text x="208.93" y="146.89" class="st5" [nbPopover]="card">{{dataBanda1.b8}}</text>
+                    <text x="224.93" y="143.89" class="st5" [nbPopover]="card">{{dataBanda1.b9}}</text>
+                    <text x="247.193" y="138.89" class="st5" [nbPopover]="card">{{dataBanda1.b10}}</text>
+                    <text x="253.193" y="142.89" class="st5" [nbPopover]="card">{{dataBanda1.b11}}</text>
+                    <text x="251.193" y="134.89" class="st5" [nbPopover]="card">{{dataBanda1.b12}}</text>
+                    <text x="254.93" y="148.89" class="st5" [nbPopover]="card" nbPopoverPlacement="end">{{dataBanda1.b13}}</text>
+                    <text x="252.93" y="127.89" class="st5" [nbPopover]="card">{{dataBanda1.b14}}</text>
                 
             </svg>
+
+            <ng-template #card>
+              <nb-card class="popover-card">
+                  <nb-card-header status="warning">
+                      
+                  </nb-card-header>
+                  <nb-card-body>
+                    <p>Estado: On</p>
+                    <p>TiempoOn: 17211</p>
+                    <p>TiempoOff: 0</p>
+                  </nb-card-body>
+              </nb-card>
+          </ng-template>
 
         </div>
     </nb-card-body>

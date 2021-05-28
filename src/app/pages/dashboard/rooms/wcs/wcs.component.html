@@ -1,17 +1,9 @@
-
 <nb-card>
-	<nb-card-body class="example-items-rows">
-        <input 
-		type="text" 
-		nbInput 
-		status="basic" 
-		placeholder="Buscar arrumes por orden"
-		[(ngModel)]="inputOrder"
-		[nbAutocomplete]="autoControl" 
-		>
+    <nb-card-body class="example-items-rows">
+        <input type="text" nbInput status="basic" placeholder="Buscar arrumes por orden" [(ngModel)]="inputOrder" [nbAutocomplete]="autoControl">
         <div class="cts">
-            <label   class="id1"> <b style="color:#ff7b00">Ruta CTA:</b> <b>{{dataRoutesCts.RutaCtA}}</b> </label>
-            
+            <label class="id1"> <b style="color:#ff7b00">Ruta CTA:</b> <b>{{dataRoutesCts.RutaCtA}}</b> </label>
+
             <label for="" id="id2" class="id2"> <b style="color:#ff7b00">Ruta CTB: </b> <b>{{dataRoutesCts.RutaCtB}}</b> </label>
 
             <label for="" id="id2" class="id3"> <b style="color:#ff7b00">Ruta CT1: </b> <b>{{dataRoutesCts.RutaCt1}}</b> </label>
@@ -19,16 +11,15 @@
             <label for="" id="id2" class="id4"> <b style="color:#ff7b00">Ruta CT2: </b> <b>{{dataRoutesCts.RutaCt2}}</b> </label>
 
         </div>
-  <nb-autocomplete #autoControl>
-	<nb-option *ngFor="let option of orderProcess" [value]="option.order">
-	  {{ option.order }}
-	</nb-option>
-  </nb-autocomplete>  
-</nb-card-body>
+        <nb-autocomplete #autoControl>
+            <nb-option *ngFor="let option of orderProcess" [value]="option.order">
+                {{ option.order }}
+            </nb-option>
+        </nb-autocomplete>
+    </nb-card-body>
 
-<div class="room-layout">
-    <svg id="Layer_0_Imagen" data-name="Layer 0 Imagen" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 574.45 259.39">
+    <div class="room-layout">
+        <svg id="Layer_0_Imagen" data-name="Layer 0 Imagen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 574.45 259.39">
         <defs>
             <style>
                 .cls-1 {
@@ -840,7 +831,7 @@
             <image id="Layer_0_Imagen-29" data-name="Layer 0 Imagen" width="67" height="127"
             transform="translate(1.48 295.14) scale(0.24)" xlink:href="./assets/img/SMURFITKAPPA l Layout28.png" 
             [ngClass]="{showStatusAlarm: !showdataAlarms.StatusCt2}"
-            nbTooltip="{{dataWipName.cT2}}"/>
+            nbTooltip="{{dataWipName.cT2}}"/> 
             <!-- Rectangulo CT2 -->
                 <!-- <g id="group53-145" transform="translate(295.154,-105.2055)" > -->
                     <!-- <title>Sheet.53</title>

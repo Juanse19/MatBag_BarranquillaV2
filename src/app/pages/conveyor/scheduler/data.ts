@@ -959,12 +959,12 @@ export let resourceData: Object[] = [
         TaskId: 2
     }, {
         Id: 7,
-        Subject: 'Project Review',
+        Subject: 'Avianca',
         StartTime: new Date(2018, 3, 4, 11, 15),
         EndTime: new Date(2018, 3, 4, 13, 0),
         IsAllDay: false,
-        ProjectId: 2,
-        TaskId: 1
+        ProjectId: 1,
+        TaskId: 2
     }, {
         Id: 8,
         Subject: 'JetBlue',
@@ -1002,7 +1002,7 @@ export let resourceData: Object[] = [
         Subject: 'LATAM',
         StartTime: new Date(2018, 3, 6, 9, 0),
         EndTime: new Date(2018, 3, 6, 11, 30),
-        IsAllDay: false,
+        IsAllDay: true,
         ProjectId: 2,
         TaskId: 2
     }, {

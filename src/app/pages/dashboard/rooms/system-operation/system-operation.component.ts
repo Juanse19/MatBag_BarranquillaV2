@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay, map, takeUntil, takeWhile, timeout,switchMap } from 'rxjs/operators';
+import { Observable, Subject, of, BehaviorSubject, interval,Subscription } from 'rxjs';
+import { Zones, syste } from '../../../conveyor/_interfaces/MatBag.model';
+import { HttpService } from '../../../../@core/backend/common/api/http.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ngx-system-operation',
@@ -8,13 +13,68 @@ import { Router } from '@angular/router';
 })
 export class SystemOperationComponent implements OnInit {
 
-  constructor(private router: Router) { 
-    
-  }
+  public zone: Zones[] = [];
+
+  public zo: Zones[] = [];
+
+  public syst: syste[] = [];
+
+  private alive=true;
+
+  intervalSubscriptionStatusAlarm:Subscription;
+
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private api: HttpService) { }
 
   ngOnInit(): void {
-    
+    this.GetSystem();
+    this.GetOrderProcess();
+    // this.StatusAlarmCharge()
   }
+
+  private GetSystem(){    
+    this.http.get(this.api.apiUrlNode1 + '/apifront')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res:Zones[])=>{
+      this.zone=res;
+      console.log("zon", this.zone);
+      
+      console.log("Res ", res);
+      
+    });
+  }
+
+  private GetOrderProcess(){    
+    this.http.get(this.api.apiUrlNode1 + '/zo')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res:Zones[])=>{
+      this.zo=res;
+      console.log("zys", this.zo);
+      console.log("Res ", res);
+      
+    });
+  }
+
+  // public StatusAlarmCharge(){
+
+  //   if (this.intervalSubscriptionStatusAlarm) {
+  //     this.intervalSubscriptionStatusAlarm.unsubscribe();
+  //   }
+    
+       
+  //   this.intervalSubscriptionStatusAlarm = interval(1000)
+  //   .pipe(
+  //     takeWhile(() => this.alive),
+  //     switchMap(() => this.http.get(this.api.apiUrlNode1 + '/es')),
+  //   )
+  //   .subscribe((res: any) => {
+  //       this.syst  = res[0];
+  //       console.log("estadisticas ", this.syst)
+        
+  //   });
+  // }
 
   bhs1() {
     this.router.navigate(['/pages/conveyor/bhs1']);

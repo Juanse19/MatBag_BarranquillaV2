@@ -12,7 +12,7 @@ export interface WipName {
   iD_12: string,
   iD_22: string,
   sT1: string,
-  sT2: string,
+  sT2: string, 
   iM1: string,
   sT3: string,
   sT4: string,

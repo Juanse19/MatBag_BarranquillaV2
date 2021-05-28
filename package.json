@@ -79,6 +79,7 @@
     "ckeditor": "4.6.2",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.1",
+    "d3": "^6.7.0",
     "devextreme-angular": "20.2",
     "echarts": "^4.0.2",
     "eva-icons": "^1.1.3",

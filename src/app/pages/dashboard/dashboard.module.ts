@@ -20,6 +20,7 @@ import {
   NbInputModule,
   NbAutocompleteModule,
   NbTooltipModule,
+  NbPopoverModule,
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 
@@ -83,6 +84,7 @@ import { BhsArrivalComponent } from './rooms/bhs-arrival/bhs-arrival.component';
     NbAutocompleteModule,
     Ng2SmartTableModule,
     NbTooltipModule,
+    NbPopoverModule
   ],
   declarations: [
     DashboardComponent,

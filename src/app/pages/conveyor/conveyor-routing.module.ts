@@ -15,6 +15,9 @@ import { Bhs6Component } from './bhs6/bhs6.component';
 import { Bhs7Component } from './bhs7/bhs7.component';
 import { Bhs8Component } from './bhs8/bhs8.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
+import { Ib1Component } from './ib1/ib1.component';
+import { Ib2Component } from './ib2/ib2.component';
+import { Ib3Component } from './ib3/ib3.component';
 
 const routes: Routes = [
   {
@@ -76,6 +79,18 @@ const routes: Routes = [
       {
         path: 'scheduler',
         component: SchedulerComponent,
+      },
+      {
+        path: 'ib1',
+        component: Ib1Component,
+      },
+      {
+        path: 'ib2',
+        component: Ib2Component,
+      },
+      {
+        path: 'ib3',
+        component: Ib3Component,
       },
     ],
   },

@@ -1,19 +1,17 @@
 <nb-card>
-  <nb-card-header>
-    <nav class="navigation">
-      <a href="#" (click)="back()" class="link back-link" aria-label="Back">
-        <nb-icon icon="arrow-back"></nb-icon>
-      </a>
-    </nav>
-  </nb-card-header>
-  
+    <nb-card-header>
+        <nav class="navigation">
+            <a href="#" (click)="back()" class="link back-link" aria-label="Back">
+                <nb-icon icon="arrow-back"></nb-icon>
+            </a>
+        </nav>
+    </nb-card-header>
+
     <nb-card-body>
         <div class="room-layout">
             <!-- <img src="./assets/bhs/BHS3.png" alt="" /> -->
 
-            <svg xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="175 120 262.63 140.06">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="175 120 262.63 140.06">
                 
             
                     <image
@@ -86,8 +84,31 @@
                       xlink:href="./assets/svg/Recurso 235.png"
                     />
                  
+                    <text x="304.93" y="178.89" class="st5" [nbPopover]="card">{{dataBanda3.b1}}</text>
+                    <text x="303.193" y="173.89" class="st5" [nbPopover]="card">{{dataBanda3.b2}}</text>
+                    <text x="297.193" y="169.89" class="st5" [nbPopover]="card">{{dataBanda3.b3}}</text>
+                    <text x="259.93" y="155.89" class="st5" [nbPopover]="card">{{dataBanda3.b4}}</text>
+                    <text x="247.93" y="168.89" class="st5" [nbPopover]="card">{{dataBanda3.b5}}</text>
+                    <text x="318.193" y="200.89" class="st5" [nbPopover]="card">{{dataBanda3.b6}}</text>
+                    <text x="332.193" y="190.89" class="st5" [nbPopover]="card">{{dataBanda3.b7}}</text>
+                    <text x="341.93" y="194.89" class="st5" [nbPopover]="card">{{dataBanda3.b8}}</text>
+                    <text x="376.93" y="222.89" class="st5" [nbPopover]="card">{{dataBanda3.b9}}</text>
+                    <text x="347.193" y="228.89" class="st5" [nbPopover]="card">{{dataBanda3.b10}}</text>                 
                 
             </svg>
+
+            <ng-template #card>
+              <nb-card class="popover-card">
+                  <nb-card-header status="warning">
+                      
+                  </nb-card-header>
+                  <nb-card-body>
+                    <p>Estado: On</p>
+                    <p>TiempoOn: 17211</p>
+                    <p>TiempoOff: 0</p>
+                  </nb-card-body>
+              </nb-card>
+          </ng-template>
 
         </div>
     </nb-card-body>
