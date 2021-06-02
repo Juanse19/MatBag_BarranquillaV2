@@ -50,10 +50,10 @@
                       xlink:href="./assets/svg/Recurso 225.png"
                     />
                 
-                    <text x="243.93" y="220.89" class="st5" [nbPopover]="card" nbPopoverPlacement="right">{{dataBanda8.b1}}</text>
-                    <text x="240.193" y="208.89" class="st5" [nbPopover]="card" nbPopoverPlacement="right">{{dataBanda8.b2}}</text>
-                    <text x="235.193" y="203.89" class="st5" [nbPopover]="card">{{dataBanda8.b3}}</text>
-                    <text x="202.93" y="211.89" class="st5" [nbPopover]="card" nbPopoverPlacement="left">{{dataBanda8.b4}}</text>
+                    <text x="243.93" y="220.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right">{{zone[0]?.Name}}</text>
+                    <text x="240.193" y="208.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right">{{zone[1]?.Name}}</text>
+                    <text x="235.193" y="203.89" class="st4" [nbPopover]="card">{{zone[2]?.Name}}</text>
+                    <text x="202.93" y="211.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left">{{zone[3]?.Name}}</text>
                 
             </svg>
 
@@ -88,12 +88,12 @@
             <ng-template #card>
                 <nb-card class="popover-card">
                     <nb-card-header status="warning">
-                        
+
                     </nb-card-header>
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 17211</p>
-                      <p>TiempoOff: 0</p>
+                        <p>Estado: On</p>
+                        <p>TiempoOn: 17211</p>
+                        <p>TiempoOff: 0</p>
                     </nb-card-body>
                 </nb-card>
             </ng-template>

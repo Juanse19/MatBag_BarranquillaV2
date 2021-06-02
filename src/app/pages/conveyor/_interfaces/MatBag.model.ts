@@ -3,15 +3,31 @@ export interface Zones {
     Zonas1: {
         Color: string,
         Name: string,
-    }
+    },
     Zonas2: {
         Color: string,
         Name: string,
-    }
+    },
     Zonas3: {
         Color: string,
         Name: string,
     }
+}
+
+export interface zons {
+    idEquipo: string,
+        Name: string,
+}
+
+export interface teams{
+    equipo: {
+    id: string,
+    name: string,
+    estado: string,
+    consumo: string,
+    tiempoOn: string,
+    tiempoOff: string
+}
 }
 
 export interface syste {

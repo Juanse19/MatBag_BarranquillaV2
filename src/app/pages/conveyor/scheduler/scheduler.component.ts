@@ -57,13 +57,19 @@ export class SchedulerComponent implements OnInit {
   public allowMultiple: Boolean = true;
 
   private resourceData: DataManager = new DataManager({
-    url: 'http://10.100.22.48:1880/resourceData',
+    url: 'http://10.100.22.82:1880/resourceData',
+    adaptor: new ODataV4Adaptor,
+    crossDomain: true
+ });
+
+ private userData: DataManager = new DataManager({
+    url: 'http://localhost:3000/scheduler/',
     adaptor: new ODataV4Adaptor,
     crossDomain: true
  });
 
  private timelineResourceData: DataManager = new DataManager({
-    url: 'http://10.100.22.48:1880/timelineResourceData',
+    url: 'http://10.100.22.82:1880/timelineResourceData',
     adaptor: new ODataV4Adaptor,
     crossDomain: true
  });
@@ -75,7 +81,7 @@ export class SchedulerComponent implements OnInit {
  
 
   public eventSettings: EventSettingsModel = {
-      dataSource: <Object[]>extend( this.resourceData, null, true)
+      dataSource: <Object[]>extend( this.userData, null, true)
   };
   
 

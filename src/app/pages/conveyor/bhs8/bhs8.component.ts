@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeWhile } from 'rxjs/operators';
-import { Banda8 } from '../_interfaces/MatBag.model';
+import { Banda8, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./bhs8.component.scss']
 })
 export class Bhs8Component implements OnInit {
+
+  public zone: zons[] = [];
 
   private alive=true;
 
@@ -27,6 +29,7 @@ export class Bhs8Component implements OnInit {
 
   ngOnInit(): void {
     this.banda8NameCharge();
+    this.bandaNameCharge();
   }
 
   back() {
@@ -41,6 +44,18 @@ export class Bhs8Component implements OnInit {
     .subscribe((res: any)=>{
       this.dataBanda8=res[0];
       console.log('data-banda:', res);
+      
+    });
+
+  }
+
+  public bandaNameCharge(){
+
+    this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona11')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res:zons[]=[])=>{
+      this.zone=res;
+      console.log('ss:', res , 'band with zones', this.zone[1].Name);
       
     });
 

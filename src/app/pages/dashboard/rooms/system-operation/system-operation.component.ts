@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { delay, map, takeUntil, takeWhile, timeout,switchMap } from 'rxjs/operators';
 import { Observable, Subject, of, BehaviorSubject, interval,Subscription } from 'rxjs';
-import { Zones, syste } from '../../../conveyor/_interfaces/MatBag.model';
+import { Zones, syste, teams } from '../../../conveyor/_interfaces/MatBag.model';
 import { HttpService } from '../../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -21,6 +21,8 @@ export class SystemOperationComponent implements OnInit {
 
   private alive=true;
 
+  team: teams[] = [];
+
   intervalSubscriptionStatusAlarm:Subscription;
 
   constructor(
@@ -30,7 +32,8 @@ export class SystemOperationComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetSystem();
-    this.GetOrderProcess();
+    // this.GetOrderProcess();
+    // this.changeId();
     // this.StatusAlarmCharge()
   }
 
@@ -39,23 +42,47 @@ export class SystemOperationComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:Zones[])=>{
       this.zone=res;
-      console.log("zon", this.zone);
-      
-      console.log("Res ", res);
+      // console.log("zon", this.zone);
+      // console.log("Res ", res);
       
     });
   }
 
-  private GetOrderProcess(){    
-    this.http.get(this.api.apiUrlNode1 + '/zo')
-    .pipe(takeWhile(() => this.alive))
-    .subscribe((res:Zones[])=>{
-      this.zo=res;
-      console.log("zys", this.zo);
-      console.log("Res ", res);
+  // private GetOrderProcess(){    
+  //   this.http.get(this.api.apiUrlNode1 + '/zo')
+  //   .pipe(takeWhile(() => this.alive))
+  //   .subscribe((res:Zones[])=>{
+  //     this.zo=res;
+  //     console.log("zys", this.zo);
+  //     console.log("Res ", res);
       
-    });
-  }
+  //   });
+  // }
+
+  // public changeId(){
+
+  //   if (this.intervalSubscriptionStatusAlarm) {
+  //     this.intervalSubscriptionStatusAlarm.unsubscribe();
+  //   }
+    
+       
+  //   this.intervalSubscriptionStatusAlarm = interval(1000)
+  //   .pipe(
+  //     takeWhile(() => this.alive),
+  //     switchMap(() => this.http.get(this.api.apiTeam + '/usuarios')),
+  //   )
+  //   .subscribe((res: any) => {
+  //       this.team  = res;
+  //       console.log('captura Id:', res);
+  //   });
+
+  //   // this.apiGetComp.GetJson(this.api.apiUrlNode + '/es')
+  //   //   .pipe(takeWhile(() =>this.flagMoverCarro))
+  //   // .subscribe((res: any) => {
+  //   //   this.showdataAlarms  = res[0];
+  //   //   });
+
+  // }
 
   // public StatusAlarmCharge(){
 

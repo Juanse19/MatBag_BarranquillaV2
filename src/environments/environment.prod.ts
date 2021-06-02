@@ -10,6 +10,7 @@ export const environment = {
   apiUrlMatSignalR: 'http://10.100.22.48:5001',
   apiUrlNode: 'http://10.100.22.48:1880',
   apiUrlNode1: 'http://10.100.22.82:1880',
+  apiTeam: 'http://localhost:3000',
   testUser: {
     token: {},
     email: '',

@@ -30,6 +30,10 @@ export class HttpService {
     return environment.apiUrlNode1;
   }
 
+  get apiTeam(): string {
+    return environment.apiTeam;
+  }
+
   get apiUrl(): string {
     return environment.apiUrl;
   }
@@ -52,6 +56,10 @@ export class HttpService {
 
   get(endpoint: string, options?): Observable<any> {
     return this.http.get(`${this.apiUrl}/${endpoint}`, options);
+  }
+
+  getById(endpoint: string, options?): Observable<any> {
+    return this.http.get(`${this.apiTeam}/${endpoint}`, options);
   }
 
   post(endpoint: string, data, options?): Observable<any> {

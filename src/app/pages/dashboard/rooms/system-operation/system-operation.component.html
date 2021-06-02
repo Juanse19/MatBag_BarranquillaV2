@@ -2876,14 +2876,14 @@
               /> -->
 
             <!-- </g> -->
-            <!-- <text x="178.33" y="161.14" class="st5" (click)="bhs1()">TX</text>
-              <text x="212.33" y="119.14" class="st5" (click)="bhs2()">SF</text>
-              <text x="278.33" y="180.14" class="st5" (click)="bhs3()">MU</text>
-              <text x="143.33" y="186.14" class="st5" (click)="bhs4()">AL</text>
-              <text x="60.33" y="100.14" class="st5" (click)="bhs5()">SFC</text>
-              <text x="348.333" y="170.14" class="st5" (click)="bhs7()">OSR</text>
-              <text x="270.33" y="216.14" class="st5" (click)="bhs6()">CL</text>
-              <text x="222.33" y="203.14" class="st5" (click)="bhs8()">ME</text> -->
+            <!-- <text x="178.33" y="161.14" class="st4" (click)="bhs1()">TX</text>
+              <text x="212.33" y="119.14" class="st4" (click)="bhs2()">SF</text>
+              <text x="278.33" y="180.14" class="st4" (click)="bhs3()">MU</text>
+              <text x="143.33" y="186.14" class="st4" (click)="bhs4()">AL</text>
+              <text x="60.33" y="100.14" class="st4" (click)="bhs5()">SFC</text>
+              <text x="348.333" y="170.14" class="st4" (click)="bhs7()">OSR</text>
+              <text x="270.33" y="216.14" class="st4" (click)="bhs6()">CL</text>
+              <text x="222.33" y="203.14" class="st4" (click)="bhs8()">ME</text> -->
             <!-- </g> -->
             <!-- </svg> -->
 
@@ -3012,16 +3012,17 @@
         />
       </g>
       
-      <text x="141.33" y="135.14" class="st5" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona13.name}}</text>
-      <text x="212.33" y="99.14" class="st5" [nbPopover]="card2" *ngFor="let option of zone">{{option.zona1.name}}</text>
-      <text x="238.33" y="150.14" class="st5" [nbPopover]="card3" *ngFor="let option of zone">{{option.zona6.name}}</text>
-      <text x="143.33" y="178.14" class="st5" [nbPopover]="card4" *ngFor="let option of zone">{{option.zona5.name}}</text>
-      <text x="60.33" y="100.14" class="st5" [nbPopover]="tabs" *ngFor="let option of zone">{{option.zona12.name}}</text>
-      <text x="348.333" y="170.14" class="st5" [nbPopover]="card" *ngFor="let option of zone">{{option.zona3.name}}</text>
-      <text x="238.33" y="186.14" class="st5" [nbPopover]="card6" *ngFor="let option of zone">{{option.zona4.name}}</text>
-      <text x="186.33" y="176.14" class="st5" [nbPopover]="card8" *ngFor="let option of zone">{{option.zona11.name}}</text>
-      <text x="252.33" y="94.14" class="st5" [nbPopover]="card9" >ATR1</text>
-      <text x="252.33" y="115.14" class="st5" [nbPopover]="card10" >ATR2</text>
+      <text x="141.33" y="135.14" class="st4" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona13.name}}</text>
+      <text x="212.33" y="99.14" class="st4" [nbPopover]="card2" *ngFor="let option of zone">{{option.zona1.name}}</text>
+      <text x="238.33" y="150.14" class="st4"  [nbPopover]="tabs3" *ngFor="let option of zone">{{option.zona6.name}}</text>
+      <text x="143.33" y="178.14" class="st4" [nbPopover]="card4" *ngFor="let option of zone">{{option.zona5.name}}</text>
+      <text x="60.33" y="100.14" class="st4" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona12.name}}</text>
+      <text x="154.33" y="41.14" class="st4" [nbPopover]="card1" >SFC1</text>
+      <text x="348.333" y="170.14" class="st4" [nbPopover]="card" *ngFor="let option of zone">{{option.zona3.name}}</text>
+      <text x="238.33" y="186.14" class="st4" [nbPopover]="card6" *ngFor="let option of zone">{{option.zona4.name}}</text>
+      <text x="186.33" y="176.14" class="st4" [nbPopover]="card8" *ngFor="let option of zone">{{option.zona11.name}}</text>
+      <text x="252.33" y="94.14" class="st4" [nbPopover]="card9" >ATR1</text>
+      <text x="252.33" y="115.14" class="st4" [nbPopover]="card10" >ATR2</text>
 
 
       </svg>
@@ -3113,10 +3114,10 @@
                         On Screen Resolution Line
                     </nb-card-header>
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 26211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+                        <p>Estado: On</p>
+                        <p>TiempoOn: 26211</p>
+                        <p>TiempoOff: 0</p>
+                    </nb-card-body>
                 </nb-card>
             </ng-template>
 
@@ -3126,10 +3127,10 @@
                         Secuurity Feed Check In
                     </nb-card-header>
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 24211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+                        <p>Estado: On</p>
+                        <p>TiempoOn: 24211</p>
+                        <p>TiempoOff: 0</p>
+                    </nb-card-body>
                 </nb-card>
             </ng-template>
 
@@ -3139,10 +3140,17 @@
                         Clear Line
                     </nb-card-header>
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 20211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+                        <div class="media">
+                            <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: On</p>
+                                <p>TiempoOn: 25211</p>
+                                <p>TiempoOff: 0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
                 </nb-card>
             </ng-template>
 
@@ -3151,37 +3159,165 @@
                     <nb-card-header status="warning">
                         Security Feed
                     </nb-card-header>
-                    <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 25211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+                    <nb-card-body class="example-items-rows">
+                        <div class="media">
+                            <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: On</p>
+                                <p>TiempoOn: 25211</p>
+                                <p>TiempoOff: 0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
                 </nb-card>
             </ng-template>
 
             <ng-template #card4>
                 <nb-card class="popover-card">
-                    <nb-card-header status="warning">
-                        Alarm Line
-                    </nb-card-header>
+
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 15211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+                        <div class="media">
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: On</p>
+                                <p>TiempoOn: 25211</p>
+                                <p>TiempoOff: 0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
                 </nb-card>
             </ng-template>
 
             <ng-template #card8>
                 <nb-card class="popover-card">
-                    <nb-card-header status="warning">
-                        Manuel Encode
-                    </nb-card-header>
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 17211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+                        <div class="media">
+                            <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: On</p>
+                                <P>Consumo KWH: 1,5</P>
+                                <p>TiempoOn: 252,11</p>
+                                <p>TiempoOff: 231,0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </ng-template>
+
+            <ng-template #tabs3>
+                <nb-card class="margin-bottom-0">
+                    <nb-tabset>
+                        <nb-tab tabTitle="CARRUSEL 1">
+                            <nb-card class="margin-bottom-0">
+                                <ng-card-body>
+                                    <div class="media">
+                                        <img class="align-self-center mr-3" src="./assets/img/carru.png" width="75px" alt="Card " />
+                                        <div class="media-body">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">CARRUSEL</th>
+                                                        <th scope="col">VUELOS</th>
+                                                        <th scope="col">STD</th>
+                                                        <th scope="col">ETD</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let option of team">
+
+                                                        <td>{{option.name}}</td>
+                                                        <td>{{option.Vuelos}}</td>∫
+                                                        <th>{{option.STD}}</th>
+                                                        <th>{{option.ETD}}</th>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </ng-card-body>
+                            </nb-card>
+                        </nb-tab>
+                        <nb-tab tabTitle="CARRUSEL 2">
+                            <nb-card class="margin-bottom-0">
+
+                                <div class="media">
+                                    <img class="align-self-center mr-3" src="./assets/img/carru.png" width="75px" alt="Card " />
+                                    <div class="media-body">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">CARRUSEL</th>
+                                                    <th scope="col">VUELOS</th>
+                                                    <th scope="col">STD</th>
+                                                    <th scope="col">ETD</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>CO1</th>
+                                                    <td>KLM1708</td>
+                                                    <td>1:10</td>
+                                                    <td>1:30</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CO1</th>
+                                                    <td>RYR5444</td>
+                                                    <td>6:10</td>
+                                                    <td>6:40</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="media">
+                                    <img class="align-self-center mr-3" src="./assets/img/carru.png" width="100px" alt="Card " />
+                                    <div class="media-body">
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">CARRUSEL</th>
+                                                    <th scope="col">VUELOS</th>
+                                                    <th scope="col">STD</th>
+                                                    <th scope="col">ETD</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">CO2</th>
+                                                    <td>KTM1290</td>
+                                                    <td>1:50</td>
+                                                    <td>2:30</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">CO2</th>
+                                                    <td>RYW548</td>
+                                                    <td>4:30</td>
+                                                    <td>5:30</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">CO2</th>
+                                                    <td>AV465</td>
+                                                    <td>2:15</td>
+                                                    <td>3:00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div> -->
+
+                            </nb-card>
+                        </nb-tab>
+                    </nb-tabset>
                 </nb-card>
             </ng-template>
 
@@ -3191,22 +3327,27 @@
                         Make Up
                     </nb-card-header>
                     <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>TiempoOn: 18211</p>
-                      <p>TiempoOff: 0</p>
-                  </nb-card-body>
+
+                    </nb-card-body>
                 </nb-card>
             </ng-template>
 
             <ng-template #card1>
                 <nb-card class="popover-card">
-                    <nb-card-header status="warning">
-                        Transfer Line
-                    </nb-card-header>
+
                     <nb-card-body>
-                        <p>Estado: On</p>
-                        <p>TiempoOn: 19211</p>
-                        <p>TiempoOff: 0</p>
+                        <div class="media">
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: Off
+                                    <nb-icon icon="star" class="control-item" icon="alert-triangle-outline" status="danger"></nb-icon>
+                                </p>
+                                <P>Consumo KWH: 1,5</P>
+                                <p>TiempoOn: 252,11</p>
+                                <p>TiempoOff: 231,0</p>
+                            </div>
+                        </div>
                     </nb-card-body>
                 </nb-card>
             </ng-template>
@@ -3217,20 +3358,32 @@
                     <nb-tabset>
                         <nb-tab tabTitle="SFC 1">
                             <nb-card class="margin-bottom-0">
-                              <nb-card-body>
-                                <p>Estado: On</p>
-                                <p>TiempoOn: 12211</p>
-                                <p>TiempoOff: 0</p>
-                            </nb-card-body>
+                                <div class="media">
+                                    <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                                    <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                                    <div class="media-body">
+                                        <h6>Id equipo: ID-2</h6>
+                                        <p>Estado: On</p>
+                                        <P>Consumo KWH: 1,5</P>
+                                        <p>TiempoOn: 252,11</p>
+                                        <p>TiempoOff: 231,0</p>
+                                    </div>
+                                </div>
                             </nb-card>
                         </nb-tab>
                         <nb-tab tabTitle="SFC 2">
                             <nb-card class="margin-bottom-0">
-                              <nb-card-body>
-                                <p>Estado: On</p>
-                                <p>TiempoOn: 13211</p>
-                                <p>TiempoOff: 0</p>
-                            </nb-card-body>
+                                <div class="media">
+                                    <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                                    <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                                    <div class="media-body">
+                                        <h6>Id equipo: ID-2</h6>
+                                        <p>Estado: On</p>
+                                        <P>Consumo KWH: 1,5</P>
+                                        <p>TiempoOn: 252,11</p>
+                                        <p>TiempoOff: 231,0</p>
+                                    </div>
+                                </div>
                             </nb-card>
                         </nb-tab>
                     </nb-tabset>
@@ -3238,32 +3391,46 @@
             </ng-template>
 
             <ng-template #card9>
-              <nb-card class="popover-card">
-                  <nb-card-header status="warning">
-                      ATR1
-                  </nb-card-header>
-                  <nb-card-body>
-                      <p>Estado: On</p>
-                      <p>Lecturas: 4</p>
-                      <p>No lecturas: 26</p>
-                      <p>Efectividad: 13</p>
-                  </nb-card-body>
-              </nb-card>
-          </ng-template>
+                <nb-card class="popover-card">
+                    <nb-card-header status="warning">
+                        ATR1
+                    </nb-card-header>
+                    <nb-card-body>
+                        <div class="media">
+                            <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: On</p>
+                                <P>Consumo KWH: 1,5</P>
+                                <p>TiempoOn: 252,11</p>
+                                <p>TiempoOff: 231,0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </ng-template>
 
-          <ng-template #card10>
-            <nb-card class="popover-card">
-                <nb-card-header status="warning">
-                    ATR2
-                </nb-card-header>
-                <nb-card-body>
-                  <p>Estado: On</p>
-                  <p>Lecturas: 3</p>
-                  <p>No lecturas: 23</p>
-                  <p>Efectividad: 10</p>
-                </nb-card-body>
-            </nb-card>
-        </ng-template>
+            <ng-template #card10>
+                <nb-card class="popover-card">
+                    <nb-card-header status="warning">
+                        ATR2
+                    </nb-card-header>
+                    <nb-card-body>
+                        <div class="media">
+                            <!-- <img class="align-self-center mr-3" src=".../64x64" alt="Generic placeholder image"> -->
+                            <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: ID-2</h6>
+                                <p>Estado: On</p>
+                                <P>Consumo KWH: 1,5</P>
+                                <p>TiempoOn: 252,11</p>
+                                <p>TiempoOff: 231,0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </ng-template>
 
         </div>
     </nb-card-body>

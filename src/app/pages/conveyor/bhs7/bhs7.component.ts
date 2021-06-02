@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeWhile } from 'rxjs/operators';
-import { Banda7 } from '../_interfaces/MatBag.model';
+import { Banda7, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,6 +12,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./bhs7.component.scss']
 })
 export class Bhs7Component implements OnInit {
+
+  public zone: zons[] = [];
+
+  public zons: zons[] = [];
 
   private alive=true;
 
@@ -51,6 +55,8 @@ export class Bhs7Component implements OnInit {
 
   ngOnInit(): void {
     this.banda7NameCharge();
+    this.bandaNameCharge();
+    this.bandaNameOsrCharge();
   }
 
   back() {
@@ -65,6 +71,30 @@ export class Bhs7Component implements OnInit {
     .subscribe((res: any)=>{
       this.dataBanda7=res[0];
       console.log('data-banda7:', res);
+      
+    });
+
+  }
+
+  public bandaNameCharge(){
+
+    this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona2')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res:zons[]=[])=>{
+      this.zone=res;
+      console.log('ss:', res , 'band with zones', this.zone[1].Name);
+      
+    });
+
+  }
+
+  public bandaNameOsrCharge(){
+
+    this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona3')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res:zons[]=[])=>{
+      this.zons=res;
+      console.log('Osr:', res , 'band with zones', this.zons[1].Name);
       
     });
 

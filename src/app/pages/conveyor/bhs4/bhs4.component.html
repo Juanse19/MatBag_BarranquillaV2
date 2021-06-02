@@ -125,6 +125,7 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 250.png"
+                      
                     />
                   
                     <image
@@ -140,38 +141,47 @@
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 252.png"
                     />
-                
-                    <text x="343.93" y="211.89" class="st5" [nbPopover]="card">{{dataBanda4.b1}}</text>
-                    <text x="335.193" y="216.89" class="st5" [nbPopover]="card">{{dataBanda4.b2}}</text>
-                    <text x="319.193" y="226.89" class="st5" [nbPopover]="card">{{dataBanda4.b3}}</text>
-                    <text x="296.93" y="254.89" class="st5" [nbPopover]="card">{{dataBanda4.b4}}</text>
-                    <text x="262.93" y="264.89" class="st5" [nbPopover]="card">{{dataBanda4.b5}}</text>
-                    <text x="240.193" y="254.89" class="st5" [nbPopover]="card">{{dataBanda4.b6}}</text>
-                    <text x="201.193" y="234.89" class="st5" [nbPopover]="card">{{dataBanda4.b7}}</text>
-                    <text x="160.93" y="211.89" class="st5" [nbPopover]="card">{{dataBanda4.b8}}</text>
-                    <text x="132.93" y="194.89" class="st5" [nbPopover]="card">{{dataBanda4.b9}}</text>
-                    <text x="117.193" y="190.89" class="st5" [nbPopover]="card">{{dataBanda4.b10}}</text>
-                    <text x="97.193" y="183.89" class="st5" [nbPopover]="card">{{dataBanda4.b11}}</text>
-                    <text x="96.193" y="172.89" class="st5" [nbPopover]="card">{{dataBanda4.b12}}</text>
-                    <text x="375.93" y="207.89" class="st5" [nbPopover]="card">{{dataBanda4.b13}}</text>
-                    <text x="369.93" y="224.89" class="st5" [nbPopover]="card">{{dataBanda4.b14}}</text>
-                    <text x="356.93" y="233.89" class="st5" [nbPopover]="card">{{dataBanda4.b15}}</text>
-                    <text x="335.93" y="231.89" class="st5" [nbPopover]="card">{{dataBanda4.b16}}</text>
+
+                    <!-- <text x="343.93" y="211.89" class="st4"  (click)="changeId(1)"  [nbPopover]="card" nbPopoverTrigger="click">{{dataBanda4.b1}}</text> -->
+                    <text x="343.93" y="211.89" class="st4"   [nbPopover]="card" nbPopoverTrigger="click">{{zone[7]?.Name}}</text>
+                    <text x="335.193" y="216.89" class="st4"  [nbPopover]="card" counterclockwise="click" >{{zone[9]?.Name}}</text>
+                    <text x="319.193" y="226.89" class="st4"  [nbPopover]="card" nbPopoverTrigger="click">{{zone[0]?.Name}}</text>
+                    <text x="296.93" y="254.89" class="st4"  [nbPopover]="card" nbPopoverAdjustment="counterclockwise">{{zone[4]?.Name}}</text>
+                    <text x="262.93" y="264.89" class="st4"  [nbPopover]="card" >{{zone[3]?.Name}}</text>
+                    <text x="240.193" y="254.89" class="st4" [nbPopover]="card">{{zone[1]?.Name}}</text>
+                    <text x="201.193" y="234.89" class="st4" [nbPopover]="card">{{zone[2]?.Name}}</text>
+                    <text x="160.93" y="211.89" class="st4" [nbPopover]="card">{{zone[5]?.Name}}</text>
+                    <text x="132.93" y="194.89" class="st4" [nbPopover]="card">{{zone[10]?.Name}}</text>
+                    <text x="117.193" y="190.89" class="st4" [nbPopover]="card">{{zone[8]?.Name}}</text>
+                    <text x="97.193" y="173.89" class="st4" [nbPopover]="card">{{zone[6]?.Name}}</text>
+                    <!-- <text x="96.193" y="172.89" class="st4" [nbPopover]="card">{{dataBanda4.b12}}</text> -->
+                    <text x="375.93" y="207.89" class="st4" [nbPopover]="card">{{zone[12]?.Name}}</text>
+                    <text x="369.93" y="224.89" class="st4" [nbPopover]="card">{{zone[11]?.Name}}</text>
+                    <text x="356.93" y="233.89" class="st4" [nbPopover]="card">{{zone[13]?.Name}}</text>
+                    <text x="335.93" y="231.89" class="st4" [nbPopover]="card">{{zone[14]?.Name}}</text>
                 
             </svg>
 
             <ng-template #card>
-              <nb-card class="popover-card">
-                  <nb-card-header status="warning">
-                      
-                  </nb-card-header>
-                  <nb-card-body>
-                    <p>Estado: On</p>
-                    <p>TiempoOn: 17211</p>
-                    <p>TiempoOff: 0</p>
-                  </nb-card-body>
-              </nb-card>
-          </ng-template>
+                <nb-card class="popover-card">
+
+                    <div class="media">
+                        <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" width="40px" alt="Card " />
+                        <div class="media-body" *ngFor="let option of team">
+                            <h6>Id equipo: {{option.idEquipo}}</h6>
+                            <p><label><b>Estado:</b> </label> {{option.estado}}</p>
+                            <p><label><b>Consumo KWH:</b> </label> {{option.consumo}}</p>
+                            <p><label><b>TiempoOn:</b> </label> {{option.tiempoOn}}</p>
+                            <p><label><b>TiempoOff:</b> </label> {{option.tiempoOff}}</p>
+                        </div>
+                    </div>
+
+                </nb-card>
+            </ng-template>
+
+            <button type="button" class="btn btn-outline-secondary" placement="top" nbPopover="card" popoverTitle="Popover on top">
+  Popover on top
+</button>
 
         </div>
     </nb-card-body>
