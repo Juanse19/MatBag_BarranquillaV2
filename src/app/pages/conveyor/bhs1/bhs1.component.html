@@ -158,10 +158,10 @@
                       xlink:href="./assets/svg/Recurso 220.png"
                     />
                 
-                    <text x="134.93" y="168.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" >{{zone[1]?.Name}}</text>
-                    <text x="173.193" y="160.89" class="st4" [nbPopover]="card" >{{zone[0]?.Name}}</text>
-                    <text x="192.193" y="135.89" class="st4" [nbPopover]="card">{{zone[3]?.Name}}</text>
-                    <text x="215.93" y="129.89" class="st4" [nbPopover]="card">{{zone[9]?.Name}}</text>
+                    <text x="134.93" y="168.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(1)" [nbPopover]="card" nbPopoverPlacement="left" >{{zone[1]?.Name}}</text>
+                    <text x="173.193" y="160.89" class="st4"  triggers="mouseenter:mouseleave" (click)="changeId(2)" [nbPopover]="card" >{{zone[0]?.Name}}</text>
+                    <text x="192.193" y="135.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(3)" [nbPopover]="card">{{zone[3]?.Name}}</text>
+                    <text x="215.93" y="129.89" class="st4" triggers="mouseenter:mouseleave"  [nbPopover]="card">{{zone[9]?.Name}}</text>
                     <text x="168.93" y="130.89" class="st4" [nbPopover]="card">{{zone[6]?.Name}}</text>
                     <text x="136.193" y="150.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left">{{zone[8]?.Name}}</text>
                     <text x="170.193" y="144.89" class="st4" [nbPopover]="card">{{zone[7]?.Name}}</text>
@@ -182,6 +182,17 @@
             <ng-template #card>
                 <nb-card class="popover-card">
 
+                    <div class="media" *ngFor="let option of divice; let i = index">
+                        {{i}}
+                        <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
+                        <div class="media-body">
+                            <h6>Id equipo: {{option.DeviceId}}</h6>
+                            <p><label><b>Estado:</b> </label> Apagado</p>
+                            <p><label><b>Consumo KWH:</b> </label> {{option.Consumo}}</p>
+                            <p><label><b>TiempoOn:</b> </label> {{option.TiempoOn}}</p>
+                            <p><label><b>TiempoOff:</b> </label> {{option.TiempoOff}}</p>
+                        </div>
+                    </div>
 
                     <!-- <div class="media">
                             <img class="align-self-center mr-3" src="./assets/img/teams.png" width="45px" alt="Card " />
@@ -197,7 +208,7 @@
                     <!-- </div>
                         </div> -->
 
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <!-- <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img class="align-self-center mr-3" src="./assets/img/teams.png" alt="...">
@@ -210,7 +221,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </nb-card>

@@ -167,7 +167,7 @@
 
                     <div class="media">
                         <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" width="40px" alt="Card " />
-                        <div class="media-body" *ngFor="let option of team">
+                        <div class="media-body" *ngFor="let option of divice">
                             <h6>Id equipo: {{option.idEquipo}}</h6>
                             <p><label><b>Estado:</b> </label> {{option.estado}}</p>
                             <p><label><b>Consumo KWH:</b> </label> {{option.consumo}}</p>
@@ -179,9 +179,7 @@
                 </nb-card>
             </ng-template>
 
-            <button type="button" class="btn btn-outline-secondary" placement="top" nbPopover="card" popoverTitle="Popover on top">
-  Popover on top
-</button>
+
 
         </div>
     </nb-card-body>

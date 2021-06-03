@@ -1,4 +1,5 @@
 
+//main name of zones and colors
 export interface Zones {
     Zonas1: {
         Color: string,
@@ -14,22 +15,42 @@ export interface Zones {
     }
 }
 
+// Name of bands by zone
 export interface zons {
     idEquipo: string,
         Name: string,
 }
 
+// Band status by zone
+export interface states {
+    DeviceId: string;
+    Estado: string;
+    Color: string;
+}
+
+// Band information by zone
 export interface teams{
-    equipo: {
+    DeviceId: {
     id: string,
     name: string,
     estado: string,
-    consumo: string,
-    tiempoOn: string,
-    tiempoOff: string
+    TiempoOn: string,
+    TiempoOff: string
+    Consumo: string,
+    
 }
 }
 
+export interface departures {
+    Id: string,
+    DeviceId: string,
+    Name: string,
+    ICAO: string,
+    Flight: string,
+    STD: string,
+    ETD: string,
+    DATE: string,
+}
 export interface syste {
     idEquipo: string,
     estado: string,

@@ -135,6 +135,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 2169.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[0]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[0]?.Color   + ')'}"
                     />
                   
                   
@@ -145,6 +147,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 2170.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                   
@@ -216,6 +220,10 @@
                     </nb-card-body>
                 </nb-card>
             </ng-template>
+
+            <pre>
+              {{states[1]?.Color | json}}
+            </pre>
 
         </div>
     </nb-card-body>

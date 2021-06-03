@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeWhile } from 'rxjs/operators';
-import { Banda5, zons } from '../_interfaces/MatBag.model';
+import { Banda5, zons, states } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 export class Bhs5Component implements OnInit {
 
   public zone: zons[] = [];
+
+  public states: states [] = [];
 
   private alive=true;
  
@@ -41,6 +43,7 @@ export class Bhs5Component implements OnInit {
   ngOnInit(): void {
     this.banda5NameCharge();
     this.bandaNameCharge();
+    this.bandaStateCharge();
   }
 
   back() {
@@ -54,7 +57,7 @@ export class Bhs5Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.dataBanda5=res[0];
-      console.log('data-banda5:', res);
+      // console.log('data-banda5:', res);
       console.log("FCS", this.dataBanda5.b1);
       
     });
@@ -67,10 +70,21 @@ export class Bhs5Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      console.log('Zons3:', res , 'band with zones', this.zone[1].Name);
+      // console.log('Zons3:', res , 'band with zones', this.zone[1].Name);
       
     });
 
+  }
+
+  public bandaStateCharge(){
+
+    this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona5')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: states[]=[])=>{
+      this.states=res;
+      console.log('Zons:', res , 'states', this.states[0]?.Estado);
+      
+    });
   }
 
 }
