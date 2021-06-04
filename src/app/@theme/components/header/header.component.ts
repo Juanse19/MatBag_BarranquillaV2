@@ -105,6 +105,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // this.sigalRService.startConnectionAlarmas();
       // this.startHttpRequestAlarmas();  
       this.sigalRService.GetDataAlarmManual();
+    
+      console.log("test", this.sigalRService);
+      
 
     this.currentTheme = this.themeService.currentTheme;
 

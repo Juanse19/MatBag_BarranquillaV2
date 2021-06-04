@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
-import { Banda1, zons, teams } from '../_interfaces/MatBag.model';
+import { Banda1, zons, teams, states } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
@@ -18,6 +18,8 @@ export class Bhs1Component implements OnInit {
   public divice: teams[] = [];
 
   public zone: zons[] = [];
+
+  public states: states [] = [];
 
   team: teams[] = [];
 
@@ -48,6 +50,7 @@ export class Bhs1Component implements OnInit {
   ngOnInit(): void {
     // this.banda1NameCharge();
     this.bandaNameCharge();
+    this.bandaStateCharge()
   }
 
   back() {
@@ -61,11 +64,33 @@ export class Bhs1Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      console.log('banda1:', res , 'band with zones', this.zone[1].Name);
+      console.log('banda1:', res , 'band with zones', this.zone[1].idEquipo);
     });
   }
 
-   public changeId(tea: any){
+  // public bandaStateCharge1(){
+
+  //   this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona13')
+  //   .pipe(takeWhile(() => this.alive))
+  //   .subscribe((res: states[]=[])=>{
+  //     this.states=res;
+  //     console.log('Zons:', res , 'states', this.states[0]?.Color);
+      
+  //   });
+  // }
+
+  public changeId(tea: any){
+
+    this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ tea)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any)=>{
+      this.divice=res;
+      console.log('Zons:', res , 'states', this.states[0]?.Color);
+      
+    });
+  }
+
+   public bandaStateCharge(){
 
     if (this.intervalSubscriptionStatusAlarm) {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
@@ -74,10 +99,10 @@ export class Bhs1Component implements OnInit {
     this.intervalSubscriptionStatusAlarm = interval(1000)
     .pipe(
       takeWhile(() => this.alive),
-      switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ tea)),
+      switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona13')),
     )
     .subscribe((res: any) => {
-        this.divice  = res;
+        this.states  = res;
         console.log('capture Id:', res);
     });
  
@@ -93,6 +118,8 @@ export class Bhs1Component implements OnInit {
   //     console.log('captura Id:', res);
   //   });
   // }
+
+  
 
   ngOnDestroy() {
     this.changeId(this.alive = false);

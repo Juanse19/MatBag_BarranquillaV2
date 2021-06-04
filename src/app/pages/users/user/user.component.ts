@@ -88,6 +88,7 @@ export class UserComponent implements OnInit, OnDestroy {
               private fb: FormBuilder,
               private httpService: HttpService,
               private apiGetComp: ApiGetService,
+              private api: HttpService,
               public resetPassword: NgxResetPasswordComponent) {
                 this.apiGetComp.GetJson(this.httpService.apiUrlMatbox+'/userrole/getroles').subscribe((res: any) => {
                   this.listaRoles=res;
@@ -198,6 +199,19 @@ export class UserComponent implements OnInit, OnDestroy {
 
     let observable = new Observable<User>();
     if (this.mode === UserFormMode.EDIT_SELF) {
+      const currentUserId = this.userStore.getUser().firstName;
+  // console.log("este es el usuario: ",this.userStore.getUser().firstName);
+      var respons = 
+        {
+            user: currentUserId,
+            message:"Edito usuario" 
+    };
+      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
+        .pipe(takeWhile(() => this.alive))
+        .subscribe((res: any) => {
+        //  console.log("Envió: ", res);
+          });
+
       this.usersService.updateCurrent(user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((result: any) => {

@@ -7,7 +7,7 @@ import {
     TimelineViewsService, AgendaService, GroupModel, EventSettingsModel, ResizeService, DragAndDropService, ScheduleComponent, EventRenderedArgs, WeekService, MonthService, TimelineMonthService, View
 } from '@syncfusion/ej2-angular-schedule';
 // import { timelineResourceData, resourceData } from './data';
-import { DataManager, ODataV4Adaptor } from '@syncfusion/ej2-data';
+import { DataManager, ODataV4Adaptor, Query } from '@syncfusion/ej2-data';
 import { takeWhile } from 'rxjs/operators';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
@@ -42,8 +42,8 @@ interface airline {
     }
     `],
     encapsulation: ViewEncapsulation.None,
-    // providers: [TimelineViewsService, AgendaService, ResizeService, DragAndDropService]
-    providers: [WeekService, MonthService, AgendaService, TimelineViewsService, TimelineMonthService ],
+    providers: [TimelineViewsService, AgendaService, ResizeService, DragAndDropService]
+    // providers: [WeekService, MonthService, AgendaService, TimelineViewsService, TimelineMonthService ],
 })
 export class SchedulerComponent implements OnInit {
 
@@ -129,16 +129,19 @@ export class SchedulerComponent implements OnInit {
     url: 'http://10.100.22.82:1880/resourceData',
     adaptor: new ODataV4Adaptor,
     crossDomain: false,
-    // offline: true
+    offline: true
  });
   open(){
       this.eventSettings
       console.log('testDivaces', this.eventSettings);
   }
 
+public dataQuery: Query = new Query().from("Events").addParams('readOnly', 'true');
+
  public eventSettings: EventSettingsModel = {
     dataSource:  this.resourceDatas,
     enableTooltip: true,
+    query: this.dataQuery
     // dataSource: <Object[]>extend(this.resourceData, null, true)
     // fields: {
     //     id: 'Id',
@@ -150,25 +153,27 @@ export class SchedulerComponent implements OnInit {
     // }
 
 };
-public currentView: View = 'TimelineMonth';
-onActionFailure(): void {
+
+onActionFailure(e: Error): void {
+    alert('Server exception: 404 Not found');
     let span: HTMLElement = document.createElement('span');
     this.scheduleObj.element.parentNode.insertBefore(span, this.scheduleObj.element);
     span.style.color = '#FF0000'
     span.innerHTML = 'Server exception: 404 Not found';
  }
 
- onEventRendered(args: EventRenderedArgs): void {
-    const categoryColor: string = args.data.CategoryColor as string;
-    if (!args.element || !categoryColor) {
-        return;
-    }
-    if (this.currentView === 'Agenda') {
-        (args.element.firstChild as HTMLElement).style.borderLeftColor = categoryColor;
-    } else {
-        args.element.style.backgroundColor = categoryColor;
-    }
-} 
+// public currentView: View = 'TimelineMonth';
+//  onEventRendered(args: EventRenderedArgs): void {
+//     const categoryColor: string = args.data.CategoryColor as string;
+//     if (!args.element || !categoryColor) {
+//         return;
+//     }
+//     if (this.currentView === 'Agenda') {
+//         (args.element.firstChild as HTMLElement).style.borderLeftColor = categoryColor;
+//     } else {
+//         args.element.style.backgroundColor = categoryColor;
+//     }
+// } 
 
   
 }

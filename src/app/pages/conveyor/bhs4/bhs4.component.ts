@@ -23,6 +23,7 @@ export class Bhs4Component implements OnInit {
   private alive=true;
   
   team: teams[] = [];
+  
   @ViewChild(NbPopoverDirective) popover: NbPopoverDirective;
   tea = te;
 

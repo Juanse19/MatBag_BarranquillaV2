@@ -14,6 +14,9 @@ import { DataSource } from 'ng2-smart-table/lib/lib/data-source/data-source';
 import {
   NgxFilterByNumberComponent,
 } from '../../../@components/custom-smart-table-components/filter-by-number/filter-by-number.component';
+import { UserStore } from '../../../@core/stores/user.store';
+import { HttpService } from '../../../@core/backend/common/api/http.service';
+import { ApiGetService } from '../../../@core/backend/common/api/apiGet.services';
 
 @Component({
   selector: 'ngx-users-table',
@@ -84,7 +87,11 @@ export class UsersTableComponent implements OnDestroy {
   source: DataSource;
 
   constructor(private usersService: UserData, private router: Router,
-    private toastrService: NbToastrService) {
+    private toastrService: NbToastrService,
+    private userStore: UserStore,
+    private api: HttpService,
+    private apiGetComp: ApiGetService
+    ) {
     this.loadData(); 
   }
 
@@ -107,6 +114,18 @@ export class UsersTableComponent implements OnDestroy {
         .pipe(takeWhile(() => this.alive))
         .subscribe((res) => {
           if (res) {
+            const currentUserId = this.userStore.getUser().firstName;
+  // console.log("este es el usuario: ",this.userStore.getUser().firstName);
+  var respons = 
+  {
+    user: currentUserId,
+    message:"Elimino un usuario" 
+};
+  this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+        //  console.log("Envió: ", res);
+      });
             this.toastrService.success('', 'Item deleted!');
             this.source.refresh(); 
           } else {

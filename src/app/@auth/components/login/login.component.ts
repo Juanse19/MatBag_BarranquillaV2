@@ -16,6 +16,10 @@ import { getDeepFromObject } from '../../helpers';
 import { NbThemeService } from '@nebular/theme';
 import { EMAIL_PATTERN } from '../constants';
 import { InitUserService } from '../../../@theme/services/init-user.service';
+import { takeWhile } from 'rxjs/operators';
+import { UserStore } from '../../../@core/stores/user.store';
+import { HttpService } from '../../../@core/backend/common/api/http.service';
+import { ApiGetService } from '../../../@core/backend/common/api/apiGet.services';
 
 @Component({
   selector: 'ngx-login',
@@ -54,7 +58,11 @@ export class NgxLoginComponent implements OnInit {
     protected themeService: NbThemeService,
     private fb: FormBuilder,
     protected router: Router,
-    protected initUserService: InitUserService) { }
+    protected initUserService: InitUserService,
+    private userStore: UserStore,
+    private api: HttpService,
+    private apiGetComp: ApiGetService,
+    ) { }
 
   ngOnInit(): void {
     const emailValidators = [
@@ -80,6 +88,20 @@ export class NgxLoginComponent implements OnInit {
     this.errors = [];
     this.messages = [];
     this.submitted = true;
+    
+    const currentUserId = this.userStore.getUser().firstName;
+  // console.log("este es el usuario: ",this.userStore.getUser().firstName);
+  var respons = 
+  {
+    user: currentUserId,
+    message:"Inicio sesión" 
+};
+  this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+        //  console.log("Envió: ", res);
+      });
+
     this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
 

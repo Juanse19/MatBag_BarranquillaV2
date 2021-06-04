@@ -9,12 +9,12 @@ import { takeWhile } from 'rxjs/operators';
 import { NbAccessChecker } from '@nebular/security';
 
 interface Alarmas {
-  id: number;
-  message: string;
-  level: string;
-  exception: string;
-  userId: number;
-  timeStamp: string;
+  Id: number;
+  Message: string;
+  Level: string;
+  Exception: string;
+  UserId: number;
+  TimeStamp: string;
 }
 
 let ALARMAS: Alarmas[] = [
@@ -48,19 +48,19 @@ export class AlarmsComponent implements OnDestroy {
     },
     
     columns: {
-      id: {
+      Id: {
         title: 'ID',
         type: 'number',
         filter: false,
         hide: true,
 
       },
-      message: {
+      Message: {
         title: 'Mensaje',
         type: 'string',
-        filter: false,
+        filter: true,
       },
-      level: {
+      Level: {
         title: 'Nivel',
         type: 'string',
         filter: false,
@@ -70,12 +70,12 @@ export class AlarmsComponent implements OnDestroy {
       //   type: 'string',
       //   filter: false,
       // },
-      userId: {
+      UserId: {
         title: 'usuario',
         type: 'number',
         filter: false,
       },
-      timeStamp: {
+      TimeStamp: {
         title: 'Tiempo',
         type: 'string',
         filter: false,
@@ -123,8 +123,12 @@ export class AlarmsComponent implements OnDestroy {
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         if(res){ 
-          let alarm = {idAlarm: event.data.id};
-      this.apiGetComp.PostJson(this.api.apiUrlMatbox + '/Alarms/postalarm?IdAlarm='+ event.data.id, alarm)
+          var respons = 
+            {
+            IdAlarm: event.data.Id
+            };
+          let alarm = {IdAlarm: event.data.Id};
+      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmId', respons)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         //  console.log("alarmId", res);
@@ -149,7 +153,7 @@ export class AlarmsComponent implements OnDestroy {
   }
 
   reconocer() {
-       this.apiGetComp.PostJson(this.api.apiUrlMatbox + '/Alarms/postallalarm', "")
+       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', "")
        .pipe(takeWhile(() => this.alive))
        .subscribe((res: any) => {
           if (res) {
@@ -164,17 +168,19 @@ export class AlarmsComponent implements OnDestroy {
   }
 
   Chargealarms() {
-    this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Alarms/GetAlarms')
+    this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
       //REPORTOCUPATION=res;
       // console.log("Report Total Ordenes:", res);
       this.Alarm = res;
       this.source.load(res);
+      // console.log("Alarm", res, "Al", this.Alarm);
+      
     });
-    const contador = interval(60000)
+    const contador = interval(10000)
     contador.subscribe((n) => {
-      this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Alarms/GetAlarms')
+      this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         //REPORTOCUPATION=res;
