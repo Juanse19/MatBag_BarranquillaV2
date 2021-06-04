@@ -7,7 +7,7 @@ import {
     TimelineViewsService, AgendaService, GroupModel, EventSettingsModel, ResizeService, DragAndDropService, ScheduleComponent, EventRenderedArgs, WeekService, MonthService, TimelineMonthService, View
 } from '@syncfusion/ej2-angular-schedule';
 // import { timelineResourceData, resourceData } from './data';
-import { DataManager, ODataV4Adaptor, Query } from '@syncfusion/ej2-data';
+import { DataManager, ODataV4Adaptor, Query, UrlAdaptor } from '@syncfusion/ej2-data';
 import { takeWhile } from 'rxjs/operators';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
@@ -106,7 +106,7 @@ export class SchedulerComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: airline[]=[])=>{
       this.airline=res;
-      console.log('Airlines:', res  );
+      // console.log('Airlines:', res  );
     });
   }
 
@@ -115,7 +115,7 @@ export class SchedulerComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: carrusel[]=[])=>{
       this.car=res;
-      console.log('Carr:', res  );
+      // console.log('Carr:', res  );
     });
   }
   
@@ -130,29 +130,48 @@ export class SchedulerComponent implements OnInit {
     adaptor: new ODataV4Adaptor,
     crossDomain: false,
     offline: true
- });
+ });  
+
+ 
+
+ private dataManagers: DataManager = new DataManager({
+  url: 'http://10.100.22.82:1880/resourceData', // 'controller/actions'
+  crudUrl: 'http://10.100.22.82:1880/ResourceDataUpdate',
+  adaptor: new UrlAdaptor,
+  crossDomain: false,
+  // offline: true
+});
+
   open(){
+   
       this.eventSettings
       console.log('testDivaces', this.eventSettings);
   }
 
-public dataQuery: Query = new Query().from("Events").addParams('readOnly', 'true');
+  public eventSettings: EventSettingsModel = { 
+    
+    dataSource: this.dataManagers 
+    // dataSource: <Object[]>extend(this.dataManagers, this.resourceDatas, false)
+  
+  };
 
- public eventSettings: EventSettingsModel = {
-    dataSource:  this.resourceDatas,
-    enableTooltip: true,
-    query: this.dataQuery
-    // dataSource: <Object[]>extend(this.resourceData, null, true)
-    // fields: {
-    //     id: 'Id',
-    //     subject: { name: 'Flight', title: 'Vuelo' },
-    //     location: { name: 'ICAO' },
-    //     description: { name: 'DeviceId' },
-    //     startTime: { name: 'STD', title: 'Hora inicio'},
-    //     endTime: { name: 'ETD', title: 'Hora fin' },
-    // }
+// public dataQuery: Query = new Query().from("Events").addParams('readOnly', 'true');
 
-};
+//  public eventSettings: EventSettingsModel = {
+//     dataSource:  this.resourceDatas,
+//     enableTooltip: true,
+//     query: this.dataQuery
+//     // dataSource: <Object[]>extend(this.resourceData, null, true)
+//     // fields: {
+//     //     id: 'Id',
+//     //     subject: { name: 'Flight', title: 'Vuelo' },
+//     //     location: { name: 'ICAO' },
+//     //     description: { name: 'DeviceId' },
+//     //     startTime: { name: 'STD', title: 'Hora inicio'},
+//     //     endTime: { name: 'ETD', title: 'Hora fin' },
+//     // }
+
+// };
 
 onActionFailure(e: Error): void {
     alert('Server exception: 404 Not found');

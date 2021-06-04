@@ -385,7 +385,7 @@ mergeMap((idDevice) => interval(1000)
 
 public GetDataAlarmManual(){
   this.aliveAlarm=true;
-
+  // debugger 
   if (this.intervalSubscriptionsAlarm) {
     this.intervalSubscriptionsAlarm.unsubscribe();
   }
