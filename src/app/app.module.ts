@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AuthModule } from './@auth/auth.module';
 import { ScheduleAllModule, RecurrenceEditorAllModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
 
 
 import {
@@ -33,7 +34,8 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    ScheduleAllModule, 
+    ScheduleAllModule,
+    GridModule, 
     RecurrenceEditorAllModule,
 
     AuthModule.forRoot(),

@@ -42,7 +42,7 @@ interface airline {
     }
     `],
     encapsulation: ViewEncapsulation.None,
-    providers: [TimelineViewsService, AgendaService, ResizeService, DragAndDropService]
+    providers: [TimelineViewsService, AgendaService, ResizeService, DragAndDropService, MonthService]
     // providers: [WeekService, MonthService, AgendaService, TimelineViewsService, TimelineMonthService ],
 })
 export class SchedulerComponent implements OnInit {
@@ -129,7 +129,7 @@ export class SchedulerComponent implements OnInit {
     url: 'http://10.100.22.82:1880/resourceData',
     adaptor: new ODataV4Adaptor,
     crossDomain: false,
-    offline: true
+    offline: true,
  });  
 
  
@@ -150,7 +150,8 @@ export class SchedulerComponent implements OnInit {
 
   public eventSettings: EventSettingsModel = { 
     
-    dataSource: this.dataManagers 
+    dataSource: this.dataManagers,
+    enableTooltip: true, 
     // dataSource: <Object[]>extend(this.dataManagers, this.resourceDatas, false)
   
   };
@@ -180,6 +181,23 @@ onActionFailure(e: Error): void {
     span.style.color = '#FF0000'
     span.innerHTML = 'Server exception: 404 Not found';
  }
+
+//  editor(): void {
+//   let cellData: Object = {
+//       startTime: new Date(2018, 1, 15, 10, 0),
+//       endTime: new Date(2018, 1, 15, 11, 0),
+//   };
+//   this.scheduleObj.openEditor(cellData,'Add');
+//   }
+//   eventEditor(): void {
+//   let eventData: Object ={
+//       Id: 4,
+//       Subject: 'Meteor Showers in 2018',
+//       StartTime: new Date(2018, 1, 14, 13, 0),
+//       EndTime: new Date(2018, 1, 14, 14, 30)
+//   };
+//   this.scheduleObj.openEditor(eventData,'Save');
+//   }
 
 // public currentView: View = 'TimelineMonth';
 //  onEventRendered(args: EventRenderedArgs): void {

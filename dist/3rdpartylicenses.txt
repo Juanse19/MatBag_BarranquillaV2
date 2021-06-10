@@ -295,6 +295,15 @@ SOFTWARE.
 @syncfusion/ej2-angular-base
 SEE LICENSE IN license
 
+@syncfusion/ej2-angular-dropdowns
+SEE LICENSE IN license
+
+@syncfusion/ej2-angular-grids
+SEE LICENSE IN license
+
+@syncfusion/ej2-angular-navigations
+SEE LICENSE IN license
+
 @syncfusion/ej2-angular-schedule
 SEE LICENSE IN license
 
@@ -322,6 +331,9 @@ SEE LICENSE IN license
 @syncfusion/ej2-file-utils
 SEE LICENSE IN license
 
+@syncfusion/ej2-grids
+SEE LICENSE IN license
+
 @syncfusion/ej2-inputs
 SEE LICENSE IN license
 
@@ -329,6 +341,9 @@ SEE LICENSE IN license
 SEE LICENSE IN license
 
 @syncfusion/ej2-navigations
+SEE LICENSE IN license
+
+@syncfusion/ej2-pdf-export
 SEE LICENSE IN license
 
 @syncfusion/ej2-popups

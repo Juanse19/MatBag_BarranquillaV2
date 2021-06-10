@@ -1,0 +1,29 @@
+<!-- <nb-card>
+    <nb-card-header>
+        Datos del equipaje
+    </nb-card-header>
+
+    <nb-card-body>
+        <ng2-smart-table class="dash-smart-table" [settings]="settings" [source]="baggageData">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card> -->
+
+<nb-card>
+    <nb-card-header>
+        Datos del equipaje
+    </nb-card-header>
+    <nb-card-body>
+        <ejs-grid [dataSource]='baggageData' [allowPaging]="true" [pageSettings]='pageSettings' [allowSorting]='true' [allowFiltering]="true">
+            <e-columns>
+                <e-column field='BagTag' headerText='BagTag' textAlign='Right' width=120></e-column>
+                <e-column field='FechaAtr' headerText='Fecha Atr' width=100 type='date' format="0:MM/dd/yyyy"></e-column>
+                <e-column field='BhsId' headerText='Bhs' width=100></e-column>
+                <e-column field='TipoEquipaje' headerText='Tipo Equipaje' width=100></e-column>
+                <e-column field='FechaEds' headerText='Fecha' width=100 type='date' format="yMd"></e-column>
+                <e-column field='estado1' headerText='estado1' width=100></e-column>
+                <e-column field='estado2' headerText='estado2' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
+    </nb-card-body>
+</nb-card>

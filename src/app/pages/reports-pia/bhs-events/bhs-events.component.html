@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        Eventos BHS
+    </nb-card-header>
+    <nb-card-body>
+        <ejs-grid [dataSource]='bhseventData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+            <e-columns>
+                <e-column field='Eventtype' headerText='Tipo de evento' width=120></e-column>
+                <e-column field='Eventtime' headerText='Fecha del evento ' width=100></e-column>
+                <e-column field='Totaleventtime' headerText='Tiempo total del evento' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
+    </nb-card-body>
+</nb-card>

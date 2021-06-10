@@ -362,10 +362,10 @@ export class PagesMenu {
       icon: 'book-outline',
       // link: '/pages/charts/charts-report',
       children:[
-        {
-          title: 'Asignar Aeronilínea al Make Up',
-          link: '/pages/conveyor/assign',
-        },
+        // {
+        //   title: 'Asignar Aeronilínea al Make Up',
+        //   link: '/pages/conveyor/assign',
+        // },
         {
           title: 'Scheduler',
           link: '/pages/conveyor/scheduler',
@@ -404,36 +404,36 @@ export class PagesMenu {
       children:[
         {
           title: 'Datos del equipaje',
-          link: '/pages/charts/report',
+          link: '/pages/reports-pia/baggagedata',
+        }, 
+        {
+          title: 'Seguimiento Fotoceldas Criticas',
+          link: '/pages/reports-pia/bag',
         },
         {
-          title: 'Seguimiento en Fotoceldas Criticas',
-          link: '/pages/charts/charts-report',
+          title: 'Fallos del BHS',
+          link: '/pages/reports-pia/bhsfaults',
         },
         {
-          title: 'Fallas en el BHS',
-          link: '/pages/charts/charts-report',
+          title: 'Eventos BHS',
+          link: '/pages/reports-pia/bhsevents',
         },
         {
-          title: 'Eventos del BHS',
-          link: '/pages/charts/charts-report',
-        },
-        {
-          title: 'Estadísticas del EDS ',
-          link: '/pages/charts/charts-report',
+          title: 'Estadísticas de EDS ',
+          link: '/pages/reports-pia/edsstatistics',
         },
         {
           title: 'Desempeño del ATR',
           link: '/pages/charts/charts-report',
         },
-        {
-          title: 'Volumen del sistema de equipaje',
-          link: '/pages/charts/charts-report',
-        },
-        {
-          title: 'Estadísticas del CBRA',
-          link: '/pages/charts/report',
-        },
+        // {
+        //   title: 'Volumen del sistema de equipaje',
+        //   link: '/pages/charts/charts-report',
+        // },
+        // {
+        //   title: 'Estadísticas del CBRA',
+        //   link: '/pages/charts/report',
+        // },
       ],
     };
 
@@ -506,7 +506,7 @@ export class PagesMenu {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
           // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
-          return [...dashboardMenu, dassh2Menu, paraMenu, functionMenu, repocbisMenu, userMenu, alarmMenu];
+          return [...dashboardMenu, dassh2Menu, paraMenu, repocbisMenu, userMenu, alarmMenu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];

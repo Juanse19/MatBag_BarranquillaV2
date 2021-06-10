@@ -4,6 +4,7 @@
             <a href="#" (click)="back()" class="link back-link" aria-label="Back">
                 <nb-icon icon="arrow-back"></nb-icon>
             </a>
+            <h5 class="h">Make Up</h5>
         </nav>
     </nb-card-header>
 
@@ -19,6 +20,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 226.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -26,6 +29,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 227.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -33,6 +38,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 228.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -40,6 +47,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 229.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -47,6 +56,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 230.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -54,6 +65,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 231.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -61,6 +74,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 232.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -68,6 +83,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 233.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -75,6 +92,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 234.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -82,49 +101,41 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 235.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                  
-                    <text x="304.93" y="178.89" class="st4" [nbPopover]="card">{{zone[0]?.Name}}</text>
-                    <text x="303.193" y="173.89" class="st4" [nbPopover]="card">{{zone[3]?.Name}}</text>
-                    <text x="297.193" y="169.89" class="st4" [nbPopover]="card">{{zone[2]?.Name}}</text>
-                    <text x="259.93" y="155.89" class="st4" [nbPopover]="card">{{zone[4]?.Name}}</text>
-                    <text x="247.93" y="168.89" class="st4" [nbPopover]="card">{{zone[1]?.Name}}</text>
-                    <text x="318.193" y="200.89" class="st4" [nbPopover]="card">{{zone[8]?.Name}}</text>
-                    <text x="332.193" y="190.89" class="st4" [nbPopover]="card">{{zone[6]?.Name}}</text>
-                    <text x="341.93" y="194.89" class="st4" [nbPopover]="card">{{zone[5]?.Name}}</text>
-                    <text x="376.93" y="222.89" class="st4" [nbPopover]="card">{{zone[7]?.Name}}</text>
-                    <text x="347.193" y="228.89" class="st4" [nbPopover]="card">{{zone[9]?.Name}}</text>                 
+                    <text x="304.93" y="178.89" class="st4" [nbPopover]="card" >{{zone[0]?.Name}}</text>
+                    <text x="303.193" y="173.89" class="st4" [nbPopover]="card" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
+                    <text x="297.193" y="169.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
+                    <text x="259.93" y="155.89" class="st4" [nbPopover]="card" (click)="changeId(zone[4]?.idEquipo)">{{zone[4]?.Name}}</text>
+                    <text x="247.93" y="168.89" class="st4" [nbPopover]="card" >{{zone[1]?.Name}}</text>
+                    <text x="318.193" y="200.89" class="st4" [nbPopover]="card" >{{zone[8]?.Name}}</text>
+                    <text x="332.193" y="190.89" class="st4" [nbPopover]="card" (click)="changeId(zone[6]?.idEquipo)">{{zone[6]?.Name}}</text>
+                    <text x="341.93" y="194.89" class="st4" [nbPopover]="card" (click)="changeId(zone[5]?.idEquipo)">{{zone[5]?.Name}}</text>
+                    <text x="376.93" y="222.89" class="st4" [nbPopover]="card" (click)="changeId(zone[7]?.idEquipo)">{{zone[7]?.Name}}</text>
+                    <text x="347.193" y="228.89" class="st4" [nbPopover]="card" >{{zone[9]?.Name}}</text>                 
                 
             </svg>
 
             <ng-template #card>
                 <nb-card class="popover-card">
-                    <nb-card-header status="warning">
-
-                    </nb-card-header>
                     <nb-card-body>
-                        <!-- <p>Estado: On</p>
-                        <p>TiempoOn: 17211</p>
-                        <p>TiempoOff: 0</p> -->
-
-                        <nb-card-body>
-                            <div class="media">
-                                <!-- {{i}} -->
-                                <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
-                                <div class="media-body">
-                                    <h6>Id equipo: Mu1-3</h6>
-                                    <label><b>Estado:</b> </label > <P style="position: absolute; top: 80 px; left: 100 px;">On</P>
-                                  <label><b>Consumo (KWH):</b> </label> 112
-                                    <label><b>TiempoOn:</b> </label> 34
-                                    <label><b>TiempoOff:</b> </label> 2
-                                    <SPAN>
-                                    ¿Cómo funciona?
-                                    </SPAN>
-                                </div>
+                        <div class="media" *ngFor="let option of divice; let i = index">
+                            <!-- {{i}} -->
+                            <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: {{option.DeviceId}}</h6>
+                                <b>Estado:</b>
+                                <p>{{option.Estado}}</p>
+                                <b>Consumo (KWH):</b>
+                                <p>{{option.Consumo}} </p>
+                                <b>TiempoOn:</b>
+                                <p>{{option.TiempoOn}} </p>
+                                <b>TiempoOff:</b>
+                                <p>{{option.TiempoOff}} </p>
                             </div>
-                        </nb-card-body>
-
-
+                        </div>
                     </nb-card-body>
                 </nb-card>
             </ng-template>

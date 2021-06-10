@@ -1,0 +1,13 @@
+<nb-card>
+    <nb-card-header>
+        seguimiento crítico de PEC
+    </nb-card-header>
+    <nb-card-body>
+        <ejs-grid [dataSource]='bagData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+            <e-columns>
+                <e-column field='BagID' headerText='BagID' width=120></e-column>
+                <e-column field='estado' headerText='Estado inspección' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
+    </nb-card-body>
+</nb-card>

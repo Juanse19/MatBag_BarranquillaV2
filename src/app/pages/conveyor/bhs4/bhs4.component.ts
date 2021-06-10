@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NbPopoverDirective } from '@nebular/theme';
 import { Router, ActivatedRoute } from '@angular/router';
 import { delay, map, takeUntil, takeWhile, timeout,switchMap } from 'rxjs/operators';
-import { Banda4, teams, zons } from '../_interfaces/MatBag.model';
+import { Banda4, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
@@ -20,6 +20,10 @@ export class Bhs4Component implements OnInit {
 
   public zone: zons[] = [];
 
+  public divice: teams[] = [];
+
+  public states: states [] = [];
+
   private alive=true;
   
   team: teams[] = [];
@@ -29,24 +33,24 @@ export class Bhs4Component implements OnInit {
 
   intervalSubscriptionStatusAlarm:Subscription;
 
-  public dataBanda4: Banda4 = {
-    b1: "",
-    b2: "",
-    b3: "",
-    b4: "",
-    b5: "",
-    b6: "",
-    b7: "",
-    b8: "",
-    b9: "",
-    b10: "",
-    b11: "",
-    b12: "",
-    b13: "",
-    b14: "",
-    b15: "",
-    b16: "",
-    }
+  // public dataBanda4: Banda4 = {
+  //   b1: "",
+  //   b2: "",
+  //   b3: "",
+  //   b4: "",
+  //   b5: "",
+  //   b6: "",
+  //   b7: "",
+  //   b8: "",
+  //   b9: "",
+  //   b10: "",
+  //   b11: "",
+  //   b12: "",
+  //   b13: "",
+  //   b14: "",
+  //   b15: "",
+  //   b16: "",
+  //   }
 
   constructor(
     private router: Router,
@@ -55,8 +59,9 @@ export class Bhs4Component implements OnInit {
     private api: HttpService) { }
 
   ngOnInit(): void {
-    this.banda4NameCharge();
+    // this.banda4NameCharge();
     this.bandaNameCharge();
+    this.bandaStateCharge();
     // this.ChangeTeam();
     // this.teamsCharge();
     // this.bandaCharge();
@@ -68,17 +73,17 @@ export class Bhs4Component implements OnInit {
   }
 
 
-  public banda4NameCharge(){
+  // public banda4NameCharge(){
 
-    this.http.get(this.api.apiUrlNode1 + '/al')
-    .pipe(takeWhile(() => this.alive))
-    .subscribe((res: any)=>{
-      this.dataBanda4=res[0];
-      console.log('data-banda4:', res);
+  //   this.http.get(this.api.apiUrlNode1 + '/al')
+  //   .pipe(takeWhile(() => this.alive))
+  //   .subscribe((res: any)=>{
+  //     this.dataBanda4=res[0];
+  //     console.log('data-banda4:', res);
       
-    });
+  //   });
 
-  }
+  // }
 
   public bandaNameCharge(){
 
@@ -90,6 +95,35 @@ export class Bhs4Component implements OnInit {
       
     });
 
+  }
+
+  public changeId(tea: any){
+ 
+    this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ tea)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any)=>{
+      this.divice=res;
+      console.log('Zons:', res , 'states');
+      
+    });
+  }
+
+  public bandaStateCharge(){
+
+    if (this.intervalSubscriptionStatusAlarm) {
+      this.intervalSubscriptionStatusAlarm.unsubscribe();
+    }
+    
+    this.intervalSubscriptionStatusAlarm = interval(1000)
+    .pipe(
+      takeWhile(() => this.alive),
+      switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona5')),
+    )
+    .subscribe((res: any) => {
+        this.states  = res;
+        console.log('status:', res);
+    });
+ 
   }
 
   // public changeId(tea: any){

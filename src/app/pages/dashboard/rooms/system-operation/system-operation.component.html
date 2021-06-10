@@ -3014,7 +3014,8 @@
       
       <text x="141.33" y="135.14" class="st4" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona13.name}}</text>
       <text x="212.33" y="99.14" class="st4" [nbPopover]="card2" *ngFor="let option of zone">{{option.zona1.name}}</text>
-      <text x="238.33" y="150.14" class="st4"  [nbPopover]="tabs3" *ngFor="let option of zone">{{option.zona6.name}}</text>
+      <text x="238.33" y="150.14" class="st4"  [nbPopover]="card11" *ngFor="let option of zone">MU1-5</text>
+      <text x="344.33" y="205.14" class="st4" [nbPopover]="card11" >MU2-5</text>
       <text x="143.33" y="178.14" class="st4" [nbPopover]="card4" *ngFor="let option of zone">{{option.zona5.name}}</text>
       <text x="60.33" y="100.14" class="st4" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona12.name}}</text>
       <text x="154.33" y="41.14" class="st4" [nbPopover]="card1" >SFC1</text>
@@ -3426,6 +3427,43 @@
                                 <P>Consumo KWH: 1,5</P>
                                 <p>TiempoOn: 252,11</p>
                                 <p>TiempoOff: 231,0</p>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </ng-template>
+
+            <ng-template #card11>
+                <nb-card class="popover-card">
+                    <nb-card-body>
+                        <div class="media">
+                            <img class="align-self-center mr-3" src="./assets/img/carru.png" width="75px" alt="Card " />
+                            <div class="media-body">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">CARRUSEL</th>
+                                            <th scope="col">VUELOS</th>
+                                            <th scope="col">STD</th>
+                                            <th scope="col">ETD</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>CO1</th>
+                                            <td>KLM1708</td>
+                                            <td>1:10</td>
+                                            <td>1:30</td>
+                                        </tr>
+                                        <tr>
+                                            <th>CO1</th>
+                                            <td>RYR5444</td>
+                                            <td>6:10</td>
+                                            <td>6:40</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </nb-card-body>

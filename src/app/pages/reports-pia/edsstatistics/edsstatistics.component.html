@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>
+        Estadísticas de EDS
+    </nb-card-header>
+    <nb-card-body>
+        <ejs-grid [dataSource]='edsStatisticsData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+            <e-columns>
+                <e-column field='bagsalarmed' headerText='# Equipajes alarmados' width=120></e-column>
+                <e-column field='bagscleared' headerText='# Equipaje no sospechoso ' width=100></e-column>
+                <e-column field='Edsfaults' headerText='Fallas EDS' width=100></e-column>
+                <e-column field='Failurestartdate' headerText='Fecha inicio falla' width=100></e-column>
+                <e-column field='Failureenddate' headerText='Fecha fin falla' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
+    </nb-card-body>
+</nb-card>

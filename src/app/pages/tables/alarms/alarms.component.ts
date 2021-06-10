@@ -178,7 +178,7 @@ export class AlarmsComponent implements OnDestroy {
       // console.log("Alarm", res, "Al", this.Alarm);
       
     });
-    const contador = interval(10000)
+    const contador = interval(4000)
     contador.subscribe((n) => {
       this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
       .pipe(takeWhile(() => this.alive))

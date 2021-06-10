@@ -89,11 +89,12 @@ export class NgxLoginComponent implements OnInit {
     this.messages = [];
     this.submitted = true;
     
-    const currentUserId = this.userStore.getUser().firstName;
+    // const currentUserId = this.userStore.getUser().firstName;
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
   var respons = 
   {
-    user: currentUserId,
+    // user: currentUserId,
+    user: this.user.email,
     message:"Inicio sesión" 
 };
   this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ConveyorRoutingModule } from './conveyor-routing.module';
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { ThemeModule } from '../../@theme/theme.module'; 
+import { ThemeModule } from '../../@theme/theme.module';  
 import { ConveyorComponent } from './conveyor.component';
 import { TeamComponent } from './team/team.component';
 import { FunctioningComponent } from './functioning/functioning.component';

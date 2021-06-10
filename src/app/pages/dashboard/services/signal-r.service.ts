@@ -385,7 +385,7 @@ mergeMap((idDevice) => interval(1000)
 
 public GetDataAlarmManual(){
   this.aliveAlarm=true;
-  // debugger 
+  // debugger
   if (this.intervalSubscriptionsAlarm) {
     this.intervalSubscriptionsAlarm.unsubscribe();
   }
@@ -396,7 +396,7 @@ public GetDataAlarmManual(){
     switchMap(() => this.http.get(this.api.apiUrlNode1 + '/GetNumberAlarm')),
   )
   .subscribe((res: any) => {
-    this.numeroAlarmas=res;
+    this.numeroAlarmas=res[0];
   });
 
 

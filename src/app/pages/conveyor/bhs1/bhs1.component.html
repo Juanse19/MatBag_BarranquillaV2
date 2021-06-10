@@ -4,6 +4,7 @@
             <a href="#" (click)="back()" class="link back-link" aria-label="Back">
                 <nb-icon icon="arrow-back"></nb-icon>
             </a>
+            <h5 class="h">Transfer Line</h5>
         </nav>
     </nb-card-header>
     <nb-card-body>
@@ -197,7 +198,7 @@
                     />
                 
                     <text x="134.93" y="168.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(zone[1]?.idEquipo)" [nbPopover]="card" nbPopoverPlacement="left" >{{zone[1]?.Name}}</text>
-                    <text x="173.193" y="160.89" class="st4"  triggers="mouseenter:mouseleave" (click)="changeId(zone[0]?.idEquipo)" [nbPopover]="card" >{{zone[0]?.Name}}</text>
+                    <text x="173.193" y="160.89" class="st4"  triggers="mouseenter:mouseleave"  [nbPopover]="card" >{{zone[0]?.Name}}</text>
                     <text x="192.193" y="135.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(zone[3]?.idEquipo)" [nbPopover]="card">{{zone[3]?.Name}}</text>
                     <text x="215.93" y="129.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(zone[9]?.idEquipo)" [nbPopover]="card">{{zone[9]?.Name}}</text>
                     <text x="168.93" y="130.89" class="st4" (click)="changeId(zone[6]?.idEquipo)" [nbPopover]="card">{{zone[6]?.Name}}</text>
@@ -224,15 +225,15 @@
                             <!-- {{i}} -->
                             <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
                             <div class="media-body">
-                                <h6>Id equipo: {{option.DeviceId}} 171</h6>
+                                <h6>Id equipo: {{option.DeviceId}}</h6>
                                 <b>Estado:</b>
                                 <p>{{option.Estado}}</p>
                                 <b>Consumo (KWH):</b>
-                                <p>{{option.Consumo}} 123</p>
+                                <p>{{option.Consumo}} </p>
                                 <b>TiempoOn:</b>
-                                <p>{{option.TiempoOn}} 43</p>
+                                <p>{{option.TiempoOn}} </p>
                                 <b>TiempoOff:</b>
-                                <p>{{option.TiempoOff}} 10</p>
+                                <p>{{option.TiempoOff}} </p>
                             </div>
                         </div>
                     </nb-card-body>

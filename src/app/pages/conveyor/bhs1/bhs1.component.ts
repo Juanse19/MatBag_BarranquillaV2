@@ -50,7 +50,7 @@ export class Bhs1Component implements OnInit {
   ngOnInit(): void {
     // this.banda1NameCharge();
     this.bandaNameCharge();
-    this.bandaStateCharge()
+    this.bandaStateCharge();
   }
 
   back() {
@@ -80,7 +80,7 @@ export class Bhs1Component implements OnInit {
   // }
 
   public changeId(tea: any){
-
+ 
     this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ tea)
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
@@ -103,7 +103,7 @@ export class Bhs1Component implements OnInit {
     )
     .subscribe((res: any) => {
         this.states  = res;
-        console.log('capture Id:', res);
+        console.log('status:', res);
     });
  
   }

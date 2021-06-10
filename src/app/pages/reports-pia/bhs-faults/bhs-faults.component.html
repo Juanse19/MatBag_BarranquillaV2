@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>
+        Fallos del BHS
+    </nb-card-header>
+    <nb-card-body>
+        <ejs-grid [dataSource]='bhsfaultData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+            <e-columns>
+                <e-column field='Faulttype' headerText='Tipo de fallo' textAlign='Right' width=120></e-column>
+                <e-column field='Faultlocation' headerText='Ubicación del fallo' width=100></e-column>
+                <e-column field='Faulttime' headerText='Hora del fallo' width=100></e-column>
+                <e-column field='Faulttimecleared' headerText='Tiempo de fallo borrado' width=100></e-column>
+                <e-column field='Totalfaulttime' headerText='Tiempo total de fallo' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
+    </nb-card-body>
+</nb-card>

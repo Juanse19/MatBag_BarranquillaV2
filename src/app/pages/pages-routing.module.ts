@@ -54,6 +54,11 @@ const routes: Routes = [{
       loadChildren: () => import('./conveyor/conveyor.module')
         .then(m => m.ConveyorModule),
     },
+    {
+      path: 'reports-pia',
+      loadChildren: () => import('./reports-pia/reports-pia.module')
+        .then(m => m.ReportsPiaModule),
+    },
     // {
     //   path: 'animation',
     //   loadChildren: () => import('./animation/animation.module')
