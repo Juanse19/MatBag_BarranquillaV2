@@ -41,6 +41,16 @@ export interface teams{
 }
 }
 
+export interface Consumezone {
+    ZoneId: string;
+ZoneName: string;
+Estado: string;
+Consumo: string;
+ContadorMaletas: string;
+TiempoOn: string;
+TiempoOff: string;
+}
+
 export interface departures {
     Id: string,
     DeviceId: string,

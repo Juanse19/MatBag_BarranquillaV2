@@ -23,7 +23,7 @@ export class PagesMenu {
         link: '/pages/iot-dashboard',
         children: [
           {
-            title: 'Dashboard Salida',
+            title: 'Dashboard Salida', 
             link: '/pages/iot-dashboard',
           },
           
@@ -43,7 +43,7 @@ export class PagesMenu {
             title: 'Alarm Line',
             link: '/pages/conveyor/bhs4',
           },
-          {
+          { 
             title: 'Security Feed Check In',
             link: '/pages/conveyor/bhs5',
           },
@@ -53,7 +53,7 @@ export class PagesMenu {
           },
           {
             title: 'On Screen Resolution Line',
-            link: '/pages/conveyor/bhs7',
+            link: '/pages/conveyor/bhs7', 
           },
           {
             title: 'Manual Encode',
@@ -424,7 +424,7 @@ export class PagesMenu {
         },
         {
           title: 'Desempeño del ATR',
-          link: '/pages/charts/charts-report',
+          link: '/pages/reports-pia/atrperformance',
         },
         // {
         //   title: 'Volumen del sistema de equipaje',

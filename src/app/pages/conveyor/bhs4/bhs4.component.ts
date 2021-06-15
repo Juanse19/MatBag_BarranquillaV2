@@ -123,46 +123,11 @@ export class Bhs4Component implements OnInit {
         this.states  = res;
         console.log('status:', res);
     });
- 
   }
 
-  // public changeId(tea: any){
-
-  //   if (this.intervalSubscriptionStatusAlarm) {
-  //     this.intervalSubscriptionStatusAlarm.unsubscribe();
-  //   }
-    
-  //   // this.popover.show();   
-
-  //   this.intervalSubscriptionStatusAlarm = interval(100)
-  //   .pipe(
-  //     takeWhile(() => this.alive),
-  //     switchMap(() => this.http.get(this.api.apiTeam + '/teams?idEquipo='+ tea)),
-  //   )
-  //   .subscribe((res: any) => {
-  //       this.team  = res;
-  //       console.log('captura Id:', res);
-  //   });
-
-    
-  //   // this.apiGetComp.GetJson(this.api.apiUrlNode + '/es')
-  //   //   .pipe(takeWhile(() =>this.flagMoverCarro))
-  //   // .subscribe((res: any) => {
-  //   //   this.showdataAlarms  = res[0];
-  //   //   });
-
-  // }
-  
-  // public changeId(tea: any): void{
-  //   console.log("Prueba de captura de id", tea);
-  //   this.http.get(this.api.apiTeam + '/teams?idEquipo='+ tea)
-  //   .pipe(takeWhile(() => this.alive))
-  //   .subscribe((res: any)=>{
-  //     // this.popover.show(); 
-  //     this.team=res;
-  //     console.log('captura Id:', res);
-  //     return this.popover.show;
-  //   });
-  // }
+  ngOnDestroy() {
+    this.changeId(this.alive = false);
+    this.alive = false;
+  }
 
 }

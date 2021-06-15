@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { delay, map, takeUntil, takeWhile, timeout,switchMap } from 'rxjs/operators';
 import { Observable, Subject, of, BehaviorSubject, interval,Subscription } from 'rxjs';
-import { Zones, syste, teams } from '../../../conveyor/_interfaces/MatBag.model';
+import { Zones, syste, teams, Consumezone } from '../../../conveyor/_interfaces/MatBag.model';
 import { HttpService } from '../../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -20,6 +20,8 @@ export class SystemOperationComponent implements OnInit {
   public syst: syste[] = [];
 
   private alive=true;
+
+  public consumezoneData: Consumezone[] = [];
 
   team: teams[] = [];
 
@@ -43,65 +45,22 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res:Zones[])=>{
       this.zone=res;
       // console.log("zon", this.zone);
-      // console.log("Res ", res);
+      console.log("Res ", res);
       
     });
   }
 
-  // private GetOrderProcess(){    
-  //   this.http.get(this.api.apiUrlNode1 + '/zo')
-  //   .pipe(takeWhile(() => this.alive))
-  //   .subscribe((res:Zones[])=>{
-  //     this.zo=res;
-  //     console.log("zys", this.zo);
-  //     console.log("Res ", res);
+  public changeId(tea: any){
+ 
+    this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ tea)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any)=>{
+      this.consumezoneData=res;
+      console.log('Zons:', res , 'states');
       
-  //   });
-  // }
+    });
+  }
 
-  // public changeId(){
-
-  //   if (this.intervalSubscriptionStatusAlarm) {
-  //     this.intervalSubscriptionStatusAlarm.unsubscribe();
-  //   }
-    
-       
-  //   this.intervalSubscriptionStatusAlarm = interval(1000)
-  //   .pipe(
-  //     takeWhile(() => this.alive),
-  //     switchMap(() => this.http.get(this.api.apiTeam + '/usuarios')),
-  //   )
-  //   .subscribe((res: any) => {
-  //       this.team  = res;
-  //       console.log('captura Id:', res);
-  //   });
-
-  //   // this.apiGetComp.GetJson(this.api.apiUrlNode + '/es')
-  //   //   .pipe(takeWhile(() =>this.flagMoverCarro))
-  //   // .subscribe((res: any) => {
-  //   //   this.showdataAlarms  = res[0];
-  //   //   });
-
-  // }
-
-  // public StatusAlarmCharge(){
-
-  //   if (this.intervalSubscriptionStatusAlarm) {
-  //     this.intervalSubscriptionStatusAlarm.unsubscribe();
-  //   }
-    
-       
-  //   this.intervalSubscriptionStatusAlarm = interval(1000)
-  //   .pipe(
-  //     takeWhile(() => this.alive),
-  //     switchMap(() => this.http.get(this.api.apiUrlNode1 + '/es')),
-  //   )
-  //   .subscribe((res: any) => {
-  //       this.syst  = res[0];
-  //       console.log("estadisticas ", this.syst)
-        
-  //   });
-  // }
 
   bhs1() {
     this.router.navigate(['/pages/conveyor/bhs1']);
@@ -129,10 +88,15 @@ export class SystemOperationComponent implements OnInit {
 
    bhs7() {
     this.router.navigate(['/pages/conveyor/bhs7']);
-   }
+   } 
 
    bhs8() {
     this.router.navigate(['/pages/conveyor/bhs8']);
    }
+
+   ngOnDestroy() {
+    this.changeId(this.alive = false);
+    this.alive = false;
+  }
 
 }

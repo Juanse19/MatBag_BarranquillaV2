@@ -212,5 +212,8 @@ onActionFailure(e: Error): void {
 //     }
 // } 
 
+ngOnDestroy() {
+  this.alive = false;
+}
   
 }

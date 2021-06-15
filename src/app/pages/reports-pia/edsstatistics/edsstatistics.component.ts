@@ -37,7 +37,7 @@ export class EdsstatisticsComponent implements OnInit {
     this.filterOptions = {
       type: 'Menu',
    };
-  }
+  } 
 
   ChargeData() {
     this.http.get(this.api.apiUrlNode1 + '/eds')

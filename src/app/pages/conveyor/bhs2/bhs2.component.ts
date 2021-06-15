@@ -124,7 +124,11 @@ export class Bhs2Component implements OnInit {
         this.states  = res;
         console.log('status:', res);
     });
- 
+  }
+
+  ngOnDestroy() {
+    this.changeId(this.alive = false);
+    this.alive = false;
   }
 
 }

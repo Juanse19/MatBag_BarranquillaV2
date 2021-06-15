@@ -3,7 +3,7 @@
     <nb-card-body>
         <div class="room-layout">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 460.8 259.2" style="enable-background:new 0 0 460.8 259.2;" xml:space="preserve">
-<g id="ZONA_1" (click)="ib1()">
+<g id="ZONA_1"  (click)="ib1()">
 	
 		<image style="overflow:visible;" width="87" height="53" id="Layer_0_xA0_Imagen_3_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAA6CAYAAAA9Qj4fAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAGuNJREFUeNrsW2lsXNd1Pvftb/Yh
@@ -127,7 +127,11 @@ EFSJq6mduc1jXenOs5Ks/JJa9tmMmpi4eej6BXTS5VyqvXY12kvgfbJNF2bajk+dvPfJsy/cdXJx
 lPOzVTZ4upRZMfstflZPedo4d7RiNY4liHqmO9W5eNPQwXl0gtVkLGFc7XZK7xfAkVuXz1wcuefU
 1MihYWukg9mSlFChJ95eGGofHI7HEi8YZvMkCruzB3v3Lm/vGVrJpdtqiqTY72Q73zeAc73e3vvi
 zu6hH10szd+JVHGKiOILltE81edpY0YVyNH1d7ONBN5n28nJ0zseG34yPdQ5uHztwJ6l7my+8uu0
-8QfbBram0ZRYIuwDJD7YPtjeje1/BRgAbTojMWxIi7EAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 153.595 107.605)">
+8QfbBram0ZRYIuwDJD7YPtjeje1/BRgAbTojMWxIi7EAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 153.595 107.605)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="42" height="41" id="Layer_0_xA0_Imagen_2_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAYAAABXuSs3AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -169,7 +173,11 @@ G5vxer0hQRDy165da38ghJvwejgd3Wo0m3cJhjxl8dkJ0slBOVZ8J1CkZpPneZ0kSalWq2XNZnPy
 DMPEp6amno+Ojs79rwXe6k299QBecKdj+fh3A+7+X672rXvSA9tQRDF2LwtYLJYK8mwRKZzx+Xwx
 5Ff/8PDwIrLALPLxzl4WeG/gqAQoPVx5vOim7Y9cBsuvUUrG97IARVGpiYmJMFLUjyww3dvbG0DK
 xn6qS7yvaa3P2R8vKaWvBvCuUVoy9PAez64FUBSIX7lyJYgsML9fC7Qd1/f7Q39osXd5cekP337z
-7fBx39GFf1ugFQV20AE0OKirUtVNsiqL6WzaAx9X++ufAgwA9kP++a8NxxsAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 165.7983 114.905)">
+7fBx39GFf1ugFQV20AE0OKirUtVNsiqL6WzaAx9X++ufAgwA9kP++a8NxxsAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 165.7983 114.905)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="87" height="157" id="Layer_0_xA0_Imagen_1_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAACeCAYAAAC/z23nAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -317,7 +325,11 @@ RbV93zfOnz9/68MPP/zyxIkTVw8fPryMQDbQD6D/vXSfUQWcpVn3s5XPfyvr4unxIxPzoipRnZoO
 g2jwqEPP/YND7xaKyZ/heJzNZlcQ63Bw6/eLWiMLOF4LE0c/qriNn2zd3ZhkeFbG5v1B1P+jQ29x
 cbHy5ptvLiOQL7z66qtfoHi8iUJJ8LKeaaQB12StdX3jxoXuhvUO32OoYr7g9nq9JgJ2G8Xj6++8
 885ldOjheLz7JGbxA+DPsY4WZn8zMTZx/Cd//pOxiWLpLjr0LqFdfROFkfqzMosXuRLw/8Fq6+0c
-wzA9hmbs73vofd/1/wQYAGi+c9BEgUlGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 168.5475 121.4083)">
+wzA9hmbs73vofd/1/wQYAGi+c9BEgUlGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 168.5475 121.4083)" 
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="180" height="335" id="Layer_0_xA0_Imagen" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALwAAAFSCAYAAABIcLXtAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -615,7 +627,11 @@ eDyexffee2/lpZdeevbmm2+uW5HctPL2jtPPB4QHOIqgpFb9nO/xicDUrRgd/+dz1dbvrYzHd+XH
 jx/PybK8bZF89ZVXXll544038GvNKkoNlmXbR/l8QHiAs4QiyH4ql4k3mq1/P8lE3+TK3il8Vz41
 NVUKBAK7JEkuWFF8zUpXcMryzPp42kpnmkN7PjgigONpjRKtP96amzk5Mv33777+9gdxdX/99OnT
 T19++eWVDz74YHliYiL9hw2hYcEDxwM4ChRrJXpxafFYPBY/deH0+Q0rkqe+6V35UeL/E2AArkMp
-3Z8y3IcAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 178.9875 152.755)">
+3Z8y3IcAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 178.9875 152.755)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="128" height="48" id="Layer_0_xA0_Imagen_4_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAAAyCAYAAAByFRjxAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -722,7 +738,11 @@ T5++YJrmzyFaDNLZLtq+Zr1L2vXF2Aejv6gklEUoWwvgKTIQJSzY7qZTqRfuOn7XX4PPu7nrfYru
 8YsPPnBx9kz5GbVsY8O1Rui8TNizpPTQ6V0fruc6EsdDHh/ozuMtyOE3IZff6srjALxUScYTOvoU
 j8OHj1wqlkovAgkmKSNgUcEjQLnr20AAM5VKXc5mM9cr1epB2B6HsSgKggGPLyUSicpueve+o6E2
 lFJ9ef/lm2/doxrqMOR7F0xaiwKeVdJLoO7W7ZjHb+dx/vyFadM0vgokcDKZ7A1FAeBFsQFLC9Ii
-/VU7EwihULKAh1D3ztje2NXx/wIMAISmKU6xZRb6AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 125.875 108.205)">
+/VU7EwihULKAh1D3ztje2NXx/wIMAISmKU6xZRb6AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 125.875 108.205)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="42" height="44" id="Layer_0_xA0_Imagen_5_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAYAAABXuSs3AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -772,7 +792,10 @@ f5QCJZ0Gi/lHN27cmImk4oPshSDp6vEjK2tFJPzsZibYsdxWZ9ltc63ohLHEWpj5Pm88DbALw/HT
 S17OU3reXk/sGRBk0tXkYP99XbN/rxbVQlaX/Vmi2ZLbTrFNv929ydLsIoif9lld6cFwcnYollqK
 +U898bm8dZqk9BOImvuPy//469tT9fSvnsj8WFUWzSLDB6oytLWICGKFtpDzXa5oejCSnBvsSC1B
 FOA9nPvE6tdDg6/lM+7r0zfPb1TzqQ2JD0OiJzq5cDbqChX6IomV3nB3xsN5qjYr+0qaL0duRWia
-RlTFmh0iAsHZOek4b/9Rxn8FGAC99ytdVOADEwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 118.435 111.485)">
+RlTFmh0iAsHZOek4b/9Rxn8FGAC99ytdVOADEwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 118.435 111.485)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}">
 	</image>
 	
 		<image style="overflow:visible;" width="286" height="63" id="Layer_0_xA0_Imagen_7_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAABDCAYAAAA8lNjAAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -935,7 +958,10 @@ c/RAM+n4ySVjdqtRnrnRmJrZVmQ1NFkJfxOyQTdgPEJWBt2u8ZNFFFHEhAB05syZyx/7448998Kr
 3vqTz/70v/75R9W6SXeku/oIhTD/d5grPGQTL+HX2FzbycZPlsX4yTG1K8XclSKKOB0AdN8Db/va
 0mrrMQoa057vLWKMie27OgDLpOMnz1QXrtbMSodKHTZ+sjW9cGrHTxZRRBH78pY0wjBU3ti8/tNX
 1q++9a+/97e/TkHHfb29crZh1jezMmi+MsfGT85VZ1cAUIrxk0UUUcQtDcqAWPqr3Ws3/CDQir9I
-EUUUUUQRRRRxx8Y/CTAA2LQZDp/+WcwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 52.1008 113.715)">
+EUUUUUQRRRRxx8Y/CTAA2LQZDp/+WcwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 52.1008 113.715)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}">
 	</image>
 	
 		<image style="overflow:visible;" width="34" height="75" id="Layer_0_xA0_Imagen_6_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAABPCAYAAACd+leyAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -988,7 +1014,10 @@ Z5jZ5QdO9k1Znr5KJR+j1mTIK63WbE1awGjHExL2n4QjXWSmuTX325TjL/YQ0Ljyizf9YjbVch89
 FCIjXqSdOlZRMhOji4DCiYbY3naf9LdqtiYtAXrCpFZnlurVYjgNDNylYWTBeK3WpOVAzUT/HIqu
 PXID0HLfQhQjtVqTlgNlwl4WZncBMaaiAkXJcbdGa9JyoCjsRWENTpP5S5VCepdakyfp061J6xkN
 k0By+JFG3KsAzfUrVegiZeBfKKCRZMUH7yOzZ1G0zatgewMxsLX0xZlZcKs3GTjp7fk/viWsbieW
-Gp4SsfbHhtVRRMY1/K9t/xVgAGKb82UnaI+sAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 109.9833 105.7833)">
+Gp4SsfbHhtVRRMY1/K9t/xVgAGKb82UnaI+sAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 109.9833 105.7833)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}">
 	</image>
 	
 		<image style="overflow:visible;" width="61" height="58" id="Layer_0_xA0_Imagen_9_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAA/CAYAAABXXxDfAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1078,7 +1107,10 @@ NyLk4nCeNzrbiO1JgH88zydtou1tt8v1CdQmS1CVQnwRsna7/Ui3j4/Fn5nAxeLn5D6B3JxKJJLP
 a6oWghrDQhkPQNu9AcR8ojYG9/m8l6Aa/duJiYkYHD+0Kx6rPzDy+/1xn8/3MRQnZ8Hcg+0nPcEN
 VCsoCmXsfTDtVYiOS2DWi6FQeAomYP2zgB87eAhYzaWlpY/i8fjvQe4XeYFPwXuLoPwydHILYNax
 YDC44na7U5BBqmABjxR4j92floHyU1Cc/BPsOlxu9wrk6HsBv/+hfPmo41j+UWGxWPSA4hpsEkDr
-6Mvx5fhyPK7xvwIMAEPeu8MscnYHAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 40.1425 120.3371)">
+6Mvx5fhyPK7xvwIMAEPeu8MscnYHAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 40.1425 120.3371)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}">
 	</image>
 	
 		<image style="overflow:visible;" width="56" height="55" id="Layer_0_xA0_Imagen_8_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAADhu0ooAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1154,7 +1186,11 @@ pGqw5+iFRNpls5lz+EF5t8ueXKwj73tfOu0tFovIaItbLBaSCgyJRKI2k8n4xicmQlPh6Hei0dh3
 Lr70IpYlJjZV2S5NTE6mzpw+821JkkwMmiSJpmgtCETpsETRGrejqKgKjR01h/49i/R30LBuPErB
 8sT+MNntcl10Oh1D8fj8DhKsyPCLqGoxW+Z43kCg+lHVSVVRWZvdNlLj8URwCDmM/hl/WDWfKChR
 /PLly8cTiWSn2WKOGDhuGANT2GI29+PvwsQHcXARIytiqGhms+97on9qjoOHY1NTdxm7w36nualp
-yO3xTNtttjk0cxn+PzXMgaRKt38R7/o/AQYAeAhX6rrcnHMAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 28.33 123.7187)">
+yO3xTNtttjk0cxn+PzXMgaRKt38R7/o/AQYAeAhX6rrcnHMAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 28.33 123.7187)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="637" height="469" id="Layer_0_xA0_Imagen_10_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoIAAAHbCAYAAABfmfu3AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2906,10 +2942,15 @@ mmFkOz2tqGhmJoRBF/FskLOKObmXz8qK/RyGJBLNvs0ghFj2dUUUhSYFcmSYVssGUFUWSXO6nNue
 rRUOZuqV5vJCfXdhvr5fKReaxUKuha1eFApBEIVCoVDnrF5fkZutblVV9ZKq6ZlWu1fa3W/Wj447
 1U5Pyem6KWqaIfUVTe70texRW53RDFpl/tKOHTWl1LL/EAWil/PyYSkvN7KyZBbyspbNSDYQilax
 kFVm65WGfTmqTZXauWxGyeUyvXwu00bgQ6EQBFEoFAr1AYjNIXa6/bxhWDnLsgTvPEFZ6ogoCqZ9
-6eHGLgqFQqFQKBQKhUKhUCgUCoVCoVAfov6/AAMAGW6RL87/BOQAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 13.3387 92.045)">
+6eHGLgqFQqFQKBQKhUKhUCgUCoVCoVAfov6/AAMAGW6RL87/BOQAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 13.3387 92.045)"
+*ngFor="let option of zone"
+          [ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona7.color + ')
+                drop-shadow(-5px -5px 0 ' + option.zona7.color  + ')'}"
+>
 	</image>
 </g>
-<g id="ZONA_2" (click)="ib2()">
+<g id="ZONA_2" *ngFor="let option of zone"
+ (click)="ib2()">
 	
 		<image style="overflow:visible;" width="198" height="283" id="Layer_0_xA0_Imagen_11_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAAEgCAYAAAD405y/AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAPpBJREFUeNrsvQd4Y9d55/1e4Bb0
@@ -3193,7 +3234,10 @@ dCOEDYOVE+Xn59+sq6t9k/0tv1JWVvaeTqfb+o3fO9n/3+l6eiVPrbcxNBP+P20/e9uz4vvDYtIk
 8Vb5YLnABeGJ7fUxRqMxQlHUMmsSNzLJ0aNHu48fP36D3ZPYJRIJb/0BsWGwciKUAcD+8dq9Pldf
 se9n2R+fqDnyjclFe+VcyP2RvFWJaCodXQwGwzobMYKRSMTziU98YgSZ5MyZM1f5Ngk2DJagZdIa
 J+a88//t7xu/byi3llRNJvvW1nSk57HHHptgl1tdrEmusRFrUiqVruT63gg8PFhClcMze+gnje98
-lvGLnOzm/VpBQcG4XC4P4f9nsLCwsLCwsLCwsLCwPpj+PwEGAD+/EBZnnWjbAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 284.88 110.3337)">
+lvGLnOzm/VpBQcG4XC4P4f9nsLCwsLCwsLCwsLCwPpj+PwEGAD+/EBZnnWjbAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 284.88 110.3337)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="64" height="88" id="Layer_0_xA0_Imagen_12_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABcCAYAAAA1Sgg9AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3308,7 +3352,10 @@ x7Z0c+PBmPab+RMvtU3tkape/wubs+U+IQZtqw2e26D7JCgIaKc3or7Q6anUxE+OTr3v0Xg4loVd
 GtvW2t6XGi9t1HOPJ5Xue+f15Tvpahf5LylZjjzf0ZJ5MRvxhc8c7j/w1N0TdzyeiMQ3YJfHtoFB
 OupzuYVzTVP9znottw+l0ReUlSqK48pgJHXqYGb/00fGb/3ZboTDjoPhNYEGaq8sn31mJNL/CKND
 Ym9i+Fd3jd/2M8wOFwK+QB3eYWPb/9/xSqMqobnqdl3XiIW68vC78f9j/J8AAwBVExtpBkh6bAAA
-AABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 319.4075 173.6975)">
+AABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 319.4075 173.6975)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="123" height="78" id="Layer_0_xA0_Imagen_13_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAABTCAYAAACyJghjAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3439,7 +3486,10 @@ OVPIvi0pkhtf4wSfbCdwQtzlWO53R6PR3yQWEg8vqMkaStdtNfZqqOQ1Up1jVZNbCPE0PmuTY7MA
 b2/PoNvtrlirm0npN5wOenv/d35+7vOSKAahhXMVgWPThxf4LNQB89AZfBAKhb4HwC/a7ZVt0Dse
 elVVVfTc0Ln9qXR6lyRJXRzLiQA9BtDD/hr/ufb29vcaQ6FjEM7jUKlXqvS7ATpebW3tH42NXX4H
 sncUaoLJlpbmPzY1NZ1wuVzTcFRC+d2W04srkUiEQN0sqDwKrVilIq+sylqv9f8CDAA/VtkuLmFY
-lgAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 295.0121 185.0075)">
+lgAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 295.0121 185.0075)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="138" height="257" id="Layer_0_xA0_Imagen_15_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAAEHCAYAAAB4NX6sAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3703,7 +3753,10 @@ DQpUlb2g/FZgefXVV++Stx8SVvRJT0/PDAHMIy+OQuAEmJp/eufcj2utxuHakJHZ9/o0GIoO9eLf
 a1QDocwGySozBCw/IZnlp319fV+SN/1xvr4QOEEukseP/c97pYXvbhRyvfqWKuGE3nZks1n79ddf
 nyGA+QXJLD/q7++/MjAwUPfrtYXACXDgGs385uJ/WlpY2lv+auMQZpz3339/9t133/358ePHP06n
 05eGhoZqu/HamPDxBDtaTov/6yu/+r+aFaN/qG/wVyMjI5dJ3SJzHOeG350wwgjj2Yj/X4ABAIPL
-Cq/+qwzBAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 251.1231 132.9792)">
+Cq/+qwzBAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 251.1231 132.9792)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="99" height="66" id="Layer_0_xA0_Imagen_14_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAABHCAYAAADr5gJCAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3835,7 +3888,10 @@ TBmOmW2ZnWLT7OadwOP3CiBVkM0hJV9PJ5ItVVSqsijPY/hc9nxvA8Xkaj6RbuwrTPZmh6e7aSVt
 Iijur/c775GBZphBhkmWYyc6eldaaa2pG92q0jG7oh14OV4QJgROyKKKSmC2kHEyUn4Q5D3fzZPe
 P8xDHHFVA4OF+cRHEePgoWMibzMs08LXaEEYmK7vGa7n1FFdVjCn6EU1b03mx7TR3IiBtsFSEoqd
 kpP+3rD2AzB6Rp9HNkm2Ywuu77KoEHlkFt81emLP7Iu2Z7Mo+ZkgII6Kup4QgQzRYAfIDA8n3U3L
-KUcWEx4+50uC6OF9R02o7u41nfcz/r8AAwBKIDzbhsV5NAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 275.3737 189.1825)">
+KUcWEx4+50uC6OF9R02o7u41nfcz/r8AAwBKIDzbhsV5NAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 275.3737 189.1825)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="134" height="250" id="Layer_0_xA0_Imagen_17_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIoAAAD+CAYAAADlNJ2zAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4062,7 +4118,10 @@ T/58aGjoVEdHx+y9GJsKlCYKdEBtEa1zBq0w0DHcDVNvjX6qf/fss8+GSeYYPXjw4N/29fWN2u32
 xXs9NhUoTRSoVTt++9KPw/nY/4g709C9bwg8Z2/+xq89cuTIrccee+zc/v37/9btdl/8XcWoGmss
 iuWi5f+OvDXz/H/8FrqpfOzPX/7lX1756U9/+oOFhYV9+XzeznJcakZpssBrHZ6Y79/dmL3+FqGv
 +j/8wz+8SDLH8e3bt7/T3t5+Ta/XZ9XfkhqrseT37A8Gg8PNMp7/L8AAhwHhNKqlqJ0AAAAASUVO
-RK5CYII=" transform="matrix(0.24 0 0 0.24 227.0608 76.08)">
+RK5CYII=" transform="matrix(0.24 0 0 0.24 227.0608 76.08)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="52" height="64" id="Layer_0_xA0_Imagen_16_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAABHCAYAAABMO7S5AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4131,7 +4190,10 @@ FSZqywIDrlIl3iRWchalOF4L227i8scJSvchMnqRJbf+yi68971IJL3Hiqze0/R/An0Js5MzhMYX
 RgYLE00JGmsZ+IRv/ZcGJE+DrMSaGNPvUK5yYAjIaq08rg3GQLK2yoMw/xqQonDbpwv0mgDWJsXG
 KvqTug000ZShFPWrL2fVHGWRi1c/Y8Qq4u7pqIjFGXNWXqJWZPEaAEbeJs7qN6tSpFYyS5nDr3op
 qumJt7DvN07y9hxl9HnmrN0P18oWFM+n5t7ZvaW0OD0SeDkHrm/Xtyu+/U+AAQAfMjD68w6qvQAA
-AABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 246.48 118.1217)">
+AABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 246.48 118.1217)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="47" height="48" id="Layer_0_xA0_Imagen_19_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAyCAYAAAAX1CjLAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4183,7 +4245,10 @@ Wdm125r279+fOHfunL+7u/vtI0eOjG07FD8/OI4zDuA+O4SbmV+9+P7w3adR2LdKdCIq5xxGTeHo
 e8BsNue2c58HclRbX+eedzvN/cm02FPlrmryNB0orXglrDNbKydtKcOVnp6eq9txpeLCsHAX10Kx
 a5FY+lCTx/6D8LqHW5sT7+sKChlFAAygsBvluFJxYZ/uj1z4+9B7suzovTentItkBrL/5sqZM2cm
 MVeuHDhw4Bp2M/6qqqpopUDzQBGWzUnmv12989OR4eGf++5ct9W4hKXDhw9/iAAYwDn4oF3ZNWHG
-SKayzsTGRpumFQmLWZiupCv/k+NfAgwAEdOpY2Zy3CsAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 220.9208 64.305)">
+SKayzsTGRpumFQmLWZiupCv/k+NfAgwAEdOpY2Zy3CsAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 220.9208 64.305)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="37" height="31" id="Layer_0_xA0_Imagen_18_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4216,7 +4281,10 @@ GK7i077YA0nucdulZCo74HEJr4Qjpjfq7BYQ2Yf7NiZrGfMijiEZxYS9hvkSQBJTSEXCS6ytrS08
 jsozCbMKJjU4G50VU9lvvXX83ug8WT+aia7NYy7kDx06NIkJfAN3rlUqQa/XG+rq6krW1dVlkYy8
 HgXy0Lbgclpzy8n0L/lczVdizP1B7mCXirkygeG6hnv5idbW1gCGTOrs7BRRWKGaT+tduQ8Vhv5Z
 icbFiFKUvyy2Nf+uI1IFpLFw4MCBJFZTxu12F7b0bygpnak6A0OgaWwElf/Hf2L8KcAAPrH4V+2C
-ZkMAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 225.085 71.8238)">
+ZkMAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 225.085 71.8238)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="411" height="417" id="Layer_0_xA0_Imagen_20_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZ0AAAGlCAYAAAAh9itiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5588,10 +5656,13 @@ vSiKpAuCYAuiWHMc1LAsR5sayW3OHR69NzE2uPHC6ZmrmGAejIyUVrkjAAcnHQ6OLyiaTa20sVU5
 3jgOJhQTf+j4eTqZC8VHm3zYDrKO7S8tHpocepjLqtrx2cl7B6f2LQyWChuDxcJmqcTrMhycdDg4
 9jzIbNDWTnW61dKLlmWrTXzUdLPw4OH2TKXWKhmmldENK4NVkWDbSMRHiX2+IksmOYrEpwaTTnEg
 Vx0dKW7uGx7YLOSzlWxWbaiKrBHVMjJSXFVk2eD/6hwcHBwcHBwcHBwcHBwczzL+X4ABAP1j535H
-HJKvAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 196.0975 58.495)">
+HJKvAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 196.0975 58.495)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona8.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona8.color  + ')'}">
 	</image>
 </g>
-<g id="ZONA_3" (click)="ib3()">
+<g id="ZONA_3" *ngFor="let option of zone"
+ (click)="ib3()">
 	
 		<image style="overflow:visible;" width="221" height="273" id="Layer_0_xA0_Imagen_21_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAAETCAYAAADAnmHcAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAATuhJREFUeNrsvQd4XOd5JvrOzOlz
@@ -5949,7 +6020,10 @@ n6czmcTCwsIRTdVcNEXlQqHQzXi8uR/ljRdRxEzZ7XYpV8qfu89lmVvLs4cCYLRDVIVS92bInL/z
 p9NSFOV4JN7kvn37vti5c+cFJN2daopHJCRsWPBuC5ZlT9A0zWFRGkKhK+h61ul0PiWMh3Hfn8vM
 H//46meblrjMXnfBapFTBRQJpafEQ9FuCovX1tY24PP5ptdLvCcxkK+V8DyDROw4cfmTj5a51V0/
 n71htKU1vrN99xSS7wyaan6Dd24g+YT/c4xEQsJzTzqX2ToyO/YmU6FKYV/D936vbyIQCPC1Mr7f
-BBgAj9yk7YN0HRAAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 356.4729 86.6404)">
+BBgAj9yk7YN0HRAAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 356.4729 86.6404)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="152" height="236" id="Layer_0_xA0_Imagen_24_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAADyCAYAAAC1WNwgAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6225,7 +6299,10 @@ eDUWmPm7MGvam2PzvbZuF2XZ40bZ9TgqRLa2URzHVQBc+GPU7Xb7MLhm8Z7rPuy5urq6ZvGvJdT+
 3nSg7aKCqMaZjfm//l9jPx3IV4p/kM3nrKLFhGjOgDBjVcxmcw5v7KNOp9N/9OjRObznenDq1Kl7
 fX19Uy0tLfFmfm860HZZ7e0YWvlvD/7qJ1IxP5yOpy6aEjTnpMwxc58ncOjQoZlPP/30wcmTJx/0
 9vZOeDye6Pf1fVH6o9l9lSvk2L8fu3np65mHvx9a8FsP8QOP8anx6z179rz4PsGlA+0DAVsqm3aU
-y+WS0+KIMgxT1v9V9NJLL73UqP8vwAA0eFEsl1QU6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 392.0229 88.9567)">
+y+WS0+KIMgxT1v9V9NJLL73UqP8vwAA0eFEsl1QU6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 392.0229 88.9567)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="56" height="83" id="Layer_0_xA0_Imagen_23_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAABYCAYAAABCri89AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6326,7 +6403,10 @@ bLvlJy2B5sm1LJSsyW9j7erY9kw0H3+8rAh/nZdL9I5Ct9FOb/PSayzathlMDCmHcNTBGVmDFHT4
 R42s/uld7due2dWz/aW1kvaag7+8/PVq4vznlIrKEaISZJyUm9Mf9sCHiUPQdv+ogdM/2xfsOv6h
 LfuOum2udWvOX7NfRbus/HX9SGbqeiTn1M7Jw26wlnx2z0XMx1/oC3Yf3z944zGfw5tc72qwbq0v
 8PTZw3c/Pf78AwvZVDho8MTtJtspdGynBxp7X9mzadfLPuf6g15zyS+Ovd27fjVXSDSfl3WdzdbQ
-azdtuuGVzob2CafVkYP3wkgXM75YOhHWNI2F98f7Y8PH/wswANIlyPTkyj37AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 417.84 140.7863)">
+azdtuuGVzob2CafVkYP3wkgXM75YOhHWNI2F98f7Y8PH/wswANIlyPTkyj37AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 417.84 140.7863)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="101" height="58" id="Layer_0_xA0_Imagen_22_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAAA/CAYAAAAMl43uAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6456,7 +6536,10 @@ LkHgcZuyhbste26aAMGJSeF2TIo0kBUqLi2MP1nDsWqon5XhUOrGVHIst2toZ3p6cCKTjPZV4+Hb
 /zTN/5cAvV1S3FKVsKIr9MspoVytkFqupMebWjPU0jvBnFIaalrqmCSIMuYkInYs3dIlYNwQWb1n
 Lb10PdvgumQEvTq7i/7ScUzc1kkEwrnhyEApHoxpyXCiuWtoOpuKpWrRYKSZiiXrd/oBqvctQLeV
 SNvm2lpb0kw9oZuG7Di2gMwSUTp507YCCACHORLvuqxq6goYH1CKbEEQbGSjhWsLO96SRElDRjTR
-2Jj3e/V+u9+2Q/sPAQYAbrRXcaQwU24AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 399.5583 147.7358)">
+2Jj3e/V+u9+2Q/sPAQYAbrRXcaQwU24AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 399.5583 147.7358)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="52" height="63" id="Layer_0_xA0_Imagen_25_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAABDCAYAAADNlhYhAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6536,7 +6619,10 @@ GBm1vJ4nB63dHr68JMsDWi6fVzJ0t9ZuLeeBVxysws/hwbgtVbT+Pbvzlz9GVW0IB9vCY/7ae++I
 frwGqsLFPh3h1KCCvPEnLaW6Hbfs/IX543jkMweqo8VLWq2dk0nomLaPeSHW1Nt+ZXgd3uEHf71Z
 eHQd6coUTVqkxtZrVmv+yHKK9c8NKGa6gg4mcQZMys21W8vrHeNW25Fbr88o6MpZSOaGpAw8sxpv
 +lv/9l4/InznpQvcCyQtJqA/mShRWbntFs5svOugu+qocNufKW/kH2QAOStH/7NA+SdcFEYd/90t
-K3uCpr9AefGPUFczfq4jdItDY06+b/ZdLiv///i8Pv5HgAEABfp4oq5F8jIAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 388.5912 74.515)">
+K3uCpr9AefGPUFczfq4jdItDY06+b/ZdLiv///i8Pv5HgAEABfp4oq5F8jIAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 388.5912 74.515)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="49" height="45" id="Layer_0_xA0_Imagen_28_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAyCAYAAAAX1CjLAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6603,7 +6689,10 @@ Sdu2wzuidJTgaVJCZdVuY0XTNJeF62fPnl09KCsPBAzruX5pbu7/TMsKI5AsXpyqa9pksVQ8ifmC
 dPMiw9IG1rt3gIJzUf3Cx4uvWpbNxEKtZ9tRazTDnuy2B0Pr2Cur4+PjK8jIVWQmjyCL2PgHZuVP
 LeIe31LS29vbGaRIwIvQZmZnnymXK/+oKsowLwhbPT2pnw0ODPwbNvfNc73F5fXU9Hz+TGF7a5SG
 Tmt0KJVDVtzeEVHl1P+vL/Dv62+p5ubnR3NruWc6nc5oKBxeQqU8f+LEiTVXcHa/T9dNEnd2c5aF
-GdOCT2DdFzDLsohGoxFCBtHqmDaKjAqfrk/XoazfCTAAAEmDAKolcBYAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 357.2506 26.7375)">
+GdOCT2DdFzDLsohGoxFCBtHqmDaKjAqfrk/XoazfCTAAAEmDAKolcBYAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 357.2506 26.7375)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="148" height="231" id="Layer_0_xA0_Imagen_26_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADpCAYAAADGdc72AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6850,7 +6939,10 @@ W54/NrE0+dzNlek+VsOCpb8JAlecEHdXfiJsbm5O8qBxsiw7s7S0NMnf3m7wt7mpw4cPT9TV1a0Y
 DIbIZ/lMCrA2SaGt5t1Lv/z7pbDnr9VqdW11TRVZiFsIrILm+ybfH93lb3lXDh48OLN79+5Jvo9a
 4UGWkOrzKMDaRPXYlsPvuMMrW664bx3xqTxVCCqx+Xbwzfe1XPPN3+pu8r9u/7jmWwGWUvmqMVm8
 M0v2/x1LJUDDqR/zNm+9vWPHjkm+f7r95JNPjn+a5vuzlnLcsAlr3uNoP3dtZM9O69bJ9vZ2x+/S
-fH/W+v8CDABgpglfYrQzTQAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 364.32 36.35)">
+fH/W+v8CDABgpglfYrQzTQAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 364.32 36.35)"
+
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}">
 	</image>
 	
 		<image style="overflow:visible;" width="38" height="29" id="Layer_0_xA0_Imagen_27_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAhCAYAAACm75niAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6882,7 +6974,10 @@ NzQ0fFdXV9frcDgCbrd70Ry7YOWcD5krV0c//uL45Q+FtLR2XnUFbIC7qwAT50BXc0WDIkBxx44d
 9sbmzZt/XLduXTfKErdpmr6vWFsUHMdxTUhlPo0nMlX9Q9N77BbCWeahQaR9oCQmIX8P8A0bNmSR
 +4e2b99+CqnaVV5ePohg54pV9b4PhNwuKhaJJj6I86fYYFRsxQzVgkoFJI0/Y72trS2IVB1sbGxc
 MlWX7AguHInXH/v+yjujAW5neKyHqPFRo1sebTyHVD3j8/kGECxntVo1+Bes6LNDWVYpPimswnGT
-hmOmkMfjycH/9h+wXwQYAGKxznNLBaV6AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 361.9833 32.6669)">
+hmOmkMfjycH/9h+wXwQYAGKxznNLBaV6AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 361.9833 32.6669)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="431" height="373" id="Layer_0_xA0_Imagen_29_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbEAAAF7CAYAAABco7VjAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -8124,10 +8219,53 @@ YNAT22y4bH4hUtLdO9o0PDZbHo0l3INj8/Vjc4kmTC4+nocuF8/5eA4GMIGVS6LklxByIQkJiHTG
 JF1VEKI2IBBCCWbaeNHOmcT5I8XzXARfL4gSmsGXZDotxdNpMYGjq4nacn9/eWkg2lBbNrO2pX6w
 NBSYqygrmQmFAvPsL8TASIyBgaFgxBNJzxyO2mLxpDeVFoVYLOGdD8cC4xOzFXMLMV8imRaSybRL
 lCQoSYiT8DV5HSYqxCudJDmeoyTmcQtpTFLhirJAuKqydMbjdiV9Xk/M4xESpOcaE2EwMDAwMDAw
-MDAwMDAwMFzJ+P8FGACXHc5AS/+n6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 332.3792 21.965)">
+MDAwMDAwMFzJ+P8FGACXHc5AS/+n6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 332.3792 21.965)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 0 ' + option.zona9.color + ')
+	  drop-shadow(-5px -5px 0 ' + option.zona9.color  + ')'}"
+>
 	</image>
 </g>
+
+	  <text x="134.33" y="135.14" class="st4" [nbPopover]="card" (click)="changeId(7)" *ngFor="let option of zone">{{option.zona7.name}}</text>
+      <text x="206.33" y="99.14" class="st4" [nbPopover]="card" (click)="changeId(8)" *ngFor="let option of zone">{{option.zona8.name}}</text>
+      <text x="390.33" y="105.14" class="st4" [nbPopover]="card" (click)="changeId(9)" *ngFor="let option of zone">{{option.zona9.name}}</text>
+
 </svg>
+
+            <ng-template #card>
+                <nb-card class="popover-card">
+                    <nb-card-body>
+                        <div class="media" *ngFor="let zons of consumezoneData; let i = index">
+                            <!-- {{i}} -->
+                            <img class="align-self-start mr-3" id="im" src="./assets/img/carru.png" width="29%" alt="Card " />
+                            <div class="media-body">
+
+                                <b>Nombre:</b>
+                                <p>{{zons.ZoneName}}</p>
+
+                                <b>Id equipo:</b>
+                                <p>{{zons.ZoneId}}</p>
+
+                                <b>Estado:</b>
+                                <p>{{zons.Estado}}</p>
+
+                                <b>Consumo (KWH):</b>
+                                <p>{{zons.Consumo}} </p>
+
+                                <b>Cantidad Maletas</b>
+                                <p>{{zons.ContadorMaletas}} </p>
+
+                                <b>TiempoOn:</b>
+                                <p>{{zons.TiempoOn}} </p>
+
+                                <b>TiempoOff:</b>
+                                <p>{{zons.TiempoOff}} </p>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </ng-template>
+
         </div>
     </nb-card-body>
 </nb-card>

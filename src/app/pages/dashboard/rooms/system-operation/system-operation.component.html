@@ -3012,21 +3012,55 @@
         />
       </g>
       
-      <text x="141.33" y="135.14" class="st4" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona13.name}}</text>
-      <text x="212.33" y="99.14" class="st4" [nbPopover]="card2" *ngFor="let option of zone">{{option.zona1.name}}</text>
-      <text x="238.33" y="150.14" class="st4"  [nbPopover]="card11" *ngFor="let option of zone">MU1-5</text>
-      <text x="344.33" y="205.14" class="st4" [nbPopover]="card11" >MU2-5</text>
-      <text x="143.33" y="178.14" class="st4" [nbPopover]="card4" *ngFor="let option of zone">{{option.zona5.name}}</text>
-      <text x="60.33" y="100.14" class="st4" [nbPopover]="card1" *ngFor="let option of zone">{{option.zona12.name}}</text>
-      <text x="154.33" y="41.14" class="st4" [nbPopover]="card1" >SFC1</text>
-      <text x="348.333" y="170.14" class="st4" [nbPopover]="card" *ngFor="let option of zone">{{option.zona3.name}}</text>
-      <text x="238.33" y="186.14" class="st4" [nbPopover]="card6" *ngFor="let option of zone">{{option.zona4.name}}</text>
-      <text x="186.33" y="176.14" class="st4" [nbPopover]="card8" *ngFor="let option of zone">{{option.zona11.name}}</text>
-      <text x="252.33" y="94.14" class="st4" [nbPopover]="card9" >ATR1</text>
-      <text x="252.33" y="115.14" class="st4" [nbPopover]="card10" >ATR2</text>
+      <text x="141.33" y="135.14" class="st4" [nbPopover]="card" (click)="changeId(13)" *ngFor="let option of zone">{{option.zona13.name}}</text>
+      <text x="212.33" y="99.14" class="st4" [nbPopover]="card" (click)="changeId(1)" *ngFor="let option of zone">{{option.zona1.name}}</text>
+      <text x="238.33" y="150.14" class="st4"  [nbPopover]="card" (click)="changeId(6)" *ngFor="let option of zone">{{option.zona6.name}}</text>
+      <!-- <text x="344.33" y="205.14" class="st4" [nbPopover]="card11" >MU2-5</text> -->
+      <text x="143.33" y="178.14" class="st4" [nbPopover]="card" (click)="changeId(5)" *ngFor="let option of zone">{{option.zona5.name}}</text>
+      <text x="60.33" y="100.14" class="st4" [nbPopover]="card" (click)="changeId(12)" *ngFor="let option of zone">{{option.zona12.name}}</text>
+      <!-- <text x="154.33" y="41.14" class="st4" [nbPopover]="card1" >SFC1</text> -->
+      <text x="348.333" y="170.14" class="st4" [nbPopover]="card" (click)="changeId(3)" *ngFor="let option of zone">{{option.zona3.name}}</text>
+      <text x="238.33" y="186.14" class="st4" [nbPopover]="card" (click)="changeId(4)" *ngFor="let option of zone">{{option.zona4.name}}</text>
+      <text x="186.33" y="176.14" class="st4" [nbPopover]="card" (click)="changeId(11)" *ngFor="let option of zone">{{option.zona11.name}}</text>
+      <!-- <text x="252.33" y="94.14" class="st4" [nbPopover]="card9" >ATR1</text>
+      <text x="252.33" y="115.14" class="st4" [nbPopover]="card10" >ATR2</text> -->
 
 
       </svg>
+
+            <ng-template #card>
+                <nb-card class="popover-card">
+                    <nb-card-body>
+                        <div class="media" *ngFor="let zons of consumezoneData; let i = index">
+                            <!-- {{i}} -->
+                            <img class="align-self-start mr-3" id="im" src="./assets/img/carru.png" width="29%" alt="Card " />
+                            <div class="media-body">
+
+                                <b>Nombre:</b>
+                                <p>{{zons.ZoneName}}</p>
+
+                                <b>Id equipo:</b>
+                                <p>{{zons.ZoneId}}</p>
+
+                                <b>Estado:</b>
+                                <p>{{zons.Estado}}</p>
+
+                                <b>Consumo (KWH):</b>
+                                <p>{{zons.Consumo}} </p>
+
+                                <b>Cantidad Maletas</b>
+                                <p>{{zons.ContadorMaletas}} </p>
+
+                                <b>TiempoOn:</b>
+                                <p>{{zons.TiempoOn}} </p>
+
+                                <b>TiempoOff:</b>
+                                <p>{{zons.TiempoOff}} </p>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </ng-template>
 
             <!-- <svg
         xmlns="http://www.w3.org/2000/svg"

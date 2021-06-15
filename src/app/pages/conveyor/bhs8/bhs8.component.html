@@ -5,6 +5,7 @@
             <a href="#" (click)="back()" class="link back-link" aria-label="Back">
                 <nb-icon icon="arrow-back"></nb-icon>
             </a>
+            <h5 class="h">MANUAL ENCODE LINE</h5>
         </nav>
     </nb-card-header>
 
@@ -20,6 +21,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 221.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                     
                     <image
@@ -27,6 +30,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 222.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -34,6 +39,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 223.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -41,6 +48,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 224.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                   
                     <image
@@ -48,6 +57,8 @@
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
                       xlink:href="./assets/svg/Recurso 225.png"
+                      [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
                     />
                 
                     <text x="243.93" y="220.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>

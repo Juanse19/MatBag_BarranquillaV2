@@ -94,7 +94,11 @@ export class Bhs8Component implements OnInit {
         this.states  = res;
         console.log('status:', res);
     });
- 
+  }
+
+  ngOnDestroy() {
+    this.changeId(this.alive = false);
+    this.alive = false;
   }
 
 }

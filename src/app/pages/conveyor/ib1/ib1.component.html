@@ -5,13 +5,14 @@
             <a href="#" (click)="back()" class="link back-link" aria-label="Back">
                 <nb-icon icon="arrow-back"></nb-icon>
             </a>
+            <h5 class="h">INBOUND 1</h5>
         </nav>
     </nb-card-header>
 
     <nb-card-body>
         <div class="room-layout">
 
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 460.8 259.2" style="enable-background:new 0 0 460.8 259.2;" xml:space="preserve">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-30 83 300.8 160.2" style="enable-background:new 0 0 460.8 259.2;" xml:space="preserve">
                 
                 
                 
@@ -2921,48 +2922,34 @@
                 </image>
             
                 
-                    <text x="243.93" y="220.89" class="st5" [nbPopover]="list" nbPopoverPlacement="right">b1</text>
-                    <text x="240.193" y="208.89" class="st5" [nbPopover]="card" nbPopoverPlacement="right">b2</text>
-                    <text x="235.193" y="203.89" class="st5" [nbPopover]="list">b3</text>
-                    <text x="202.93" y="211.89" class="st5" [nbPopover]="tabs" nbPopoverPlacement="left">b4</text>
-                
+                    <text x="216.93" y="216.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
+                    <text x="187.193" y="146.89" class="st4" [nbPopover]="card" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
+                    <text x="168.193" y="108.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
+                    <text x="140.93" y="107.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
+                    <text x="89.93" y="115.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[4]?.idEquipo)">{{zone[4]?.Name}}</text>
+                    <text x="115.93" y="111.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[5]?.idEquipo)">{{zone[5]?.Name}}</text>
+                    <text x="36.93" y="137.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[6]?.idEquipo)">{{zone[6]?.Name}}</text>
+                    <text x="9.93" y="150.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[7]?.idEquipo)">{{zone[7]?.Name}}</text>
             </svg>
-
-            <ng-template #list>
-                <nb-card class="margin-bottom-0">
-                    <nb-card-header>Template Shopping list</nb-card-header>
-                    <nb-list>
-                        <nb-list-item>Apple</nb-list-item>
-                        <nb-list-item>Orange</nb-list-item>
-                    </nb-list>
-                </nb-card>
-            </ng-template>
-
-            <ng-template #tabs>
-                <nb-card class="margin-bottom-0">
-                    <nb-card-header>Template Shopping list</nb-card-header>
-                    <nb-tabset>
-                        <nb-tab tabTitle="Fruits">
-                            <nb-card class="margin-bottom-0">
-                                <nb-card-body>Fruits list</nb-card-body>
-                            </nb-card>
-                        </nb-tab>
-                        <nb-tab tabTitle="Vegetables">
-                            <nb-card class="margin-bottom-0">
-                                <nb-card-body>Vegetables list</nb-card-body>
-                            </nb-card>
-                        </nb-tab>
-                    </nb-tabset>
-                </nb-card>
-            </ng-template>
 
             <ng-template #card>
                 <nb-card class="popover-card">
-                    <nb-card-header status="warning">
-                        Manual Encode
-                    </nb-card-header>
                     <nb-card-body>
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        <div class="media" *ngFor="let option of divice; let i = index">
+                            <!-- {{i}} -->
+                            <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
+                            <div class="media-body">
+                                <h6>Id equipo: {{option.DeviceId}}</h6>
+                                <b>Estado:</b>
+                                <p>{{option.Estado}}</p>
+                                <b>Consumo (KWH):</b>
+                                <p>{{option.Consumo}} </p>
+                                <b>TiempoOn:</b>
+                                <p>{{option.TiempoOn}} </p>
+                                <b>TiempoOff:</b>
+                                <p>{{option.TiempoOff}} </p>
+                            </div>
+                        </div>
                     </nb-card-body>
                 </nb-card>
             </ng-template>

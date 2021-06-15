@@ -23,7 +23,7 @@ export class Bhs1Component implements OnInit {
 
   team: teams[] = [];
 
-  intervalSubscriptionStatusAlarm:Subscription;
+  intervalSubscriptionStatusAlarm: Subscription;
  
   public dataBanda1: Banda1 = {
     b1: "",
@@ -57,7 +57,7 @@ export class Bhs1Component implements OnInit {
     this.router.navigate(['/pages/iot-dashboard']);
     return false;
   }
-
+ 
 
   public bandaNameCharge(){
     this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona13')

@@ -15,9 +15,10 @@ import { BhsFaultsComponent } from './bhs-faults/bhs-faults.component';
 import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { BhsEventsComponent } from './bhs-events/bhs-events.component';
 import { EdsstatisticsComponent } from './edsstatistics/edsstatistics.component';
+import { AtrperformanceComponent } from './atrperformance/atrperformance.component';
 
 @NgModule({
-  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent],
+  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent],
   imports: [
     CommonModule,
     ReportsPiaRoutingModule,

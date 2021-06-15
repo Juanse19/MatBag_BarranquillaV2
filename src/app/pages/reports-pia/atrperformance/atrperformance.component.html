@@ -1,0 +1,19 @@
+<nb-card>
+    <nb-card-header>
+        Desempeño del ATR
+    </nb-card-header>
+    <nb-card-body>
+        <ejs-grid [dataSource]='atrperformanceData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+            <e-columns>
+                <e-column field='Name' headerText='Nombre ATR' width=120></e-column>
+                <e-column field='Description' headerText='Descripción' width=100></e-column>
+                <e-column field='Totalbaggageviewed' headerText='Total equipajes vistos' width=100></e-column>
+                <e-column field='Totalbarcodesread' headerText='Total códigos barras leídos' width=100></e-column>
+                <e-column field='Totalbarcodesproblems' headerText='Total códigos barras con problemas' width=100></e-column>
+                <e-column field='bagtagsassociatedtracking' headerText='Numero bagtags asociados al tracking ' width=100></e-column>
+                <e-column field='TotalbagtagsreadAtrEds' headerText='códigos IATA pasaron por el ATR ' width=100></e-column>
+                <e-column field='TotalIATAtassentbackEds' headerText='códigos IATA del EDS que fueron regresados' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
+    </nb-card-body>
+</nb-card>

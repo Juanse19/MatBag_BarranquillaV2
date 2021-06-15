@@ -6,6 +6,7 @@ import { PhotoelectricComponent } from './photoelectric/photoelectric.component'
 import { BhsFaultsComponent } from './bhs-faults/bhs-faults.component';
 import { BhsEventsComponent } from './bhs-events/bhs-events.component';
 import { EdsstatisticsComponent } from './edsstatistics/edsstatistics.component';
+import { AtrperformanceComponent } from './atrperformance/atrperformance.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'edsstatistics',  
         component: EdsstatisticsComponent, 
+      },
+      {
+        path: 'atrperformance',  
+        component: AtrperformanceComponent, 
       },
     ],
   },
