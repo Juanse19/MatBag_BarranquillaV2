@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { delay, map, takeUntil, takeWhile, timeout,switchMap } from 'rxjs/operators';
 import { Observable, Subject, of, BehaviorSubject, interval,Subscription } from 'rxjs';
-import { Zones, syste, teams, Consumezone } from '../../../conveyor/_interfaces/MatBag.model';
+import { Zones, syste, teams, Consumezone, departures } from '../../../conveyor/_interfaces/MatBag.model';
 import { HttpService } from '../../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,6 +22,9 @@ export class SystemOperationComponent implements OnInit {
   private alive=true;
 
   public consumezoneData: Consumezone[] = [];
+
+
+  public deparData: departures[] = [];
 
   team: teams[] = [];
 
@@ -57,6 +60,17 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any)=>{
       this.consumezoneData=res;
       console.log('Zons:', res , 'states');
+      
+    });
+  }
+
+  public changeIdMakeUp(mak: any){
+ 
+    this.http.get(this.api.apiUrlNode1 + '/api/departuresInfo?Id='+ mak)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any)=>{
+      this.deparData=res;
+      console.log('MakeUps:', res , 'states');
       
     });
   }

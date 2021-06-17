@@ -57,6 +57,7 @@ export interface departures {
     Name: string,
     ICAO: string,
     Flight: string,
+    Vuelos:string,
     STD: string,
     ETD: string,
     DATE: string,
