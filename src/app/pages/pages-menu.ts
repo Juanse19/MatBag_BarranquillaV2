@@ -52,6 +52,10 @@ export class PagesMenu {
             link: '/pages/conveyor/bhs6',
           },
           {
+            title: 'Security Shunt',
+            link: '/pages/conveyor/bhs9', 
+          },
+          {
             title: 'On Screen Resolution Line',
             link: '/pages/conveyor/bhs7', 
           },

@@ -108,6 +108,10 @@ export class SystemOperationComponent implements OnInit {
     this.router.navigate(['/pages/conveyor/bhs8']);
    }
 
+   bhs9() {
+    this.router.navigate(['/pages/conveyor/bhs9']);
+   }
+
    ngOnDestroy() {
     this.changeId(this.alive = false);
     this.alive = false;

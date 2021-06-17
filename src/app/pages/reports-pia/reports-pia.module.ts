@@ -17,8 +17,9 @@ import { BhsEventsComponent } from './bhs-events/bhs-events.component';
 import { EdsstatisticsComponent } from './edsstatistics/edsstatistics.component';
 import { AtrperformanceComponent } from './atrperformance/atrperformance.component';
 
+
 @NgModule({
-  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent],
+  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent,],
   imports: [
     CommonModule,
     ReportsPiaRoutingModule,

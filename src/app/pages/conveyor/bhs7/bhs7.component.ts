@@ -127,7 +127,7 @@ export class Bhs7Component implements OnInit {
     this.intervalSubscriptionStatusAlarm = interval(1000)
     .pipe(
       takeWhile(() => this.alive),
-      switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona6')),
+      switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona3')),
     )
     .subscribe((res: any) => {
         this.states  = res;

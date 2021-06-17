@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { Ib1Component } from './ib1/ib1.component';
 import { Ib2Component } from './ib2/ib2.component';
 import { Ib3Component } from './ib3/ib3.component';
+import { Bhs9Component } from './bhs9/bhs9.component';
 
 
 
@@ -49,6 +50,7 @@ import { Ib3Component } from './ib3/ib3.component';
     Ib1Component,
     Ib2Component,
     Ib3Component,
+    Bhs9Component,
   ],
   imports: [
     CommonModule,
