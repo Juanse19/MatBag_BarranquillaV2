@@ -31645,8 +31645,10 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
       <text x="375.333" y="170.14" class="st4" [nbPopover]="card" (click)="changeId(3)" *ngFor="let option of zone">{{option.zona3.name}}</text>
       <text x="278.33" y="192.14" class="st4" [nbPopover]="card" (click)="changeId(4)" *ngFor="let option of zone">{{option.zona4.name}}</text>
       <text x="224.33" y="180.14" class="st4" [nbPopover]="card" (click)="changeId(11)" *ngFor="let option of zone">{{option.zona11.name}}</text>
-      <!-- <text x="252.33" y="94.14" class="st4" [nbPopover]="card9" >ATR1</text>
-      <text x="252.33" y="115.14" class="st4" [nbPopover]="card10" >ATR2</text> -->
+      <text x="290.33" y="103.14" class="st4" [nbPopover]="card10" >ATR1</text>
+      <text x="288.33" y="123.14" class="st4" [nbPopover]="card10" >ATR2</text>
+      <text x="328.33" y="113.14" class="st4" [nbPopover]="card10" >EDS1</text>
+      <text x="299.33" y="146.14" class="st4" [nbPopover]="card10" >EDS2</text>
 
 </svg>
 
@@ -31709,6 +31711,27 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </ng-template>
+
+        <ng-template #card10>
+            <nb-card class="popover-card">
+                <nb-card-header status="warning">
+                    ATR2
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="media">
+
+                        <img class="align-self-center mr-3" src="./assets/img/teams.png" width="75px" alt="Card " />
+                        <div class="media-body">
+                            <h6>Id equipo: ID-2</h6>
+                            <p>Estado: On</p>
+                            <P>Consumo KWH: 1,5</P>
+                            <p>TiempoOn: 252,11</p>
+                            <p>TiempoOff: 231,0</p>
                         </div>
                     </div>
                 </nb-card-body>

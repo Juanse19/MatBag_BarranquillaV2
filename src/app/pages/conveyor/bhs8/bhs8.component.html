@@ -1,4 +1,4 @@
-<nb-card>
+<!-- <nb-card>
 
     <nb-card-header>
         <nav class="navigation">
@@ -10,10 +10,10 @@
     </nb-card-header>
 
     <nb-card-body>
-        <div class="room-layout">
-            <!-- <img src="./assets/bhs/BHS8.png" alt="" /> -->
+        <div class="room-layout"> -->
+<!-- <img src="./assets/bhs/BHS8.png" alt="" /> -->
 
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="145 170 162.63 85.06">
+<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="145 170 162.63 85.06">
                 
             
                     <image
@@ -72,7 +72,7 @@
                 <nb-card class="popover-card">
                     <nb-card-body>
                         <div class="media" *ngFor="let option of divice; let i = index">
-                            <!-- {{i}} -->
+                            {{i}}
                             <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
                             <div class="media-body">
                                 <h6>Id equipo: {{option.DeviceId}}</h6>
@@ -92,7 +92,7 @@
 
         </div>
     </nb-card-body>
-</nb-card>
+</nb-card> -->
 
 <nb-card>
 
@@ -106,7 +106,7 @@
     </nb-card-header>
 
     <nb-card-body>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="136 125 212.63 140.06">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="145 160 162.63 70.06">
             <image style="overflow:visible;" width="35" height="29" id="Layer_0_xA0_Imagen_159_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAhCAYAAAC1ONkWAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAACFxJREFUeNrsWF1TFNkZfk739Hx/
 MCg4Kl8z4hdgcEXZqCGALFvFBmutxNpo9ipVqcoPyC+ItTepyvVe5GJTufHCVFJrNlhGVpHF0hIE
@@ -146,7 +146,10 @@ ffHixV6fz7f+nXew3iLPxs5ib8/e3btNVsv6B1wLVbx5P+H2IZMd8CTsibuakz4jj0gjnDiDCBq4
 qzmkE8smkxueyoqyOYfokPlvxyL6gB6jw/Rj7oFnWIjtV5OqNBWZwheRL3BZuUx5RGJlZWXDXD9f
 dXZ23mpoaJh0Op3p//pfBGydmegE3UsH6Y/YGOtgYdYmP0/77mXvpj93fT6227/72unTp2+dPXv2
 QXFxceKt/ndhEHzBzNqgVk376Yd0ltatWleTvTW9d1rOt9zmEVt7J3+qFMhpXOWrsLIs28HNU9VK
-tDDvCtnvM9Y/BRgAMpwZKIJcdNoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 230.3219 184.9306)">
+tDDvCtnvM9Y/BRgAMpwZKIJcdNoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 230.3219 184.9306)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="36" height="28" id="Layer_0_xA0_Imagen_158_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -189,7 +192,10 @@ KhZ7ClFQQSpQKpTyS5ElIbtVt970UtNgY2PjF62trV2dnZ03g8Fg4n9+AZHL5YRodK5o5Ntw88TU
 dNOqkuKxYEnxdCw2v6q2pnq4ujQ0Q+6SVfQ23cFL+utkjuwjERLKZrJiT6wHx+eO45PUJ9amjdra
 2vGysrJLO3fu/Ad38wXOZuS5vykxDMMaI3A5mN/5lmSGyewOW8NusddImLTz5/td+oQevJK9Qt/P
 vz/vrHZeb2lp+fvhw4e7NmzYMPokHf7gr3RswCPMxZltZjdZByawcYJMmJ+Rz/pCHaFLPKK/5o8e
-6Rf+7ml5deOF2McDrJyZjBkhY0IukRP4KbX/CDAAVvIbfh/+vEUAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 235.3836 188.0638)">
+6Rf+7ml5deOF2McDrJyZjBkhY0IukRP4KbX/CDAAVvIbfh/+vEUAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 235.3836 188.0638)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+>
 	</image>
 
     <image style="overflow:visible;" width="37" height="29" id="Layer_0_xA0_Imagen_160_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -230,7 +236,10 @@ SMAO6c2/Sh1GtBWauegr/MKQYSf9/f3+QCCw7d69ey9IObRL6GW5bI6sxqvhkHYI2qva7bJECMmH
 eSMNSNA/ysId0Bq0MVpLDezAT7Tbe+w9k8vlUvqNxeNxKd+e23JNeUluK07L49bGZGPpkcojUFtS
 C8iBLAl4nSwhZ3EtvqQ1asPaei1FvI8f5kV9pBMKhVznz5+vCwaDe3ZO7nxxx/SOLSXlJTGylLwj
 txCdbAPrdzzrmKIV9KkAF+XZk0wgNDg46DU/Muuq4lU1Uq+TMsRBWWqiWt2/r8Ov/SGZ3O9gbnCi
-1iiklHD4//gGjH8IMABG8r43adBw1QAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 225.6419 183.3919)">
+1iiklHD4//gGjH8IMABG8r43adBw1QAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 225.6419 183.3919)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+>
 	</image>
 	
 		<image style="overflow:visible;" width="123" height="79" id="Layer_0_xA0_Imagen_161_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAABTCAYAAACyJghjAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -364,13 +373,56 @@ T3E/eIjoCTFpvcKBuXvndDo61qxc8b3DYc8tzRa66GYrKSnGozU+HHC5rn93c9Xx4P3gKbs7r+6h
 fGJiqiYej+dh1biGYuO2Ky7tOPoic1pxYUH78mVLv66sKA/kLv9zKDo2m82G+6P3x8fH3e33O75t
 udd+2ucffJnA3woymNtwl448NFEUpmSb3FdYUPD3+i11t8jyTs9d/l9wyfY029DQcNG3128e6+rp
 e2d8YqKe4zknL3D+0pLiaxvWrX1/86ZN1/Lz83Jr8sUkOl2upVKsy+2par3X9upUOLK2pLjo6o5t
-9ZeKigrHcpf8l2//L8AACu/XodsyLaoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 200.0242 186.1525)">
+9ZeKigrHcpf8l2//L8AACu/XodsyLaoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 200.0242 186.1525)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+>
 	</image>
 
-    <text x="243.93" y="220.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
-    <text x="240.193" y="208.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
-    <text x="235.193" y="203.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
-    <text x="202.93" y="211.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
+    <image style="overflow:visible;" width="42" height="32" id="Layer_0_xA0_Imagen_157_" xlink:href="data:image/png;base64,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" transform="matrix(0.24 0 0 0.24 239.6357 192.1)"
+[ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+>
+	</image>
+
+    <text x="249.93" y="195.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
+    <text x="242.193" y="188.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
+    <text x="235.193" y="184.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
+    <text x="202.93" y="194.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
 
 </svg>
 

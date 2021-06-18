@@ -14,6 +14,8 @@ export class Bhs2Component implements OnInit {
 
   public zone: zons[] = [];
 
+  public zons: zons[] = [];
+
   public divice: teams[] = [];
 
   public states: states [] = [];
@@ -67,6 +69,7 @@ export class Bhs2Component implements OnInit {
   ngOnInit(): void {
     // this.banda2NameCharge();
     this.bandaNameCharge();
+    this.bandaNameXOCharge();
     this.bandaStateCharge();
   }
 
@@ -88,12 +91,21 @@ export class Bhs2Component implements OnInit {
   // }
 
   public bandaNameCharge(){
-
     this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona1')
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
       console.log('Zons2:', res , 'band with zones', this.zone[1].Name);
+      
+    });
+  }
+
+  public bandaNameXOCharge(){
+    this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona10')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res:zons[]=[])=>{
+      this.zons=res;
+      console.log('Zons10:', res , 'band with zones', this.zone[1].Name);
       
     });
   }

@@ -1,4 +1,4 @@
-<nb-card>
+<!-- <nb-card>
 
     <nb-card-header>
         <nav class="navigation">
@@ -10,15 +10,15 @@
     </nb-card-header>
 
     <nb-card-body>
-        <div class="room-layout">
-            <!-- <img src="./assets/bhs/BHS7.png" alt="" /> -->
+        <div class="room-layout"> -->
+<!-- <img src="./assets/bhs/BHS7.png" alt="" /> -->
 
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="208 108 282.63 110.06">
-                
-             
-                <!--    -->
+<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="208 108 282.63 110.06">
+                 -->
 
-                    <image
+<!--    -->
+
+<!-- <image
                       width="1920"
                       height="1080"
                       transform="translate(0 18.86) scale(0.24)"
@@ -180,7 +180,7 @@
                 <nb-card class="popover-card">
                     <nb-card-body>
                         <div class="media" *ngFor="let option of divice; let i = index">
-                            <!-- {{i}} -->
+                            {{i}}
                             <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
                             <div class="media-body">
                                 <h6>Id equipo: {{option.DeviceId}}</h6>
@@ -228,7 +228,7 @@
 
         </div>
     </nb-card-body>
-</nb-card>
+</nb-card>-->
 
 <nb-card>
 
@@ -243,8 +243,8 @@
 
     <nb-card-body>
 
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="238 110 252.63 115.06">
-      <g id="ZONA_4">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="175 110 252.63 115.06">
+      
 		
         <image style="display:none;overflow:visible;opacity:0.5;" width="1920" height="1080" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4UAAAQ7CAYAAACIbnipAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
   GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAABA3FJREFUeNrs270NAWEAgOHzcwUS
@@ -1413,7 +1413,10 @@
   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPBw8P8EGAD/11WTZXfH
-  lwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 -3.051758e-05 0)">
+  lwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 -3.051758e-05 0)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="110" height="87" id="Layer_0_xA0_Imagen_68_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAABcCAYAAABQp/pCAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1561,7 +1564,10 @@
   Yh7r6YLoK0BeZVDs7hvY9MSTT/84Go35z9Rz5yx1lk5TY8Po2Fjohff3f9hZVlp6b1v78ds0UXIR
   l8c5PjJCtOEhIS8vH8mYUlIkOa4UJVHIgXoOnLKy0nhKVfccbj3SDZCdiWRSzfP55seiMa8oS6mT
   nd3fhSB6L5k/7ylBEMI5UM+R43a5WG3ZTc32eVmWjVAo/GYymZSdLqfhcjrb1JTqbaiv+73P603n
-  rtZ5cELhsG9oaLjgTD/u/xdgACBGP2gEw7oyAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 328.8 143.0838)">
+  rtZ5cELhsG9oaLjgTD/u/xdgACBGP2gEw7oyAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 328.8 143.0838)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="109" height="86" id="Layer_0_xA0_Imagen_69_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHEAAABcCAYAAABZTFo4AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1709,7 +1715,10 @@
   38BjmUz2ZtMUPU6PB7LxGVBzWXAFw6T3c1XHemN/FamtbUwkk39DfnSoBOJVskijT+32o6Tp/zfS
   JnT19vV/ZzYe32o6nW7d7RYT8bhbSqYMX3m5SxWcvrGZ+LpsNltXAvEqbfolWT5SVRkenpqa2ReP
   x+uT6UzEIYp1HrdbTuVy63ieEyOh0KmKQLD/c4Xw0u3+8qpWVVXdumF4SPjkh4cv7R6fmGzatmXz
-  K40N9T2lO1RapXWtr/8vwADDKCQobi78FgAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 351.7567 159.0575)">
+  K40N9T2lO1RapXWtr/8vwADDKCQobi78FgAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 351.7567 159.0575)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="35" height="44" id="Layer_0_xA0_Imagen_70_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAuCAYAAABEbmvDAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1771,7 +1780,10 @@
   2nrr6z377tngIfCZ/ADhlIupxulj+52liYca68XHF5YWdqYlT0mp2MViE2D6lLnYktJwGknLvRa7
   9eAvYrsOnkiM7NY/l19GrJXFbOOtlx/01qcPY7I84OvlrbreFG2QPSGZmxOT+deio/t+m9x36Hy4
   b8D6XH+y8W1LspamtzZO/ulhr3b1CaNR3+FS6ZKU2/nn6I79f03suqMgfyj7brT8U4ABAKeDusF5
-  0K0mAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 373.4838 174.605)">
+  0K0mAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 373.4838 174.605)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="37" height="30" id="Layer_0_xA0_Imagen_71_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAhCAYAAAC1ONkWAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1814,7 +1826,10 @@
   39t95f3enpV9f3wzGAyaHjO4r/oXpncV629me21hrMkNh1mWKJRUQyEi1x0L5GSPTLG4q8WgSBKZ
   eC7c6m3+28EDvd++k3cXWH+sGPa3KvFQD2vki2HGVlhYWf8IzyajpXJlQJIV3m63L9XVWf98+tTJ
   P73X1Rl45y9Vql2GQmyFwyafz394ZW39bKkiulq93slTQwMT7vr65NvE2ldgOwP3+CRu+CyVisjZ
-  7XVJLAHpbWP8W4ABABziPmmb3m6dAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 369.0438 180.5794)">
+  7XVJLAHpbWP8W4ABABziPmmb3m6dAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 369.0438 180.5794)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="35" height="29" id="Layer_0_xA0_Imagen_72_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAhCAYAAAC1ONkWAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1857,7 +1872,10 @@
   MeV215zZ1NEx8cJfERjz6eTkZNO5c+f23xocOLiFXuzc3eKx8SyVY9wNd/jOnWfvaU524tH0vtxi
   bisRu5ZmWNVq5cNBv//zvX17Pm9oqE+8tHcXREpuZmKskw6P7mZyqSaLNzhas7X7gj3UHCELTCoS
   ibbcuHnzyGxMeI/j+GzrhvVfvt3TPeD1eLL/9ZcqT2+LuZxTluUAiZdCrc+XpGlah/9vL2n7pwAD
-  AL6KELieXk78AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 364.4662 183.5219)">
+  AL6KELieXk78AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 364.4662 183.5219)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="56" height="49" id="Layer_0_xA0_Imagen_73_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA2CAYAAACWeYpTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1931,7 +1949,10 @@
   7CbR9LVQ7xmlGlnSJwHoPGz5d+5Mv2fVN1KPgx53NjU15RYWFj60c+fOe2pqavKwJdmsKBReLHDB
   3HHpIJic6DxGD7nzGHag8VVXV5e3efPmdQh4zhQHyX2hINUoWVMCsjvr81EPrHvZPnbicfiWrRt+
   9hIOhy3l5eWzjm3/7dPzpSs5hqwZlzKXr/35cIqAYV1KwJ/S29w4PtobtMP36/s1bOv/BRgAE70Q
-  C2I7YdQAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 354.4904 186.6575)">
+  C2I7YdQAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 354.4904 186.6575)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="144" height="101" id="Layer_0_xA0_Imagen_74_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABoCAYAAAATmQmLAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2112,7 +2133,10 @@
   3S7nVLnLdRlJ0lLS5fRb1IppcOM5a3pmj7Q0eWKryVR/PAumpENajThrr3V0dJw9evToxePHjw/5
   fH9+7JFRIN2Ea35hsfz2wL2eufmFdymw9lPKCns95b1bt7RcCtXWRjLZrJP+tWioIhiP37vanH50
   9VUcneuaiMRt91P2R6Rlf9+77757t6rqhw/mNIC1SVc6k7E8Hh5pjEajW02SaeGFHR0P6QluXcHN
-  pqKpsZUaBWOT6nDPu2vqV0wmEzF+i8YylrGej/X/BRgA5PDOWO3pfw8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 340.4535 129.2497)">
+  pqKpsZUaBWOT6nDPu2vqV0wmEzF+i8YylrGej/X/BRgA5PDOWO3pfw8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 340.4535 129.2497)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="144" height="101" id="Layer_0_xA0_Imagen_75_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABoCAYAAAATmQmLAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2298,7 +2322,10 @@
   qbVx97R4X7l8+uByPR6pE9So4/+2D2h7hqWLs2bNOvLggw9uW7p06St+v3/sz/0eNrCm6BgdHavf
   /fa7Pzh99txKkQi55SWFH8ya2bqlqbFxdyQSLVZV1VFaWnJMk5O+2InPll98/T8fIvGLpYfGnIFg
   y4qd99xzz8aCAr7pbQ97jB8MPM7untM3vdd+4JFwOFzyB5kuMFKBrV8iQwPNX8Wx/58AAwDY/Af5
-  AhV4+gAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 371.5252 149.6975)">
+  AhV4+gAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 371.5252 149.6975)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="31" height="47" id="Layer_0_xA0_Imagen_76_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAyCAYAAADSprJaAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2358,7 +2385,10 @@
   18e+x2qFDSl8cHB7GqfGUEabT4Tsbmwhiv4W7NHgjJlbnqiOnDqlTw+/QDXPXqy+67j7Ok0OEZ36
   IhKRojbYXdtClNraC/jxF+N6ctC4NPoLT774M6LpbW6DSSVJrsiyPCPLUuau72PKXX3Lp06dOh6w
   2HaTlvZgfcHneGExEo2c6Fnf86eBgW1Dd3WXv7mba5pSJrOycWJi4lClsrolGAx+snv37o8ikUjx
-  rv9Xw5f2NXVdxtREHxMNsW58d3z9W4ABAKf7xoSIyWIjAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 402.3652 169.8367)">
+  rv9Xw5f2NXVdxtREHxMNsW58d3z9W4ABAKf7xoSIyWIjAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 402.3652 169.8367)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="36" height="29" id="Layer_0_xA0_Imagen_77_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2403,7 +2433,10 @@
   8bhsm1dSAgZcCoWVS9sdkiSXV5R3o3OQlSuajpWXlfbd86vIXDYE+Tjy9yXH9VOtG5aUOUSBj1of
   farb9dS2NzwT4WUj3tHltQtrevv6L631DI+0Fhe7qtGfOM1/TRwXt1jM//xW29afOh3OG06nY+Jz
   vTPNdcvlcpaIb+QJdXy40VLz2EXb/IVX6EL6UHxIYVrKZLL2j7zetWd6zu2MRuJNsqpE6+tqz3x1
-  3drflZS4h//v/oEWi8crT3We3eUd9bViz2m51/H/EmAA0uJ0tjDNgxIAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 397.4452 176.1131)">
+  3drflZS4h//v/oEWi8crT3We3eUd9bViz2m51/H/EmAA0uJ0tjDNgxIAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 397.4452 176.1131)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="36" height="29" id="Layer_0_xA0_Imagen_78_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2448,7 +2481,10 @@
   X768ckVaYkOxjXOK7owLINgapcrFl9tvjlf4Q2HvZHSyVxCFxaFw5I3JeLwq9WZAIDMj40ZBft7b
   C2rmv4s1ESsuKgyhs9BHDjo9fD6fM9xyqMimToppFbVhz/yGEQkbX4y8hFEUnE6nMuTzuY6fbKmR
   ZPnZ8WBwjSfdfRrlsWdJQ31bYUHBfQEfCehsh6ppwsDAYMaZ8235lRXl49VVVaM2m1V7kHv8W4AB
-  AO+gan720YPGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 392.4228 178.8676)">
+  AO+gan720YPGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 392.4228 178.8676)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
       
         <image style="overflow:visible;" width="56" height="49" id="Layer_0_xA0_Imagen_79_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA2CAYAAACWeYpTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2522,22 +2558,25 @@
   MjZPjfO4ITX6tw5JkkSs3xVvvPHGj44ePbp8bGwsfWRkRHhigR5+sDQJZN4GfFy80zg/d3/qhqde
   nSrnMe1AIweCs585c2b9W2+99VhVVdXiXy6Psy9MT5RUXtdNnEfKPz30Oqc3eOErdEzq3ktfX1/W
   xx9//OjCrpK7klNS++PveWCfbeGyAlYjtJvvkHzeBEUK6uHr48s//k+AAQAJngbO3zgopgAAAABJ
-  RU5ErkJggg==" transform="matrix(0.24 0 0 0.24 382.2992 182.1183)">
+  RU5ErkJggg==" transform="matrix(0.24 0 0 0.24 382.2992 182.1183)"
+  [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+  >
       </image>
-    </g>
+   
 
-            <text x="343.93" y="169.89" class="st4" [nbPopover]="card" (click)="changeId(zons[8]?.idEquipo)">{{zons[8]?.Name}}</text>
-                    <text x="366.193" y="184.89" class="st4" [nbPopover]="card" (click)="changeId(zons[9]?.idEquipo)">{{zons[9]?.Name}}</text>
-                    <text x="380.193" y="196.89" class="st4" [nbPopover]="card" (click)="changeId(zons[7]?.idEquipo)">{{zons[7]?.Name}}</text>
-                    <text x="359.93" y="200.89" class="st4" [nbPopover]="card" (click)="changeId(zons[10]?.idEquipo)">{{zons[10]?.Name}}</text>
-                    <text x="352.93" y="204.89" class="st4" [nbPopover]="card" (click)="changeId(zons[11]?.idEquipo)">{{zons[11]?.Name}}</text>
-                    <text x="345.193" y="210.89" class="st4" [nbPopover]="card" (click)="changeId(zons[6]?.idEquipo)">{{zons[6]?.Name}}</text>
-                    <text x="358.193" y="157.89" class="st4" [nbPopover]="card" (click)="changeId(zons[0]?.idEquipo)">{{zons[0]?.Name}}</text>
-                    <text x="383.93" y="174.89" class="st4" [nbPopover]="card" (click)="changeId(zons[1]?.idEquipo)">{{zons[1]?.Name}}</text>
-                    <text x="409.93" y="194.89" class="st4" [nbPopover]="card" (click)="changeId(zons[4]?.idEquipo)">{{zons[4]?.Name}}</text>
-                    <text x="405.193" y="200.89" class="st4" [nbPopover]="card" (click)="changeId(zons[2]?.idEquipo)">{{zons[2]?.Name}}</text>
-                    <text x="399.193" y="205.89" class="st4" [nbPopover]="card" (click)="changeId(zons[3]?.idEquipo)">{{zons[3]?.Name}}</text>
-                    <text x="390.93" y="210.89" class="st4" [nbPopover]="card" (click)="changeId(zons[5]?.idEquipo)">{{zons[5]?.Name}}</text>
+                    <text x="326.93" y="158.89" class="st4" [nbPopover]="card" (click)="changeId(zons[8]?.idEquipo)">{{zons[8]?.Name}}</text>
+                    <text x="348.193" y="172.89" class="st4" [nbPopover]="card" (click)="changeId(zons[9]?.idEquipo)">{{zons[9]?.Name}}</text>
+                    <text x="381.193" y="178.89" class="st4" [nbPopover]="card" (click)="changeId(zons[7]?.idEquipo)">{{zons[7]?.Name}}</text>
+                    <text x="357.93" y="181.89" class="st4" [nbPopover]="card" (click)="changeId(zons[10]?.idEquipo)">{{zons[10]?.Name}}</text>
+                    <text x="351.93" y="185.89" class="st4" [nbPopover]="card" (click)="changeId(zons[11]?.idEquipo)">{{zons[11]?.Name}}</text>
+                    <text x="344.193" y="190.89" class="st4" [nbPopover]="card" (click)="changeId(zons[6]?.idEquipo)">{{zons[6]?.Name}}</text>
+                    <text x="364.193" y="140.89" class="st4" [nbPopover]="card" (click)="changeId(zons[0]?.idEquipo)">{{zons[0]?.Name}}</text>
+                    <text x="392.93" y="162.89" class="st4" [nbPopover]="card" (click)="changeId(zons[1]?.idEquipo)">{{zons[1]?.Name}}</text>
+                    <text x="411.93" y="177.89" class="st4" [nbPopover]="card" (click)="changeId(zons[4]?.idEquipo)">{{zons[4]?.Name}}</text>
+                    <text x="407.193" y="182.89" class="st4" [nbPopover]="card" (click)="changeId(zons[2]?.idEquipo)">{{zons[2]?.Name}}</text>
+                    <text x="400.193" y="186.89" class="st4" [nbPopover]="card" (click)="changeId(zons[3]?.idEquipo)">{{zons[3]?.Name}}</text>
+                    <text x="392.93" y="191.89" class="st4" [nbPopover]="card" (click)="changeId(zons[5]?.idEquipo)">{{zons[5]?.Name}}</text>
                 
             </svg>
 
@@ -2562,6 +2601,47 @@
                 </nb-card-body>
             </nb-card>
         </ng-template>
+
+        <!-- <div class="card" style="width: 18rem;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Bagtag</th>
+                        <th scope="col">BagId</th>
+                        <th scope="col">Device</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>24YTS45</td>
+                        <td>45</td>
+                        <td>OSR1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>875ARE98</td>
+                        <td>89</td>
+                        <td>OSR2</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div> -->
+
+        <div class="card" style="width: 23rem; margin: -16.8rem 0.19rem 0.0rem -0.15rem;">
+
+            <ejs-grid [dataSource]='osrData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+                <e-columns>
+                    <e-column field='Bagtag' headerText='Bagtag' width=120></e-column>
+                    <e-column field='BagId' headerText='BagId' width=100></e-column>
+                    <e-column field='Device' headerText='Device' width=100></e-column>
+                    <e-column field='Log' headerText='Log' width=100></e-column>
+                </e-columns>
+            </ejs-grid>
+
+        </div>
 
     </nb-card-body>
 

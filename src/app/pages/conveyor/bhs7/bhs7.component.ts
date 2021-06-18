@@ -5,7 +5,14 @@ import { Banda7, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
 
+export interface bhsosr {
+  Bagtag: string;
+  BagId: string;
+  Device: string;
+  Log: string;
+}
 
 @Component({
   selector: 'ngx-bhs7',
@@ -21,6 +28,12 @@ export class Bhs7Component implements OnInit {
   public divice: teams[] = [];
 
   public states: states [] = [];
+
+  public osrData: bhsosr[] = [];
+
+  public pageSettings: PageSettingsModel;
+
+  public filterOptions: FilterSettingsModel;
 
   private alive = true;
 
@@ -64,6 +77,11 @@ export class Bhs7Component implements OnInit {
     // this.banda7NameCharge();
     this.bandaNameCharge();
     this.bandaNameOsrCharge();
+    this.chargeData();
+    this.pageSettings = { pageSize: 5 };
+    this.filterOptions = {
+      type: 'Menu',
+   };
   }
 
   back() {
@@ -132,6 +150,24 @@ export class Bhs7Component implements OnInit {
     .subscribe((res: any) => {
         this.states  = res;
         console.log('status:', res);
+    });
+  }
+
+  chargeData() {
+    this.http.get(this.api.apiUrlNode1 + '/oss')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      // tslint:disable-next-line: no-console
+      console.log('bhsOsrData: ', res);
+      this.osrData = res;
+    });
+    const contador = interval(40000)
+    contador.subscribe((n) => {
+      this.http.get(this.api.apiUrlNode1 + '/oss')
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+        this.osrData = res;
+      });
     });
   }
 

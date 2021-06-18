@@ -27,6 +27,8 @@ import { Ib1Component } from './ib1/ib1.component';
 import { Ib2Component } from './ib2/ib2.component';
 import { Ib3Component } from './ib3/ib3.component';
 import { Bhs9Component } from './bhs9/bhs9.component';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 
 
 
@@ -73,6 +75,11 @@ import { Bhs9Component } from './bhs9/bhs9.component';
     FormsModule,
     NbTooltipModule,
     NbPopoverModule,
+    GridModule,
   ],
+  providers: [PageService,
+    SortService,
+    FilterService,
+    GroupService],
 })
 export class ConveyorModule { }
