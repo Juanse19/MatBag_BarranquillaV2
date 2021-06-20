@@ -1,4 +1,4 @@
-<nb-card>
+<!-- <nb-card>
 
     <nb-card-header>
         <nav class="navigation">
@@ -443,9 +443,9 @@
             <ng-template #card>
                 <nb-card class="popover-card">
                     <nb-card-body>
-                        <div class="media" *ngFor="let option of divice; let i = index">
-                            <!-- {{i}} -->
-                            <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
+                        <div class="media" *ngFor="let option of divice; let i = index"> -->
+<!-- {{i}} -->
+<!-- <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
                             <div class="media-body">
                                 <h6>Id equipo: {{option.DeviceId}}</h6>
                                 <b>Estado:</b>
@@ -464,7 +464,7 @@
 
         </div>
     </nb-card-body>
-</nb-card>
+</nb-card> -->
 
 <nb-card>
 
@@ -3242,7 +3242,10 @@
     IQADAAAAAAAAhBCAAQAAAAAAAEIIwAAAAAAAAAAhBGAAAAAAAACAEAIwAAAAAAAAQAgBGAAAAAAA
     ACCEAAwAAAAAAAAQQgAGAAAAAAAACCEAAwAAAAAAAIQQgAEAAAAAAABCCMAAAAAAAAAAIQRgAAAA
     AAAAgBACMAAAAAAAAEAIARgAAAAAAAAghAAMAAAAAAAAEEIABgAAAAAAAAghAAMAAAAAAACEEIAB
-    AAAAAAAAQvwEmpS2Hg8bnXUAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 -3.051758e-05 0)">
+    AAAAAAAAQvwEmpS2Hg8bnXUAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 -3.051758e-05 0)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="84" height="50" id="Layer_0_xA0_Imagen_98_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAA2CAYAAABDa14eAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3324,7 +3327,10 @@
     OBzOLiwsfA6F/jm+ZlCR3cMsRDMf5M3LBp/sbz9X4f3xSd55B2Zk0uJLbpHEyxH4OxrX1PSsra2d
     sHXr1lc2bdq0KJr7rWfWfwxjZUuaaFAimJK2cOfMrIdevVuI4KYLnBwXLlyY8+Hxjb+pHVE41c/n
     NE4PPLplWsYPXw8omWegb1yfoVua51IsOKVNC+X0qdEx/l+AAQD0NOmCSTJCxQAAAABJRU5ErkJg
-    gg==" transform="matrix(0.24 0 0 0.24 365.7342 185.0608)">
+    gg==" transform="matrix(0.24 0 0 0.24 365.7342 185.0608)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="63" height="28" id="Layer_0_xA0_Imagen_102_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAAdCAYAAADxTtH0AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3391,7 +3397,10 @@
     YRblynJCmGu4IXK+SN+SLXja7rUFjzsf1Pzt0v3d62eeeHOvWKL5Cva8NcSm359JXXjnRPr8albL
     /94/LrHft4Mii/TkfxZXFuy7+r3pltP+VhjaOqaHn0qllgzDeDuZSNzUNM3+qmNo1JBslPvRDRTz
     W7/t3LlWYOVqQa0sVxJj7h/dz4vNZrNw9+7d19vtzve73e5ZtEIPC/n8tYmJifcmJyefmqb5tf0s
-    +Ic6/leAAQBJVY/8sUl4SQAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 278.2017 178.4454)">
+    +Ic6/leAAQBJVY/8sUl4SQAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 278.2017 178.4454)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="28" height="24" id="Layer_0_xA0_Imagen_103_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAZCAYAAAC/zUevAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3420,7 +3429,10 @@
     WeECpG49G4vFLg4MDIzYbLbOsrKyfR0dHU94vV69yoAqzsI9DGRXMbcUvCJdrTtbv/aQhcrtqsuu
     n7Cw1sR/umPyPK+ivxrCraWlZQiL9/Hx8fGDTqdzk3kjQPUbuWBZy2vG19DrJ+182dcGMrt9W1a9
     ew2Xt7DS3sS/vQNgjZixXhxYNzuiOZN7Dc9OFZsZ21wpv7mFBvb7LdYdAwV8SeT26riqILTyLook
-    1kvWpYkfK/mKWHlKlkc38I8O1WQ+NrlUeHdrfwswALfrmmvuIqC8AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 275.5399 180.2775)">
+    1kvWpYkfK/mKWHlKlkc38I8O1WQ+NrlUeHdrfwswALfrmmvuIqC8AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 275.5399 180.2775)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="134" height="105" id="Layer_0_xA0_Imagen_105_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIoAAABxCAYAAAAK0ju+AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3592,7 +3604,10 @@
     IooiaT+Q0lJTTs6aNu31BfPn7rboQBn9QCFrYGDAivOXHAyW35X0H7nHfl2/a8zkpOA46+z86zx3
     vj7Du+CIadCcr9/vt52pqlqM6Sf77Ln6qWeqa+7o7u0dY7PaerKuyfwo9/rr3hx/zTh9HudKAoq2
     2tvbveXdBbf5+J4b7FZ7wVTXnN0/pC0Ag8ZaX98wr6Gx8W5FQedwFNmCKapdvx360pe+9KUvfelL
-    X/r6Mev/CzAAxaS5z/cLkisAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 247.5338 182.1837)">
+    X/r6Mev/CzAAxaS5z/cLkisAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 247.5338 182.1837)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="36" height="30" id="Layer_0_xA0_Imagen_104_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3637,7 +3652,10 @@
     jPX5mxORdHmBL4xHorEmfJa9uOsqVGVoBjQcG7eYLZd3NzX8yqA3xGpqql0cy/LLDjo/3G736r7U
     hUbRlNM7uFWBJtur10ysZS6VTlvy+bymzGoNT0xOrrlyva8tncm04td3YLBpjUbzl+amxq51a9eM
     4Js+4T++uVvqkJBE4UVB+qz3c/m87sGDsS39A7cbaqqqPE0v7bqEmyf5hf22D0cbAf/r498CDABc
-    9mTW2BhQrAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 242.4221 203.3775)">
+    9mTW2BhQrAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 242.4221 203.3775)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="33" height="35" id="Layer_0_xA0_Imagen_106_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3679,7 +3697,10 @@
     qZMlL0yZ2ohMHBkr3lkZ3vRiha/m5N3iaEbC5jVr7g2ltHqdvvTAIEFep41odR8v8a/bvbxg3V/v
     NkefKUwtBmqeCqCPxl8NfvpSRZFa0bnI9/DzDxdu2RvRogP3+8adK4yp1KSlIugijqBcOrDQXPXH
     tZGmPWVGxYWprmDumzBT9o09YDaeqjdY/zyj9u1yX/XH040j/398WR//EWAAbMNq9JKTSLAAAAAA
-    SUVORK5CYII=" transform="matrix(0.24 0 0 0.24 238.2242 206.3775)">
+    SUVORK5CYII=" transform="matrix(0.24 0 0 0.24 238.2242 206.3775)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="33" height="35" id="Layer_0_xA0_Imagen_115_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3724,7 +3745,10 @@
     fT5mGAYeGxtrZeD2M/0dGB8fe4vR21AoFcWm7SK8+Qs3iwk3KA4FZOrWbeBOe4SmwBv27n++07jv
     yxZ7W4Q5mbyyB3eqqiqjo6MdJ0+ePMz0tz8Uub9hzRHi3vixGzFhE6XizbvxirE2+1v9b3t+fGKd
     e2PALjpK3+e+9blu35xOJ7/IcCqVmuru7r7y1eCZvkJzaEe9JnkVxZ5eKa+/tNHd88VW3+6LdXJ9
-    /rU96owkwo0hcmdnlmQ6XGLdaFfd1u/89ub0y3gW8l8BBgBoW3zVGruusQAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 333.2246 147.7883)">
+    /rU96owkwo0hcmdnlmQ6XGLdaFfd1u/89ub0y3gW8l8BBgBoW3zVGruusQAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 333.2246 147.7883)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="36" height="29" id="Layer_0_xA0_Imagen_114_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAhCAYAAAC1ONkWAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3767,7 +3791,10 @@
     ywEZFKprqpkceCRQxgtmk3nY5XLdcDqdQ0uXLnnRZrMF7utJfGBgoLK3t3dz94WuZ4Luy81z11QR
     +5uzc83LTq7xbH7epDiCiXhieTaXqywUCpGB/oFvRCYmlsmyJFMDUX2ajMZIU1PTL4lMfvJA/yLI
     ZDLSWHJ0djA/3D4pjDfNtbZ0NVrnnDZL1vgHjyVOd46Ojm4c9PmeTSZTDbU1NSeWLPnUcx6P5yKZ
-    hRQ/1v8uPmwhRpJISesIgx4y7+8n+k3C/5f/heWvAgwAT2NJfskEWFwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 328.2731 152.3844)">
+    hRQ/1v8uPmwhRpJISesIgx4y7+8n+k3C/5f/heWvAgwAT2NJfskEWFwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 328.2731 152.3844)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="132" height="63" id="Layer_0_xA0_Imagen_113_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAABDCAYAAACya8aVAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3903,7 +3930,10 @@
     l9nOgZ7t/MKAon1gh+L56KOPbvzwhz/86v3797+2ubk5E/4XzcDYH/mJOqAwg8rHRViukSfCUpAf
     uDOpvrpwTZ1aD4ihnu38IoKifaRSqfCPfvSj+Q8++OCNwJvVr3kmGsNexavJvLzm5SIvda7xpQVF
     +0Cm6Pug9He/kxO2xgJiJDOhzi2Pqj2D6aUGBT0sy+QaVoNmL5oIhN784QU6/r8AAwD+cg1sLfuq
-    pgAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 301.0069 154.915)">
+    pgAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 301.0069 154.915)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="28" height="24" id="Layer_0_xA0_Imagen_112_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3933,7 +3963,10 @@
     Swczn89nuHv37k4m/aHR0dH3h4aG3lxKBEtqOktgz8kyFr0mEHlTroyvHmMyXrDx5T+69btH6837
     4nrOoL7waTCdTmMGNDH4LubtexPpkZOkeWmXs4XjrELFYqVu1+VSoeKcU3B7m22tYa36bPsIutZY
     Yef7+/tLGbRJ58k3G1zYQIAfK+WrB5utrdNOfWX2pZ17N52nkkEhqcZKVKQQAylJO3QVkkBEFf6L
-    7S8BBgD5wJ+yXfJYeAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 298.1946 165.8869)">
+    7S8BBgD5wJ+yXfJYeAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 298.1946 165.8869)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="35" height="45" id="Layer_0_xA0_Imagen_111_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAuCAYAAABEbmvDAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -3994,7 +4027,10 @@
     e/ZyiPeY4MuToLRmXmphuGH3ysgN2xaF698PyOe/FXXJ/oBAk5Ta00dWHVF3/ajPOLZR5wm/aLVN
     BGbjdt9DAnrUt6xlWWjNtqvzr3894smbuqz/jIwaQ9EPkzvvPZU5cM+E0R+1EFgeVAzWBa97bnXB
     Lc+WBSr7v7K/bDJMDXRqx9d0plu+i5mavCJ07csVgfktHsmrfy3+hBLhFeP/df3/CjAAzDs8JQyC
-    n6kAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 294.3758 167.27)">
+    n6kAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 294.3758 167.27)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="45" height="34" id="Layer_0_xA0_Imagen_119_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAmCAYAAACGeMg8AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4051,7 +4087,10 @@
     MOPYS2LhFYcPsvEpZKXTc756PhBtzKJ1DsMAATeZwf21jk4iRhKShTD0rZsGRIx+a/P4yUvDz5+q
     du1leh3a+7F57uUrQa9KPLnMffJVg9lkacVtNBu1KPxUxgADmzN6IyBh9MFNAyLGQHzrC6mF7Hf8
     sJAevMeBntv4dX7R0cIZHd3EMnTNvTcVSNrKjG+ydr1iMtjSt+ujfGOzhriVuXaaHbnpQFSqee9V
-    j/28N9iavjFfQa1Tj2rvIvwvjX8KMACedPWWS+u9CwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 335.7446 139.795)">
+    j/28N9iavjFfQa1Tj2rvIvwvjX8KMACedPWWS+u9CwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 335.7446 139.795)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="28" height="37" id="Layer_0_xA0_Imagen_118_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAqCAYAAAA9IzKsAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4083,7 +4122,10 @@
     AYXKl2xoJyqMmnAvPulXgICEYqsg1uuyjU2J136fY4yN16mndXpDWfP0tRUQ5o1FoxcYAUqBqwri
     vqr3DK+YTj3T4tbqHw3tgVjuitNM51LkuQKHW4xGIpOmymEO+YZXg87Eiq+137tvDgwM/MNsZ0O4
     tlUTNLR2Ji2/q9Ketv0mPpe5uSUQI4U93x4+fPhiW5nTumHe3HjtzA5P3v6X5H9d/wowAPzjxkvC
-    ZpFDAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 339.6075 145.8475)">
+    ZpFDAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 339.6075 145.8475)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="28" height="24" id="Layer_0_xA0_Imagen_116_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAZCAYAAAC/zUevAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4108,7 +4150,10 @@
     9csXnn3m3XPl8lapWNo7X7vwe7Va/d5vFPZcUHdcY1b6VOW9bHEcx9xJi6w5QRNrveReZv/BiYlV
     xUZnoCYK+fxmu92+cXHh0Q+j3d2p+bnaz6Xx8bvvfXDtj8q5SujOgpRuzFgJ1bij0GcEtyUgGqzZ
     IW7raqtfza39qzfI5eXlJ1qt1mTvla8n0KOvgoP7+6/p6em1Wq1W7+/7W4ABAGbNdkFRove3AAAA
-    AElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 339.6075 153.3083)">
+    AElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 339.6075 153.3083)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="28" height="25" id="Layer_0_xA0_Imagen_117_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAdCAYAAAAkXAW5AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4132,7 +4177,10 @@
     pQvve63JpilC2eNW2iGTFp6kcfaZklSlZdzfma6v1la/HAjiudXVz2u12nuVcuWb0kTpp9mnZj/2
     ff9B/1c3MgLEsNvqqVJvsXWbDgpJH6FnW/4VtYDu9kO96+gUDSrBD53TnXc6nc7U0tLStzRWmP10
     eXl5iw4nQtjCY6olHmBoM9e1mWJTl6XnDJwrsemb/+oY22g0ZjWofFYPRx9gHz+P19TU1F65XG7D
-    k+uI6x8BBgB9mFSX8dot5wAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 339.6075 157.5527)">
+    k+uI6x8BBgB9mFSX8dot5wAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 339.6075 157.5527)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="32" height="29" id="Layer_0_xA0_Imagen_120_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAhCAYAAAC1ONkWAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4172,7 +4220,10 @@
     qhjrUO0F7U8eGwsPHku3b5mEfsSJcgGTRjIu6zxKvhKRTcXXnsyOvP3gOHO/FNjw0FkOExM82Pbq
     a/fgPq+z5lQP+jMkPoJkMlnPZrPXdV1/eNw5XwnY8CjK4/25ublPs7qbpZxe9nx/GsEeZnT92uTk
     5PVyufzoP/rbRaVSKaysrJw3DON1LZVanC2X50dHR7v/FT+qOI4jrCGhYriRUvz/mZ+h/i7AAHXF
-    Dsyjqd8EAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 328.6642 139.795)">
+    Dsyjqd8EAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 328.6642 139.795)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="36" height="30" id="Layer_0_xA0_Imagen_121_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4218,7 +4269,10 @@
     ExMcgq3EgluulmW2Q2dqm9Rk+cNC44Uy6j8UVhfF+aTSXsio/rm5QsY0jO9jkf7ItKxGLFqWw6bi
     V0Zr62oPNy9YcMAwjAyqNIOEmM/lu6eBgQFhTItV3TN7GpxAUWr0dcRfrd02zumigYOyT9d1DiPN
     GBkZqUulUmtVVd2dy+dXBYPBC35Z/qAyFIqsXLEiLkmfnz+f25dkpm24HQDHMvvLjiNAMjU15cfH
-    kaZMJlOLyTKyevXqCXxu0r7K9f8twAC2EstjdgbWqwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 323.7083 141.9025)">
+    kaZMJlOLyTKyevXqCXxu0r7K9f8twAC2EstjdgbWqwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 323.7083 141.9025)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="44" height="51" id="Layer_0_xA0_Imagen_122_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA2CAYAAACFrsqnAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4272,7 +4326,10 @@
     OWtdiqjv1PQSRGGSzf1VLhIUK350ms99KWMJI2zvyHuWYXzbJTBi1xo/RqBIC6sq6vXXYk8pU3M1
     Zjn/OTScOh2sCI8F9BJFQRr+HgWL+jb9KSZI3dikUW7uDz7YGd+OfRpajPeXC3+4Rkb+IDDpVhKf
     4lFf0HeszpsWUHtLWxnpTvapw6abp5XXsher3WNifi91359+XmsyHZdp7X4dgWkpyAL2ylyr95F/
-    4k88TvxXgAEADlVsC+ify+kAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 320.6244 139.2213)">
+    4k88TvxXgAEADlVsC+ify+kAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 320.6244 139.2213)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="35" height="30" id="Layer_0_xA0_Imagen_123_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4313,7 +4370,10 @@
     AZFoU8RLeYFTHqt9bE/k5s3DdpttpKy01PfAM9NsK5FIcGfOnCk4d+PU044VRiMwKClg+4kVruaL
     gmoyzl88X+LKd8UJKOsf8q+gGeY7sditpxVFEZ1Ol9flzP91YWHRwZqa6lFBEPSHGu5yWbcSEWks
     PZLH0TwqNlWM88y/P5Ro3HT+/IVy8sRn9XTaybBsW0N9fQ/x7XF4FBcZR2w+n8+ladqcZPdPAQYA
-    GH3YkPWRM8kAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 318.96 144.5425)">
+    GH3YkPWRM8kAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 318.96 144.5425)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="187" height="120" id="Layer_0_xA0_Imagen_124_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAAB9CAYAAAD0iGysAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4535,7 +4595,10 @@
     9ab5Epj2vQyAnBm0hRT9TNeymazLKZRAVlFAyWbBbrWN8lnWJYsyj0+Ty0pLfVbJ8qtlS5pOP7t1
     82nzJTDtex0AhVbicvkbF9X/oqdv4MfoCpG2CMLHKCi+RHBnQzajbGZ59qtKt/vEnubdh0pLS0bM
     p9+0xyoARFFMh8Lhv46PJxKoQJ7e/uzW92pqqvsHg8HFly53rN+w7pmLdbXefo4z9+ma9hjb1PS0
-    I5WasZnPhGmmmWaaaaaZ9mja/xdgALz9R209VVy1AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 277.4308 147.715)">
+    I5WasZnPhGmmmWaaaaaZ9mja/xdgALz9R209VVy1AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 277.4308 147.715)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="187" height="120" id="Layer_0_xA0_Imagen_125_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAAB9CAYAAAD0iGysAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4743,7 +4806,10 @@
     GgE8Hldb/sgRBf2yMr9ibwez8zIAEmcXHPCGAHZBglAoTD6DIEfskMqnkYAQaO1/6JDB22+adMMT
     mX37slZGZhdWAIwfk79o/8GSawMdwZQB/TLLbrzhnmdb29qyPvviH3McDrt/8k9uWDA4Z9BqWZYZ
     xZnZhWm1dfUTdxTuejoQCGRHH2tqbh7u9/uz2avDjBkzZsyYMWPGjNkPYv9fgAEAZ+rcfb4xr0gA
-    AAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 235.9157 171.6167)">
+    AAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 235.9157 171.6167)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="31" height="28" id="Layer_0_xA0_Imagen_126_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAdCAYAAAAkXAW5AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4778,7 +4844,10 @@
     uGniwL303rB3iEEMu+/zQWAP6sl67zkOXVeKWz10S6Q97dGDEgyO+MFXDFOhClzsiAc3TfN6EAIS
     jKDQXwnbg6sQYVabYo2pm8Tflo0/Pfe+4jEZCO2mQV+4n+ikf5O16zawmDhUvjfwzMeq1Lz6rw+I
     24C44VNv0B8p9TePNozW7UyPNBgMLguC2NnxZ+COPh0bjaimafssy+4TBIFIklgPhUJrDEznDwEG
-    AOOWvZbGOe03AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 232.1957 195.2838)">
+    AOOWvZbGOe03AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 232.1957 195.2838)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="27" height="24" id="Layer_0_xA0_Imagen_127_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAdCAYAAAAkXAW5AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4803,7 +4872,10 @@
     DTYnwMAL1MKEGpfVJkkwCfMWa85NzF0XZ8dv4Hy9YqFQz2azO0eCuLCwUBut5z/YuFWdfrAuLhIT
     umVOcEnKxA75SWITLfkgotrzhNRJt0bg/mfizzfffePK8uWVD3HxSK7zzttvHZ07xsfGoq2drd1x
     PvPFfGlxgj/DD5yaVKp2Zwf9LtmST21/Okjh5uxR6hd/ncrPbFoAxzrS1ut1r91un2k2m+OncX5E
-    FsPZ2dl7qIXu4795j7r+EWAAR9VtTi98E2cAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 232.7538 199.7787)">
+    FsPZ2dl7qIXu4795j7r+EWAAR9VtTi98E2cAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 232.7538 199.7787)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="27" height="24" id="Layer_0_xA0_Imagen_129_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAdCAYAAAAkXAW5AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4829,7 +4901,10 @@
     L7vhuhLiCubj+/5dlcj2gSCGh4Ya3IuvVu4OjTfviZeLGtAiZGrbTtPclqmkuTag8JsjEyxvE9he
     kBunnzz96YUXXv1EaYQrcJFqz+UDQZybmfnr5q0fP2fLfYN0qXrmsXFDKwoMg2ctmh1Z22YbW15j
     u/PinOa34fy5d5/6bGJ8/MbRtnL1OjFUbc9euPjNE7UpSnpsfVnw4n1RiPvHXdddHR0Z++2R/w/s
-    bwEGAEr0cgffZ0BqAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 232.7538 203.9662)">
+    bwEGAEr0cgffZ0BqAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 232.7538 203.9662)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="27" height="38" id="Layer_0_xA0_Imagen_128_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAqCAYAAAA9IzKsAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4862,7 +4937,10 @@
     8ts4qm16dl0qeup9tDv/Z84/UvXDcCB1Y6uqZ/hYEK+uXPiu+mj9dP/ezfd5p17QqqduMlxgm6W9
     TAkXq8jaJiOugbUfheLES2eufPDOx1ePBFETwAZBZjubzXbHgji5snLrq2++/DWzOXdyLhqURF73
     BfCH9N8AcRy7xYxlS68r9L3WWXOPT7S3bnauFS5Et2fDUn+if+9gW1tbe75SqZxW9psb+6465j+K
-    vedVxLsK1I3V1dXGuLH+FmAATh2wjbaQLF8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 232.8744 208.0087)">
+    vedVxLsK1I3V1dXGuLH+FmAATh2wjbaQLF8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 232.8744 208.0087)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="46" height="36" id="Layer_0_xA0_Imagen_130_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAqCAYAAADxughHAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -4925,7 +5003,10 @@
     +IJ/6eH16MaRnqgg4yo5yGAoZrEJYGYsfG1wQ0KJZSq+c4uY0Z0GqLAsUoV2b4BsA+qqHF7svmDz
     zlgnbh7cCJf3lf352XpcntyMFw76VB8DBMRH1QLAHFjQZOAHi+Am0mIR6Iip2v95y/ReHaaaHZSf
     HG9i/NiOu7ov3HEn7u12eLe4GVb21cLyQU/YFpzRDIRr2rxZ6PK1cVfUhgyW9XVm3Prgudmfwv81
-    Pe6qkQiLMJQCFKQi3tsj2vjGJ//x/f98/K8AAwAUX0GPoUcbogAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 232.2667 214.9858)">
+    Pe6qkQiLMJQCFKQi3tsj2vjGJ//x/f98/K8AAwAUX0GPoUcbogAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 232.2667 214.9858)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="188" height="116" id="Layer_0_xA0_Imagen_134_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAAB1CAYAAAAY2+7BAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5155,7 +5236,10 @@
     fXCUBEMfgUVi7xEXdD8vg0UWdJzfNo8qa5scez4lOP9inzxg0pRNe+zsD1KFKJVKErkC9LzzzjvH
     bty48Vo0F3hu4C/5luZhK++1dsW9Yvv5Disug95zbsi916Qpm/Z0BYBhmUzG/vXXX+/46v7p486R
     7HbRW+U8Uuftra5nPzXpC6Y99QFg2GIm6kspi+3Yw3dK7rDP0pI16QumPQn2/wUYACFM8Po/eAkZ
-    AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 256.5921 187.3021)">
+    AAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 256.5921 187.3021)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="36" height="28" id="Layer_0_xA0_Imagen_135_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAdCAYAAADcvP5OAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5196,7 +5280,10 @@
     6TP6K36//1JtbW3T6dOnn+3r69uArQlU9cMsyN+eCTyjZWaRoeLDctuu58stT3bd1o3Vvv/BB4cn
     Z2YeJ1GsMxlM8ZLijec9bvfJEm+x/1P/pWR8fLzs+PHjv7i00Nbo2o0sZhcPubpNE9szvvjSNlvN
     Xxy67ClhqZPn5ueLeq9caYpGY4+68nKbS4qLz2c5HLHP7CcdURT1IwtDNWPSwN4MwTGRayg4l6XP
-    uWXkzOJ6Pi7/U4ABAAFOz0JNr5jdAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 251.5513 211.4175)">
+    uWXkzOJ6Pi7/U4ABAAFOz0JNr5jdAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 251.5513 211.4175)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="44" height="51" id="Layer_0_xA0_Imagen_133_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAA6CAYAAADP/mu6AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5258,7 +5345,10 @@
     YYWkEvI6kOjzPfA7xvF25+WY72zfPkdwrlANNuNEgnLZv66WCqMyJMkQlgXKZbUmqq/sjLNkfZPr
     1GaIQfBIdFEJXzleDfA7BxxDRUScIvEQqK3b+dp+vAw5jB36/gwGDNuOGdM7W8nqtxuYvA/spoEZ
     Nsr8lUroabljwINEEW03K1aGk+cY+YuSzGsLF93/CUhCEOj4dSCTQndNDqdisxRxF8Bw4Sclh9PR
-    OVjwP2rQTwXIINHvi0CoDDTI/Tc71L9n92wK9h8BBgAu6llba5uC2wAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 248.0663 209.0221)">
+    OVjwP2rQTwXIINHvi0CoDDTI/Tc71L9n92wK9h8BBgAu6llba5uC2wAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 248.0663 209.0221)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="35" height="29" id="Layer_0_xA0_Imagen_132_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5301,7 +5391,10 @@
     inhPZeXFKk/lXyqczuseT2XuhT6KbHfkcjnMIKUrV660sKi+rXWunTB1pZud9oplt1h/zilWn2+0
     7JxptXfFLLyV+FdXTWMTEw3haHQP0zRfXlY23rWzc76utiaju8Yr/+4pkUhw169fd67IY/XElXLb
     LY5Yraltfo/z+6Ey0bHFahRFwZFo1KTfz26zZS0Wy3N/Mn3hL8kULYdZO+RYQRFJsGnw/+Mbcvxb
-    gAEAKRU2jmrwjeIAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 246.61 214.3825)">
+    gAEAKRU2jmrwjeIAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 246.61 214.3825)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="32" height="30" id="Layer_0_xA0_Imagen_131_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAhCAYAAAC1ONkWAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5338,7 +5431,10 @@
     Ta/HCH7xQMtdu4btZqjq+lhybs6QVy5t6rX0dLCtxiqsZ+jopTF7z/R2d++H27z7Tg3Ywxcsandu
     2ecbBSu2SArXGMibmSXypqjmsIlZ2ZZSoqq8xoi156M+Vli5K73z7Fj67mLeGixl+Pph+p+AcWKd
     d6g7ib4lHZpvFOj2EhajyKP5pk2c0CJOMOJsOz9k3zHvskzNY7kqAlnY9P/2NEV9yJftPk54gP5S
-    TzN3Ff6/Xdm+EmAAHTFxBWPTe2MAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 242.88 216.4258)">
+    TzN3Ff6/Xdm+EmAAHTFxBWPTe2MAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 242.88 216.4258)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="31" height="28" id="Layer_0_xA0_Imagen_137_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5377,7 +5473,10 @@
     Bqv5LrTOjX/YOvWDK/X3vlzOrcq8RMDTR8FQcXI2sXOwVe3BFhEGF/Z4xn42Hj/6gkfw1W7q5efT
     WNnIx95vnn70ojJ9PGfM7WWg8gwlYuAzi2B51JQ8cupg8MjPR3rGTolUUm/6Deyz2LKyMPif5j+O
     z+lvPVVuLic9Wl9ht+uu33wtevT5mJxc+dSvgZ/VbL0saXOjDa12J2dy87u9w6fd/PZfGf+v9l8B
-    BgBn55Gz0Q6cqAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 339.2475 161.03)">
+    BgBn55Gz0Q6cqAAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 339.2475 161.03)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="187" height="116" id="Layer_0_xA0_Imagen_136_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALwAAAB1CAYAAAD0rovXAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5607,7 +5706,10 @@
     1jlmHbgxsDBoywHsuBriinpa29ra/L/61a9u7Onpuf/kyZOY8Suxc6noBg4WfK8UqudUgiBIJjVS
     5p6octT9o5MUbbNlu3Zck4DHSKVSwokTJ4o3bNgwPxqN/hHl98ulRSHv7MfLQRBFKBWb0MXrVYl4
     P1hU/MCRSme17bZrx7UL+FwMDQ1JmzZtqj5+/Pht8s3Df+SoMwJ+sfi4xDvfnONdvK/BM9128bLj
-    6wP4XFB+79rRv6Em6YhLdc6ZQ3OLbuu15QB2XO3x/wUYAOyHQVvtJyKWAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 298.0875 163.2617)">
+    6wP4XFB+79rRv6Em6YhLdc6ZQ3OLbuu15QB2XO3x/wUYAOyHQVvtJyKWAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 298.0875 163.2617)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="86" height="60" id="Layer_0_xA0_Imagen_99_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAA/CAYAAABkZA/WAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5712,7 +5814,10 @@
     uUdhDK7PtLMH61uuL+pzqUidgiux12VKbRoZI3b7fI76hsbPnz5z7pXys+dmihK2xA670SSNMyll
     qb9wxow3l995x/fT09MujgP8KRemBt4fCKREIpGZDY1NhRWequebWltvkUQpkpuTffSupbf/sCB/
     YinmkyCM0XXTTiEgVd/mbc8cGBi4JxgKWQpnznjTarX6YIyv/xdgAGhR/MF9GWzrAAAAAElFTkSu
-    QmCC" transform="matrix(0.24 0 0 0.24 349.1588 192.6938)">
+    QmCC" transform="matrix(0.24 0 0 0.24 349.1588 192.6938)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="36" height="31" id="Layer_0_xA0_Imagen_107_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5755,7 +5860,10 @@
     aCWA37l69erb/oB/F/FeJ2bLlPcID11n3OBudgFPmysEZMLF/mS60/zaXw41vHmxQWhaeebvngg4
     4caNG32E3Z+PjY0NKTtSrTvfM1sadzk1DlsyDmbbLNHh8GuuY18QHYYYilWf60uy5eVlF2F2wEdd
     P11sjuy21dkkL98z2ud4Y7jT3n3bzDzeUz7Xt3nxQrS+hOVmklBFB1sXfhod/l9s/xJgACv+BPE4
-    ZFQOAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 349.5767 189.3131)">
+    ZFQOAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 349.5767 189.3131)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="221" height="110" id="Layer_0_xA0_Imagen_101_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOUAAAB1CAYAAACxryZVAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -5999,7 +6107,10 @@
     wedW85AdXoHP/ngNVu7oEJLDJVmWZ7773e9eotnxh88///ylpqYm9Wf5ei4o3XDjpwwUwc+UxvqG
     c6femjVGvoHnnQWSi+tGSbr3ow1j4kfFR3tb+q9T3vi/XnrppTMNDQ1LFKA/s6udC0o33PgZA8UI
     C9r0zku59351TLvwkglaujRWt9idf/5Yb/q5v9qzZ89kOBw2ft7ru6B0w42fM9AJ/pE2276qL3WF
-    pWg24olPRr31mvudccMNN9xww40vM/6/AAMAXVod5ky4O4UAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 288.9925 180.1567)">
+    pWg24olPRr31mvudccMNN9xww40vM/6/AAMAXVod5ky4O4UAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 288.9925 180.1567)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="167" height="86" id="Layer_0_xA0_Imagen_110_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAABYCAYAAACK7geuAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6165,7 +6276,10 @@
     Gzdu/OWuXbtOHjhwYLyzs9MMhUIr8gwBZw3Ot3JoZuyW9tt6m+JsU5tiaaYCo+fm4dxfzMLCLQNQ
     NOl79+79jHjp9u3bjyNgb/f09FRbWlrWsq8LwBqc70iMNRl4lMypdK1qShf+agoyd7fd7G3f/guM
     pm9iNL22b9++xVwuFwwMBueHOc1uimWz9JzlGBvLV+GcNJx5e1v7rnMYTae6u7vtr3vNAKzB+c4P
-    uSl+VjrZVnEW4u12z/xG9ZHZYkt7LRqNst/lOv9fgAEA0jizyx/EufsAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 297.9133 173.3567)">
+    uSl+VjrZVnEW4u12z/xG9ZHZYkt7LRqNst/lOv9fgAEA0jizyx/EufsAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 297.9133 173.3567)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="35" height="28" id="Layer_0_xA0_Imagen_109_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6204,7 +6318,10 @@
     2C7hTKWk5LjIbAKmv4zA/F/TkF9GBR2K1dXVQRLegSNHjpxpaWkZL4T+td+AiCgh70j2qw+JHPpS
     WvgdSc96V+dT7O0TKVmZdIRaW1uHOzo6Th8+fHjo23T4Wu+UkKaGXlKCVSOZCz++r47+aE2IubVb
     7nD5astn3d3d5wij0Tfils6Te1C6yKX0RLmu604Wm2JOyh3leV6F//bxLwEGANN/vdJOpjYIAAAA
-    AElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 333.9342 189.9967)">
+    AElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 333.9342 189.9967)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="63" height="30" id="Layer_0_xA0_Imagen_108_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAAhCAYAAACC9hYiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6267,7 +6384,10 @@
     3D8vbiSVobpYP7QQ3n7yQTQz8SCZntiUi2MQvhxTPA8PsgApoz8dACQPjLI1UGrPSx5Gu9947QQE
     oaEclg05ORFCB6WWFeJMExPjoxivDdk/dXfYObJ4yJu4MuoduYeGcqbfHWxZ7H/+Eu+Rfmv1RTtf
     F5UDbdkcXI0XD1fiB4caYr2/JWrFNXFvzFeVAdDXgYPWdmCYlpSpbh7VfDLk0QlQCku5US8/vNBn
-    jVY8Vmj3O8Mrw5nxu/3O0GKP3buM1LhasEuP5BvufwkwALyeU5NnM6zQAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 338.4833 191.9675)">
+    jVY8Vmj3O8Mrw5nxu/3O0GKP3buM1LhasEuP5BvufwkwALyeU5NnM6zQAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 338.4833 191.9675)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="66" height="28" id="Layer_0_xA0_Imagen_100_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAAAdCAYAAAD4pXGOAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6332,7 +6452,10 @@
     dtPUGueW3lZr+dmGWPMQekvp/1ztXZqtwsupLB9f5YpqYsy7tHbSH+nM84lmX7qxyeBie06e75i1
     VfQTujCOy+iPUBUZbimyfDJF20brWcs0A5O3mMsvd9ir+lNGw5WkUT9RbzZmlmAp/LPffOHZBZ5r
     9aWHmRJnXHJTajOZn/1Sgdm2wGKwguwTCZbMOuyTecWN2v4nwABayQL39HD0/gAAAABJRU5ErkJg
-    gg==" transform="matrix(0.24 0 0 0.24 337.2 202.2367)">
+    gg==" transform="matrix(0.24 0 0 0.24 337.2 202.2367)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
        
@@ -6376,7 +6499,10 @@
     XJ7XR03TMCzL6avVMgNjYz8bJkmBAen7NsfdfrW19W8HM5lTW5ub78PumCudg1wTqoyMbIFwnzoz
     ONjZPTbWaZZKm0dJMlKFbK+BpjWweu6lROJ8V1vbu3symRvxUEhf7RxrAnw2QTNN4c74+PZ3rl//
     1T8nJjoqrls6EApdA1qc2JdOf5xNJqe/6thr+qcncBWl87PfX7p0FrS9YVss9hekRXsiMbYSHn/j
-    /9Z2PvPMh3FBKOuWdW5bS8sI8f98/VeAAQCc5c1t3N+v3wAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 300.2704 157.3738)">
+    /9Z2PvPMh3FBKOuWdW5bS8sI8f98/VeAAQCc5c1t3N+v3wAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 300.2704 157.3738)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
       
         <image style="overflow:visible;" width="41" height="29" id="Layer_0_xA0_Imagen_162_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAYAAACvBDmYAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -6409,46 +6535,50 @@
     RMlk157FVy9Dgjq1epOqouIwGhtD74nF/SXr16880NT08+3+/kUJTue9gwbDa4ybccsPC7uF6/f2
     +PDw3ynMnWf1eS6YIi2O8hUxMfoyszkKnT1boQsMlNThL0pcmUIBZK5YbPgkM/NQTlLSEbFIpH/W
     /xEYiw6ZzfEX29q2vZmY+NMtg+GNQ62tW8otFoYKKoKg1ycnV6zJyNg13wB5au0BTacebWj4JfPE
-    CfPBS5fKn/vfNodra09Xt7dvf+6BQh578Zft/9r+FWAA18cGkh4o/6UAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 323.0608 168.4592)">
+    CfPBS5fKn/vfNodra09Xt7dvf+6BQh578Zft/9r+FWAA18cGkh4o/6UAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 323.0608 168.4592)"
+    [ngStyle]="{'filter': 'drop-shadow(5px 5px 5px ' + states[1]?.Color  + ')
+                      drop-shadow(-5px -5px 5px ' + states[1]?.Color   + ')'}"
+    >
       </image>
     </g>
 
-     <text x="350.93" y="207.89" class="st4" [nbPopover]="card" (click)="changeId(zone[14]?.idEquipo)">{{zone[14]?.Name}}</text>
-                    <text x="340.193" y="219.89" class="st4" [nbPopover]="card" (click)="changeId(zone[6]?.idEquipo)">{{zone[6]?.Name}}</text>
-                    <text x="325.193" y="202.89" class="st4" [nbPopover]="card" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
-                    <text x="301.93" y="191.89" class="st4" [nbPopover]="card" (click)="changeId(zone[9]?.idEquipo)">{{zone[9]?.Name}}</text>
-                    <text x="315.93" y="185.89" class="st4" [nbPopover]="card" (click)="changeId(zone[8]?.idEquipo)">{{zone[8]?.Name}}</text>
-                    <text x="320.193" y="172.89" class="st4" [nbPopover]="card" (click)="changeId(zone[13]?.idEquipo)">{{zone[13]?.Name}}</text>
-                    <text x="327.193" y="168.89" class="st4" [nbPopover]="card" (click)="changeId(zone[7]?.idEquipo)">{{zone[7]?.Name}}</text>
-                    <text x="346.93" y="170.89" class="st4" [nbPopover]="card" (click)="changeId(zone[10]?.idEquipo)">{{zone[10]?.Name}}</text>
-                    <text x="342.93" y="159.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
-                    <text x="322.193" y="157.89" class="st4" [nbPopover]="card" (click)="changeId(zone[4]?.idEquipo)">{{zone[4]?.Name}}</text>
-                    <text x="315.193" y="161.89" class="st4" [nbPopover]="card" (click)="changeId(zone[11]?.idEquipo)">{{zone[11]?.Name}}</text>
-                    <text x="299.93" y="157.99" class="st4" [nbPopover]="card" >{{zone[17]?.Name}}</text>
-                    <text x="303.93" y="165.89" class="st4" [nbPopover]="card" (click)="changeId(zone[12]?.idEquipo)">{{zone[12]?.Name}}</text>
-                    <text x="278.93" y="180.89" class="st4" [nbPopover]="card" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
-                    <text x="245.93" y="200.89" class="st4" [nbPopover]="card" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
-                    <text x="220.193" y="217.89" class="st4" [nbPopover]="card" (click)="changeId(zone[5]?.idEquipo)">{{zone[5]?.Name}}</text>
-                    <text x="220.193" y="223.89" class="st4" [nbPopover]="card" (click)="changeId(zone[15]?.idEquipo)">{{zone[15]?.Name}}</text>
-                    <text x="219.93" y="228.89" class="st4" [nbPopover]="card" (click)="changeId(zone[16]?.idEquipo)">{{zone[16]?.Name}}</text>
-                    <text x="362.93" y="222.89" class="st4" [nbPopover]="card" (click)="changeId(zone[18]?.idEquipo)">{{zone[18]?.Name}}</text>
-                    <text x="348.193" y="230.89" class="st4" [nbPopover]="card" (click)="changeId(zone[32]?.idEquipo)">{{zone[32]?.Name}}</text>
-                    <text x="309.193" y="220.89" class="st4" [nbPopover]="card" (click)="changeId(zone[21]?.idEquipo)">{{zone[21]?.Name}}</text>
-                    <text x="281.93" y="196.89" class="st4" [nbPopover]="card" (click)="changeId(zone[33]?.idEquipo)">{{zone[33]?.Name}}</text>
-                    <text x="268.93" y="214.89" class="st4" [nbPopover]="card" (click)="changeId(zone[22]?.idEquipo)">{{zone[22]?.Name}}</text>
-                    <text x="248.193" y="228.89" class="st4" [nbPopover]="card" (click)="changeId(zone[23]?.idEquipo)">{{zone[23]?.Name}}</text>
-                    <text x="242.193" y="232.89" class="st4" [nbPopover]="card" (click)="changeId(zone[35]?.idEquipo)">{{zone[35]?.Name}}</text>
-                    <text x="221.93" y="233.89" class="st4" [nbPopover]="card" (click)="changeId(zone[24]?.idEquipo)">{{zone[24]?.Name}}</text>
-                    <text x="222.93" y="241.89" class="st4" [nbPopover]="card" (click)="changeId(zone[34]?.idEquipo)">{{zone[34]?.Name}}</text>
-                    <text x="244.93" y="244.89" class="st4" [nbPopover]="card" (click)="changeId(zone[30]?.idEquipo)">{{zone[30]?.Name}}</text>
-                    <text x="252.193" y="240.89" class="st4" [nbPopover]="card" (click)="changeId(zone[25]?.idEquipo)">{{zone[25]?.Name}}</text>
-                    <text x="265.93" y="240.89" class="st4" [nbPopover]="card" (click)="changeId(zone[26]?.idEquipo)">{{zone[26]?.Name}}</text>
-                    <text x="259.93" y="236.89" class="st4" [nbPopover]="card" (click)="changeId(zone[27]?.idEquipo)">{{zone[27]?.Name}}</text>
-                    <text x="280.93" y="224.89" class="st4" [nbPopover]="card" (click)="changeId(zone[19]?.idEquipo)">{{zone[19]?.Name}}</text>
-                    <text x="329.93" y="195.89" class="st4" [nbPopover]="card" (click)="changeId(zone[20]?.idEquipo)">{{zone[20]?.Name}}</text>
-                    <text x="346.93" y="185.89" class="st4" [nbPopover]="card" (click)="changeId(zone[31]?.idEquipo)">{{zone[31]?.Name}}</text>
-                    <text x="347.93" y="180.89" class="st4" [nbPopover]="card" (click)="changeId(zone[28]?.idEquipo)">{{zone[28]?.Name}}</text>
-                    <text x="347.93" y="175.89" class="st4" [nbPopover]="card" (click)="changeId(zone[29]?.idEquipo)">{{zone[29]?.Name}}</text>
+                    <text x="354.93" y="188.89" class="st4" [nbPopover]="card" (click)="changeId(zone[14]?.idEquipo)">{{zone[14]?.Name}}</text>
+                    <text x="340.193" y="219.89" class="st4" [nbPopover]="card" transform="rotate(55 375,201)" (click)="changeId(zone[6]?.idEquipo)">{{zone[6]?.Name}}</text>
+                    <text x="325.193" y="202.89" class="st4" [nbPopover]="card" transform="rotate(26 370,192)" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
+                    <text x="303.93" y="172.89" class="st4" [nbPopover]="card"  (click)="changeId(zone[9]?.idEquipo)">{{zone[9]?.Name}}</text>
+                    <text x="317.93" y="167.89" class="st4" [nbPopover]="card" transform="rotate(-22 321,166)" (click)="changeId(zone[8]?.idEquipo)">{{zone[8]?.Name}}</text>
+                    <text x="320.193" y="154.89" class="st4" [nbPopover]="card" (click)="changeId(zone[13]?.idEquipo)">{{zone[13]?.Name}}</text>
+                    <text x="326.193" y="151.89" class="st4" [nbPopover]="card" (click)="changeId(zone[7]?.idEquipo)">{{zone[7]?.Name}}</text>
+                    <text x="346.93" y="150.89" class="st4" [nbPopover]="card" (click)="changeId(zone[10]?.idEquipo)">{{zone[10]?.Name}}</text>
+                    <text x="344.93" y="142.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
+                    <text x="323.193" y="140.89" class="st4" [nbPopover]="card" transform="rotate(-58 328,128)" (click)="changeId(zone[4]?.idEquipo)">{{zone[4]?.Name}}</text>
+                    <text x="315.193" y="142.89" class="st4" [nbPopover]="card" transform="rotate(-58 321,130)" (click)="changeId(zone[11]?.idEquipo)">{{zone[11]?.Name}}</text>
+                    <text x="308.93" y="140.99" class="st4" [nbPopover]="card" >{{zone[17]?.Name}}</text>
+                    <text x="307.93" y="146.89" class="st4" [nbPopover]="card" (click)="changeId(zone[12]?.idEquipo)">{{zone[12]?.Name}}</text>
+                    <text x="278.93" y="160.89" class="st4" [nbPopover]="card" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
+                    <text x="245.93" y="179.89" class="st4" [nbPopover]="card" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
+                    <text x="220.193" y="199.89" class="st4" [nbPopover]="card" (click)="changeId(zone[5]?.idEquipo)">{{zone[5]?.Name}}</text>
+                    <text x="220.193" y="204.89" class="st4" [nbPopover]="card" (click)="changeId(zone[15]?.idEquipo)">{{zone[15]?.Name}}</text>
+                    <text x="219.93" y="209.89" class="st4" [nbPopover]="card" (click)="changeId(zone[16]?.idEquipo)">{{zone[16]?.Name}}</text>
+                    <!-- cl2 -->
+                    <text x="362.93" y="205.89" class="st4" [nbPopover]="card" (click)="changeId(zone[18]?.idEquipo)">{{zone[18]?.Name}}</text>
+                    <text x="288.193" y="224.89" class="st4" [nbPopover]="card" transform="rotate(26 370,192)" (click)="changeId(zone[32]?.idEquipo)">{{zone[32]?.Name}}</text>
+                    <text x="320.193" y="224.89" class="st4" [nbPopover]="card" transform="rotate(26 370,192)" (click)="changeId(zone[21]?.idEquipo)">{{zone[21]?.Name}}</text>
+                    <text x="224.93" y="209.89" class="st4" [nbPopover]="card" transform="rotate(-42 255,216)" (click)="changeId(zone[33]?.idEquipo)">{{zone[33]?.Name}}</text>
+                    <text x="270.93" y="212.89" class="st4" [nbPopover]="card" transform="rotate(-42 255,216)" (click)="changeId(zone[22]?.idEquipo)">{{zone[22]?.Name}}</text>
+                    <text x="255.193" y="199.89" class="st4" [nbPopover]="card" transform="rotate(-42 255,216)" (click)="changeId(zone[23]?.idEquipo)">{{zone[23]?.Name}}</text>
+                    <text x="238.193" y="222.89" class="st4" [nbPopover]="card" transform="rotate(-102 255,218)" (click)="changeId(zone[35]?.idEquipo)">{{zone[35]?.Name}}</text>
+                    <text x="221.93" y="215.89" class="st4" [nbPopover]="card" (click)="changeId(zone[24]?.idEquipo)">{{zone[24]?.Name}}</text>
+                    <text x="242.93" y="209.89" class="st4" [nbPopover]="card" transform="rotate(-30 255,216)" (click)="changeId(zone[34]?.idEquipo)">{{zone[34]?.Name}}</text>
+                    <text x="342.93" y="153.89" class="st4" [nbPopover]="card" transform="rotate(20 306,169)" (click)="changeId(zone[30]?.idEquipo)">{{zone[30]?.Name}}</text>
+                    <text x="237.193" y="218.89" class="st4" [nbPopover]="card" transform="rotate(-95 254,218)" (click)="changeId(zone[25]?.idEquipo)">{{zone[25]?.Name}}</text>
+                    <text x="260.93" y="218.89" class="st4" [nbPopover]="card" (click)="changeId(zone[26]?.idEquipo)">{{zone[26]?.Name}}</text>
+                    <text x="346.93" y="162.89" class="st4" [nbPopover]="card" (click)="changeId(zone[27]?.idEquipo)">{{zone[27]?.Name}}</text>
+                    <text x="280.93" y="206.89" class="st4" [nbPopover]="card" (click)="changeId(zone[19]?.idEquipo)">{{zone[19]?.Name}}</text>
+                    <text x="324.93" y="183.89" class="st4" [nbPopover]="card" transform="rotate(-32 321,166)" (click)="changeId(zone[20]?.idEquipo)">{{zone[20]?.Name}}</text>
+                    <text x="346.93" y="212.89" class="st4" [nbPopover]="card" (click)="changeId(zone[31]?.idEquipo)">{{zone[31]?.Name}}</text>
+                    <text x="346.93" y="157.89" class="st4" [nbPopover]="card" (click)="changeId(zone[28]?.idEquipo)">{{zone[28]?.Name}}</text>
+                    <text x="229.93" y="217.89" class="st4" [nbPopover]="card" transform="rotate(-75 250,218)" (click)="changeId(zone[29]?.idEquipo)">{{zone[29]?.Name}}</text>
             
            </svg>
 
