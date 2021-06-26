@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 // import { Priority, Resource, Appointment, ScheduleService } from './schedule.service';
 import { extend } from '@syncfusion/ej2-base';
 import {
-    TimelineViewsService, AgendaService, GroupModel, EventSettingsModel, ResizeService, DragAndDropService, ScheduleComponent, EventRenderedArgs, WeekService, MonthService, TimelineMonthService, View
+    TimelineViewsService, AgendaService, GroupModel, EventSettingsModel, ResizeService, DragAndDropService, ScheduleComponent, PrintService, WeekService, MonthService, TimelineMonthService, View, ActionEventArgs, ToolbarActionArgs, ExportOptions
 } from '@syncfusion/ej2-angular-schedule';
 // import { timelineResourceData, resourceData } from './data';
 import { DataManager, ODataV4Adaptor, Query, UrlAdaptor } from '@syncfusion/ej2-data';
@@ -12,7 +12,9 @@ import { takeWhile } from 'rxjs/operators';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { Banda5, zons, states, departures } from '../_interfaces/MatBag.model';
-import { LocalDataSource } from 'ng2-smart-table';
+import { NbWindowService } from '@nebular/theme';
+import { WindowFormComponent } from './window-form/window-form.component';
+import { ItemModel } from '@syncfusion/ej2-angular-navigations';
 
 
 interface carrusel {
@@ -61,7 +63,8 @@ export class SchedulerComponent implements OnInit {
 
 
     constructor( private http: HttpClient,
-        private api: HttpService ) { 
+        private api: HttpService,
+        private windowService: NbWindowService ) { 
         
       }
     
@@ -72,6 +75,7 @@ export class SchedulerComponent implements OnInit {
           this.open();
       }
     
+      
 
   public selectedDate: Date = new Date(2021, 5, 10);
 
@@ -130,7 +134,7 @@ export class SchedulerComponent implements OnInit {
     adaptor: new ODataV4Adaptor,
     crossDomain: false,
     offline: true,
- });  
+ });   
 
  
 
@@ -181,6 +185,49 @@ onActionFailure(e: Error): void {
     span.style.color = '#FF0000'
     span.innerHTML = 'Server exception: 404 Not found';
  }
+
+ public onActionBegin(args: ActionEventArgs & ToolbarActionArgs): void {
+  if (args.requestType === 'toolbarItemRendering') {
+    const exportItem: ItemModel = {
+      align: 'Right', showTextOn: 'Both', 
+      text: 'Imprimir', cssClass: 'e-print', click: this.onPrintIconClick.bind(this)
+    };
+    args.items.push(exportItem);
+  }
+}
+
+public onPrintIconClick(): void {
+  this.scheduleObj.print();
+}
+
+public onActionExcelBegin(args: ActionEventArgs & ToolbarActionArgs): void {
+  if (args.requestType === 'toolbarItemRendering') {
+    const exportItem: ItemModel = {
+      align: 'Right', showTextOn: 'Both', 
+      text: 'Exportar a Excel', cssClass: 'e-excel-export', click: this.onExportClick.bind(this)
+    };
+    args.items.push(exportItem);
+  }
+}
+
+public onExportClick(): void {
+  const exportValues: ExportOptions = { fields: ['Id', 'Subject', 'StartTime', 'EndTime'] };
+  this.scheduleObj.exportToExcel(exportValues);
+}
+
+public onActionAddBegin(args: ActionEventArgs & ToolbarActionArgs): void {
+  if (args.requestType === 'toolbarItemRendering') {
+    const exportItem: ItemModel = {
+      align: 'Left', showTextOn: 'Both', 
+      text: 'Agregar', cssClass: 'e-print', click: this.openWindowForm.bind(this)
+    };
+    args.items.push(exportItem);
+  }
+}
+
+openWindowForm() {
+  this.windowService.open(WindowFormComponent, { title: `` });
+}
 
 //  editor(): void {
 //   let cellData: Object = {

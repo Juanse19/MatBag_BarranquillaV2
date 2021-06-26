@@ -75,7 +75,6 @@ export class Ib3Component implements OnInit {
   }
 
   ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
 

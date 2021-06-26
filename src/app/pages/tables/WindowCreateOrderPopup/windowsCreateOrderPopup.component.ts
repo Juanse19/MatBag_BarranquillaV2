@@ -88,7 +88,7 @@ let ORDENESACTUALIZAR: OrdenActualizar
 
 };
 
-let ORDENCREAR: OrdenCrear
+let ORDENCREAR: OrdenCrear 
 {
 
 };

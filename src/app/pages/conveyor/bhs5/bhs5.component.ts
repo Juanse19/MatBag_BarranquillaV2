@@ -98,7 +98,7 @@ export class Bhs5Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(1000)
+    this.intervalSubscriptionStatusAlarm = interval(50000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona12')),
@@ -110,7 +110,6 @@ export class Bhs5Component implements OnInit {
   }
 
   ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
 

@@ -37,7 +37,7 @@ export class Bhs8Component implements OnInit {
   ngOnInit(): void {
     // this.banda8NameCharge();
     this.bandaNameCharge();
-    this.bandaStateCharge();
+    // this.bandaStateCharge();
   }
 
   back() {
@@ -97,7 +97,6 @@ export class Bhs8Component implements OnInit {
   }
 
   ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
 

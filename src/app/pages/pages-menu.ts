@@ -26,14 +26,22 @@ export class PagesMenu {
             title: 'Dashboard Salida', 
             link: '/pages/iot-dashboard',
           },
-          
-          {
-            title: 'Transfer Line',
-            link: '/pages/conveyor/bhs1',
+          { 
+            title: 'Security Feed Check In',
+            link: '/pages/conveyor/bhs5',
           },
           {
             title: 'Security Feed',
             link: '/pages/conveyor/bhs2',
+          },
+          {
+            title: 'Crossover',
+            link: '/pages/conveyor/bhs10',
+          },
+
+          {
+            title: 'Transfer Line',
+            link: '/pages/conveyor/bhs1',
           },
           {
             title: 'Make Up',
@@ -42,10 +50,6 @@ export class PagesMenu {
           {
             title: 'Alarm Line',
             link: '/pages/conveyor/bhs4',
-          },
-          { 
-            title: 'Security Feed Check In',
-            link: '/pages/conveyor/bhs5',
           },
           {
             title: 'Clear Line',

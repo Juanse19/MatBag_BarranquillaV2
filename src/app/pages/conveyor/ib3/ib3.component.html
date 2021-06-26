@@ -2587,7 +2587,7 @@
             <ng-template #card>
                 <nb-card class="popover-card">
                     <nb-card-body>
-                        <div class="media" *ngFor="let option of divice; let i = index">
+                        <div class="media" *ngFor="let option of divice | async ; let i = index">
                             <!-- {{i}} -->
                             <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
                             <div class="media-body">

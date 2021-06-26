@@ -5,7 +5,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbIconModule, NbInputModule, NbSelectModule, NbTreeGridModule, NbRadioModule, NbCheckboxModule, 
+import { NbCardModule, NbTabsetModule, NbIconModule, NbInputModule, NbSelectModule, NbTreeGridModule, NbRadioModule, NbCheckboxModule, 
   NbActionsModule, NbUserModule, NbDatepickerModule, NbButtonModule, NbToggleModule} from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
@@ -48,6 +48,7 @@ import { AlarmsComponent } from './alarms/alarms.component'
     NbIconModule,
     NbButtonModule,
     NbToggleModule,
+    NbTabsetModule,
   ],
   declarations: [
     ...routedComponents,

@@ -76,7 +76,6 @@ export class Bhs9Component implements OnInit {
   }
 
   ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
 

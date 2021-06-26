@@ -131,7 +131,6 @@ export class Bhs6Component implements OnInit {
   }
 
   ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
   

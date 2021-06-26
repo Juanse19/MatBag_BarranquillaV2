@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConveyorRoutingModule } from './conveyor-routing.module';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
+import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule, NbSelectModule, NbDatepickerModule, NbCheckboxModule, } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module';  
 import { ConveyorComponent } from './conveyor.component';
@@ -10,7 +10,7 @@ import { TeamComponent } from './team/team.component';
 import { FunctioningComponent } from './functioning/functioning.component';
 import { AccumulationComponent } from './accumulation/accumulation.component';
 import { AssignComponent } from './assign/assign.component';
-import { InfoComponent } from './info/info.component';
+import { InfoComponent } from './info/info.component'; 
 import { Bhs1Component } from './bhs1/bhs1.component';
 import { Bhs2Component } from './bhs2/bhs2.component';
 import { Bhs3Component } from './bhs3/bhs3.component';
@@ -29,6 +29,11 @@ import { Ib3Component } from './ib3/ib3.component';
 import { Bhs9Component } from './bhs9/bhs9.component';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
+import { ReactiveFormsModule } from '@angular/forms';
+import { WindowFormComponent } from './scheduler/window-form/window-form.component';
+import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
+import { Bhs10Component } from './bhs10/bhs10.component';
+import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 
@@ -53,6 +58,8 @@ import { PageService, SortService, FilterService, GroupService } from '@syncfusi
     Ib2Component,
     Ib3Component,
     Bhs9Component,
+    WindowFormComponent,
+    Bhs10Component,
   ],
   imports: [
     CommonModule,
@@ -76,6 +83,12 @@ import { PageService, SortService, FilterService, GroupService } from '@syncfusi
     NbTooltipModule,
     NbPopoverModule,
     GridModule,
+    ReactiveFormsModule,
+    NbSelectModule,
+    NbDatepickerModule.forRoot(),
+    DropDownListAllModule,
+    NbCheckboxModule,
+    DateTimePickerModule,
   ],
   providers: [PageService,
     SortService,

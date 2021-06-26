@@ -48,19 +48,16 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res:Zones[])=>{
       this.zone=res;
       // console.log("zon", this.zone);
-      console.log("Res ", res);
-      
+      // console.log("Res ", res);
     });
   }
 
   public changeId(tea: any){
- 
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ tea)
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.consumezoneData=res;
-      console.log('Zons:', res , 'states');
-      
+      // console.log('Zons:', res , 'states');
     });
   }
 
@@ -70,7 +67,7 @@ export class SystemOperationComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.deparData=res;
-      console.log('MakeUps:', res , 'states');
+      // console.log('MakeUps:', res , 'states');
       
     });
   }
@@ -112,8 +109,11 @@ export class SystemOperationComponent implements OnInit {
     this.router.navigate(['/pages/conveyor/bhs9']);
    }
 
+   bhs10() {
+    this.router.navigate(['/pages/conveyor/bhs10']);
+   }
+
    ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
 

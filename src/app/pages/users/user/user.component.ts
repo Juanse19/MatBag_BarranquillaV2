@@ -210,7 +210,7 @@ export class UserComponent implements OnInit, OnDestroy {
         .pipe(takeWhile(() => this.alive))
         .subscribe((res: any) => {
         //  console.log("Envió: ", res);
-          });
+          }); 
 
       this.usersService.updateCurrent(user)
       .pipe(takeWhile(() => this.alive))

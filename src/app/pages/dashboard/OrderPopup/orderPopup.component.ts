@@ -156,7 +156,7 @@ export class WindowComponent2  implements OnInit {
 
 
   Guardar(){
-    let formulario = this.arrumeManualForm.value;
+    let formulario = this.arrumeManualForm.value; 
 
     if(formulario.orderForm){
     

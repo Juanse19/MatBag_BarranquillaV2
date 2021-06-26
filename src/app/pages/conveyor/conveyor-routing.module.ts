@@ -19,6 +19,7 @@ import { Ib1Component } from './ib1/ib1.component';
 import { Ib2Component } from './ib2/ib2.component';
 import { Ib3Component } from './ib3/ib3.component';
 import { Bhs9Component } from './bhs9/bhs9.component';
+import { Bhs10Component } from './bhs10/bhs10.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,10 @@ const routes: Routes = [
       {
         path: 'bhs9',
         component: Bhs9Component,
+      },
+      {
+        path: 'bhs10',
+        component: Bhs10Component,
       },
       {
         path: 'scheduler',

@@ -65,7 +65,6 @@ export class InfoComponent implements OnInit {
    }
   
    ngOnDestroy() {
-    this.changeId(this.alive = false);
     this.alive = false;
   }
 

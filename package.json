@@ -56,6 +56,7 @@
         "@syncfusion/ej2-angular-grids": "^19.1.67",
         "@syncfusion/ej2-angular-navigations": "19.1.67",
         "@syncfusion/ej2-angular-schedule": "19.1.63",
+        "@syncfusion/ej2-angular-calendars": "19.1.66",
         "@syncfusion/ej2-base": "19.1.63",
         "@syncfusion/ej2-buttons": "19.1.63",
         "@syncfusion/ej2-calendars": "19.1.63",

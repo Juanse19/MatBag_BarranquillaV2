@@ -72,7 +72,7 @@ export class AlarmsComponent implements OnDestroy {
       // },
       UserId: {
         title: 'usuario',
-        type: 'number',
+        type: 'string',
         filter: false,
       },
       TimeStamp: {
