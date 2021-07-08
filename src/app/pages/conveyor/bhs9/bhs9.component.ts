@@ -29,6 +29,7 @@ export class Bhs9Component implements OnInit {
 
   ngOnInit(): void {
     this.bandaNameCharge();
+    this.bandaStateCharge();
   }
 
   back() {

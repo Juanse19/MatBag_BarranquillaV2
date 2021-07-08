@@ -41,7 +41,6 @@ export class InfoComponent implements OnInit {
   }
 
   public changeId(tea: any){
- 
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ tea)
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{

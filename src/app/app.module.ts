@@ -15,6 +15,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { AuthModule } from './@auth/auth.module';
 import { ScheduleAllModule, RecurrenceEditorAllModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 
 import {
@@ -36,6 +37,7 @@ import {
     AppRoutingModule,
     ScheduleAllModule,
     GridModule, 
+    DialogModule,
     RecurrenceEditorAllModule,
 
     AuthModule.forRoot(),

@@ -106,7 +106,7 @@ export class Bhs1Component implements OnInit {
         console.log('status:', res);
     });
  
-  }
+  } 
 
   // public changeId(tea: any): void{
   //   console.log("Prueba de captura de id", tea);

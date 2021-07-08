@@ -57,6 +57,10 @@ import { WindowComponent2} from './OrderPopup/orderPopup.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { SystemOperationComponent } from './rooms/system-operation/system-operation.component';
 import { BhsArrivalComponent } from './rooms/bhs-arrival/bhs-arrival.component';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { WindowPopComponentComponent } from './window-pop-component/window-pop-component.component';
 
 @NgModule({
   imports: [
@@ -84,7 +88,9 @@ import { BhsArrivalComponent } from './rooms/bhs-arrival/bhs-arrival.component';
     NbAutocompleteModule,
     Ng2SmartTableModule,
     NbTooltipModule,
-    NbPopoverModule
+    NbPopoverModule,
+    GridModule,
+    DialogModule,
   ],
   declarations: [
     DashboardComponent,
@@ -110,6 +116,11 @@ import { BhsArrivalComponent } from './rooms/bhs-arrival/bhs-arrival.component';
     WindowComponent2,
     SystemOperationComponent,
     BhsArrivalComponent,
+    WindowPopComponentComponent,
   ],
+  providers: [PageService,
+    SortService,
+    FilterService,
+    GroupService],
 })
 export class DashboardModule { }

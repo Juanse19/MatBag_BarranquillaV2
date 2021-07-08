@@ -514,7 +514,7 @@ export class PagesMenu {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
           // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
-          return [...dashboardMenu, dassh2Menu, paraMenu, repocbisMenu, userMenu, alarmMenu];
+          return [...dashboardMenu, dassh2Menu, paraMenu, repocbisMenu, userMenu, alarmMenu, ...menu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];

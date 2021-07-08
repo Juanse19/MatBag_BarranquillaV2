@@ -77,7 +77,7 @@ export class SchedulerComponent implements OnInit {
     
       
 
-  public selectedDate: Date = new Date(2021, 5, 10);
+  public selectedDate: Date = new Date();
 
   public group: GroupModel = {
       resources: ['Projects', 'Categories']

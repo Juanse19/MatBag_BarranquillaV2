@@ -42,7 +42,7 @@ export interface teams{
 }
 
 export interface Consumezone {
-    ZoneId: string;
+ZoneId: string;
 ZoneName: string;
 Estado: string;
 Consumo: string;
@@ -50,6 +50,11 @@ ContadorMaletas: string;
 TiempoOn: string;
 TiempoOff: string;
 }
+
+export const Zonass = {
+    TX: 13,
+  }
+  
 
 export interface departures {
     Id: string,

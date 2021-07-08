@@ -1,0 +1,28 @@
+<p>window-pop-component works!</p>
+
+<div class="row">
+    <div class="media-pody" *ngFor="let zons of consumezoneData">
+
+        <p>Nompre:</p>
+        <p> {{zons.ZoneName}} </p>
+
+        <p>Id equipo:</p>
+        <p>{{zons.ZoneId}}</p>
+
+        <p>Estado:</p>
+        <p>{{zons.Estado}}</p>
+
+        <p>Consumo (KWH):</p>
+        <p>{{zons.Consumo}} </p>
+
+        <p>Cantidad Maletas</p>
+        <p>{{zons?.ContadorMaletas}} </p>
+
+        <p>TiempoOn:</p>
+        <p>{{zons?.TiempoOn}} </p>
+
+        <p>TiempoOff:</p>
+        <p>{{zons?.TiempoOff}} </p>
+    </div>
+</div>
+

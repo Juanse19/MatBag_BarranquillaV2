@@ -7,13 +7,15 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { NbToastrService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { NbAccessChecker } from '@nebular/security';
+import { HttpClient } from '@angular/common/http';
+import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
 
 interface Alarmas {
   Id: number;
   Message: string;
   Level: string;
   Exception: string;
-  UserId: number;
+  UserId: string;
   TimeStamp: string;
 }
 
@@ -32,6 +34,11 @@ export class AlarmsComponent implements OnDestroy {
   public select = false;
   private alive = true;
   mostrar: Boolean;
+  public pageSettings: PageSettingsModel;
+
+  public historyAlarmData: Alarmas[];
+
+  public filterOptions: FilterSettingsModel;
 
   alarmas = ALARMAS;
 
@@ -71,7 +78,7 @@ export class AlarmsComponent implements OnDestroy {
       //   filter: false,
       // },
       UserId: {
-        title: 'usuario',
+        title: 'Usuario',
         type: 'string',
         filter: false,
       },
@@ -91,8 +98,9 @@ export class AlarmsComponent implements OnDestroy {
     private toastrService: NbToastrService,
     public apiGetComp: ApiGetService,
     private api: HttpService,
+    private http: HttpClient,
   ) {
-    this.Chargealarms();
+    
     this.alive;
     this.accessChecker.isGranted('edit', 'ordertable')
     .pipe(takeWhile(() => this.alive))
@@ -105,6 +113,15 @@ export class AlarmsComponent implements OnDestroy {
         this.mostrar=true;
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.Chargealarms();
+    this.ChargeHistoryData();
+    this.pageSettings = { pageSize: 10 };
+    this.filterOptions = {
+      type: 'Menu',
+   };
   }
 
   // onedit($event: any) {
@@ -153,42 +170,60 @@ export class AlarmsComponent implements OnDestroy {
   }
 
   reconocer() {
+    this.source.refresh();
        this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', "")
        .pipe(takeWhile(() => this.alive))
        .subscribe((res: any) => {
           if (res) {
            this.toastrService.success('', '¡Alarmas solucionadas!');
-           this.select=true;
            this.source.refresh();
+           this.Chargealarms();
+           this.select=true;
          } else {
            this.toastrService.danger('', 'Algo salio mal.');
          }
+         this.source.refresh();
        });
-     
+       
   }
 
   Chargealarms() {
     this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
-      //REPORTOCUPATION=res;
-      // console.log("Report Total Ordenes:", res);
       this.Alarm = res;
       this.source.load(res);
-      // console.log("Alarm", res, "Al", this.Alarm);
-      
+      this.source.refresh();
     });
-    const contador = interval(4000)
+    const contador = interval(6000)
     contador.subscribe((n) => {
       this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
-        //REPORTOCUPATION=res;
         this.Alarm = res;
         this.source.load(res);
+        this.source.refresh();
       });
     });
 
+  }
+
+  ChargeHistoryData() {
+    this.http.get(this.api.apiUrlNode1 + '/historyalarm')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      // tslint:disable-next-line: no-console
+      // console.log('HistoryAlarmData: ', res);
+      this.historyAlarmData = res;
+    });
+    const contador = interval(40000)
+    contador.subscribe((n) => {
+      this.http.get(this.api.apiUrlNode1 + '/historyalarm')
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+        this.historyAlarmData = res;
+      });
+    });
   }
 
   ngOnDestroy() {

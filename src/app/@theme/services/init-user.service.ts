@@ -8,15 +8,31 @@ import { Observable } from 'rxjs';
 import { User, UserData } from '../../@core/interfaces/common/users';
 import { tap } from 'rxjs/operators';
 import { UserStore } from '../../@core/stores/user.store';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { NB_AUTH_OPTIONS, NbAuthService, NbAuthResult } from '@nebular/auth';
 import { NbJSThemesRegistry, NbThemeService } from '@nebular/theme';
+import { Router } from '@angular/router';
+import { getDeepFromObject } from '../../@auth/helpers';
 
 @Injectable()
 export class InitUserService {
+
+  redirectDelay: number = this.getConfigValue('forms.logout.redirectDelay');
+  strategy: string = this.getConfigValue('forms.logout.strategy');
+
+    
     constructor(protected userStore: UserStore,
+      protected service: NbAuthService,
+    protected router: Router,
+    @Inject(NB_AUTH_OPTIONS) protected options = {},
         protected usersService: UserData,
         protected jsThemes: NbJSThemesRegistry,
         protected themeService: NbThemeService) { }
+
+        ngOnInit(): void {
+
+          this.autoLogout;
+        }
 
     initCurrentUser(): Observable<User> {
       return this.usersService.getCurrentUser()
@@ -32,4 +48,23 @@ export class InitUserService {
                 }
             }));
     }
+
+    autoLogout(expirationData: number, strategy: string){
+      console.log(expirationData);
+      setTimeout(() => {
+        this.service.logout(strategy).subscribe((result: NbAuthResult) => {
+          const redirect = result.getRedirect();
+          if (redirect) {
+            setTimeout(() => {
+              return this.router.navigateByUrl(redirect);
+            }, this.redirectDelay);
+          }
+        });
+      }, expirationData, 300000);
+    }
+
+    getConfigValue(key: string): any {
+      return getDeepFromObject(this.options, key, null);
+    }
+
 }

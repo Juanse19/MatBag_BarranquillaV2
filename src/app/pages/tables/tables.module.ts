@@ -22,6 +22,9 @@ import {WindowComponent} from './WindowOrderPopup/windowsOrderPopup.component'
 import {ApiWindowCreateOrderPopup} from './WindowCreateOrderPopup/apiWindowCreateOrderPopup.services'
 import {WindowCreateComponent} from './WindowCreateOrderPopup/windowsCreateOrderPopup.component';
 import { AlarmsComponent } from './alarms/alarms.component'
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
+import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
 
 @NgModule({
   imports: [
@@ -49,6 +52,8 @@ import { AlarmsComponent } from './alarms/alarms.component'
     NbButtonModule,
     NbToggleModule,
     NbTabsetModule,
+    GridModule,
+    DropDownListAllModule,
   ],
   declarations: [
     ...routedComponents,
@@ -62,6 +67,10 @@ import { AlarmsComponent } from './alarms/alarms.component'
     ApiGetService,
     ApiWindowOrderPopup,
     ApiWindowCreateOrderPopup,
+    PageService,
+    SortService,
+    FilterService,
+    GroupService,
   ],
 })
 export class TablesModule { }

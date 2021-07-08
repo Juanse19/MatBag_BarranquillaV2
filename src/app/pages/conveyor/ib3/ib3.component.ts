@@ -63,7 +63,7 @@ export class Ib3Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(1000)
+    this.intervalSubscriptionStatusAlarm = interval(60000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona9')),

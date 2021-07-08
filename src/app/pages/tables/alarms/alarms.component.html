@@ -3,9 +3,9 @@
     <nb-tabset>
         <nb-tab tabTitle="Alarmas">
             <nb-card>
-                <!-- <nb-card-header>
+                <nb-card-header>
                     Alarmas
-                </nb-card-header> -->
+                </nb-card-header>
 
                 <nb-card-body>
                     <ng2-smart-table class="example-smart-table" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
@@ -18,7 +18,21 @@
             </nb-card>
         </nb-tab>
         <nb-tab tabTitle="Historico Alarmas">
-            <span>Content #2</span>
+            <nb-card>
+                <nb-card-header>
+                    Historico Alarmas
+                </nb-card-header>
+                <nb-card-body>
+                    <ejs-grid [dataSource]='historyAlarmData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='400'>
+                        <e-columns>
+                            <e-column field='Message' headerText='Mensaje' width=200 height=100></e-column>
+                            <e-column field='Level' headerText='Nivel' width=95></e-column>
+                            <e-column field='UserId' headerText='Usuario' width=90></e-column>
+                            <e-column field='TimeStamp' headerText='Tiempo' width=90></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                </nb-card-body>
+            </nb-card>
         </nb-tab>
     </nb-tabset>
 </nb-card>
