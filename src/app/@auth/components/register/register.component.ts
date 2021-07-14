@@ -12,6 +12,7 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { getDeepFromObject } from '../../helpers';
 import { EMAIL_PATTERN } from '../constants';
 import {ApiGetService} from './apiGet.services';
+import { UserStore } from '../../../@core/stores/user.store';
 interface Roles {
   id?: number;
   name: string;
@@ -52,6 +53,8 @@ export class NgxRegisterComponent implements OnInit {
     protected router: Router,
     private httpService: HttpService,
     private apiGetComp: ApiGetService,
+    private userStore: UserStore,
+    private api: HttpService,
     ) {
       
       this.apiGetComp.GetJson(this.httpService.apiUrlMatbox+'/userrole/getroles')
@@ -109,6 +112,21 @@ export class NgxRegisterComponent implements OnInit {
     this.user = this.registerForm.value;
     this.errors = this.messages = [];
     this.submitted = true;
+
+    const currentUserId = this.userStore.getUser().id;
+    const currentUser = this.userStore.getUser().firstName;
+  // console.log("este es el usuario: ",this.userStore.getUser().firstName);
+  var respons = 
+  {
+    user: currentUser,
+    message:"Creo un nuevo usuario",
+    users: currentUserId,  
+};
+  this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+        //  console.log("Envió: ", res);
+      });
 
     this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;

@@ -38,6 +38,11 @@
                 <ngx-validation-message label="Email" [showPattern]="email?.hasError('pattern') && email.touched" [showRequired]="email?.errors?.required && email.touched" min=1 max=120></ngx-validation-message>
             </div>
 
+            <div class="form-group">
+                <label for="lastName">Asignacion de Licencia de acceso</label>
+                <input nbInput id="lastName" [status]="(lastName?.hasError('minlength') || lastName?.hasError('maxlength')) ? 'danger' : 'primary'" class="form-control" placeholder="Licencia de acceso">
+                <ngx-validation-message label="Last Name" [showMinLength]="lastName?.hasError('minlength')" [showMaxLength]="lastName?.hasError('maxlength')" minLength=3 maxLength=20></ngx-validation-message>
+            </div>
 
             <!-- <div class="form-group" formGroupName="address">
         <label for="inputStreet">Calle</label>

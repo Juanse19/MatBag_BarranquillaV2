@@ -179,7 +179,7 @@ function matches2(ordenes: Ordenes, term: string, pipe: PipeTransform) {
     DecimalPipe,
     WindowComponent2,
   ],
-  selector: 'ngx-window',
+  selector: 'ngx-windows',
   templateUrl: './windowPopup.component.html',
   styleUrls: [ './windowPopup.component.scss'],
 })

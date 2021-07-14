@@ -299,6 +299,19 @@ export class PagesMenu {
       link: '/pages/users/list',
       children: undefined,
     };
+
+    const configurationMenu: NbMenuItem = {
+      title: 'Configuración',
+      icon: 'settings-outline',
+      // link: '/pages/analytics/analytics',
+      children: [
+        {
+          title: 'Usuarios',
+          link: '/pages/users/list',
+        }
+      ],
+    };
+
     const analyticsMenu: NbMenuItem = {
       title: 'Analitica',
       icon: 'bar-chart-outline',
@@ -366,13 +379,13 @@ export class PagesMenu {
     };
 
     const paraMenu: NbMenuItem = {
-      title: 'Parametrización',
+      title: 'Asignación de aerolineas',
       icon: 'book-outline',
       // link: '/pages/charts/charts-report',
       children:[
         // {
-        //   title: 'Asignar Aeronilínea al Make Up',
-        //   link: '/pages/conveyor/assign',
+        //   title: 'Window',
+        //   link: '/pages/conveyor/window',
         // },
         {
           title: 'Scheduler',
@@ -514,7 +527,7 @@ export class PagesMenu {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
           // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
-          return [...dashboardMenu, dassh2Menu, paraMenu, repocbisMenu, userMenu, alarmMenu, ...menu];
+          return [...dashboardMenu, dassh2Menu, paraMenu, repocbisMenu, configurationMenu, alarmMenu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];

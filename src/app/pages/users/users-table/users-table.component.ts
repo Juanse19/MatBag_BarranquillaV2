@@ -114,12 +114,14 @@ export class UsersTableComponent implements OnDestroy {
         .pipe(takeWhile(() => this.alive))
         .subscribe((res) => {
           if (res) {
-            const currentUserId = this.userStore.getUser().firstName;
+          const currentUserId = this.userStore.getUser().id;
+          const currentUser = this.userStore.getUser().firstName;
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
   var respons = 
   {
-    user: currentUserId,
-    message:"Elimino un usuario" 
+    user: currentUser,
+    message:"Elimino un usuario",
+    users: currentUserId,   
 };
   this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
     .pipe(takeWhile(() => this.alive))

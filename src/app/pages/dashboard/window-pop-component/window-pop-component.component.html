@@ -1,28 +1,8 @@
-<p>window-pop-component works!</p>
+<!-- Data: {{zone | json}}  -->
+<!-- Data Zone: {{Data | json}} -->
 
-<div class="row">
-    <div class="media-pody" *ngFor="let zons of consumezoneData">
-
-        <p>Nompre:</p>
-        <p> {{zons.ZoneName}} </p>
-
-        <p>Id equipo:</p>
-        <p>{{zons.ZoneId}}</p>
-
-        <p>Estado:</p>
-        <p>{{zons.Estado}}</p>
-
-        <p>Consumo (KWH):</p>
-        <p>{{zons.Consumo}} </p>
-
-        <p>Cantidad Maletas</p>
-        <p>{{zons?.ContadorMaletas}} </p>
-
-        <p>TiempoOn:</p>
-        <p>{{zons?.TiempoOn}} </p>
-
-        <p>TiempoOff:</p>
-        <p>{{zons?.TiempoOff}} </p>
-    </div>
-</div>
-
+<!-- <button class="e-control e-btn" style="position: absolute;" id="targetButton" (click)="onOpenDialog($event)">Open Dialog</button> -->
+<div #container class='root-container'></div>
+<ejs-dialog id='ejDialog5' #ejDialog5 allowDragging='true' header='Dialog' [visible]='hidden' [target]='targetElement' width='250px' [buttons]='buttons'>
+    <h1>Prueba</h1>
+</ejs-dialog>

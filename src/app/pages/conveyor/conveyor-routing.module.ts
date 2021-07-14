@@ -20,6 +20,7 @@ import { Ib2Component } from './ib2/ib2.component';
 import { Ib3Component } from './ib3/ib3.component';
 import { Bhs9Component } from './bhs9/bhs9.component';
 import { Bhs10Component } from './bhs10/bhs10.component';
+import { WindowComponent } from './window/window.component'
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
       {
         path: 'ib3',
         component: Ib3Component,
+      },
+      {
+        path: 'window',
+        component: WindowComponent,
       },
     ],
   },

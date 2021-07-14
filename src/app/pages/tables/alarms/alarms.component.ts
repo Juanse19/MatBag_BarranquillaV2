@@ -8,7 +8,8 @@ import { NbToastrService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { NbAccessChecker } from '@nebular/security';
 import { HttpClient } from '@angular/common/http';
-import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { GridComponent, PageSettingsModel, FilterSettingsModel, CommandClickEventArgs, EditService, CommandColumnService, CommandModel } from '@syncfusion/ej2-angular-grids';
+import { UserStore } from '../../../@core/stores/user.store';
 
 interface Alarmas {
   Id: number;
@@ -17,6 +18,9 @@ interface Alarmas {
   Exception: string;
   UserId: string;
   TimeStamp: string;
+  ETD: string;
+  UserIdAcknow: string;
+  IdDevice: string;
 }
 
 let ALARMAS: Alarmas[] = [
@@ -27,7 +31,8 @@ let ALARMAS: Alarmas[] = [
 @Component({
   selector: 'ngx-alarms',
   templateUrl: './alarms.component.html',
-  styleUrls: ['./alarms.component.scss']
+  providers: [ EditService, CommandColumnService],
+  styleUrls: ['./alarms.component.scss',]
 })
 export class AlarmsComponent implements OnDestroy {
 
@@ -35,9 +40,10 @@ export class AlarmsComponent implements OnDestroy {
   private alive = true;
   mostrar: Boolean;
   public pageSettings: PageSettingsModel;
-
+  public editSettings: Object;
   public historyAlarmData: Alarmas[];
-
+  public editparams: Object;
+  public commands: CommandModel[];
   public filterOptions: FilterSettingsModel;
 
   alarmas = ALARMAS;
@@ -83,7 +89,7 @@ export class AlarmsComponent implements OnDestroy {
         filter: false,
       },
       TimeStamp: {
-        title: 'Tiempo',
+        title: 'Fecha',
         type: 'string',
         filter: false,
       },
@@ -99,6 +105,7 @@ export class AlarmsComponent implements OnDestroy {
     public apiGetComp: ApiGetService,
     private api: HttpService,
     private http: HttpClient,
+    private userStore: UserStore,
   ) {
     
     this.alive;
@@ -122,6 +129,13 @@ export class AlarmsComponent implements OnDestroy {
     this.filterOptions = {
       type: 'Menu',
    };
+   this.editSettings = { allowEditing: false, allowDeleting: true };
+   this.commands = [
+  //  { type: 'Edit', buttonOption: { iconCss: ' e-icons e-edit', cssClass: 'e-flat' } },
+   { type: 'Delete', buttonOption: { iconCss: 'e-icons e-delete', cssClass: 'e-flat' } },
+  //  { type: 'Save', buttonOption: { iconCss: 'e-icons e-update', cssClass: 'e-flat' } },
+  //  { type: 'Cancel', buttonOption: { iconCss: 'e-icons e-cancel-icon', cssClass: 'e-flat' } }
+];
   }
 
   // onedit($event: any) {
@@ -134,15 +148,23 @@ export class AlarmsComponent implements OnDestroy {
     
   // }
 
-  onDeleteConfirm(event): void {
-   
+  commandClick(args: CommandClickEventArgs): void {
+    debugger
+    alert(JSON.stringify(args.rowData));
+    
+}
+
+Delete(event): void {
+    debugger
     this.accessChecker.isGranted('edit', 'ordertable')
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         if(res){ 
+          const currentUserId = this.userStore.getUser().id;
           var respons = 
             {
-            IdAlarm: event.data.Id
+            IdAlarm: event.data.Id,
+            UserIdAcknow: currentUserId
             };
           let alarm = {IdAlarm: event.data.Id};
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmId', respons)
@@ -170,8 +192,14 @@ export class AlarmsComponent implements OnDestroy {
   }
 
   reconocer() {
-    this.source.refresh();
-       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', "")
+    
+      const currentUserId = this.userStore.getUser().id;
+          var respons = 
+            {
+              UserIdAcknow: currentUserId
+            };
+            
+       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
        .pipe(takeWhile(() => this.alive))
        .subscribe((res: any) => {
           if (res) {
@@ -192,8 +220,9 @@ export class AlarmsComponent implements OnDestroy {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
       this.Alarm = res;
-      this.source.load(res);
-      this.source.refresh();
+      console.log('test alarm: ', this.Alarm)
+      // this.source.load(res);
+      // this.source.refresh();
     });
     const contador = interval(6000)
     contador.subscribe((n) => {
@@ -201,8 +230,8 @@ export class AlarmsComponent implements OnDestroy {
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         this.Alarm = res;
-        this.source.load(res);
-        this.source.refresh();
+        // this.source.load(res);
+        // this.source.refresh();
       });
     });
 

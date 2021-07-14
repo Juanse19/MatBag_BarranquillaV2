@@ -1,0 +1,27 @@
+<div #container class='root-container'>
+    <ejs-dialog id='ejDialogTX1' #ejDialogTX1 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx of divice">
+                <li>Id: <span>{{tx.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='ejDialogTX2' #ejDialogTX2 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>

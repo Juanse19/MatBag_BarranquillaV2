@@ -190,13 +190,13 @@ onActionFailure(e: Error): void {
   if (args.requestType === 'toolbarItemRendering') {
     const exportItem: ItemModel = {
       align: 'Right', showTextOn: 'Both', 
-      text: 'Imprimir', cssClass: 'e-print', click: this.onPrintIconClick.bind(this)
+      text: 'Imprimir', cssClass: 'e-icons e-print', click: this.onPrintIconClick.bind(this)
     };
     args.items.push(exportItem);
   }
 }
 
-public onPrintIconClick(): void {
+public onPrintIconClick(): void { 
   this.scheduleObj.print();
 }
 
@@ -204,7 +204,7 @@ public onActionExcelBegin(args: ActionEventArgs & ToolbarActionArgs): void {
   if (args.requestType === 'toolbarItemRendering') {
     const exportItem: ItemModel = {
       align: 'Right', showTextOn: 'Both', 
-      text: 'Exportar a Excel', cssClass: 'e-excel-export', click: this.onExportClick.bind(this)
+      text: 'Exportar a Excel', cssClass: 'e-icons e-excel-export', click: this.onExportClick.bind(this)
     };
     args.items.push(exportItem);
   }

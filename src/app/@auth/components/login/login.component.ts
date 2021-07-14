@@ -29,7 +29,7 @@ import { ApiGetService } from '../../../@core/backend/common/api/apiGet.services
 
 export class NgxLoginComponent implements OnInit {
 
-  correo = 'admin@admin.admin';
+  correo = 'mladmin@matec.com.co';
   contrasena = 'admin';
 
   minLength: number = this.getConfigValue('forms.validation.password.minLength');
@@ -48,6 +48,7 @@ export class NgxLoginComponent implements OnInit {
   submitted: boolean = false;
   loginForm: FormGroup;
   alive: boolean = true;
+  currentUserId: number;
 
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
@@ -84,18 +85,27 @@ export class NgxLoginComponent implements OnInit {
   }
 
   login(): void {
+    // debugger
     this.user = this.loginForm.value;
     this.errors = [];
     this.messages = [];
     this.submitted = true;
+   
+
     
-    // const currentUserId = this.userStore.getUser().firstName;
+    let currentUserId = this.userStore.getUser()?.id;
+
+    if(currentUserId === undefined){
+      currentUserId = 1;
+    }else{
+      currentUserId;
+    }
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
   var respons = 
   {
-    // user: currentUserId,
     user: this.user.email,
-    message:"Inicio sesión" 
+    message:"Inicio sesión",
+    users: currentUserId, 
 };
   this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
     .pipe(takeWhile(() => this.alive))

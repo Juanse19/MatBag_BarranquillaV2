@@ -3029,10 +3029,10 @@
 
     </g>
 
-    <text x="134.93" y="164.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(zone[1]?.idEquipo)" [nbPopover]="card" nbPopoverPlacement="left" >{{zone[1]?.Name}}</text>
+    <text x="134.93" y="164.89" class="st4" triggers="mouseenter:mouseleave" (click)="ClicTX1()"  >{{zone[1]?.Name}}</text>
     <text x="173.193" y="144.89" class="st4"  triggers="mouseenter:mouseleave"  [nbPopover]="card" >{{zone[0]?.Name}}</text>
-    <text x="192.193" y="116.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(zone[3]?.idEquipo)" [nbPopover]="card">{{zone[3]?.Name}}</text>
-    <text x="215.93" y="110.89" class="st4" triggers="mouseenter:mouseleave" (click)="changeId(zone[9]?.idEquipo)" [nbPopover]="card">{{zone[9]?.Name}}</text>
+    <text x="192.193" y="116.89" class="st4"  (click)="ClicTX3()" >{{zone[3]?.Name}}</text>
+    <text x="215.93" y="110.89" class="st4"  (click)="ClicTX4()" >{{zone[9]?.Name}}</text>
     <text x="168.93" y="111.89" class="st4" (click)="changeId(zone[6]?.idEquipo)" [nbPopover]="card">{{zone[6]?.Name}}</text>
     <text x="136.193" y="130.89" class="st4" (click)="changeId(zone[8]?.idEquipo)" [nbPopover]="card" nbPopoverPlacement="left">{{zone[8]?.Name}}</text>
     <text x="170.193" y="125.89" class="st4" (click)="changeId(zone[7]?.idEquipo)" [nbPopover]="card">{{zone[7]?.Name}}</text>
@@ -3068,6 +3068,26 @@
 
             </nb-card>
         </ng-template>
+
+        <!-- --------------------------------- Template---------------------------------- -->
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogTX' #ejDialogTX allowDragging='true' header='' [visible]='hidden' [position]='{ X: 141.33, Y: 135.14 }' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let tx of divice">
+                        <li>Id: <span>{{tx.DeviceId}}</span></li>
+                        <li>Estado: <span>{{tx.Estado}}</span></li>
+                        <li>Consumo (KWH): <span>{{tx.Consumo}}</span></li>
+                        <li>Tiempo Encendido: <span>{{tx.TiempoOn}}</span></li>
+                        <li>Tiempo apagado: <span>{{tx.TiempoOff}}</span></li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
 
     </nb-card-body>
 </nb-card>

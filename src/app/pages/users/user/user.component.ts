@@ -90,7 +90,7 @@ export class UserComponent implements OnInit, OnDestroy {
               private apiGetComp: ApiGetService,
               private api: HttpService,
               public resetPassword: NgxResetPasswordComponent) {
-                this.apiGetComp.GetJson(this.httpService.apiUrlMatbox+'/userrole/getroles').subscribe((res: any) => {
+                this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getroles').subscribe((res: any) => {
                   this.listaRoles=res;
                 });
                 this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
@@ -128,7 +128,7 @@ export class UserComponent implements OnInit, OnDestroy {
         city: this.fb.control(''),
         zipCode: this.fb.control(''),
       }),
-    });
+    }); 
   }
 
   get canEdit(): boolean {
@@ -160,7 +160,7 @@ export class UserComponent implements OnInit, OnDestroy {
     loadUser
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((user) => {
-        this.apiGetComp.GetJson(this.httpService.apiUrlMatbox+'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
+        this.apiGetComp.GetJson(this.httpService.apiUrlMatbox +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
           user.role=res.name;
         
         this.userForm.setValue({
@@ -199,12 +199,14 @@ export class UserComponent implements OnInit, OnDestroy {
 
     let observable = new Observable<User>();
     if (this.mode === UserFormMode.EDIT_SELF) {
-      const currentUserId = this.userStore.getUser().firstName;
+      const currentUserId = this.userStore.getUser().id;
+      const currentUser = this.userStore.getUser().firstName;
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
       var respons = 
         {
-            user: currentUserId,
-            message:"Edito usuario" 
+            user: currentUser,
+            message:"Edito usuario", 
+            users: currentUserId,
     };
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
         .pipe(takeWhile(() => this.alive))

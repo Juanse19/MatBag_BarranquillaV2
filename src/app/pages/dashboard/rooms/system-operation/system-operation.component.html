@@ -31695,7 +31695,7 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
             <nb-card class="popover-card">
                 <nb-card-body>
                     <div class="media" *ngFor="let zons of consumezoneData; let i = index">
-                        <!-- {{i}} -->
+
                         <img class="align-self-start mr-3" id="im" src="./assets/img/carru.png" width="29%" alt="Card " />
                         <div class="media-body">
 
@@ -31838,6 +31838,143 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
             </div>
 
         </ng-template>
+
+        <!-- <button class="e-control e-btn" style="position: absolute;" id="targetButton" (click)="onOpenDialog($event)">Open Dialog</button> -->
+
+        <!-- --------------------------------- Template---------------------------------- -->
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogTX' #ejDialogTX allowDragging='true' header='' [visible]='hidden' [position]='{ X: 141.33, Y: 135.14 }' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let tx of tXData">
+                        <li>Id: <span>{{tx.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{tx.ZoneName}}</span></li>
+                        <li>Estado: <span>{{tx.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{tx.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: <span>{{tx.TiempoOn}}</span></li>
+                        <li>Tiempo apagado: <span>{{tx.TiempoOff}}</span></li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogSF' #ejDialogSF allowDragging='true' header='' [visible]='hidden' content='' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let sf of sFData">
+                        <li>{{sf.ZoneName}}</li>
+                        <li>{{sf.Estado}}</li>
+                        <li>{{sf.ContadorMaletas}}</li>
+                        <li>{{sf.TiempoOn}}</li>
+                        <li>{{sf.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogSS' #ejDialogSS allowDragging='true' header='' [visible]='hidden' content='' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let ss of sSData">
+                        <li>{{ss.ZoneName}}</li>
+                        <li>{{ss.Estado}}</li>
+                        <li>{{ss.ContadorMaletas}}</li>
+                        <li>{{ss.TiempoOn}}</li>
+                        <li>{{ss.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogMU' #ejDialogMU allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let mu of mUData">
+                        <li>Id: <span>{{mu.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{mu.ZoneName}}</span></li>
+                        <li>Estado: <span>{{mu.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{mu.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: {{mu.TiempoOn}}</li>
+                        <li>Tiempo apagado: {{mu.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogAL' #ejDialogAL allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let al of aLData">
+                        <li>Id: <span>{{al.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{al.ZoneName}}</span></li>
+                        <li>Estado: <span>{{al.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{al.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: {{al.TiempoOn}}</li>
+                        <li>Tiempo apagado: {{al.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogSFC' #ejDialogSFC allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let sfc of sFCData">
+                        <li>Id: <span>{{sfc.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{sfc.ZoneName}}</span></li>
+                        <li>Estado: <span>{{sfc.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{sfc.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: {{sfc.TiempoOn}}</li>
+                        <li>Tiempo apagado: {{sfc.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogOSR' #ejDialogOSR allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let osr of oSRData">
+                        <li>Id: <span>{{osr.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{osr.ZoneName}}</span></li>
+                        <li>Estado: <span>{{osr.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{osr.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: {{osr.TiempoOn}}</li>
+                        <li>Tiempo apagado: {{osr.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogCL' #ejDialogCL allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let cl of cLData">
+                        <li>Id: <span>{{cl.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{cl.ZoneName}}</span></li>
+                        <li>Estado: <span>{{cl.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{cl.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: {{cl.TiempoOn}}</li>
+                        <li>Tiempo apagado: {{cl.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
+
+        <div #container class='root-container'>
+            <ejs-dialog id='ejDialogME' #ejDialogME allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <ul *ngFor="let me of mEData">
+                        <li>Id: <span>{{me.ZoneId}}</span></li>
+                        <li>Nombre: <span>{{me.ZoneName}}</span></li>
+                        <li>Estado: <span>{{me.Estado}}</span></li>
+                        <li>Cantidad Maletas: <span>{{me.ContadorMaletas}}</span></li>
+                        <li>Tiempo Encendido: {{me.TiempoOn}}</li>
+                        <li>Tiempo apagado: {{me.TiempoOff}}</li>
+                    </ul>
+                </ng-template>
+            </ejs-dialog>
+        </div>
 
     </nb-card-body>
 </nb-card>

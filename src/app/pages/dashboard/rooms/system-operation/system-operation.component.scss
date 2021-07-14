@@ -186,7 +186,7 @@ nb-card {
     svg {
         width: 100%;
         height: 100%;
-        // cursor: move;
+        cursor: move;
     }
     .stroke-pattern {
         fill: none;
@@ -269,4 +269,25 @@ nb-card-body {
 .grid {
     margin: 0 -0.8rem;
     width: 400px;
+}
+
+#dialog-container {
+    display: block;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+#container {
+    visibility: hidden;
+}
+
+#loader {
+    color: #008cff;
+    height: 40px;
+    left: 45%;
+    position: absolute;
+    top: 45%;
+    width: 30%;
 }

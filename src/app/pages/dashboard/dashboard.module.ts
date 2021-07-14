@@ -61,6 +61,7 @@ import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { WindowPopComponentComponent } from './window-pop-component/window-pop-component.component';
+import { ConveyorModule } from './../conveyor/conveyor.module'
 
 @NgModule({
   imports: [
@@ -91,6 +92,7 @@ import { WindowPopComponentComponent } from './window-pop-component/window-pop-c
     NbPopoverModule,
     GridModule,
     DialogModule,
+    ConveyorModule,
   ],
   declarations: [
     DashboardComponent,

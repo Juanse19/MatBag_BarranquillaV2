@@ -34,6 +34,8 @@ import { WindowFormComponent } from './scheduler/window-form/window-form.compone
 import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
 import { Bhs10Component } from './bhs10/bhs10.component';
 import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { WindowComponent } from './window/window.component';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 
 
@@ -60,6 +62,7 @@ import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
     Bhs9Component,
     WindowFormComponent,
     Bhs10Component,
+    WindowComponent,
   ],
   imports: [
     CommonModule,
@@ -89,6 +92,7 @@ import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
     DropDownListAllModule,
     NbCheckboxModule,
     DateTimePickerModule,
+    DialogModule,
   ],
   providers: [PageService,
     SortService,
