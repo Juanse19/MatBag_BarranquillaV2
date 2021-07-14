@@ -419,10 +419,10 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
 >
 	</image>
 
-    <text x="249.93" y="195.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
-    <text x="242.193" y="188.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
-    <text x="235.193" y="184.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
-    <text x="202.93" y="194.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
+    <text x="249.93" y="195.89" class="st4" (click)="ClicME1()">{{zone[0]?.Name}}</text>
+    <text x="242.193" y="188.89" class="st4" (click)="ClicME2()">{{zone[1]?.Name}}</text>
+    <text x="235.193" y="184.89" class="st4" (click)="ClicME3()">{{zone[2]?.Name}}</text>
+    <text x="202.93" y="194.89" class="st4" (click)="ClicME4()">{{zone[3]?.Name}}</text>
 
 </svg>
 
@@ -447,6 +447,10 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
                 </nb-card-body>
             </nb-card>
         </ng-template>
+
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
 
     </nb-card-body>
 </nb-card>

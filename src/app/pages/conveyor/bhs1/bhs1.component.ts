@@ -142,19 +142,59 @@ export class Bhs1Component implements OnInit {
   }
 
   ClicTX1() {
-    this.openTx1(5);
+    this.dialog.opendevice1(173);
     }
 
   ClicTX2() {
-     this.openTx1(5);
+    this.dialog.opendevice2(172);
     }
 
    ClicTX3() {
-     this.dialog.opens(3);
+     this.dialog.opendevice3(175);
     }
 
     ClicTX4() {
-      this.dialog.opens2(9);
+      this.dialog.opendevice4(181);
+     }
+
+     ClicTX5() {
+      this.dialog.opendevice5(178);
+     }
+
+     ClicTX6() {
+      this.dialog.opendevice6(180);
+     }
+
+     ClicTX7() {
+      this.dialog.opendevice7(179);
+     }
+
+     ClicTX8() {
+      this.dialog.opendevice8(176);
+     }
+
+     ClicTX9() {
+      this.dialog.opendevice9(177);
+     }
+
+     ClicTX10() {
+      this.dialog.opendevice10(174);
+     }
+
+     ClicTX11() {
+      this.dialog.opendevice11(182);
+     }
+
+     ClicTX12() {
+      this.dialog.opendevice12(183);
+     }
+
+     ClicTX13() {
+      this.dialog.opendevice13(184);
+     }
+
+     ClicTX14() {
+      this.dialog.opendevice14(185);
      }
 
   ngOnDestroy() {

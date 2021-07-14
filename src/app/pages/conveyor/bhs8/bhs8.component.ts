@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda8, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from './../window/window.component';
 
 @Component({
   selector: 'ngx-bhs8',
@@ -23,12 +24,7 @@ export class Bhs8Component implements OnInit {
 
   intervalSubscriptionStatusAlarm: Subscription;
 
-  // public dataBanda8: Banda8 = {
-  //   b1: "",
-  //   b2: "",
-  //   b3: "",
-  //   b4: "",
-  //   }
+  @ViewChild(WindowComponent) dialog: WindowComponent;
 
   constructor(private router: Router,
     private http: HttpClient,
@@ -45,17 +41,6 @@ export class Bhs8Component implements OnInit {
     return false;
   } 
 
-  // public banda8NameCharge(){
-
-  //   this.http.get(this.api.apiUrlNode1 + '/me')
-  //   .pipe(takeWhile(() => this.alive))
-  //   .subscribe((res: any)=>{
-  //     this.dataBanda8=res[0];
-  //     console.log('data-banda:', res);
-      
-  //   });
-  // }
-
   public bandaNameCharge(){
 
     this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona11')
@@ -63,9 +48,7 @@ export class Bhs8Component implements OnInit {
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
       console.log('ss:', res , 'band with zones', this.zone[1].Name);
-      
     });
-
   }
 
   public changeId(tea: any){
@@ -95,6 +78,24 @@ export class Bhs8Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+
+  ClicME1() {
+    this.dialog.opendevice1(94);
+    }
+
+  ClicME2() {
+    this.dialog.opendevice2(95);
+    }
+
+   ClicME3() {
+     this.dialog.opendevice3(96);
+    }
+
+    ClicME4() {
+      this.dialog.opendevice4(97);
+     }
+
 
   ngOnDestroy() {
     this.alive = false;

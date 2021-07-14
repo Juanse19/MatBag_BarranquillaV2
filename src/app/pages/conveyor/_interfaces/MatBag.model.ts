@@ -30,25 +30,25 @@ export interface states {
 
 // Band information by zone
 export interface teams{
-    DeviceId: {
-    id: string,
-    name: string,
-    estado: string,
-    TiempoOn: string,
-    TiempoOff: string
-    Consumo: string,
+    DeviceId?: {
+    id?: string,
+    name?: string,
+    estado?: string,
+    TiempoOn?: string,
+    TiempoOff?: string
+    Consumo?: string,
     
 }
 }
 
 export interface Consumezone {
-ZoneId: string;
-ZoneName: string;
-Estado: string;
-Consumo: string;
-ContadorMaletas: string;
-TiempoOn: string;
-TiempoOff: string;
+ZoneId?: string;
+ZoneName?: string;
+Estado?: string;
+Consumo?: string;
+ContadorMaletas?: string;
+TiempoOn?: string;
+TiempoOff?: string;
 }
 
 export const Zonass = {

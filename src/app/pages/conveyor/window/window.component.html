@@ -1,26 +1,278 @@
 <div #container class='root-container'>
-    <ejs-dialog id='ejDialogTX1' #ejDialogTX1 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+    <ejs-dialog id='device1' #device1 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
         <ng-template #content>
-            <ul *ngFor="let tx of divice">
-                <li>Id: <span>{{tx.DeviceId}}</span></li>
-                <li>Estado: <span>{{tx.Estado}}</span></li>
-                <li>Consumo (KWH): <span>{{tx.Consumo}}</span></li>
-                <li>Tiempo Encendido: <span>{{tx.TiempoOn}}</span></li>
-                <li>Tiempo apagado: <span>{{tx.TiempoOff}}</span></li>
+            <ul *ngFor="let tx1 of divices1">
+                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1?.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
             </ul>
         </ng-template>
     </ejs-dialog>
 </div>
 
 <div #container class='root-container'>
-    <ejs-dialog id='ejDialogTX2' #ejDialogTX2 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+    <ejs-dialog id='device2' #device2 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
         <ng-template #content>
-            <ul *ngFor="let tx1 of divices">
+            <ul *ngFor="let tx1 of divices2.tx1">
+                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1?.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device3' #device3 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices3">
+                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1?.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device4' #device4 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices4">
+                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1?.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device5' #device5 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices5">
+                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1?.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device6' #device6 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices6">
                 <li>Id: <span>{{tx1.DeviceId}}</span></li>
                 <li>Estado: <span>{{tx1.Estado}}</span></li>
                 <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
                 <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
                 <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device7' #device7 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices7">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device8' #device8 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices8">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device9' #device9 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices9">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device10' #device10 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices10">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device11' #device11 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices11">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device12' #device12 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices12">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device13' #device13 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices13">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device14' #device14 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices14">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device15' #device15 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices15">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device16' #device16 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices16">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device17' #device17 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices17">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device18' #device18 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices18">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device19' #device19 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices12">
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
+            </ul>
+        </ng-template>
+    </ejs-dialog>
+</div>
+
+<div #container class='root-container'>
+    <ejs-dialog id='device20' #device20 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+        <ng-template #content>
+            <ul *ngFor="let tx1 of divices20">
+                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1?.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
             </ul>
         </ng-template>
     </ejs-dialog>
