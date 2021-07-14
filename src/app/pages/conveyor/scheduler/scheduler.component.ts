@@ -219,7 +219,7 @@ public onActionAddBegin(args: ActionEventArgs & ToolbarActionArgs): void {
   if (args.requestType === 'toolbarItemRendering') {
     const exportItem: ItemModel = {
       align: 'Left', showTextOn: 'Both', 
-      text: 'Agregar', cssClass: 'e-print', click: this.openWindowForm.bind(this)
+      text: 'Agregar', cssClass: 'e-icons e-print', click: this.openWindowForm.bind(this)
     };
     args.items.push(exportItem);
   }
