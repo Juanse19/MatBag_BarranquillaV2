@@ -11,6 +11,7 @@ import { UsersComponent } from './users.component';
 import { UserComponent } from './user/user.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { AdminGuard } from '../../@auth/admin.guard';
+import { LicenseComponent } from './license/license.component'
 
 const routes: Routes = [{
   path: '',
@@ -26,7 +27,7 @@ const routes: Routes = [{
       canActivate: [AdminGuard],
       component: UserComponent,
     },
-    {
+    { 
       path: 'current',
       component: UserComponent,
     },
@@ -34,6 +35,11 @@ const routes: Routes = [{
       path: 'add',
       canActivate: [AdminGuard],
       component: UserComponent,
+    },
+    {
+      path: 'licenses',
+      canActivate: [AdminGuard],
+      component: LicenseComponent,
     },
   ],
 }];

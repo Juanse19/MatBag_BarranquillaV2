@@ -35,6 +35,7 @@ import {
   NbSpinnerModule,
   NbDatepickerModule,
 } from '@nebular/theme';
+import { LicenseComponent } from './license/license.component';
 
 const  NB_MODULES = [
   NbActionsModule,
@@ -66,6 +67,7 @@ const  NB_MODULES = [
     UsersComponent,
     UsersTableComponent,
     UserComponent,
+    LicenseComponent,
   ],
   entryComponents: [
   ],

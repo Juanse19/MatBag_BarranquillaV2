@@ -304,10 +304,14 @@ export class PagesMenu {
       title: 'Configuración',
       icon: 'settings-outline',
       // link: '/pages/analytics/analytics',
-      children: [
+      children: [ 
         {
           title: 'Usuarios',
           link: '/pages/users/list',
+        },
+        {
+          title: 'Licencia',
+          link: '/pages/users/licenses',
         }
       ],
     };
