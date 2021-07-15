@@ -1505,7 +1505,7 @@
             </image>
         </g>
 
-                    <text x="273.93" y="132.89" class="st4" [nbPopover]="card" (click)="changeId(zone[8]?.idEquipo)">{{zone[8]?.Name}}</text>
+                    <text x="273.93" y="132.89" class="st4"  (click)="ClicSS11()">{{zone[8]?.Name}}</text>
                     <text x="287.193" y="127.89" class="st4" [nbPopover]="card" (click)="changeId(zone[9]?.idEquipo)">{{zone[9]?.Name}}</text>
                     <text x="294.193" y="124.89" class="st4" [nbPopover]="card" (click)="changeId(zone[13]?.idEquipo)">{{zone[13]?.Name}}</text>
                     <text x="295.93" y="135.89" class="st4" [nbPopover]="card" (click)="changeId(zone[11]?.idEquipo)">{{zone[11]?.Name}}</text>
@@ -1543,6 +1543,10 @@
                 </nb-card-body>
             </nb-card>
         </ng-template>
+
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
 
     </nb-card-body>
 

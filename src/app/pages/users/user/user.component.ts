@@ -28,6 +28,17 @@ interface Roles {
   name: string;
 }
 
+interface licens {
+  Id: string;
+  Parameter: string;
+  Value?: string;
+}
+
+interface states {
+  states: string;
+  Name: string;
+}
+
 
 export enum UserFormMode {
   VIEW = 'View',
@@ -47,7 +58,11 @@ export enum UserFormMode {
 export class UserComponent implements OnInit, OnDestroy {
   userForm: FormGroup;
   selectedRole;
+  selectedLis;
+  selectedState;
   listaRoles:Roles[]=[];
+  listaLicens:licens[]=[];
+  listaUsers:states[]=[];
   public select = false;
   private alive = true;
   mostrar: Boolean;
@@ -66,11 +81,16 @@ export class UserComponent implements OnInit, OnDestroy {
 
   get age() { return this.userForm.get('age'); }
 
+  get state() { return this.userForm.get('state'); }
+
+  get licens() { return this.userForm.get('licens'); }
+
   get street() { return this.userForm.get('address').get('street'); }
 
   get city() { return this.userForm.get('address').get('city'); }
 
   get zipCode() { return this.userForm.get('address').get('zipCode'); }
+
 
   mode: UserFormMode;
   setViewMode(viewMode: UserFormMode) {
@@ -93,6 +113,18 @@ export class UserComponent implements OnInit, OnDestroy {
                 this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getroles').subscribe((res: any) => {
                   this.listaRoles=res;
                 });
+
+                this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
+                  this.listaLicens=res;
+                });
+
+                this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getuserstate').subscribe((res: any) => {
+                  this.listaUsers=res;
+                  console.log('Status: ', this.listaUsers);
+                  
+                });
+
+
                 this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
                   if(res){ 
                     this.select = false;
@@ -114,6 +146,8 @@ export class UserComponent implements OnInit, OnDestroy {
     this.userForm = this.fb.group({
       id: this.fb.control(''),
       role: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
+      licens: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
+      state: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
       firstName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
       lastName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
       login: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
@@ -170,6 +204,8 @@ export class UserComponent implements OnInit, OnDestroy {
           lastName: user.lastName ? user.lastName : '',
           login: user.login ? user.login : '',
           age: user.age ? user.age : '',
+          state: user.states ? user.states : '',
+          licens: user.licens_id ? user.licens_id : '',
           email: user.email,
           address: {
             street: (user.address && user.address.street) ? user.address.street : '',
@@ -196,7 +232,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   save() {
     const user: User = this.convertToUser(this.userForm.value);
-
+debugger
     let observable = new Observable<User>();
     if (this.mode === UserFormMode.EDIT_SELF) {
       const currentUserId = this.userStore.getUser().id;
@@ -255,7 +291,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   handleSuccessResponse() {
-    this.toasterService.success('', `Item ${this.mode === UserFormMode.ADD ? 'created' : 'updated'}!`);
+    this.toasterService.success('', `Usuario ${this.mode === UserFormMode.ADD ? 'Creado' : 'Actualizado'}!`);
     this.back();
   }
 

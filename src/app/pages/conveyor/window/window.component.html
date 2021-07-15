@@ -2,11 +2,11 @@
     <ejs-dialog id='device1' #device1 allowDragging='true' header='Devices' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
         <ng-template #content>
             <ul *ngFor="let tx1 of divices1">
-                <li>Id: <span>{{tx1?.DeviceId}}</span></li>
-                <li>Estado: <span>{{tx1?.Estado}}</span></li>
-                <li>Consumo (KWH): <span>{{tx1?.Consumo}}</span></li>
-                <li>Tiempo Encendido: <span>{{tx1?.TiempoOn}}</span></li>
-                <li>Tiempo apagado: <span>{{tx1?.TiempoOff}}</span></li>
+                <li>Id: <span>{{tx1.DeviceId}}</span></li>
+                <li>Estado: <span>{{tx1.Estado}}</span></li>
+                <li>Consumo (KWH): <span>{{tx1.Consumo}}</span></li>
+                <li>Tiempo Encendido: <span>{{tx1.TiempoOn}}</span></li>
+                <li>Tiempo apagado: <span>{{tx1.TiempoOff}}</span></li>
             </ul>
         </ng-template>
     </ejs-dialog>

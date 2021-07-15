@@ -1,19 +1,19 @@
 <nb-card>
     <nb-card-header>Agregar licencias</nb-card-header>
     <nb-card-body>
-        <div  class="container">
-           
-            <div class="form-group" >
-                <label for="licens">Asignacion de Licencia de acceso</label>
-                <input nbInput id="licens" 
-               
-                class="form-control" placeholder="Licencia de acceso" >
-                <!-- <ngx-validation-message label="licens" [showMinLength]="licens?.hasError('minlength')" [showMaxLength]="licens?.hasError('maxlength')" minLength=3 maxLength=20></ngx-validation-message> -->
-            </div>
+        <div class="container">
+            <form [formGroup]="licenForm">
+                <div class="form-group">
+                    <label for="Value">Asignacion de Licencia de acceso</label>
+                    <input nbInput id="Value" formControlName="Value" [status]="(Value?.hasError('minlength') || Value?.hasError('maxlength')) ? 'danger' : 'primary'" class="form-control" placeholder="Licencia de acceso">
+                    <ngx-validation-message label="Value" [showMinLength]="Value?.hasError('minlength')" [showMaxLength]="Value?.hasError('maxlength')" minLength=3 maxLength=20></ngx-validation-message>
+                </div>
+            </form>
         </div>
+
     </nb-card-body>
     <nb-card-footer>
-        <button nbButton status="primary" *ngIf="!select"  (click)="save()" hero>Guardar</button>
+        <button nbButton status="primary" *ngIf="!select" (click)="saveData()" hero>Guardar</button>
         <button nbButton status="info" *ngIf="!mostrar" [disabled]="select" (click)="back()" hero>Atras</button>
     </nb-card-footer>
 </nb-card>

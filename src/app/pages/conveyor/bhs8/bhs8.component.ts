@@ -6,7 +6,7 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
 import { WindowComponent } from './../window/window.component';
-
+ 
 @Component({
   selector: 'ngx-bhs8',
   templateUrl: './bhs8.component.html',
@@ -33,7 +33,7 @@ export class Bhs8Component implements OnInit {
   ngOnInit(): void {
     // this.banda8NameCharge();
     this.bandaNameCharge();
-    // this.bandaStateCharge();
+    this.bandaStateCharge();
   }
 
   back() {

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
-import { Banda7, states, teams, zons } from '../_interfaces/MatBag.model';
+import { Banda8, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from './../window/window.component';
 
 @Component({
   selector: 'ngx-bhs9',
@@ -22,6 +23,8 @@ export class Bhs9Component implements OnInit {
   private alive = true;
 
   intervalSubscriptionStatusAlarm: Subscription;
+
+  @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
 
   constructor(private router: Router,
     private http: HttpClient,
@@ -65,7 +68,7 @@ export class Bhs9Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(1000)
+    this.intervalSubscriptionStatusAlarm = interval(6000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona2')),
@@ -75,6 +78,62 @@ export class Bhs9Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+    ClicSS11() {
+      this.dialog.opendevice1(166);
+     }
+
+     ClicSS12() {
+      this.dialog.opendevice2(167);
+     }
+
+     ClicSS1_3() {
+      this.dialog.opendevice3(171);
+     }
+
+     ClicSS1_4() {
+      this.dialog.opendevice4(169);
+     }
+
+     ClicSS1_5() {
+      this.dialog.opendevice5(168);
+     }
+
+     ClicSS1_6() {
+      this.dialog.opendevice6(170);
+     }
+
+     ClicSS2_1() {
+      this.dialog.opendevice7(159);
+     }
+
+     ClicSS2_2() {
+      this.dialog.opendevice8(160);
+     }
+
+     ClicSS2_3() {
+      this.dialog.opendevice9(158);
+     }
+
+     ClicSS2_4() {
+      this.dialog.opendevice10(161);
+     }
+
+     ClicSS2_5() {
+      this.dialog.opendevice11(165);
+     }
+
+     ClicSS2_6() {
+      this.dialog.opendevice12(162);
+     }
+
+     ClicSS2_7() {
+      this.dialog.opendevice13(163);
+     }
+
+     ClicSS2_8() {
+      this.dialog.opendevice13(164);
+     }
 
   ngOnDestroy() {
     this.alive = false;

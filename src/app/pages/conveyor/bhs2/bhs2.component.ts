@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda2, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from '../window/window.component';
+
+
  @Component({
   selector: 'ngx-bhs2',
   templateUrl: './bhs2.component.html',
@@ -24,42 +27,7 @@ export class Bhs2Component implements OnInit {
 
   intervalSubscriptionStatusAlarm:Subscription;
 
-  // public dataBanda2: Banda2 = {
-  //   b1: "",
-  //   b2: "",
-  //   b3: "",
-  //   b4: "",
-  //   b5: "",
-  //   b6: "",
-  //   b7: "",
-  //   b8: "",
-  //   b9: "",
-  //   b10: "",
-  //   b11: "",
-  //   b12: "",
-  //   b13: "",
-  //   b14: "",
-  //   b15: "",
-  //   b16: "",
-  //   b17: "",
-  //   b18: "",
-  //   b19: "",
-  //   b20: "",
-  //   b21: "",
-  //   b22: "",
-  //   b23: "",
-  //   b24: "",
-  //   b25: "",
-  //   b26: "",
-  //   b27: "",
-  //   b28: "",
-  //   b29: "",
-  //   b30: "",
-  //   b31: "",
-  //   b32: "",
-  //   b33: "",
-  //   b34: ""
-  //   }
+  @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
 
   constructor(
     private router: Router,
@@ -137,6 +105,10 @@ export class Bhs2Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+  ClicTX1() {
+    this.dialog.opendevice1(137);
+    }
 
   ngOnDestroy() {
     this.alive = false;

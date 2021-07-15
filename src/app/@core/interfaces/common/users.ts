@@ -20,6 +20,8 @@ export interface User {
   picture: string;
   address: Address;
   settings: Settings;
+  states: number;
+  licens_id: number;
 }
 
 export interface Address {

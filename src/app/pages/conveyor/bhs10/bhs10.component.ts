@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda2, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from './../window/window.component';
 
 @Component({
   selector: 'ngx-bhs10',
@@ -24,6 +25,8 @@ export class Bhs10Component implements OnInit {
   private alive=true;
 
   intervalSubscriptionStatusAlarm:Subscription;
+
+  @ViewChild(WindowComponent) dialog: WindowComponent;
 
   constructor(private router: Router,
     private http: HttpClient,
@@ -86,6 +89,22 @@ export class Bhs10Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+  ClicXO1() {
+    this.dialog.opendevice1(125);
+    }
+
+  ClicXO2() {
+    this.dialog.opendevice2(126);
+    }
+
+   ClicXO3() {
+     this.dialog.opendevice3(53);
+    }
+
+    ClicXO4() {
+      this.dialog.opendevice4(54);
+     }
 
   ngOnDestroy() {
     this.alive = false;

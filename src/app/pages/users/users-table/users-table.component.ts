@@ -1,3 +1,5 @@
+import { states } from './../../conveyor/_interfaces/MatBag.model';
+import { State } from './../../dashboard/_interfaces/MatBox.model';
 /*
  * Copyright (c) Akveo 2019. All Rights Reserved.
  * Licensed under the Single Application / Multi Application License.
@@ -56,13 +58,14 @@ export class UsersTableComponent implements OnDestroy {
         title: 'Email',
         type: 'string',
       },
-      // age: {
-      //   title: 'Edad',
-      //   filter: {
-      //     type: 'custom',
-      //     component: NgxFilterByNumberComponent,
-      //   },
+      // states: {
+      //   title: 'Estado',
+      //   type: 'string',
       // },
+      licens_id: {
+        title: 'Estado',
+        type: 'string',
+      },
       // street: {
       //   title: 'Street',
       //   type: 'string',
@@ -97,6 +100,8 @@ export class UsersTableComponent implements OnDestroy {
 
   loadData() {
     this.source = this.usersService.gridDataSource;
+    console.log('Data: ', this.source);
+    
   }
 
   createUser() {

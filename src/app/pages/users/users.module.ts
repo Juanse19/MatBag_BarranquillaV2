@@ -34,6 +34,7 @@ import {
   NbIconModule,
   NbSpinnerModule,
   NbDatepickerModule,
+  NbCheckboxModule,
 } from '@nebular/theme';
 import { LicenseComponent } from './license/license.component';
 
@@ -51,6 +52,7 @@ const  NB_MODULES = [
   NbSpinnerModule,
   NbDatepickerModule,
   NbInputModule,
+  NbCheckboxModule,
 ];
 
 @NgModule({
