@@ -62,10 +62,10 @@ export class UsersTableComponent implements OnDestroy {
       //   title: 'Estado',
       //   type: 'string',
       // },
-      licens_id: {
-        title: 'Estado',
-        type: 'string',
-      },
+      // licens_id: {
+      //   title: 'Estado',
+      //   type: 'string',
+      // },
       // street: {
       //   title: 'Street',
       //   type: 'string',

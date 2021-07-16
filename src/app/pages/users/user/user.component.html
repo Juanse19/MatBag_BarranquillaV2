@@ -47,7 +47,7 @@
             <div class="form-group" [formGroup]="userForm">
                 <label for="licens">Asignación de Licencia</label>
                 <br />
-                <nb-select id="licens" placeholder="Licencia" formControlName="licens" [status]="(licens?.hasError('minlength') || licens?.hasError('maxlength')) ? 'danger' : 'primary'" [(selected)]="selectedLis">
+                <nb-select id="licens" placeholder="Licencia" formControlName="licens" [status]="(licens.hasError('minlength') || licens.hasError('maxlength')) ? 'danger' : 'primary'" [(selected)]="selectedLis">
                     <nb-option *ngFor="let itemLis of listaLicens" [value]="itemLis.Id">
                         {{ itemLis?.Value }}
                     </nb-option>

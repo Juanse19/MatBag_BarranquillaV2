@@ -1,3 +1,4 @@
+// import { states } from './../../conveyor/_interfaces/MatBag.model';
 /*
  * Copyright (c) Akveo 2019. All Rights Reserved.
  * Licensed under the Single Application / Multi Application License.
@@ -146,7 +147,8 @@ export class UserComponent implements OnInit, OnDestroy {
     this.userForm = this.fb.group({
       id: this.fb.control(''),
       role: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
-      licens: this.fb.control(''),
+      licens: this.fb.control('', [ Validators.min(1),
+        Validators.max(120), Validators.pattern(NUMBERS_PATTERN)]),
       state: this.fb.control(''),
       firstName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
       lastName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
@@ -194,31 +196,72 @@ export class UserComponent implements OnInit, OnDestroy {
     loadUser
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((user) => {
-        this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenbyuser?LicenID='+user.licens_id).subscribe((res: any) => {
-          user.licens_id=res[0].Id;
-        this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
-          user.role=res[0].name;
-          // console.log('data rol:', user.role);
-        this.userForm.setValue({
-          id: user.id ? user.id : '',
-          role: user.role ? user.role : '',
-          firstName: user.firstName ? user.firstName : '',
-          lastName: user.lastName ? user.lastName : '',
-          login: user.login ? user.login : '',
-          age: user.age ? user.age : '',
-          state: user.states ? user.states : '',
-          licens: user.licens_id ? user.licens_id : '',
-          email: user.email,
-          address: {
-            street: (user.address && user.address.street) ? user.address.street : '',
-            city: (user.address && user.address.city) ? user.address.city : '',
-            zipCode: (user.address && user.address.zipCode) ? user.address.zipCode : '',
+        // debugger
+        if(user.licens_id === undefined )
+          {
+            this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
+              if (res == undefined) {
+                return user.role = '';
+              }else {
+                user.role=res[0].name;
+              }
+              // console.log('data rol:', user.role);
+              console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
+            this.userForm.setValue({
+              id: user.id ? user.id : '',
+              role: user.role ? user.role : '',
+              firstName: user.firstName ? user.firstName : '',
+              lastName: user.lastName ? user.lastName : '',
+              login: user.login ? user.login : '',
+              age: user.age ? user.age : '',
+              state: user.states ? user.states : '',
+              licens: user.licens_id ? user.licens_id : '',
+              email: user.email,
+              address: {
+                street: (user.address && user.address.street) ? user.address.street : '',
+                city: (user.address && user.address.city) ? user.address.city : '',
+                zipCode: (user.address && user.address.zipCode) ? user.address.zipCode : '',
+              },
+            });
           },
-        });
-      },
-    );
-  },
-  );
+        );
+          } else{
+            this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenbyuser?LicenID='+user.licens_id).subscribe((res: any) => {
+              if (res == undefined) {
+                user.licens_id = null;
+              }else {
+               user.licens_id=res[0].Id;
+              }  
+            this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
+              if (res == undefined) {
+                return user.role = '';
+              }else {
+                user.role=res[0].name;
+              }
+                          
+              // console.log('data rol:', user.role);
+              console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
+            this.userForm.setValue({
+              id: user.id ? user.id : '',
+              role: user.role ? user.role : '',
+              firstName: user.firstName ? user.firstName : '',
+              lastName: user.lastName ? user.lastName : '',
+              login: user.login ? user.login : '',
+              age: user.age ? user.age : '',
+              state: user.states ? user.states : '',
+              licens: user.licens_id ? user.licens_id : '',
+              email: user.email,
+              address: {
+                street: (user.address && user.address.street) ? user.address.street : '',
+                city: (user.address && user.address.city) ? user.address.city : '',
+                zipCode: (user.address && user.address.zipCode) ? user.address.zipCode : '',
+              },
+            });
+          },
+        );
+      });
+     }
+  
         // this is a place for value changes handling
         // this.userForm.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe((value) => {   });
       });
@@ -237,7 +280,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   save() {
     const user: User = this.convertToUser(this.userForm.value);
-debugger
+    debugger
     let observable = new Observable<User>();
     if (this.mode === UserFormMode.EDIT_SELF) {
       const currentUserId = this.userStore.getUser().id;
@@ -254,10 +297,18 @@ debugger
         .subscribe((res: any) => {
         //  console.log("Envió: ", res);
           }); 
-
+          
       this.usersService.updateCurrent(user)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((result: any) => {
+      .subscribe((result: any) => {   
+        debugger;
+      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/update', user)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+        console.log('data update', user, res);
+      });
+        
+
         var userRole = {
           IdUser:user.id,
           Role:user.role
@@ -280,6 +331,12 @@ debugger
     observable
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => {
+        debugger;
+      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/update', user)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+        console.log('data update', user);
+      });
         var userRole = {
           IdUser:user.id,
           Role:user.role
@@ -287,7 +344,7 @@ debugger
         this.apiGetComp.PostJson(this.httpService.apiUrlMatbox + '/userrole/postupdateroleuser',userRole)
         .pipe(takeWhile(() => this.alive))
         .subscribe();
-       
+
         this.handleSuccessResponse();
       },
       err => {
