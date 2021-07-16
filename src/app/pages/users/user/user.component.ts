@@ -29,8 +29,8 @@ interface Roles {
 }
 
 interface licens {
-  Id: string;
-  Parameter: string;
+  Id?: string;
+  Parameter?: string;
   Value?: string;
 }
 
@@ -146,8 +146,8 @@ export class UserComponent implements OnInit, OnDestroy {
     this.userForm = this.fb.group({
       id: this.fb.control(''),
       role: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
-      licens: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
-      state: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
+      licens: this.fb.control(''),
+      state: this.fb.control(''),
       firstName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
       lastName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
       login: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
@@ -194,9 +194,11 @@ export class UserComponent implements OnInit, OnDestroy {
     loadUser
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((user) => {
-        this.apiGetComp.GetJson(this.httpService.apiUrlMatbox +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
-          user.role=res.name;
-        
+        this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenbyuser?LicenID='+user.licens_id).subscribe((res: any) => {
+          user.licens_id=res[0].Id;
+        this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
+          user.role=res[0].name;
+          // console.log('data rol:', user.role);
         this.userForm.setValue({
           id: user.id ? user.id : '',
           role: user.role ? user.role : '',
@@ -213,7 +215,10 @@ export class UserComponent implements OnInit, OnDestroy {
             zipCode: (user.address && user.address.zipCode) ? user.address.zipCode : '',
           },
         });
-      });
+      },
+    );
+  },
+  );
         // this is a place for value changes handling
         // this.userForm.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe((value) => {   });
       });
