@@ -301,7 +301,7 @@ export class UserComponent implements OnInit, OnDestroy {
       this.usersService.updateCurrent(user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((result: any) => {   
-        debugger;
+        // debugger;
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/update', user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
@@ -331,7 +331,7 @@ export class UserComponent implements OnInit, OnDestroy {
     observable
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => {
-        debugger;
+        // debugger;
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/update', user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {

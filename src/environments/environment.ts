@@ -10,7 +10,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3001/api',
+  apiUrl: 'http://10.100.22.48:3001/api',
   apiUrlMat: 'http://10.100.22.48:5001/api',
   apiUrlMatSignalR: 'http://10.100.22.48:5001',
   apiUrlNode: 'http://10.100.22.48:1880',

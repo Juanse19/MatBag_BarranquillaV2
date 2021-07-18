@@ -112,7 +112,7 @@ export class NgxLoginComponent implements OnInit {
     .subscribe((res: any) => {
         //  console.log("Envió: ", res);
       });
-
+debugger
     this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
 

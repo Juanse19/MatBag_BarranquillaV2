@@ -168,6 +168,7 @@ Delete(event): void {
             };
           let alarm = {IdAlarm: event.data.Id};
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmId', respons)
+      
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         //  console.log("alarmId", res);
@@ -192,7 +193,7 @@ Delete(event): void {
   }
 
   reconocer() {
-    
+    debugger
       const currentUserId = this.userStore.getUser().id;
           var respons = 
             {
