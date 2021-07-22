@@ -8,24 +8,25 @@
                 </nb-card-header>
 
                 <!-- <nb-card-body> -->
-                    <!-- <ng2-smart-table class="example-smart-table" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+                <!-- <ng2-smart-table class="example-smart-table" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
                     </ng2-smart-table> -->
 
-                    <ejs-grid [dataSource]='Alarm' allowPaging='true' allowTextWrap='true' [pageSettings]='pageSettings' [editSettings]='editSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='400'>
-                        <e-columns>
-                            <e-column field='Message' headerText='Mensaje' width=200 height=100></e-column>
-                            <e-column field='Level' headerText='Nivel' width=85></e-column>
-                            <e-column field='UserId' headerText='Usuario' width=100></e-column>
-                            <e-column field='TimeStamp' headerText='Fecha' width=90></e-column>
-                            <e-column headerText='Acciones' width='60' [commands]='commands' (click)="Delete($event)"></e-column>
-                        </e-columns>
-                    </ejs-grid>
+                <ejs-grid [dataSource]='Alarm' allowPaging='true' (toolbarClick)='clickHandler($event)' (actionComplete)="actionComplete($event)" allowTextWrap='true' [pageSettings]='pageSettings' [editSettings]='editSettings' [toolbar]='toolbar' [filterSettings]='filterOptions'
+                    [allowFiltering]="true" height='400'>
+                    <e-columns>
+                        <e-column field='Message' headerText='Mensaje' width=200 isPrimaryKey='true'></e-column>
+                        <e-column field='Level' headerText='Nivel' width=85></e-column>
+                        <e-column field='UserId' headerText='Usuario' width=100></e-column>
+                        <e-column field='TimeStamp' headerText='Fecha' width=90></e-column>
+                        <!-- <e-column headerText='Acciones' width='60' [commands]='commands' (click)="Delete($event)"></e-column> -->
+                    </e-columns>
+                </ejs-grid>
 
                 <!-- </nb-card-body> -->
-                <nb-card-footer>
+                <!-- <nb-card-footer>
                     <button type="submit" nbButton status="primary" *ngIf="!mostrar" [disabled]="select" (click)="reconocer()" class="btn btn-primary">Reconocer alarmas</button>
-                    <!-- <button type="submit" nbButton status="info" *ngIf="!mostrar" [disabled]="select">Historico Alarmas</button> -->
-                </nb-card-footer>
+                    
+                </nb-card-footer> -->
             </nb-card>
         </nb-tab>
         <nb-tab tabTitle="Historico Alarmas">
@@ -34,16 +35,16 @@
                     Historico Alarmas
                 </nb-card-header>
                 <!-- <nb-card-body> -->
-                    <ejs-grid [dataSource]='historyAlarmData' [allowPaging]="true" allowTextWrap='true' [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='400'>
-                        <e-columns>
-                            <e-column field='Message' headerText='Mensaje' width=200 height=100></e-column>
-                            <e-column field='Level' headerText='Nivel' width=85></e-column>
-                            <e-column field='UserId' headerText='Usuario' width=100></e-column>
-                            <e-column field='TimeStamp' headerText='Fecha' width=85></e-column>
-                            <e-column field='EDT' headerText='Fecha fin' width=100></e-column>
-                            <e-column field='UserIdAcknow' headerText='Usuario reco' width=90></e-column>
-                        </e-columns>
-                    </ejs-grid>
+                <ejs-grid [dataSource]='historyAlarmData' [allowPaging]="true" allowTextWrap='true' (queryCellInfo)='tooltip($event)' [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='400'>
+                    <e-columns>
+                        <e-column field='Message' headerText='Mensaje' width=180></e-column>
+                        <e-column field='Level' headerText='Nivel' width=75></e-column>
+                        <e-column field='UserId' headerText='Usuario' width=75></e-column>
+                        <e-column field='TimeStamp' headerText='Fecha' width=85></e-column>
+                        <e-column field='EDT' headerText='Fecha fin' width=100></e-column>
+                        <e-column field='UserIdAcknow' headerText='Usuario reco' width=85></e-column>
+                    </e-columns>
+                </ejs-grid>
                 <!-- </nb-card-body> -->
             </nb-card>
         </nb-tab>

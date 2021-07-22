@@ -32,6 +32,7 @@ export class LicenseComponent implements OnInit {
   public select = false;
   private alive = true;
   mostrar: Boolean;
+  public licesData: licens[]=[];
 
   get Value() { return this.licenForm.get('Value'); }
 
@@ -45,6 +46,15 @@ export class LicenseComponent implements OnInit {
     private toasterService: NbToastrService,
     protected dateService: NbDateService<Date>
   ) { 
+
+    this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
+      this.licesData.values=res[0].Value;
+      console.log('Numero de licencias: ', this.licesData.values);
+
+      
+
+    });
+
     this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
       if(res){ 
         this.select = false;
@@ -64,10 +74,17 @@ export class LicenseComponent implements OnInit {
   initUserForm() {
     this.licenForm = this.fb.group({
      
-      Value: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
+      Value: this.fb.control('', [ Validators.min(1),Validators.max(120)]),
       
     }); 
   }
+
+  // loadLices(){
+    
+  //   this.licenForm.setValue({
+  //     Value: this.licesData[0].Value ? this.licesData[0].Value : '',
+  //   });
+  // }
 
   back() {
     // this.mostrar= false;

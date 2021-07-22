@@ -20,7 +20,14 @@ import { takeWhile } from 'rxjs/operators';
 import { UserStore } from '../../../@core/stores/user.store';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { ApiGetService } from '../../../@core/backend/common/api/apiGet.services';
+import { NbToastrService } from '@nebular/theme';
 
+interface dataLicens {
+  Id: number;
+  Lat: number;
+  States: number;
+  Licens_id: string;
+}
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
@@ -50,6 +57,8 @@ export class NgxLoginComponent implements OnInit {
   alive: boolean = true;
   currentUserId: number;
 
+  public validData: dataLicens[]=[];
+
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
 
@@ -63,6 +72,7 @@ export class NgxLoginComponent implements OnInit {
     private userStore: UserStore,
     private api: HttpService,
     private apiGetComp: ApiGetService,
+    private toasterService: NbToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -90,9 +100,7 @@ export class NgxLoginComponent implements OnInit {
     this.errors = [];
     this.messages = [];
     this.submitted = true;
-   
-
-    
+ 
     let currentUserId = this.userStore.getUser()?.id;
 
     if(currentUserId === undefined){
@@ -112,7 +120,26 @@ export class NgxLoginComponent implements OnInit {
     .subscribe((res: any) => {
         //  console.log("Envió: ", res);
       });
-debugger
+// debugger
+
+this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlEmailuser?Email=' + this.user.email).subscribe((res: any) => {
+  this.validData = res;
+  // debugger
+  console.log('Email ValidData: ', this.validData[0].Id);
+
+  if(this.validData[0].Lat === 0 && this.validData[0].Licens_id === "1" || this.validData[0].Lat === null){
+    debugger
+  var respon = 
+  {
+      user: this.validData[0].Id,
+      sesion: 1, 
+      
+};
+this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/updateSesion', respon)
+  .pipe(takeWhile(() => this.alive))
+  .subscribe((res: any) => {
+  //  console.log("Envió: ", res);
+    });
     this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
 
@@ -131,6 +158,22 @@ debugger
       }
       this.cd.detectChanges();
     });
+  } else if(this.validData[0].Licens_id === "2"){
+    debugger
+    console.log('licencia de usuario inactiva');
+    this.toasterService.danger('', `¡Licencia Inactiva, por favor comuniquese con el administrador!`); 
+  }
+  
+  else {
+    debugger
+    console.log('El Usuario ya tiene una sesión activa..!');
+    this.toasterService.danger('', `¡El Usuario ya tiene una sesión activa..!`);  
+  }
+  
+
+});
+
+        
   }
 
   getConfigValue(key: string): any {

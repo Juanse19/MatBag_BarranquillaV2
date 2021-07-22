@@ -5,7 +5,7 @@
             <form [formGroup]="licenForm">
                 <div class="form-group">
                     <label for="Value">Asignacion de Licencia de acceso</label>
-                    <input nbInput id="Value" formControlName="Value" [status]="(Value?.hasError('minlength') || Value?.hasError('maxlength')) ? 'danger' : 'primary'" class="form-control" placeholder="Licencia de acceso">
+                    <input nbInput id="Value" formControlName="Value" [(ngModel)]="licesData.values" disabled="select" [status]="(Value?.hasError('minlength') || Value?.hasError('maxlength')) ? 'danger' : 'primary'" class="form-control" placeholder="Licencia de acceso">
                     <ngx-validation-message label="Value" [showMinLength]="Value?.hasError('minlength')" [showMaxLength]="Value?.hasError('maxlength')" minLength=3 maxLength=20></ngx-validation-message>
                 </div>
             </form>
@@ -13,7 +13,7 @@
 
     </nb-card-body>
     <nb-card-footer>
-        <button nbButton status="primary" *ngIf="!select" (click)="saveData()" hero>Guardar</button>
+        <!-- <button nbButton status="primary" *ngIf="!select" (click)="saveData()" hero>Guardar</button> -->
         <button nbButton status="info" *ngIf="!mostrar" [disabled]="select" (click)="back()" hero>Atras</button>
     </nb-card-footer>
 </nb-card>

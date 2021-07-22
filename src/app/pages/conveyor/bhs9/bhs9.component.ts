@@ -26,7 +26,8 @@ export class Bhs9Component implements OnInit {
 
   @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private http: HttpClient,
     private api: HttpService) { }
 
@@ -79,11 +80,11 @@ export class Bhs9Component implements OnInit {
     });
   }
 
-    ClicSS11() {
+    ClicSS1_1() {
       this.dialog.opendevice1(166);
      }
 
-     ClicSS12() {
+     ClicSS1_2() {
       this.dialog.opendevice2(167);
      }
 

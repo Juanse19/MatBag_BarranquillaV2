@@ -148,7 +148,7 @@ export class WindowComponent implements OnInit {
     //   // debugger
     // }
 
-    opendevice1(idDevice?: number){
+    public opendevice1(idDevice?: number){
       console.log('test...! 1');
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
@@ -162,7 +162,7 @@ export class WindowComponent implements OnInit {
       err=>console.log('Error', err));
     }
 
-    opendevice2(idDevice?: number){
+    public opendevice2(idDevice?: number){
       console.log('test...! 2');
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
@@ -176,7 +176,7 @@ export class WindowComponent implements OnInit {
       err=>console.log('Error', err));
     }
 
-    opendevice3(idDevice?: number){
+    public opendevice3(idDevice?: number){
       console.log('test...! 2');
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
@@ -408,6 +408,11 @@ export class WindowComponent implements OnInit {
         this.device20.show();
         // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
       });
+    }
+
+    opentest(){
+      console.log('test de comunicación');
+      
     }
 
     ngOnDestroy() {

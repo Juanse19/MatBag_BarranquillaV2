@@ -5892,10 +5892,10 @@
 
     </g> -->
     
-                    <text x="115.93" y="135.89" class="st4"  (click)="ClicTX1()">{{zone[27]?.Name}}</text>
-                    <text x="143.193" y="126.89" class="st4" [nbPopover]="card" (click)="changeId(zone[20]?.idEquipo)">{{zone[20]?.Name}}</text>
-                    <text x="162.193" y="119.89" class="st4" [nbPopover]="card" (click)="changeId(zone[29]?.idEquipo)">{{zone[29]?.Name}}</text>
-                    <text x="167.93" y="123.89" class="st4" [nbPopover]="card" (click)="changeId(zone[23]?.idEquipo)">{{zone[23]?.Name}}</text>
+                    <text x="115.93" y="135.89" class="st4"  (click)="ClicSF1_4()">{{zone[27]?.Name}}</text>
+                    <text x="143.193" y="126.89" class="st4" (click)="ClicSS1_1()">{{zone[20]?.Name}}</text>
+                    <text x="162.193" y="119.89" class="st4" (click)="ClicSF1_6">{{zone[29]?.Name}}</text>
+                    <text x="167.93" y="123.89" class="st4" [nbPopover]="card" (click)="ClicSF1_7()">{{zone[23]?.Name}}</text>
                     <text x="173.93" y="127.89" class="st4" [nbPopover]="card" (click)="changeId(zone[31]?.idEquipo)">{{zone[31]?.Name}}</text>
                     <text x="179.193" y="131.89" class="st4" [nbPopover]="card" (click)="changeId(zone[32]?.idEquipo)">{{zone[32]?.Name}}</text>
                     <text x="184.193" y="136.89" class="st4" [nbPopover]="card" (click)="changeId(zone[22]?.idEquipo)">{{zone[22]?.Name}}</text>
@@ -6153,6 +6153,9 @@
       <path d="M 30 05 L 53 50" stroke="black" stroke-width="1"/>
     </svg> -->
 
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
 
     </nb-card-body>
 </nb-card>

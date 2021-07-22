@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
+import { NbCardModule,  NbDatepickerModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';  
 import { ReportsPiaRoutingModule } from './reports-pia-routing.module';
 import { ReportsPiaComponent } from './reports-pia.component';
@@ -16,6 +16,7 @@ import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { BhsEventsComponent } from './bhs-events/bhs-events.component';
 import { EdsstatisticsComponent } from './edsstatistics/edsstatistics.component';
 import { AtrperformanceComponent } from './atrperformance/atrperformance.component';
+import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 @NgModule({
@@ -31,6 +32,8 @@ import { AtrperformanceComponent } from './atrperformance/atrperformance.compone
     GridModule,
     DropDownListAllModule,
     ToolbarModule,
+    DateTimePickerModule,
+    NbDatepickerModule,
   ],
   providers: [PageService,
     SortService,

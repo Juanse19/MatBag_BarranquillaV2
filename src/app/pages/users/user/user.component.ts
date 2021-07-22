@@ -62,7 +62,7 @@ export class UserComponent implements OnInit, OnDestroy {
   selectedLis;
   selectedState;
   listaRoles:Roles[]=[];
-  listaLicens:licens[]=[];
+  listaLicens:states[]=[];
   listaUsers:states[]=[];
   public select = false;
   private alive = true;
@@ -115,14 +115,14 @@ export class UserComponent implements OnInit, OnDestroy {
                   this.listaRoles=res;
                 });
 
-                this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
-                  this.listaLicens=res;
-                });
+                // this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
+                //   this.listaLicens=res;
+                // });
 
                 this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getuserstate').subscribe((res: any) => {
                   this.listaUsers=res;
+                  this.listaLicens=res;
                   console.log('Status: ', this.listaUsers);
-                  
                 });
 
 
@@ -195,9 +195,9 @@ export class UserComponent implements OnInit, OnDestroy {
       ? this.usersService.getCurrentUser() : this.usersService.get(id);
     loadUser
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((user) => {
+      .subscribe((user) => { 
         // debugger
-        if(user.licens_id === undefined )
+        if(user.licens_id === null )
           {
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
               if (res == undefined) {
@@ -225,13 +225,15 @@ export class UserComponent implements OnInit, OnDestroy {
             });
           },
         );
-          } else{
-            this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenbyuser?LicenID='+user.licens_id).subscribe((res: any) => {
-              if (res == undefined) {
-                user.licens_id = null;
-              }else {
-               user.licens_id=res[0].Id;
-              }  
+          } 
+          else 
+          {
+            // this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenbyuser?LicenID='+user.licens_id).subscribe((res: any) => {
+            //   if (res == undefined) {
+            //     user.licens_id = null;
+            //   }else {
+            //    user.licens_id=res[0].Id;
+            //   }  
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
               if (res == undefined) {
                 return user.role = '';
@@ -259,7 +261,7 @@ export class UserComponent implements OnInit, OnDestroy {
             });
           },
         );
-      });
+      // });
      }
   
         // this is a place for value changes handling
@@ -307,7 +309,18 @@ export class UserComponent implements OnInit, OnDestroy {
       .subscribe((res: any) => {
         console.log('data update', user, res);
       });
-        
+      debugger
+      var respon = 
+      {
+          user: user.id,
+          sesion: 0, 
+          
+    };
+    this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/updateSesion', respon)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+      //  console.log("Envió: ", res);
+        });
 
         var userRole = {
           IdUser:user.id,
@@ -337,6 +350,20 @@ export class UserComponent implements OnInit, OnDestroy {
       .subscribe((res: any) => {
         console.log('data update', user);
       });
+
+      debugger
+      var respon = 
+      {
+          user: user.id,
+          sesion: 0, 
+          
+    };
+    this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/updateSesion', respon)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+      //  console.log("Envió: ", res);
+        });
+
         var userRole = {
           IdUser:user.id,
           Role:user.role

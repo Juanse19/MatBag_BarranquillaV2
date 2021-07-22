@@ -32,7 +32,8 @@ export class Bhs2Component implements OnInit {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private api: HttpService) { }
+    private api: HttpService,
+    public dial: WindowComponent) { }
 
   ngOnInit(): void {
     // this.banda2NameCharge();
@@ -106,9 +107,24 @@ export class Bhs2Component implements OnInit {
     });
   }
 
-  ClicTX1() {
+  ClicSS1_1() {
+    debugger 
+    this.dialog.opentest();
+   }
+
+  ClicSF1_4() {
+    debugger
     this.dialog.opendevice1(137);
     }
+  ClicSF1_5() {
+    this.dialog.opendevice2(130);
+    }
+  ClicSF1_6() {
+    this.dialog.opendevice1(139);
+      }
+  ClicSF1_7() {
+    this.dialog.opendevice1(133);
+      }
 
   ngOnDestroy() {
     this.alive = false;

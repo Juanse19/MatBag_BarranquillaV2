@@ -6,6 +6,7 @@ import { Banda4, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from './../window/window.component';
 
 let te: teams;
 {
@@ -33,24 +34,7 @@ export class Bhs4Component implements OnInit {
 
   intervalSubscriptionStatusAlarm:Subscription;
 
-  // public dataBanda4: Banda4 = {
-  //   b1: "",
-  //   b2: "",
-  //   b3: "",
-  //   b4: "",
-  //   b5: "",
-  //   b6: "",
-  //   b7: "",
-  //   b8: "",
-  //   b9: "",
-  //   b10: "",
-  //   b11: "",
-  //   b12: "",
-  //   b13: "",
-  //   b14: "",
-  //   b15: "",
-  //   b16: "",
-  //   }
+  @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
 
   constructor(
     private router: Router,
@@ -124,6 +108,11 @@ export class Bhs4Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+  ClicSS1_1() {
+    debugger
+    this.dialog.opendevice1(166);
+   }
 
   ngOnDestroy() {
     this.alive = false;

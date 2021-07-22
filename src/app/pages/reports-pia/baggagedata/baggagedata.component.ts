@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import {
   NgxFilterByNumberComponent,
@@ -10,6 +10,8 @@ import { takeWhile } from 'rxjs/operators';
 import { interval } from 'rxjs';
 import { ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
 import { GridComponent, PageSettingsModel, FilterService, FilterType, SortService  } from '@syncfusion/ej2-angular-grids';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbDateService } from '@nebular/theme';
 
 
 export interface baggage {
@@ -26,6 +28,7 @@ export interface baggage {
   selector: 'ngx-baggagedata',
   templateUrl: './baggagedata.component.html',
   styleUrls: ['./baggagedata.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [FilterService, SortService]
 })
 export class BaggagedataComponent implements OnInit {
@@ -36,7 +39,7 @@ export class BaggagedataComponent implements OnInit {
 
   public pageSettings: PageSettingsModel;
   
-  
+  skillForm: FormGroup;
 
   // settings = {
   //   mode: 'external',
@@ -95,16 +98,23 @@ export class BaggagedataComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
   
 
-  constructor(
+  constructor(private fb: FormBuilder,
     private http: HttpClient,
-    private api: HttpService) {
-      
+    private api: HttpService,
+    protected dateService: NbDateService<Date>) {
+      this.createForm();
     }
 
+    createForm(): void {
+      this.skillForm = this.fb.group({
+          datetime: ['', Validators.required]
+      });
+  }
      
   ngOnInit(): void { 
     this.ChargeData();
     this.pageSettings = { pageSize: 5 };
+    this.createForm();
   } 
 
   ChargeData() {

@@ -177,7 +177,7 @@
                     />
 
                     <!-- <text x="343.93" y="211.89" class="st4"  (click)="changeId(1)"  [nbPopover]="card" nbPopoverTrigger="click">{{dataBanda4.b1}}</text> -->
-                    <text x="343.93" y="211.89" class="st4"   [nbPopover]="card" (click)="changeId(zone[7]?.idEquipo)" nbPopoverTrigger="click">{{zone[7]?.Name}}</text>
+                    <text x="343.93" y="211.89" class="st4" (click)="ClicSS1_1()">{{zone[7]?.Name}}</text>
                     <text x="335.193" y="216.89" class="st4"  [nbPopover]="card" (click)="changeId(zone[9]?.idEquipo)" counterclockwise="click" >{{zone[9]?.Name}}</text>
                     <text x="319.193" y="226.89" class="st4"  [nbPopover]="card" (click)="changeId(zone[0]?.idEquipo)" nbPopoverTrigger="click">{{zone[0]?.Name}}</text>
                     <text x="296.93" y="254.89" class="st4"  [nbPopover]="card" (click)="changeId(zone[4]?.idEquipo)" nbPopoverAdjustment="counterclockwise">{{zone[4]?.Name}}</text>
@@ -219,6 +219,11 @@
             </ng-template>
 
         </div>
+
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
+
     </nb-card-body>
 </nb-card>
 
