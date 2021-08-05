@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { GridComponent, PageSettingsModel, FilterSettingsModel, QueryCellInfoEventArgs } from '@syncfusion/ej2-angular-grids';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { takeWhile } from 'rxjs/operators';
 import { interval } from 'rxjs';
 import { ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
+import { Dialog, Tooltip } from '@syncfusion/ej2-popups';
 
 export interface bhsfault {
   Faulttype: string;
@@ -38,6 +39,14 @@ export class BhsFaultsComponent implements OnInit {
     this.filterOptions = {
       type: 'Menu',
    };
+  }
+
+  tooltip(args: QueryCellInfoEventArgs) {
+    const tooltip: Tooltip = new Tooltip({
+        content: args.data[args.column.field].toString()
+        
+    }, args.cell as HTMLTableCellElement);
+    // console.log('tool:', tooltip);
   }
 
   ChargeData() {

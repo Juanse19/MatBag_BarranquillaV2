@@ -37,7 +37,7 @@ export class NgxLogoutComponent implements OnInit {
   } 
 
   logout(strategy: string): void {
-    debugger
+    // debugger
     const currentUserId = this.userStore.getUser().id;
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
       var respons = 

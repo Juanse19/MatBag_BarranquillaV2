@@ -30,15 +30,12 @@ export interface states {
 
 // Band information by zone
 export interface teams{
-    DeviceId?: {
     id?: string,
     name?: string,
     estado?: string,
     TiempoOn?: string,
     TiempoOff?: string
     Consumo?: string,
-    
-}
 }
 
 export interface Consumezone {
@@ -252,3 +249,9 @@ export interface Banda7 {
     b26: string,
 }
 
+export interface consume {
+    slug?: string;
+    ZoneName?: string;
+    KWh?: number;
+    porcent?: number;
+}

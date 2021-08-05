@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NbCardModule,  NbDatepickerModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
+import { NbCardModule,  NbDatepickerModule, NbIconModule, NbInputModule, NbButtonModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';  
 import { ReportsPiaRoutingModule } from './reports-pia-routing.module';
 import { ReportsPiaComponent } from './reports-pia.component';
@@ -17,15 +17,20 @@ import { BhsEventsComponent } from './bhs-events/bhs-events.component';
 import { EdsstatisticsComponent } from './edsstatistics/edsstatistics.component';
 import { AtrperformanceComponent } from './atrperformance/atrperformance.component';
 import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { BagtagTrackingComponent } from './bagtag-tracking/bagtag-tracking.component';
 
 
 @NgModule({
-  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent,],
+  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent, BagtagTrackingComponent,],
   imports: [
     CommonModule,
     ReportsPiaRoutingModule,
     Ng2SmartTableModule,
     NbCardModule, 
+    NbButtonModule,
     NbIconModule, 
     NbInputModule, 
     ThemeModule,
@@ -34,6 +39,10 @@ import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
     ToolbarModule,
     DateTimePickerModule,
     NbDatepickerModule,
+    DatePickerModule,
+    DropDownListModule,
+    FormsModule, 
+    ReactiveFormsModule,
   ],
   providers: [PageService,
     SortService,

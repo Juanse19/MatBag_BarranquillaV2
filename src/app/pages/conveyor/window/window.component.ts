@@ -153,11 +153,16 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
-        this.divices1=res;
-        // console.log('Zons:', res , 'states', this.states[0]?.Color);
-        this.device1.show();
-        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      .subscribe((res: any [])=>{
+        debugger
+        if(res === null){
+          this.device1.hide();
+        }else{
+          this.divices1=res;
+          console.log('Test: ', this.divices1);
+          this.device1.show();
+          // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+        }
       },
       err=>console.log('Error', err));
     }
@@ -167,7 +172,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices2=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device2.show();
@@ -181,7 +186,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices3=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device3.show();
@@ -194,7 +199,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices4=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device4.show();
@@ -207,7 +212,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices5=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device5.show();
@@ -220,7 +225,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices6=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device6.show();
@@ -233,7 +238,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices7=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device7.show();
@@ -246,7 +251,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices8=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device8.show();
@@ -259,7 +264,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices9=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device9.show();
@@ -272,7 +277,7 @@ export class WindowComponent implements OnInit {
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any)=>{
+      .subscribe((res: any [])=>{
         this.divices10=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device10.show();

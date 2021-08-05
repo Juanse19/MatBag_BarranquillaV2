@@ -1,16 +1,121 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-header>
+                <h6 id="h6">Estadísticas de EDS</h6>
+            </nb-card-header>
+            <nb-card-body id="form">
+                <form [formGroup]="airForm" class="form-inline" novalidate id="formId">
+
+
+                    <div class="form-group mx-sm-4 mb-3">
+                        <ejs-datepicker formControlName="StartTime" name=" StartTime " id="StartTime " data-name="StartTime " placeholder='Consultar' floatLabelType='Always' required>
+                        </ejs-datepicker>
+                    </div>
+
+                    <!-- <div>
+                        <input nbInput placeholder="Seleccione una fecha" formControlName="StartTime" [nbDatepicker]="formpicker">
+                        <nb-datepicker name=" StartTime" id="StartTime " #formpicker></nb-datepicker>
+                    </div> -->
+
+
+                    <button nbButton status="primary " class="btn btn-primary" (click)="date(airForm.controls.StartTime.value)">Cosultar</button>
+                    <button nbButton status="success " class="btn btn-success" (click)="generatePDF('open')">Abrir a PDF</button>
+                    <button type="button" class="btn btn-secondary" disabled="true" (click)="generatePDF('download')">Descargar pdf</button>
+                    <!-- <button nbButton status="info " [disabled]="false " hero>Atras</button> -->
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<!-- <nb-card-body>
+    <table>
+        <tr>
+            <td style="width:50% ">Selected value: </td>
+            <td class="formtext ">{{ airForm.controls.StartTime.value | date:"dd-MM-yyyy " }}</td>
+        </tr>
+    </table>
+
+</nb-card-body> -->
+
 <nb-card>
     <nb-card-header>
-        Estadísticas de EDS
+
+
+
+        <div class="row ">
+            <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required</div>
+            <div *ngIf="airForm.controls[ 'StartTime'].value ">
+                <!-- <table>
+                    <tr>
+                        <td style="width:50% ">Selected value: </td>
+                        <td class="formtext ">{{ airForm.controls.StartTime.value | date:"yyyy-MM-dd " }}</td>
+                    </tr>
+                </table> -->
+
+
+                <ejs-grid [dataSource]='daDate' [allowPaging]="true " [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+                    <e-columns>
+                        <e-column field='Name' headerText='Nombre' width=120></e-column>
+                        <e-column field='CountStatudBagAlarm' headerText='Bag' width=100></e-column>
+                        <e-column field='Total' headerText='Total' width=100></e-column>
+                        <e-column field='PercAlarm' headerText='Alarm' width=100></e-column>
+                        <e-column field='CountStatudBagClear' headerText='Clear' width=100></e-column>
+                        <e-column field='PercClear' headerText='Clean' width=100></e-column>
+                    </e-columns>
+                </ejs-grid>
+
+
+            </div>
+        </div>
+        <!-- <div class="row">
+            <nb-card-body>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Bag</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Alarm</th>
+                            <th scope="col">Clear</th>
+                            <th scope="col">Clean</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let option of daDate">
+                            <td>{{option.Name}}</td>
+                            <td>{{option.CountStatudBagAlarm}}</td>
+                            <td>{{option.Total}}</td>
+                            <td>{{option.PercAlarm}}</td>
+                            <td>{{option.CountStatudBagClear}}</td>
+                            <td>{{option.PercClear}}</td>
+                        </tr>
+                    </tbody> -->
+        <!-- <tfoot>
+                        <tr *ngFor="let option of daDate">
+                            <td colspan="4"><strong>Total</strong></td>
+                            <td class="text-right"><strong>{{option.Total}}</strong></td>
+                        </tr>
+                    </tfoot> -->
+        <!-- </table> -->
+        <!-- </nb-card-body>
+        </div> -->
     </nb-card-header>
-    <nb-card-body>
-        <ejs-grid [dataSource]='edsStatisticsData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
-            <e-columns>
-                <e-column field='bagsalarmed' headerText='# Equipajes alarmados' width=120></e-column>
-                <e-column field='bagscleared' headerText='# Equipaje no sospechoso ' width=100></e-column>
-                <e-column field='Edsfaults' headerText='Fallas EDS' width=100></e-column>
-                <e-column field='Failurestartdate' headerText='Fecha inicio falla' width=100></e-column>
-                <e-column field='Failureenddate' headerText='Fecha fin falla' width=100></e-column>
-            </e-columns>
-        </ejs-grid>
-    </nb-card-body>
+    <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required
+        <div *ngIf="airForm.controls[ 'StartTime'].value ">
+            <nb-card-body>
+                <ejs-grid [dataSource]='daDate' [allowPaging]="true " [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true ">
+                    <e-columns>
+                        <e-column field='Name' headerText='Nombre' width=120></e-column>
+                        <e-column field='CountStatudBagAlarm' headerText='Bag' width=100></e-column>
+                        <e-column field='Total' headerText='Total' width=100></e-column>
+                        <e-column field='PercAlarm' headerText='Alarm' width=100></e-column>
+                        <e-column field='CountStatudBagClear' headerText='Clear' width=100></e-column>
+                        <e-column field='PercClear' headerText='Clean' width=100></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </nb-card-body>
+        </div>
+    </div>
 </nb-card>

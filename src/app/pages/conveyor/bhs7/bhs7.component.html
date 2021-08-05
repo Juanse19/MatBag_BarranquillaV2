@@ -229,21 +229,22 @@
         </div>
     </nb-card-body>
 </nb-card>-->
+<div class="row show-grid">
+    <div class="col-md-6">
+        <nb-card>
 
-<nb-card>
+            <nb-card-header>
+                <nav class="navigation">
+                    <a href="#" (click)="back()" class="link back-link" aria-label="Back">
+                        <nb-icon icon="arrow-back"></nb-icon>
+                    </a>
+                    <h5 class="h">ON SCREEN RESOLUTION LINE</h5>
+                </nav>
+            </nb-card-header>
 
-    <nb-card-header>
-        <nav class="navigation">
-            <a href="#" (click)="back()" class="link back-link" aria-label="Back">
-                <nb-icon icon="arrow-back"></nb-icon>
-            </a>
-            <h5 class="h">ON SCREEN RESOLUTION LINE</h5>
-        </nav>
-    </nb-card-header>
+            <nb-card-body>
 
-    <nb-card-body>
-
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="175 110 252.63 115.06">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="245 110 252.63 115.06">
       
 		
         <image style="display:none;overflow:visible;opacity:0.5;" width="1920" height="1080" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4UAAAQ7CAYAAACIbnipAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -2580,29 +2581,29 @@
                 
             </svg>
 
-        <ng-template #card>
-            <nb-card class="popover-card">
-                <nb-card-body>
-                    <div class="media" *ngFor="let option of divice; let i = index">
-                        <!-- {{i}} -->
-                        <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
-                        <div class="media-body">
-                            <h6>Id equipo: {{option.DeviceId}}</h6>
-                            <b>Estado:</b>
-                            <p>{{option.Estado}}</p>
-                            <b>Consumo (KWH):</b>
-                            <p>{{option.Consumo}} </p>
-                            <b>TiempoOn:</b>
-                            <p>{{option.TiempoOn}} </p>
-                            <b>TiempoOff:</b>
-                            <p>{{option.TiempoOff}} </p>
-                        </div>
-                    </div>
-                </nb-card-body>
-            </nb-card>
-        </ng-template>
+                <ng-template #card>
+                    <nb-card class="popover-card">
+                        <nb-card-body>
+                            <div class="media" *ngFor="let option of divice; let i = index">
+                                <!-- {{i}} -->
+                                <img class="align-self-start mr-3" id="im" src="./assets/img/teams.png" alt="Card " />
+                                <div class="media-body">
+                                    <h6>Id equipo: {{option.DeviceId}}</h6>
+                                    <b>Estado:</b>
+                                    <p>{{option.Estado}}</p>
+                                    <b>Consumo (KWH):</b>
+                                    <p>{{option.Consumo}} </p>
+                                    <b>TiempoOn:</b>
+                                    <p>{{option.TiempoOn}} </p>
+                                    <b>TiempoOff:</b>
+                                    <p>{{option.TiempoOff}} </p>
+                                </div>
+                            </div>
+                        </nb-card-body>
+                    </nb-card>
+                </ng-template>
 
-        <!-- <div class="card" style="width: 18rem;">
+                <!-- <div class="card" style="width: 18rem;">
             <table class="table">
                 <thead>
                     <tr>
@@ -2630,7 +2631,7 @@
             </table>
         </div> -->
 
-        <div class="card" style="width: 23rem; margin: -16.8rem 0.19rem 0.0rem -0.15rem;">
+                <!-- <div class="card" style="width: 23rem; margin: -16.8rem 0.19rem 0.0rem -0.15rem;">
 
             <ejs-grid [dataSource]='osrData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
                 <e-columns>
@@ -2641,8 +2642,43 @@
                 </e-columns>
             </ejs-grid>
 
+        </div> -->
+
+                <div class='root-container'>
+                    <ngx-window></ngx-window>
+                </div>
+
+            </nb-card-body>
+
+        </nb-card>
+
+
+
+    </div>
+
+    <div class="col-md-6">
+        <div>
+            <nb-card style="height: 18rem;">
+
+                <ejs-grid [dataSource]='osrData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+                    <e-columns>
+                        <e-column field='Bagtag' headerText='Bagtag' width=130></e-column>
+                        <e-column field='BagId' headerText='BagId' width=120></e-column>
+                        <e-column field='Device' headerText='Device' width=100></e-column>
+                        <e-column field='Log' headerText='Log' width=100></e-column>
+                    </e-columns>
+                </ejs-grid>
+
+            </nb-card>
         </div>
+    </div>
+</div>
 
-    </nb-card-body>
-
-</nb-card>
+<!-- <div class="row show-grid">
+    <div class="col-md-6">
+      <div>.col-md-6</div>
+    </div>
+    <div class="col-md-6">
+      <div>.col-md-6</div>
+    </div>
+  </div> -->

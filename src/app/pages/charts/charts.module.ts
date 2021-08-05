@@ -17,7 +17,8 @@ import {  NbButtonModule,
   NbSelectModule,
   NbListModule,
   NbSpinnerModule,
-
+  NbDatepickerModule,
+  NbInputModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -56,6 +57,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { from } from 'rxjs';
 import { ChartsReportComponent } from './charts-report/charts-report.component';
 import { ChartRepots2Component } from './chart-repots2/chart-repots2.component';
+import { EnergyComponent } from './energy/energy.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 const components = [
   ChartjsBarComponent,
@@ -105,8 +109,13 @@ const components = [
     ChartsRoutingModule,
     NbProgressBarModule,
     NbSpinnerModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    DatePickerModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    NbDatepickerModule,
+    NbInputModule
   ],
-  declarations: [...routedComponents, ...components, ChartRepots2Component],
+  declarations: [...routedComponents, ...components, ChartRepots2Component, EnergyComponent],
 })
 export class ChartsModule {}

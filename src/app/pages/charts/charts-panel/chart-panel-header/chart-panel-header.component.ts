@@ -34,7 +34,8 @@ export class ChartPanelHeaderComponent implements OnDestroy {
   @Input() legend: string[] = ['', '', ''];
 
   // types: string[] = ['DAY', 'HOUR', 'year'];
-  types: string[] = ['DAY', 'HOUR'];
+  
+  types: string[] = ['week', 'month', 'year'];
   
   devices: Machine[]=[];
   chartLegend: {iconColor: string; title: string}[];

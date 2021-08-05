@@ -370,15 +370,15 @@ export class PagesMenu {
           title: 'Funcionamiento del sistema',
           link: '/pages/conveyor/functioning',
         },
-        // {
-        //   title: 'Paros por acumulación',
-        //   link: '/pages/conveyor/accumulation',
-        // },
+        {
+          title: 'Paros por acumulación',
+          link: '/pages/conveyor/accumulation',
+        },
         
-        // {
-        //   title: 'Info',
-        //   link: '/pages/conveyor/info',
-        // },
+        {
+          title: 'Consumo energético',
+          link: '/pages/conveyor/energy',
+        },
       ],
     };
 
@@ -428,11 +428,19 @@ export class PagesMenu {
       // link: '/pages/charts/charts-report',
       children:[
         {
+          title: 'seguimiento de maletas',
+          link: '/pages/reports-pia/bagtracking',
+        },
+        {
+          title: 'Estadísticas de EDS',
+          link: '/pages/reports-pia/edsstatistics',
+        },
+        {
           title: 'Datos del equipaje',
           link: '/pages/reports-pia/baggagedata',
         }, 
         {
-          title: 'Seguimiento Fotoceldas Criticas',
+          title: 'Seguimiento crítico de PEC',
           link: '/pages/reports-pia/bag',
         },
         {
@@ -440,12 +448,8 @@ export class PagesMenu {
           link: '/pages/reports-pia/bhsfaults',
         },
         {
-          title: 'Eventos BHS',
+          title: 'Eventos BHS', 
           link: '/pages/reports-pia/bhsevents',
-        },
-        {
-          title: 'Estadísticas de EDS ',
-          link: '/pages/reports-pia/edsstatistics',
         },
         {
           title: 'Desempeño del ATR',
@@ -531,7 +535,7 @@ export class PagesMenu {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
           // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
-          return [...dashboardMenu, dassh2Menu, paraMenu, repocbisMenu, configurationMenu, alarmMenu, ...menu];
+          return [...dashboardMenu, dassh2Menu, paraMenu, functionMenu, repocbisMenu, configurationMenu, alarmMenu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];

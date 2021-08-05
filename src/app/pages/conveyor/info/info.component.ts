@@ -106,7 +106,7 @@ export class InfoComponent implements OnInit {
   changeIB01(idDevice?: number){
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevice)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any [])=>{
       this.consumezoneData=res;
       this.ejDialog.show();
       // console.log('Zons:', res , 'states');
@@ -120,7 +120,7 @@ export class InfoComponent implements OnInit {
   changeIB02(idDevices?: number){
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any [])=>{
       this.zoneData=res;
       this.ejDialog1.show();
       console.log('Zons:', res , 'states');
@@ -134,7 +134,7 @@ export class InfoComponent implements OnInit {
   changeIB03(idDevic?: number){
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevic)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any [])=>{
       this.zoData=res;
       this.ejDialog2.show();
       // console.log('Zons:', res , 'states');

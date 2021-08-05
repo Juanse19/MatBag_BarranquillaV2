@@ -8534,45 +8534,114 @@ MDAwMDAwMFzJ+P8FGACXHc5AS/+n6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.2
         </div>
 
         <div #container class='root-container'>
-          <ejs-dialog id='dialog' #ejDialog allowDragging='true' header='Dialog' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon' >
-              <ng-template #content>
-                  
-                  <ul *ngFor="let zo of consumezoneData">
+            <ejs-dialog id='dialog' #ejDialog allowDragging='true' header='Dialog' [visible]='hidden' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+
+                    <!-- <ul *ngFor="let zo of consumezoneData">
                       <p>Id: <span>{{zo.ZoneId}}</span></p>
                       <p>Nombre: <span>{{zo.ZoneName}}</span></p>
                       <li>Estado: {{zo.Estado}}</li>
                       <li>Tiempo Encendido: {{zo.TiempoOn}}</li>
                       <li>Tiempo apagado: {{zo.TiempoOff}}</li>
 
-                  </ul>
-              </ng-template>
+                  </ul> -->
+                    <div class="media-body" *ngFor="let zo of consumezoneData">
 
-          </ejs-dialog>
+                        <b>Nombre:</b>
+                        <p>{{zo.ZoneName}}</p>
 
-          <div #container class='root-container'></div>
-          <ejs-dialog id='ejDialog1' #ejDialog1 allowDragging='true' header='Dialog' [visible]='hidden' content='This is a Dialog 1' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'  >
-              <ng-template #content>
-                  <ul *ngFor="let opt of zoneData">
+                        <b>Id equipo:</b>
+                        <p>{{zo.ZoneId}}</p>
+
+                        <b>Estado:</b>
+                        <p>{{zo.Estado}}</p>
+
+                        <b>Consumo (KWH):</b>
+                        <p>{{zo.Consumo}} </p>
+
+                        <b>Cantidad Maletas</b>
+                        <p>{{zo.ContadorMaletas}} </p>
+
+                        <b>TiempoOn:</b>
+                        <p>{{zo.TiempoOn}} </p>
+
+                        <b>TiempoOff:</b>
+                        <p>{{zo.TiempoOff}} </p>
+                    </div>
+                </ng-template>
+
+            </ejs-dialog>
+
+            <div #container class='root-container'></div>
+            <ejs-dialog id='ejDialog1' #ejDialog1 allowDragging='true' header='Dialog' [visible]='hidden' content='This is a Dialog 1' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <!-- <ul *ngFor="let opt of zoneData">
                       <li>{{opt.ZoneName}}</li>
                       <li>{{opt.Estado}}</li>
                       <li>{{opt.TiempoOn}}</li>
                       <li>{{opt.TiempoOff}}</li>
-                  </ul>
-              </ng-template>
-          </ejs-dialog>
+                  </ul> -->
+                    <div class="media-body" *ngFor="let opt of zoneData">
 
-          <div #container class='root-container'></div>
-          <ejs-dialog id='ejDialog2' #ejDialog2 allowDragging='true' header='Dialog' [visible]='hidden' content='This is a Dialog 2' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'  >
-              <ng-template #content>
-                  <ul *ngFor="let option of zoData">
+                        <b>Nombre:</b>
+                        <p>{{opt.ZoneName}}</p>
+
+                        <b>Id equipo:</b>
+                        <p>{{opt.ZoneId}}</p>
+
+                        <b>Estado:</b>
+                        <p>{{opt.Estado}}</p>
+
+                        <b>Consumo (KWH):</b>
+                        <p>{{opt.Consumo}} </p>
+
+                        <b>Cantidad Maletas</b>
+                        <p>{{opt.ContadorMaletas}} </p>
+
+                        <b>TiempoOn:</b>
+                        <p>{{opt.TiempoOn}} </p>
+
+                        <b>TiempoOff:</b>
+                        <p>{{opt.TiempoOff}} </p>
+                    </div>
+                </ng-template>
+            </ejs-dialog>
+
+            <div #container class='root-container'></div>
+            <ejs-dialog id='ejDialog2' #ejDialog2 allowDragging='true' header='Dialog' [visible]='hidden' content='This is a Dialog 2' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+                <ng-template #content>
+                    <!-- <ul *ngFor="let option of zoData">
                       <li>{{option.ZoneName}}</li>
                       <li>{{option.Estado}}</li>
                       <li>{{option.TiempoOn}}</li>
                       <li>{{option.TiempoOff}}</li>
-                  </ul>
-              </ng-template>
-          </ejs-dialog>
-      </div>
+                  </ul> -->
+                    <div class="media-body" *ngFor="let option of zoData">
+
+                        <b>Nombre:</b>
+                        <p>{{option.ZoneName}}</p>
+
+                        <b>Id equipo:</b>
+                        <p>{{option.ZoneId}}</p>
+
+                        <b>Estado:</b>
+                        <p>{{option.Estado}}</p>
+
+                        <b>Consumo (KWH):</b>
+                        <p>{{option.Consumo}} </p>
+
+                        <b>Cantidad Maletas</b>
+                        <p>{{option.ContadorMaletas}} </p>
+
+                        <b>TiempoOn:</b>
+                        <p>{{option.TiempoOn}} </p>
+
+                        <b>TiempoOff:</b>
+                        <p>{{option.TiempoOff}} </p>
+                    </div>
+                </ng-template>
+            </ejs-dialog>
+        </div>
 
     </nb-card-body>
 </nb-card>

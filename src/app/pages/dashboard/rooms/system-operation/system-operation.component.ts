@@ -113,7 +113,7 @@ export class SystemOperationComponent implements OnInit {
       setTimeout(() => {
         console.log('Cerrar Dialog', this.ejDialogTX.hide());
         this.ejDialogTX.hide();
-      }, 10000);
+      }, 20000);
     }
 
       // Initialize the Dialog component's target element.
@@ -172,7 +172,7 @@ export class SystemOperationComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:Zones[])=>{
       this.zone=res;
-      // console.log('zonas: ', this.zone);
+      console.log('zonas: ', this.zone);
     });
   }
 
@@ -298,7 +298,7 @@ export class SystemOperationComponent implements OnInit {
     // this.changestest1(idDevices)
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any [])=>{
       this.sFCData=res;
       this.ejDialogSFC.show();
       this.ejDialogSFC.position = { X: 85.33, Y: 100.14 };
@@ -310,7 +310,7 @@ export class SystemOperationComponent implements OnInit {
     // this.changestest1(idDevices)
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any [])=>{
       this.oSRData=res;
       this.ejDialogOSR.show();
       this.ejDialogOSR.position = { X: 375.33, Y: 170.14 };
@@ -334,7 +334,7 @@ export class SystemOperationComponent implements OnInit {
     // this.changestest1(idDevices)
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any[])=>{
       this.mEData=res;
       this.ejDialogME.show();
       this.ejDialogME.position = { X: 224.33, Y: 180.14 };
@@ -344,13 +344,14 @@ export class SystemOperationComponent implements OnInit {
 
   opentest9(idDevices?: number){
     // this.changestest1(idDevices)
+    debugger
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
     .pipe()
-    .subscribe((res: any)=>{
+    .subscribe((res: any[])=>{
       this.xOData=res;
       this.ejDialogXO.show();
       this.ejDialogXO.position = { X: 171.33, Y: 100.14 };
-      // console.log('Zons:', res , 'states');
+      console.log('Zons:', res );
     });
   }
 
@@ -394,6 +395,10 @@ export class SystemOperationComponent implements OnInit {
   ClicME(): void {
   this.opentest8(11);
   }
+
+  ClicXO(): void {
+    this.opentest9(10);
+    }
 
 // Navegacion a zonas
 

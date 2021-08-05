@@ -9,7 +9,7 @@ export interface ChartData {
   axisXLabels: string[];
   linesData: number[][];
   legend: string[];
-}
+} 
 
 export interface AggregatedChartData extends ChartData {
   aggregatedData: ChartSummary[];

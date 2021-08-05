@@ -96,7 +96,8 @@ export class ChartsPanelReportComponent implements OnInit, OnDestroy {
     this.getReportRecircule(this.period)
     this.getProfitChartData(this.period);
     this.getReportSystemAcumStop(this.period);
-    this.getReportFullWip(this.period);
+    // this.getReportFullWip(this.period);
+    this.getReportEnergy(this.period);
   }
 
   // setPeriodAndGetChartData(value: string): void {
@@ -118,7 +119,8 @@ export class ChartsPanelReportComponent implements OnInit, OnDestroy {
     this.getReportRecircule(value);
     this.getProfitChartData(value);
     this.getReportSystemAcumStop(value);
-    this.getReportFullWip(value);
+    // this.getReportFullWip(value);
+    this.getReportEnergy(value);
   }
 
   
@@ -233,16 +235,31 @@ export class ChartsPanelReportComponent implements OnInit, OnDestroy {
   }
 
   //Repot 5
-  getReportFullWip(period: String){
-    this.http.get(this.api.apiUrlMatbox + "/Reports/GetReportFullWipTime?unitedTime="+period)
+  // getReportFullWip(period: String){
+  //   this.http.get(this.api.apiUrlMatbox + "/Reports/GetReportFullWipTime?unitedTime="+period)
+  //   .pipe(takeWhile(() => this.alive))
+  //     .subscribe((res: any)=>{  
+  //       console.log('Get Recircule', res);
+  //       if(res == null){
+  //          return null;
+  //       }
+  //       this.ReportFullWipData=res;
+  //       this.ReportFullWipHeader.legend = res.legend;
+  //       this.ReportFullWipHeader.init();
+  //     });
+  // }
+
+  getReportEnergy(period: String){
+    debugger
+    this.http.get(this.api.apiUrlNode1 + '/GetKwhPeriod?period='+period)
     .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{  
-        console.log('Get Recircule', res);
+        console.log('Get energy', res);
         if(res == null){
            return null;
         }
         this.ReportFullWipData=res;
-        this.ReportFullWipHeader.legend = res.legend;
+        this.ReportFullWipHeader.legend = res?.legend;
         this.ReportFullWipHeader.init();
       });
   }

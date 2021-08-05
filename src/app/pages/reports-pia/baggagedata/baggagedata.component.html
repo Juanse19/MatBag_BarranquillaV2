@@ -1,132 +1,108 @@
-<!-- <nb-card>
-    <nb-card-header>
-        Datos del equipaje
-    </nb-card-header>
-
-    <nb-card-body>
-        <ng2-smart-table class="dash-smart-table" [settings]="settings" [source]="baggageData">
-        </ng2-smart-table>
-    </nb-card-body>
-</nb-card> -->
-
-<!-- <nb-card>
-    <div class="control-section">
-        <div class="col-lg-12 col-sm-12 col-md-12" id="sidebar-section">
-            <div id="head">
-                <div class="header">
-                    <div class="menu"><span class="e-icons expand"></span></div>
-                    <div class="searchContent">
-                        <div class="analysis">DAILY CBIS BAG VOLUME REPORT</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</nb-card> -->
-<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
-    <nb-card-header>
-        <h6 id="h6">INFORME DIARIO DE VOLUMEN DE BOLSAS CBIS</h6>
-    </nb-card-header>
-    <nb-card-body>
-        <div class="row show-grid">
-            <div class="col-md-4">
-                <div>
-                    <img class="align-self-center mr-3" src="./assets/images/PALMEROLA.png" id="image" alt="Card " />
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <div id="h5">
-                        <h6>Informe resumido ejecutivo de CBIS</h6>
-                        <p>Nombre del sistema de detección</p>
-                        <p>Aeropuerto</p>
-                        <p>Terminal</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="control-section">
-            <div class="content-wrapper">
-                <div id='content' class='box-form' style="margin: 0 auto; width:500px; padding:25px">
-                    <form formGroup="skillForm" novalidatetime id="formId">
-                        <div class="form-group">
-                            <ejs-datetimepicker formControlName="datetime" name="datetime" placeholder='Select a date and Time' floatLabelType='Always'>
-                            </ejs-datetimepicker>
-                        </div>
-                        <div class="form-group">
-                            <ejs-datetimepicker formControlName="datetime" name="datetime" placeholder='Select a date and Time' floatLabelType='Always'>
-                            </ejs-datetimepicker>
-                        </div>
-                        <div *ngIf="skillForm.controls['datetime'].hasError('required') && skillForm.controls['datetime'].touched" class="alert alert-danger">DateTime value is requried</div>
-                        <div *ngIf="skillForm.controls['datetime'].value" class="alert alert-success">
-                            <table>
-                                <tr>
-                                    <td style="width:50%">Selected value: </td>
-                                    <td class="formtext ">{{ skillForm.controls.datetime.value | date:"dd-MM-yyyy hh:mm a" }}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> -->
-    </nb-card-body>
-</nb-card>
-
-<!-- <nb-card class="col-md-12 col-lg-12 col-xxxl-12">
-    <nb-card-body>
-        <div class="col-md-8">
-            <div>
-                <form formGroup="skillForm" novalidatetime id="formId">
-                    <div class="form-group">
-                        <ejs-datetimepicker formControlName="datetime" name="datetime" placeholder='Select a date and Time' floatLabelType='Always'>
-                        </ejs-datetimepicker>
-                    </div>
-                    <div class="form-group">
-                        <ejs-datetimepicker formControlName="datetime" name="datetime" placeholder='Select a date and Time' floatLabelType='Always'>
-                        </ejs-datetimepicker>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nb-card-body>
-</nb-card> -->
-
 <div class="row">
     <div class="col-md-12">
         <nb-card class="inline-form-card">
-            <!-- <nb-card-header>Inline form</nb-card-header> -->
-            <nb-card-body>
-                <form class="form-inline">
-                    <input nbInput placeholder="Form Picker" [nbDatepicker]="formpicker">
-                    <nb-datepicker #formpicker></nb-datepicker>
-                    <input nbInput placeholder="Range Picker" [nbDatepicker]="rangepicker">
-                    <nb-rangepicker #rangepicker></nb-rangepicker>
+            <nb-card-header>
+                <h6 id="h6">volumen de equipaje</h6>
+            </nb-card-header>
+            <nb-card-body id="form">
+                <form [formGroup]="airForm" class="form-inline" novalidate id="formId">
 
-                    <!-- <button type="submit" nbButton status="primary">Submit</button> -->
+
+                    <div class="form-group mx-sm-4 mb-3">
+                        <ejs-datepicker formControlName="StartTime" name=" StartTime " id="StartTime " data-name="StartTime " placeholder='Consultar' floatLabelType='Always' required>
+                        </ejs-datepicker>
+                    </div>
+
+                    <!-- <div>
+                        <input nbInput placeholder="Seleccione una fecha" formControlName="StartTime" [nbDatepicker]="formpicker">
+                        <nb-datepicker name=" StartTime" id="StartTime " #formpicker></nb-datepicker>
+                    </div> -->
+
+
+                    <button nbButton status="primary " class="btn btn-primary" (click)="date(airForm.controls.StartTime.value)">Cosultar</button>
+                    <button nbButton status="success " class="btn btn-success" (click)="generatePDF('open')">Abrir a PDF</button>
+                    <button type="button" class="btn btn-secondary" (click)="generatePDF('download')">Descargar pdf</button>
+                    <!-- <button nbButton status="info " [disabled]="false " hero>Atras</button> -->
                 </form>
             </nb-card-body>
         </nb-card>
     </div>
 </div>
 
+<!-- <nb-card-body>
+    <table>
+        <tr>
+            <td style="width:50% ">Selected value: </td>
+            <td class="formtext ">{{ airForm.controls.StartTime.value | date:"dd-MM-yyyy " }}</td>
+        </tr>
+    </table>
+
+</nb-card-body> -->
+
 <nb-card>
-    <!-- <nb-card-header>
+    <nb-card-header>
+
+
+
+        <div class="row ">
+            <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required</div>
+            <div *ngIf="airForm.controls[ 'StartTime'].value ">
+                <!-- <table>
+                    <tr>
+                        <td style="width:50% ">Selected value: </td>
+                        <td class="formtext ">{{ airForm.controls.StartTime.value | date:"yyyy-MM-dd " }}</td>
+                    </tr>
+                </table> -->
+
+                <ejs-grid [dataSource]='daDate' [allowPaging]="true" [allowSorting]='true' [filterSettings]='filterOptions' [allowFiltering]="true">
+                    <e-columns>
+                        <e-column field='ZoneName' headerText='Nombre' width=120></e-column>
+                        <e-column field='NumberTag' headerText='NúmeroEtiqueta' width=100></e-column>
+                    </e-columns>
+                </ejs-grid>
+
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <nb-card-body>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">NúmeroEtiqueta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let option of daDate">
+
+                            <td>{{option.ZoneName}}</td>
+                            <td>{{option.NumberTag}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </nb-card-body>
+        </div> -->
+    </nb-card-header>
+</nb-card>
+
+<!-- <nb-card> -->
+<!-- <nb-card-header>
         Datos del equipaje
     </nb-card-header> -->
-    <nb-card-body>
-        <ejs-grid [dataSource]='baggageData' [allowPaging]="true" [pageSettings]='pageSettings' [allowSorting]='true' [allowFiltering]="true">
-            <e-columns>
-                <e-column field='BagTag' headerText='BagTag' textAlign='Right' width=120></e-column>
-                <e-column field='FechaAtr' headerText='Fecha Atr' width=100 type='date' format="0:MM/dd/yyyy"></e-column>
-                <e-column field='BhsId' headerText='Bhs' width=100></e-column>
-                <e-column field='TipoEquipaje' headerText='Tipo Equipaje' width=100></e-column>
-                <e-column field='FechaEds' headerText='Fecha' width=100 type='date' format="yMd"></e-column>
-                <e-column field='estado1' headerText='estado1' width=100></e-column>
-                <e-column field='estado2' headerText='estado2' width=100></e-column>
-            </e-columns>
-        </ejs-grid>
+<!-- <nb-card-body>
+        <div id="pdfTable" #pdfTable>
+            <ejs-grid [dataSource]='baggageData' [allowPaging]="true" [pageSettings]='pageSettings' [allowSorting]='true' [allowFiltering]="true">
+                <e-columns>
+                    <e-column field='BagTag' headerText='BagTag' textAlign='Right' width=120></e-column>
+                    <e-column field='FechaAtr' headerText='Fecha Atr' width=100 type='date' format="0:MM/dd/yyyy"></e-column>
+                    <e-column field='BhsId' headerText='Bhs' width=100></e-column>
+                    <e-column field='TipoEquipaje' headerText='Tipo Equipaje' width=100></e-column>
+                    <e-column field='FechaEds' headerText='Fecha' width=100 type='date' format="yMd"></e-column>
+                    <e-column field='estado1' headerText='estado1' width=100></e-column>
+                    <e-column field='estado2' headerText='estado2' width=100></e-column>
+                </e-columns>
+            </ejs-grid>
+        </div>
     </nb-card-body>
-</nb-card>
+</nb-card> -->

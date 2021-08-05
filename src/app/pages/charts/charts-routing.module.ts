@@ -14,6 +14,7 @@ import { ChartjsComponent } from './chartjs/chartjs.component';
 import { ReportComponent } from './report/report.component';
 import { ChartsReportComponent } from './charts-report/charts-report.component';
 import { ChartRepots2Component } from './chart-repots2/chart-repots2.component';
+import { EnergyComponent } from './energy/energy.component'
 
 const routes: Routes = [{
   path: '',
@@ -36,7 +37,11 @@ const routes: Routes = [{
   },{
     path: 'charts-reports2',
    component: ChartRepots2Component,
- }
+ },
+ {
+  path: 'energy',
+ component: EnergyComponent,
+}
 ],
 }];
 

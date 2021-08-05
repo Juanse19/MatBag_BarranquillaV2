@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda7, states, teams, zons } from '../_interfaces/MatBag.model';
@@ -6,6 +6,7 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
 import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { WindowComponent } from './../window/window.component';
 
 export interface bhsosr {
   Bagtag: string;
@@ -39,34 +40,7 @@ export class Bhs7Component implements OnInit {
 
   intervalSubscriptionStatusAlarm: Subscription;
 
-  // public dataBanda7: Banda7 = {
-  //   b1: "",
-  //   b2: "",
-  //   b3: "",
-  //   b4: "",
-  //   b5: "",
-  //   b6: "",
-  //   b7: "",
-  //   b8: "",
-  //   b9: "",
-  //   b10: "",
-  //   b11: "",
-  //   b12: "",
-  //   b13: "",
-  //   b14: "",
-  //   b15: "",
-  //   b16: "",
-  //   b17: "",
-  //   b18: "",
-  //   b19: "",
-  //   b20: "",
-  //   b21: "",
-  //   b22: "",
-  //   b23: "",
-  //   b24: "",
-  //   b25: "",
-  //   b26: "",
-  //   }
+  @ViewChild(WindowComponent) dialog: WindowComponent;
 
   constructor(
     private router: Router,
@@ -74,7 +48,6 @@ export class Bhs7Component implements OnInit {
     private api: HttpService) { }
 
   ngOnInit(): void {
-    // this.banda7NameCharge();
     this.bandaNameCharge();
     this.bandaNameOsrCharge();
     this.chargeData();
@@ -88,18 +61,6 @@ export class Bhs7Component implements OnInit {
     this.router.navigate(['/pages/iot-dashboard']);
     return false;
   }
-
-  // public banda7NameCharge(){
-
-  //   this.http.get(this.api.apiUrlNode1 + '/ssosr')
-  //   .pipe(takeWhile(() => this.alive))
-  //   .subscribe((res: any)=>{
-  //     this.dataBanda7=res[0];
-  //     console.log('data-banda7:', res);
-      
-  //   });
-
-  // }
 
   public bandaNameCharge(){
 
@@ -174,5 +135,21 @@ export class Bhs7Component implements OnInit {
   ngOnDestroy() {
     this.alive = false;
   }
+
+  ClicME1() {
+    this.dialog.opendevice1(94);
+    }
+
+  ClicME2() {
+    this.dialog.opendevice2(95);
+    }
+
+   ClicME3() {
+     this.dialog.opendevice3(96);
+    }
+
+    ClicME4() {
+      this.dialog.opendevice4(97);
+     }
 
 }

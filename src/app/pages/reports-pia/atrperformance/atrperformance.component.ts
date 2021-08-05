@@ -4,6 +4,7 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { takeWhile } from 'rxjs/operators';
 import { interval } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export interface atrperformance {
   Name: string;
@@ -23,6 +24,8 @@ TotalIATAtassentbackEds: string;
 })
 export class AtrperformanceComponent implements OnInit {
 
+  public airForm: FormGroup;
+
   public atrperformanceData: atrperformance[];
 
   private alive = true;
@@ -31,7 +34,9 @@ export class AtrperformanceComponent implements OnInit {
 
   public filterOptions: FilterSettingsModel;
 
-  constructor(private http: HttpClient,
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
     private api: HttpService) { }
 
   ngOnInit(): void {

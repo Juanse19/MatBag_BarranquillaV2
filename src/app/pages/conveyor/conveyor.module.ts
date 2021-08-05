@@ -2,7 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConveyorRoutingModule } from './conveyor-routing.module';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbTabsetModule, NbTooltipModule, NbPopoverModule, NbSelectModule, NbDatepickerModule, NbCheckboxModule, } from '@nebular/theme';
+import { NbCardModule, 
+         NbButtonModule, 
+         NbIconModule, 
+         NbInputModule,
+         NbSpinnerModule, 
+         NbTreeGridModule, 
+         NbTabsetModule, 
+         NbTooltipModule, 
+         NbPopoverModule, 
+         NbSelectModule, 
+         NbDatepickerModule, 
+         NbCheckboxModule, } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module';  
 import { ConveyorComponent } from './conveyor.component';
@@ -36,7 +47,14 @@ import { Bhs10Component } from './bhs10/bhs10.component';
 import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { WindowComponent } from './window/window.component';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
-
+import { EnergyComponent } from './energy/energy.component';
+import { SolarComponent } from './solar/solar.component';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { ChartModule } from '@syncfusion/ej2-angular-charts';
+import { CategoryService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { ElectricityComponent } from './electricity/electricity.component';
+import { ElectricityChartComponent } from './electricity/electricity-chart/electricity-chart.component';
 
 
 @NgModule({
@@ -63,6 +81,10 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups';
     WindowFormComponent,
     Bhs10Component,
     WindowComponent,
+    EnergyComponent,
+    SolarComponent,
+    ElectricityComponent,
+    ElectricityChartComponent,
   ],
   imports: [
     CommonModule,
@@ -72,7 +94,7 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups';
     NbIconModule,
     NbInputModule,
     Ng2SmartTableModule,
-    ThemeModule,
+    // ThemeModule,
     NbTabsetModule,
     Ng2SmartTableModule,
     ThemeModule, 
@@ -93,10 +115,17 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups';
     NbCheckboxModule,
     DateTimePickerModule,
     DialogModule,
+    ChartModule,
+    DatePickerModule,
+    // DashboardModule,
+    NbButtonModule,
+    NgxEchartsModule,
+    NbSpinnerModule,
   ],
   providers: [PageService,
     SortService,
     FilterService,
-    GroupService],
+    GroupService,
+    CategoryService, LineSeriesService]
 })
 export class ConveyorModule { }

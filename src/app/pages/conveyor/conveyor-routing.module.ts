@@ -21,6 +21,7 @@ import { Ib3Component } from './ib3/ib3.component';
 import { Bhs9Component } from './bhs9/bhs9.component';
 import { Bhs10Component } from './bhs10/bhs10.component';
 import { WindowComponent } from './window/window.component'
+import { EnergyComponent } from './energy/energy.component'
 
 const routes: Routes = [
   {
@@ -106,6 +107,10 @@ const routes: Routes = [
       {
         path: 'window',
         component: WindowComponent,
+      },
+      {
+        path: 'energy',
+        component: EnergyComponent,
       },
     ],
   },

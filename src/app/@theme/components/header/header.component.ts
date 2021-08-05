@@ -176,7 +176,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   AbrirAlarms() {
     this.router.navigate(['/pages/tables/alarms/']);
   }
-
+ 
   Actualizar(){
     Swal.fire({
       title: 'Desea sincronizar?',
