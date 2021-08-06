@@ -54,13 +54,14 @@ export class ElectricityComponent implements OnDestroy {
       .subscribe(theme => {
         this.currentTheme = theme.name;
     });
-    this.fetchData();
+    
   }
 
   ngOnInit(): void {
     this.chartEnergy(this.type);
     // this.energyChange(this.type);
     // this.consumeChange(this.type);
+    this.fetchData();
   }
 
   fetchData() {
