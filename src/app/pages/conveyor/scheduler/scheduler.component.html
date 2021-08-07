@@ -14,8 +14,8 @@
             <!-- <button ejs-button cssClass='e-info' (click)='eventEditor()'> Click to open Event Editor </button> -->
             <ejs-schedule #scheduleObj id="schedule" width='100%' cssClass='timeline-resource-grouping' height='650px' [selectedDate]="selectedDate" [group]="group" [eventSettings]="eventSettings" (actionBegin)="onActionAddBegin($event)" (actionBegin)="onActionBegin($event)">
                 <e-resources>
-                    <!-- <e-resource field='ProjectId' title='Make Up' [dataSource]='car' [allowMultiple]='allowMultiple' name='Projects' textField='text' idField='id' colorField='color'>
-                    </e-resource> -->
+                    <e-resource field='ProjectId' title='Make Up' [dataSource]='car' [allowMultiple]='allowMultiple' name='Projects' textField='text' idField='id' colorField='color'>
+                    </e-resource>
                     <e-resource field='TaskId' title='Airline' [dataSource]='airline' [allowMultiple]='allowMultiple' name='Categories' textField='text' idField='id' groupIDField='groupId' colorField='color'>
                     </e-resource>
                 </e-resources>

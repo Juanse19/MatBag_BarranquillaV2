@@ -5,6 +5,8 @@ import { SolarData, SolarEnergyStatistics } from '../../../@core/interfaces/iot/
 import { Device, DevicesData } from '../../../@core/interfaces/iot/devices';
 import { takeWhile } from 'rxjs/operators';
 import { consume } from '../_interfaces/MatBag.model';
+import { HttpService } from '../../../@core/backend/common/api/http.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ngx-energy',
@@ -50,12 +52,16 @@ export class EnergyComponent implements OnInit {
 
   solarValue: SolarEnergyStatistics;
 
+  public consumeData: consume[]=[];
+
   consuData: consume;
 
   devices: Device[];
 
   constructor
   (
+    private http: HttpClient,
+    private api: HttpService,
     private solarService: SolarData
   ) 
   {  
@@ -69,7 +75,18 @@ export class EnergyComponent implements OnInit {
  }
 
   ngOnInit(): void {
-   
+   this.consumeCharge();
+  }
+
+  public consumeCharge(){
+    this.http.get(this.api.apiUrlNode1 + '/GetKwhZone')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any)=>{
+      // debugger
+      this.consuData = res;
+      console.log('consumo Energia: ', this.consuData);
+      // debugger
+    });
   }
 
 

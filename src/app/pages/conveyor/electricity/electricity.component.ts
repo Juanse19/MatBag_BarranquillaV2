@@ -61,7 +61,7 @@ export class ElectricityComponent implements OnDestroy {
     this.chartEnergy(this.type);
     // this.energyChange(this.type);
     // this.consumeChange(this.type);
-    this.fetchData();
+    // this.fetchData();
   }
 
   fetchData() {
@@ -73,15 +73,15 @@ export class ElectricityComponent implements OnDestroy {
       .subscribe(([listData, chartData]: [Electricity[], ElectricityChart]) => {
         this.listData = listData;
         this.chartData = chartData;
-        console.log('chart', this.chartData);
+        // console.log('chart', this.chartData);
         this.chart && this.chart.resizeChart();
       });
   }
 
   receiveMessage($event) {
     this.types = $event
-    console.log('event',$event)
-    console.log('ty',this.types);
+    // console.log('event',$event)
+    // console.log('ty',this.types);
   }
 
   chartEnergy(type: string){
@@ -95,14 +95,14 @@ export class ElectricityComponent implements OnDestroy {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       
-      debugger 
+      // debugger 
       if(res == null){
         return null;
      }else {
       this.energyChartData = res;
       this.chart && this.chart.resizeChart();
      }
-      console.log('Energy', this.energyChartData);
+      // console.log('Energy', this.energyChartData);
     });
   }
 
@@ -111,13 +111,13 @@ export class ElectricityComponent implements OnDestroy {
     this.http.get(this.api.apiUrlNode1 + '/GetConsumedKwPeriod?period=' + type)
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
-      debugger 
+      // debugger 
       if(res == null){
         return null;
      }else {
       this.consumeChartData = res;
       // this.chart && this.chart.resizeChart();
-      console.log('Cons:', this.consumeChartData);
+      // console.log('Cons:', this.consumeChartData);
      }
       
     });

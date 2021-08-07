@@ -22,17 +22,13 @@ declare const echarts: any
 <nb-tabset>
         <nb-tab tabTitle="Salidas">
     <div class="row show-grid" >
-      <div class="col-md-6">
+      <div class="col-md-4">
         <nb-card >
-          <nb-card-header>{{consumeData[6]?.ZoneName}}</nb-card-header>
+          <nb-card-header>CLEAR LINE</nb-card-header>
           <nb-card-body >
             <div echarts [options]="option" class="echart"></div>
             <div class="info">
-              <div class="h4 value"> {{consumeData[6]?.KWh}} kWh</div>
-              <!-- <div class="details subtitle-2">
-                <span>out of</span>
-                18.170 kWh
-              </div> -->
+              <div class="h4 value"> {{consumeData[4]?.KWh}} kWh</div>
               <div>
                 <img
                   src="./assets/img/sfc.png"
@@ -46,18 +42,13 @@ declare const echarts: any
         </nb-card>
       </div>
 
-      <div class="col-md-6">
+      <!-- <div class="col-md-4">
         <nb-card >
           <nb-card-header>{{consumeData[5]?.ZoneName}}</nb-card-header>
           <nb-card-body>
-            <div echarts [options]="option" class="echart"></div>
+            <div echarts [options]="options1" class="echart"></div>
             <div class="info">
-              <div class="h4 value"> {{consumeData[5]?.KWh}} kWh</div>
-              <!-- <div class="details subtitle-2">
-                <span>out of</span>
-                18.170 kWh
-              </div> -->
-              <div>
+            <div>
                 <img
                   src="./assets/img/sf.png"
                   class="rounded float-right"
@@ -65,22 +56,20 @@ declare const echarts: any
                   alt="..."
                 />
               </div>
+              <div class="h4 value"> {{consumeData[5]?.KWh}} kWh</div>
             </div>
           </nb-card-body>
         </nb-card>
-      </div>
+      </div> -->
 
-      <div class="col-md-6">
+      <!-- <div class="col-md-4">
         <nb-card>
           <nb-card-header>Crossover</nb-card-header>
           <nb-card-body>
             <div echarts [options]="option" class="echart"></div>
             <div class="info">
               <div class="h4 value"> kWh</div>
-              <!-- <div class="details subtitle-2">
-                <span>out of</span>
-                18.170 kWh
-              </div> -->
+              
               <div>
                 <img
                   src="./assets/img/cr.png"
@@ -92,9 +81,9 @@ declare const echarts: any
             </div>
           </nb-card-body>
         </nb-card>
-      </div>
+      </div> -->
 
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <nb-card>
           <nb-card-header>Transfer Line</nb-card-header>
           <nb-card-body>
@@ -114,10 +103,6 @@ declare const echarts: any
             
             <div >
             <div class="h4 value">16.521 kWh</div>
-              <!-- <div class="details subtitle-2">
-                <span>out of</span>
-                18.170 kWh
-              </div> -->
             </div>
           </nb-card-body>
         </nb-card>
@@ -245,23 +230,7 @@ declare const echarts: any
             </div>
           </nb-card-body>
         </nb-card>
-      </div>
-
-    
-
-      <!-- <div class="col-md-6">
-    <nb-card size="tiny" class="solar-card">
-      <nb-card-header>Solar Energy Consumption</nb-card-header>
-      <nb-card-body>
-        <div echarts [options]="option" class="echart">
-        </div>
-        <div class="info">
-        <div class="h4 value">16.521 kWh</div>
-        <div class="details subtitle-2"><span>out of</span> 18.170 kWh</div>
-        </div>
-      </nb-card-body>
-    </nb-card>
-  </div> -->
+      </div> -->
     </div>
 
     </nb-tab>
@@ -270,11 +239,11 @@ declare const echarts: any
 
       <div class="row show-grid">
                 
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
         <nb-card>
           <nb-card-header>{{consumeData[1]?.ZoneName}}</nb-card-header>
           <nb-card-body>
-            <div echarts [options]="option" class="echart"></div>
+            <div echarts [options]="options2" class="echart"></div>
             <div class="info">
               <div class="h4 value">{{consumeData[1]?.KWh}} kWh</div>
               <div>
@@ -294,7 +263,7 @@ declare const echarts: any
         <nb-card>
           <nb-card-header>{{consumeData[2]?.ZoneName}}</nb-card-header>
           <nb-card-body>
-            <div echarts [options]="option" class="echart"></div>
+            <div echarts [options]="options2" class="echart"></div>
             <div class="info">
               <div class="h4 value">{{consumeData[2]?.KWh}} kWh</div>
               <div>
@@ -308,7 +277,7 @@ declare const echarts: any
             </div>
           </nb-card-body>
         </nb-card>
-      </div>
+      </div> -->
 
       <div class="col-md-4">
         <nb-card>
@@ -339,7 +308,9 @@ declare const echarts: any
 })
 export class SolarComponent implements AfterViewInit, OnDestroy {
   
-  public value: SolarEnergyStatistics
+  // public value: SolarEnergyStatistics
+
+  public value: consume
 
   public consumeData: consume[]=[];
 
@@ -347,17 +318,19 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
 
   private alive=true;
 
-  // @Input('chartValue')
-  // set chartValue(value: SolarEnergyStatistics) {
-  //   // value.percent = value.percent
-  //   this.value = value
+  @Input('chartValue')
+  set chartValue(value: consume) {
+    debugger
+    // this.value[0].porcent = value[0]?.porcent
+    this.value = value
+    console.log('testEner: ', this.value)
 
-  //   if (this.option.series) {
-  //     this.option.series[0].data[0].value = value.percent
-  //     this.option.series[0].data[1].value = 100 - value.percent
-  //     this.option.series[1].data[0].value = value.percent
-  //   }
-  // }
+    if (this.option.series) {
+      this.option.series[0].data[0].value = value[0]?.porcent
+      this.option.series[0].data[1].value = 100 - value[0]?.porcent
+      this.option.series[1].data[0].value = value[0]?.porcent
+    }
+  }
 
   
   // set chartValues(values: consume) {
@@ -373,8 +346,10 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
   //   }
   // }
 
-
+// Variables
   option: any = {}
+  options1: any = {}
+  options2: any = {}
   themeSubscription: any
 
   constructor(
@@ -384,6 +359,7 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
     }
 
   ngAfterViewInit() {
+    
     this.themeSubscription = this.theme
       .getJsTheme()
       .pipe(delay(1))
@@ -407,7 +383,7 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
                 radius: solarTheme.radius,
                 data: [
                   {
-                    value: this.consumeData[1]?.porcent,
+                    value: this.value[4]?.porcent,
                     name: ' ',
                     label: {
                       normal: {
@@ -445,7 +421,7 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
                     hoverAnimation: false,
                   },
                   {
-                    value: 100 - this.consumeData[1]?.porcent,
+                    value: 100 - this.value[4]?.porcent,
                     name: ' ',
                     tooltip: {
                       show: false,
@@ -472,7 +448,7 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
                 radius: solarTheme.radius,
                 data: [
                   {
-                    value: this.consumeData[1]?.porcent,
+                    value: this.value[4]?.porcent,
                     name: ' ',
                     label: {
                       normal: {
@@ -502,7 +478,7 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
                     hoverAnimation: false,
                   },
                   {
-                    value: this.consumeData[1]?.porcent,
+                    value: this.value[4]?.porcent,
                     name: ' ',
                     tooltip: {
                       show: false,
@@ -523,6 +499,277 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
             ],
           },
         )
+        // ,
+
+
+        // this.options1 = Object.assign(
+        //   {},
+        //   {
+        //     tooltip: {
+        //       trigger: 'item',
+        //       formatter: '{a} <br/>{b} : {c} ({d}%)',
+        //     },
+        //     series: [
+        //       {
+        //         name: ' ',
+        //         clockWise: true,
+        //         hoverAnimation: false,
+        //         type: 'pie',
+        //         center: ['45%', '50%'],
+        //         radius: solarTheme.radius,
+        //         data: [
+        //           {
+        //             value: this.value[2]?.porcent,
+        //             name: ' ',
+        //             label: {
+        //               normal: {
+        //                 position: 'center',
+        //                 formatter: '{d}%',
+        //                 textStyle: {
+        //                   fontSize: '22',
+        //                   fontFamily: config.variables.fontSecondary,
+        //                   fontWeight: '600',
+        //                   color: config.variables.fgHeading,
+        //                 },
+        //               },
+        //             },
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+        //                   {
+        //                     offset: 0,
+        //                     color: solarTheme.gradientLeft,
+        //                   },
+        //                   {
+        //                     offset: 1,
+        //                     color: solarTheme.gradientRight,
+        //                   },
+        //                 ]),
+        //                 shadowColor: solarTheme.shadowColor,
+        //                 shadowBlur: 0,
+        //                 shadowOffsetX: 0,
+        //                 shadowOffsetY: 3,
+        //               },
+        //             },
+        //             hoverAnimation: false,
+        //           },
+        //           {
+        //             value: 100 - this.value[2]?.porcent,
+        //             name: ' ',
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             label: {
+        //               normal: {
+        //                 position: 'inner',
+        //               },
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: solarTheme.secondSeriesFill,
+        //               },
+        //             },
+        //           },
+        //         ],
+        //       },
+        //       {
+        //         name: ' ',
+        //         clockWise: true,
+        //         hoverAnimation: false,
+        //         type: 'pie',
+        //         center: ['45%', '50%'],
+        //         radius: solarTheme.radius,
+        //         data: [
+        //           {
+        //             value: this.value[2]?.porcent,
+        //             name: ' ',
+        //             label: {
+        //               normal: {
+        //                 position: 'inner',
+        //                 show: false,
+        //               },
+        //             },
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+        //                   {
+        //                     offset: 0,
+        //                     color: solarTheme.gradientLeft,
+        //                   },
+        //                   {
+        //                     offset: 1,
+        //                     color: solarTheme.gradientRight,
+        //                   },
+        //                 ]),
+        //                 shadowColor: solarTheme.shadowColor,
+        //                 shadowBlur: 7,
+        //               },
+        //             },
+        //             hoverAnimation: false,
+        //           },
+        //           {
+        //             value: this.value[2]?.porcent,
+        //             name: ' ',
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             label: {
+        //               normal: {
+        //                 position: 'inner',
+        //               },
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: 'none',
+        //               },
+        //             },
+        //           },
+        //         ],
+        //       },
+        //     ],
+        //   },
+        // ),
+
+        // this.options2 = Object.assign(
+        //   {},
+        //   {
+        //     tooltip: {
+        //       trigger: 'item',
+        //       formatter: '{a} <br/>{b} : {c} ({d}%)',
+        //     },
+        //     series: [
+        //       {
+        //         name: ' ',
+        //         clockWise: true,
+        //         hoverAnimation: false,
+        //         type: 'pie',
+        //         center: ['45%', '50%'],
+        //         radius: solarTheme.radius,
+        //         data: [
+        //           {
+        //             value: this.value[3]?.porcent,
+        //             name: ' ',
+        //             label: {
+        //               normal: {
+        //                 position: 'center',
+        //                 formatter: '{d}%',
+        //                 textStyle: {
+        //                   fontSize: '22',
+        //                   fontFamily: config.variables.fontSecondary,
+        //                   fontWeight: '600',
+        //                   color: config.variables.fgHeading,
+        //                 },
+        //               },
+        //             },
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+        //                   {
+        //                     offset: 0,
+        //                     color: solarTheme.gradientLeft,
+        //                   },
+        //                   {
+        //                     offset: 1,
+        //                     color: solarTheme.gradientRight,
+        //                   },
+        //                 ]),
+        //                 shadowColor: solarTheme.shadowColor,
+        //                 shadowBlur: 0,
+        //                 shadowOffsetX: 0,
+        //                 shadowOffsetY: 3,
+        //               },
+        //             },
+        //             hoverAnimation: false,
+        //           },
+        //           {
+        //             value: 100 - this.value[3]?.porcent,
+        //             name: ' ',
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             label: {
+        //               normal: {
+        //                 position: 'inner',
+        //               },
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: solarTheme.secondSeriesFill,
+        //               },
+        //             },
+        //           },
+        //         ],
+        //       },
+        //       {
+        //         name: ' ',
+        //         clockWise: true,
+        //         hoverAnimation: false,
+        //         type: 'pie',
+        //         center: ['45%', '50%'],
+        //         radius: solarTheme.radius,
+        //         data: [
+        //           {
+        //             value: this.value[3]?.porcent,
+        //             name: ' ',
+        //             label: {
+        //               normal: {
+        //                 position: 'inner',
+        //                 show: false,
+        //               },
+        //             },
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+        //                   {
+        //                     offset: 0,
+        //                     color: solarTheme.gradientLeft,
+        //                   },
+        //                   {
+        //                     offset: 1,
+        //                     color: solarTheme.gradientRight,
+        //                   },
+        //                 ]),
+        //                 shadowColor: solarTheme.shadowColor,
+        //                 shadowBlur: 7,
+        //               },
+        //             },
+        //             hoverAnimation: false,
+        //           },
+        //           {
+        //             value: this.value[3]?.porcent,
+        //             name: ' ',
+        //             tooltip: {
+        //               show: false,
+        //             },
+        //             label: {
+        //               normal: {
+        //                 position: 'inner',
+        //               },
+        //             },
+        //             itemStyle: {
+        //               normal: {
+        //                 color: 'none',
+        //               },
+        //             },
+        //           },
+        //         ],
+        //       },
+        //     ],
+        //   },
+        // )
+
       })
   }
 
@@ -536,15 +783,16 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
     .subscribe((res: any)=>{
       this.consumeData = res;
       console.log('consume', this.consumeData);
-      debugger
-      this.consumeData[0].porcent = this.consumeData[0].porcent
-      if (this.option.series) {
-        this.option.series[0].data[0].value = this.consumeData[1].porcent
-        this.option.series[0].data[1].value = 100 - this.consumeData[1].porcent
-        this.option.series[1].data[0].value = this.consumeData[1].porcent
-        console.log("J:",this.option.series)
-      }
-      console.log("Jo:",this.option.series)
+      // debugger
+      // if (this.option.series) {
+      //   this.option.series[0].data[0].value = this.consumeData[0]?.porcent
+      //   this.option.series[0].data[1].value = 100 - this.consumeData[0]?.porcent
+      //   this.option.series[1].data[0].value = this.consumeData[0]?.porcent
+      //   console.log("J:",this.option.series)
+      // } 
+      
+      // console.log("Jo:",this.option.series)
+
     });
   }
 

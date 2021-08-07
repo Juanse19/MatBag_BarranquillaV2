@@ -4,6 +4,7 @@
 @include nb-install-component() {
     nb-card-body {
         overflow: hidden;
+        margin: 0 -0.8rem;
     }
     .echart {
         position: absolute;
