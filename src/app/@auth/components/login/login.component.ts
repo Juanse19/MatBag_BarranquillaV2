@@ -192,7 +192,7 @@ export class NgxLoginComponent implements OnInit {
           // debugger
           // console.log('El Usuario ya tiene una sesión activa..!');
           // this.toasterService.danger('', `¡El Usuario ya tiene una sesión activa..!`);
-          debugger
+          // debugger
           Swal.fire({
             title: 'Sesión encontrada',
             text: `Actualmente tienes una sesión iniciada en nuestra plataforma, debes finalizar para continuar.  
@@ -216,7 +216,7 @@ export class NgxLoginComponent implements OnInit {
                 .PostJson(this.api.apiUrlNode1 + '/updateSesion', respon)
                 .pipe(takeWhile(() => this.alive))
                 .subscribe((res: any) => {
-                  debugger
+                  // debugger
                    console.log("Envió: ", res);
                   return [{ title: 'Cerrar Sesión', link: '/auth/logout' }];
                 })

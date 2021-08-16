@@ -138,8 +138,8 @@ export class AlarmsComponent implements OnDestroy {
       type: 'Menu',
    };
    this.editSettings = { allowEditing: true, allowAdding: false, allowDeleting: true , newRowPosition: 'Top' };
-   this.toolbar = ['Delete',
-   { text: 'Reconocer alarmas', tooltipText: 'Click', prefixIcon: 'e-expand', id: 'Click' }];
+   this.toolbar = [{text: 'Delete', prefixIcon: 'fas fa-check'},
+   { text: 'Reconocer alarmas', tooltipText: 'Click', prefixIcon: 'fas fa-check-double', id: 'Click' }];
 //    this.editSettings = { allowEditing: false, allowDeleting: true };
 //    this.commands = [
 //   //  { type: 'Edit', buttonOption: { iconCss: ' e-icons e-edit', cssClass: 'e-flat' } },

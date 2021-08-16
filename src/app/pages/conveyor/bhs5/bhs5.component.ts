@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda5, zons, states, teams } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from './../window/window.component';
 
 @Component({
   selector: 'ngx-bhs5',
@@ -12,7 +13,7 @@ import { interval, Subscription } from 'rxjs';
   styleUrls: ['./bhs5.component.scss']
 })
 export class Bhs5Component implements OnInit {
-
+ 
   public zone: zons[] = [];
 
   public divice: teams[] = [];
@@ -23,22 +24,8 @@ export class Bhs5Component implements OnInit {
 
   intervalSubscriptionStatusAlarm: Subscription;
  
-  // public dataBanda5: Banda5 = {
-  //   b1: "",
-  //   b2: "",
-  //   b3: "",
-  //   b4: "",
-  //   b5: "",
-  //   b6: "",
-  //   b7: "",
-  //   b8: "",
-  //   b9: "",
-  //   b10: "",
-  //   b11: "",
-  //   b12: "",
-  //   b13: "",
-  //   b14: "",
-  //   }
+  @ViewChild(WindowComponent) dialog: WindowComponent;
+
 
   constructor(
     private router: Router,
@@ -56,26 +43,13 @@ export class Bhs5Component implements OnInit {
     return false;
   }
 
-  // public banda5NameCharge(){
-
-  //   this.http.get(this.api.apiUrlNode1 + '/sfi')
-  //   .pipe(takeWhile(() => this.alive))
-  //   .subscribe((res: any)=>{
-  //     this.dataBanda5=res[0];
-  //     // console.log('data-banda5:', res);
-  //     console.log("FCS", this.dataBanda5.b1);
-      
-  //   });
-
-  // }
-
   public bandaNameCharge(){
 
     this.http.get(this.api.apiUrlNode1 + '/apizonename?zone=zona12')
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      // console.log('Zons3:', res , 'band with zones', this.zone[1].Name);
+      console.log('Zons:', res );
       
     });
 
@@ -98,7 +72,7 @@ export class Bhs5Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(50000)
+    this.intervalSubscriptionStatusAlarm = interval(8000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona12')),
@@ -107,6 +81,46 @@ export class Bhs5Component implements OnInit {
         this.states  = res;
         console.log('status:', res);
     });
+  }
+
+  ClicSf1_1() {
+    this.dialog.opendevice1(148);
+  }
+
+  ClicSf1_2() {
+    this.dialog.opendevice2(149);
+  }
+
+  ClicSf3_1() {
+    this.dialog.opendevice3(150);
+  }
+
+  ClicSf3_2() {
+    this.dialog.opendevice4(151);
+  }
+
+  ClicSf2_1() {
+    this.dialog.opendevice5(152);
+  }
+
+  ClicSf2_2() {
+    this.dialog.opendevice6(153);
+  }
+
+  ClicSf4_1() {
+    this.dialog.opendevice7(154);
+  }
+
+  ClicSf4_2() {
+    this.dialog.opendevice8(155);
+  }
+
+  ClicXO1_1() {
+    this.dialog.opendevice9(156);
+  }
+
+  ClicXO2_1() {
+    this.dialog.opendevice10(157);
   }
 
   ngOnDestroy() {

@@ -6816,7 +6816,7 @@ if (typeof SVGElement.prototype.contains === 'undefined') {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/sebastianlosada/Documents/MatBag/MatBag.FrontendV1/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/sebastianlosada/Documents/MatBag.FrontendV1/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

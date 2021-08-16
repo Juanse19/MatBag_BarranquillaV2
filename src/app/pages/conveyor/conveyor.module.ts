@@ -6,7 +6,7 @@ import { NbCardModule,
          NbButtonModule, 
          NbIconModule, 
          NbInputModule,
-         NbSpinnerModule, 
+         NbSpinnerModule,
          NbTreeGridModule, 
          NbTabsetModule, 
          NbTooltipModule, 
@@ -55,6 +55,9 @@ import { CategoryService, LineSeriesService} from '@syncfusion/ej2-angular-chart
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ElectricityComponent } from './electricity/electricity.component';
 import { ElectricityChartComponent } from './electricity/electricity-chart/electricity-chart.component';
+import { ConsumZoneComponent } from './consum-zone/consum-zone.component';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { ProgressBarAllModule } from '@syncfusion/ej2-angular-progressbar';
 
 
 @NgModule({
@@ -85,6 +88,7 @@ import { ElectricityChartComponent } from './electricity/electricity-chart/elect
     SolarComponent,
     ElectricityComponent,
     ElectricityChartComponent,
+    ConsumZoneComponent,
   ],
   imports: [
     CommonModule,
@@ -121,6 +125,8 @@ import { ElectricityChartComponent } from './electricity/electricity-chart/elect
     NbButtonModule,
     NgxEchartsModule,
     NbSpinnerModule,
+    DropDownListModule,
+    ProgressBarAllModule,
   ],
   providers: [PageService,
     SortService,
