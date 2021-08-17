@@ -13,6 +13,7 @@ import { UserStore } from '../../../@core/stores/user.store';
 import { Dialog, Tooltip } from '@syncfusion/ej2-popups';
 import { Browser } from '@syncfusion/ej2-base';
 import { ClickEventArgs } from '@syncfusion/ej2-navigations';
+import Swal from 'sweetalert2';
 
 interface Alarmas {
   Id: number;
@@ -284,11 +285,21 @@ Delete(event): void {
   }
 
   reconocer() {
-    debugger
     this.accessChecker.isGranted('edit', 'ordertable')
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any) => {
-        if(res){ 
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      if(res){ 
+      Swal.fire({
+      title: 'Desea reconocer alarmas?',
+      text: `¡Reconocerá todas las alarmas!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Sí, Reconocer!'
+    }).then(result => {
+      debugger
+      if (result.value) {
       const currentUserId = this.userStore.getUser().id;
           var respons = 
             {
@@ -298,23 +309,56 @@ Delete(event): void {
        this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
        .pipe(takeWhile(() => this.alive))
        .subscribe((res: any) => {
-          if (res) {
-           this.toastrService.success('', '¡Alarmas solucionadas!');
-           this.source.refresh();
-           this.Chargealarms();
-           this.select=true;
-         } else {
-           this.toastrService.danger('', 'Algo salio mal.');
-         }
-         this.source.refresh();
+        this.source.refresh();
+        this.Chargealarms();
        });
-      }else {
-        this.select=true;
-        this.mostrar=true;
+    
+          Swal.fire('¡Se Eliminó Exitosamente', 'success');
+          this.source.refresh();
       }
     });
-       
+          this.source.refresh();   
+          this.select = false;
+          this.mostrar = false;
+        }else {
+          this.select=true;
+          this.mostrar=true;
+        }
+      });
   }
+
+  // reconocer() {
+  //   debugger
+  //   this.accessChecker.isGranted('edit', 'ordertable')
+  //     .pipe(takeWhile(() => this.alive))
+  //     .subscribe((res: any) => {
+  //       if(res){ 
+  //     const currentUserId = this.userStore.getUser().id;
+  //         var respons = 
+  //           {
+  //             UserIdAcknow: currentUserId
+  //           };
+            
+  //      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
+  //      .pipe(takeWhile(() => this.alive))
+  //      .subscribe((res: any) => {
+  //         if (res) {
+  //          this.toastrService.success('', '¡Alarmas solucionadas!');
+  //          this.source.refresh();
+  //          this.Chargealarms();
+  //          this.select=true;
+  //        } else {
+  //          this.toastrService.danger('', 'Algo salio mal.');
+  //        }
+  //        this.source.refresh();
+  //      });
+  //     }else {
+  //       this.select=true;
+  //       this.mostrar=true;
+  //     }
+  //   });
+       
+  // }
 
   Chargealarms() {
     this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
