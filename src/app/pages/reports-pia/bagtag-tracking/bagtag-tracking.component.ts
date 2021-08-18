@@ -3,7 +3,7 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { takeWhile } from 'rxjs/operators';
 import { interval } from 'rxjs';
-import { GridComponent, PageSettingsModel, FilterService, FilterType, SortService  } from '@syncfusion/ej2-angular-grids';
+import { GridComponent, PageSettingsModel, FilterService, FilterType, SortService, FilterSettingsModel  } from '@syncfusion/ej2-angular-grids';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbDateService } from '@nebular/theme';
 import pdfMake from 'pdfmake/build/pdfmake';
@@ -21,6 +21,12 @@ export interface baggage {
   estado2: string;
 }
 
+export interface BagData {
+  CreatedDate: string;
+  Name: string;
+  Description: string;
+}
+
 @Component({
   selector: 'ngx-bagtag-tracking',
   templateUrl: './bagtag-tracking.component.html',
@@ -32,9 +38,15 @@ export class BagtagTrackingComponent implements OnInit {
 
   public baggageData: baggage[];
 
+  public bagdata: BagData[] = [];
+
   private alive = true;
 
+  public filterOptions: FilterSettingsModel;
+
   public pageSettings: PageSettingsModel;
+
+  get Bag() { return this.airForm.get('Bag'); }
 
   constructor(private fb: FormBuilder,
     private http: HttpClient,
@@ -43,7 +55,43 @@ export class BagtagTrackingComponent implements OnInit {
     protected dateService: NbDateService<Date>) { }
 
   ngOnInit(): void {
-    this.ChargeData();
+    // this.ChargeData();
+    this.initForm();
+    this.filterOptions = {
+      type: 'Menu',
+   };
+  }
+
+  initForm() {
+    this.airForm = this.fb.group({
+      Bag: ['', Validators.required]
+      // EndTime: ['', Validators.required],
+    });
+  }
+
+  date(Bag: string){
+    debugger
+
+    // const fechaFormateada = this.miDatePipe.transform(StartTime, 'yyyy-MM-dd');
+
+    // console.log('fecha: ', fechaFormateada);
+    
+
+    console.log('test: ', Bag);
+
+    if (Bag == null) {
+      alert('No hay date..!')
+    } else {
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/GetBagData?bagid='+ Bag)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any)=>{
+      this.bagdata=res;
+      console.log('Da:', res );
+      
+    });
+    }
+
   }
 
   ChargeData() {
@@ -63,6 +111,10 @@ export class BagtagTrackingComponent implements OnInit {
         // this.source.load(res);
       });
     });
+  }
+
+  ngOnDestroy() {
+    this.alive = false;
   }
 
 }

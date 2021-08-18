@@ -100,7 +100,7 @@ export class SchedulerComponent implements OnInit {
   public allowMultiple: Boolean = true;
 
  private timelineResourceData: DataManager = new DataManager({
-    url: 'http://10.100.22.82:1880/timelineResourceData',
+    url: 'http://10.100.22.115:1880/timelineResourceData',
     adaptor: new ODataV4Adaptor,
     crossDomain: true
  });
@@ -124,13 +124,13 @@ export class SchedulerComponent implements OnInit {
   }
   
   private resourceData: DataManager = new DataManager({
-    url: 'http://10.100.22.82:1880/resourceDatas',
+    url: 'http://10.100.22.115:1880/resourceDatas',
     adaptor: new ODataV4Adaptor,
     crossDomain: true,
  });
 
   private resourceDatas: DataManager = new DataManager({
-    url: 'http://10.100.22.82:1880/resourceData',
+    url: 'http://10.100.22.115:1880/resourceData',
     adaptor: new ODataV4Adaptor,
     crossDomain: false,
     offline: true,
@@ -139,8 +139,8 @@ export class SchedulerComponent implements OnInit {
  
 
  private dataManagers: DataManager = new DataManager({
-  url: 'http://10.100.22.82:1880/resourceData', // 'controller/actions'
-  crudUrl: 'http://10.100.22.82:1880/ResourceDataUpdate',
+  url: 'http://10.100.22.115:1880/resourceData', // 'controller/actions'
+  crudUrl: 'http://10.100.22.115:1880/ResourceDataUpdate',
   adaptor: new UrlAdaptor,
   crossDomain: false,
   // offline: true

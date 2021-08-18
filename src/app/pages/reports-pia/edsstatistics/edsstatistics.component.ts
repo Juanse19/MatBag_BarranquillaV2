@@ -80,7 +80,7 @@ export class EdsstatisticsComponent implements OnInit {
     });
   }
 
-  date(StartTime: string){
+  date(StartTime: string){ 
     debugger
 
     const fechaFormateada = this.miDatePipe.transform(StartTime, 'yyyy-MM-dd');
@@ -323,5 +323,8 @@ export class EdsstatisticsComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    this.alive = false;
+  }
 
 }

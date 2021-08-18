@@ -6,7 +6,7 @@
     			<div class="form-group form-inline">
 					Buscar: <input class="form-control ml-2" type="text" name="searchTerm" placeholder="Buscar arrumes " [(ngModel)]="searchTerm"/>
 					  <span class="ml-3" *ngIf="loading$ | async">Cargando...</span>
-					  <td><button nbButton shape="semi-round" class="boton3" status="primary" (click)="EditPackage()">Crear Arrume</button></td>
+					  <td><button nbButton shape="semi-round" class="boton3" status="primary" >Crear Arrume</button></td>
 					  <!-- <button (click)="Refresh()" nbButton>Refresh</button> -->
   				</div>
   				<table class="table table-striped">
@@ -109,7 +109,7 @@
 						  </nb-card-header>
 						<nb-list>
 						  <nb-list-item *ngFor="let option of wipFree" 
-						  [value]="option.id" 
+						   
 						  [class.item-selected]="option.selected"
 						  (click)="toggleSelection(option)">
 							{{ option.name }}
@@ -128,7 +128,7 @@
 						  </nb-card-header>
 						<nb-list>
 						  <nb-list-item *ngFor="let option of wipLista" 
-						  [value]="option.id" 
+						  
 						  [class.item-selected]="option.selected"
 						  (click)="toggleSelection(option)">
 							{{ option.name }}

@@ -365,7 +365,7 @@ Delete(event): void {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
       this.Alarm = res;
-      console.log('test alarm: ', this.Alarm)
+      // console.log('test alarm: ', this.Alarm)
       // this.source.load(res);
       // this.source.refresh();
     });

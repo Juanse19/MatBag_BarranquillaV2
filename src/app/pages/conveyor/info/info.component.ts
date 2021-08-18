@@ -43,6 +43,7 @@ export class InfoComponent implements OnInit {
     public resizeHandleDirection: ResizeDirections[] = ['All'];
     public visible: Boolean = true;
     public hidden: Boolean = false;
+    public position: object={ X: 'left', Y: 'top' };
   
     ngOnInit(): void {
       this.GetSystem();
@@ -110,6 +111,7 @@ export class InfoComponent implements OnInit {
       this.consumezoneData=res;
       this.ejDialog.show();
       // console.log('Zons:', res , 'states');
+      this.ejDialog.position = { X: 73.4583, Y: 261.823 };
     });
   }
 
@@ -123,7 +125,8 @@ export class InfoComponent implements OnInit {
     .subscribe((res: any [])=>{
       this.zoneData=res;
       this.ejDialog1.show();
-      console.log('Zons:', res , 'states');
+      // console.log('Zons:', res , 'states');
+      this.ejDialog1.position = { X: 429.458, Y: 118.219 };
     });
   }
 
@@ -138,6 +141,7 @@ export class InfoComponent implements OnInit {
       this.zoData=res;
       this.ejDialog2.show();
       // console.log('Zons:', res , 'states');
+      this.ejDialog2.position = { X: 685, Y: 321.219 };
     });
   }
 
@@ -167,6 +171,22 @@ export class InfoComponent implements OnInit {
 
    ib3() {
     this.router.navigate(['/pages/conveyor/ib3']);
+   }
+
+   close(){
+    setTimeout(() => {
+      console.log('Cerrar Dialogs');
+      this.ejDialog.hide();
+      this.ejDialog1.hide();
+      this.ejDialog2.hide();
+    }, 10000);
+  }
+
+   openDialogs(){
+    this.ClicIB01();
+    this.ClicIB02();
+    this.ClicIB03();
+    this.close();
    }
   
    ngOnDestroy() {

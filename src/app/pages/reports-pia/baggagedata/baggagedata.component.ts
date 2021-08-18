@@ -244,7 +244,7 @@ export class BaggagedataComponent implements OnInit {
             widths: ['*', '*'],
             body: [
               ['Tag', 'Zona'],
-              ...this.daDate.map(p => ([p.NumberTag, p.ZoneName])),
+              ...this.daDate.map(p => ([p.ZoneName, p.NumberTag ])),
               // [{text: 'Total Amount', colSpan: 3}, {}, {}, this.daDate.products.reduce((sum, p)=> sum + (p.qty * p.price), 0).toFixed(2)]
             ]
           }
@@ -320,6 +320,10 @@ export class BaggagedataComponent implements OnInit {
         // this.source.load(res);
       });
     });
+  }
+
+  ngOnDestroy() {
+    this.alive = false;
   }
 
 }

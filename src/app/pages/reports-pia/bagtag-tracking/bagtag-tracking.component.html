@@ -5,15 +5,34 @@
                 <h6 id="h6">Seguimiento de maletas</h6>
             </nb-card-header>
             <nb-card-body id="form">
-                <form class="form-inline" novalidate id="formId">
+                <form [formGroup]="airForm" class="form-inline" novalidate id="formId">
 
-                    <div>
-                        <input nbInput type="text" placeholder="Consulte por BagTag">
-                        <!-- <nb-datepicker name=" StartTime" id="StartTime " #formpicker></nb-datepicker> -->
+                    <!-- <div class="form-group mx-sm-4 mb-3">
+                        <ejs-datepicker formControlName="Bag" name="Bag" placeholder='Consultar' required>
+                        </ejs-datepicker>
+                    </div> -->
+
+                    <div class="col-xs-6 col-sm-4 col-lg-4 col-md-3">
+                        <div class="e-input-group">
+                            <input class="e-input" formControlName="Bag" type="text" placeholder="Ingrese el BagTag"
+                            />
+                        </div>
                     </div>
 
+                    <!-- <div class="form-group mx-sm-4 mb-3">
+                        <input type="text" id="firstname" name="firstname" class="required" formControlName="Bag" required>
+                        <span class="e-float-line"></span>
+                        <label class="e-float-text" for="Bag">First Name</label>
+                    </div>    -->
 
-                    <button nbButton status="primary " class="btn btn-primary">Cosultar</button>
+                    <!-- <div>
+                        <input nbInput type="text" placeholder="Consulte por BagTag">
+                        <nb-datepicker name=" StartTime" id="StartTime " #formpicker></nb-datepicker>
+                    </div> -->
+
+
+                    <!-- <button nbButton status="primary " class="btn btn-primary">Cosultar</button> -->
+                    <button nbButton status="primary " class="btn btn-primary" (click)="date(airForm.controls.Bag.value)">Cosultar</button>
                 </form>
             </nb-card-body>
         </nb-card>
@@ -26,19 +45,24 @@
         Datos del equipaje
     </nb-card-header> -->
         <nb-card-body>
+            <div class="row ">
+                <div *ngIf="airForm.controls[ 'Bag'].hasError( 'required') && airForm.controls[ 'Bag'].touched " class="alert alert-danger ">Date value is required</div>
+                <div *ngIf="airForm.controls[ 'Bag'].value ">
             <div id="pdfTable" #pdfTable>
-                <ejs-grid [dataSource]='baggageData' [allowPaging]="true" [pageSettings]='pageSettings' [allowSorting]='true'>
+                <ejs-grid [dataSource]='bagdata' [allowPaging]="true" allowTextWrap='true' [pageSettings]='pageSettings' [filterSettings]='filterOptions'
+                [allowFiltering]="true" height='400'>
                     <e-columns>
-                        <e-column field='BagTag' headerText='BagTag' textAlign='Right' width=120></e-column>
-                        <e-column field='FechaAtr' headerText='Fecha Atr' width=100 type='date' format="0:MM/dd/yyyy"></e-column>
-                        <e-column field='BhsId' headerText='Bhs' width=100></e-column>
-                        <e-column field='TipoEquipaje' headerText='Tipo Equipaje' width=100></e-column>
-                        <e-column field='FechaEds' headerText='Fecha' width=100 type='date' format="yMd"></e-column>
-                        <e-column field='estado1' headerText='estado1' width=100></e-column>
-                        <e-column field='estado2' headerText='estado2' width=100></e-column>
+                        <e-column field='CreatedDate' headerText='Fecha Creado' width=100 type='date' format="dd/MM/yyyy hh:mm:ss a"></e-column>
+                        <!-- <e-column field='CreatedDate' headerText='BagTag' textAlign='Right' width=120></e-column> -->
+                        <e-column field='Name' headerText='Nombre' width=100></e-column>
+                        <e-column field='Description' headerText='Descripción' width=100></e-column>
+                        <!-- <e-column field='FechaEds' headerText='Fecha' width=100 type='date' format="yMd"></e-column>
+                        <e-column field='estado2' headerText='estado2' width=100></e-column> -->
                     </e-columns>
                 </ejs-grid>
             </div>
+        </div>
+    </div>
         </nb-card-body>
     </nb-card>
 </div>

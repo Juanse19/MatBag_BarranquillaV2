@@ -31714,7 +31714,7 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
   </svg>
 
 
-        <ng-template #card>
+        <!-- <ng-template #card>
             <nb-card class="popover-card">
                 <nb-card-body>
                     <div class="media" *ngFor="let zons of consumezoneData; let i = index">
@@ -31746,7 +31746,7 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
                     </div>
                 </nb-card-body>
             </nb-card>
-        </ng-template>
+        </ng-template> -->
 
         <!-- <ng-template #card1>
             <nb-card class="popover-card">
@@ -31783,11 +31783,11 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
             <nb-card class=".popover-card1">
                 <nb-card-body class="grid">
                     <!-- <div class="control-section"> -->
-                    <ejs-grid [dataSource]='deparData' id='Grid' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+                    <ejs-grid [dataSource]='deparData' id='Grid' [allowPaging]="true" allowTextWrap='true' [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='240'>
                         <e-columns>
-                            <e-column field='Vuelos' headerText='Vuelos' width=50></e-column>
-                            <e-column field='STD' headerText='Std' width=60></e-column>
-                            <e-column field='ETD' headerText='Etd' width=60></e-column>
+                            <e-column field='Vuelos' headerText='Vuelos' width=50 textAlign='Center'></e-column>
+                            <e-column field='STD' headerText='Std' width=60 type='date' format="dd/MM/yyyy hh:mm:ss a"></e-column>
+                            <e-column field='ETD' headerText='Etd' width=60 type='date' format="dd/MM/yyyy hh:mm:ss a"></e-column>
                         </e-columns>
                     </ejs-grid>
 
@@ -31834,7 +31834,7 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
 
 
 
-        <ng-template #disabledEsc>
+        <!-- <ng-template #disabledEsc>
 
             <div class="media-body" *ngFor="let zons of consumezoneData">
 
@@ -31860,14 +31860,14 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
                 <p>{{zons.TiempoOff}} </p>
             </div>
 
-        </ng-template>
+        </ng-template> -->
 
         <!-- <button class="e-control e-btn" style="position: absolute;" id="targetButton" (click)="onOpenDialog($event)">Open Dialog</button> -->
 
         <!-- --------------------------------- Template---------------------------------- -->
 
         <div #container class='root-container'>
-            <ejs-dialog id='ejDialogTX' #ejDialogTX allowDragging='true' header='' [visible]='hidden' [position]='{ X: 141.33, Y: 135.14 }' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+            <ejs-dialog id='ejDialogTX' #ejDialogTX allowDragging='true' header='' [visible]='hidden' [position]='{ X: 79.4977, Y: 249.257 }' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
                 <ng-template #content>
 
                     <div class="media-body" *ngFor="let tx of tXData">
@@ -32150,7 +32150,7 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
                 <ng-template #content>
 
                     <div class="media-body" *ngFor="let xo of xOData">
-
+ 
                         <b>Nombre:</b>
                         <p>{{xo.ZoneName}}</p>
 
@@ -32174,6 +32174,22 @@ er0feedEQvj/FfvjNE5lJChOkuZljUz93/0j8S8BBgBNqpA7UQtFBQAAAABJRU5ErkJggg==" transf
                     </div>
                 </ng-template>
             </ejs-dialog>
+        </div>
+
+        <!-- <button nbButton  (click)="openDialogs()"> 
+          <div style='text-align:center;'></div>  
+          <i class="fad fa-door-open" (click)="openDialogs()"></i>
+        </button> -->
+
+        
+        <!-- <div>
+          <button class="folder-open-outline" (click)="openDialogs()">
+          </button>
+
+        </div> -->
+
+        <div class="container">
+          <nb-icon icon="book-open-outline" (click)="openDialogs()"></nb-icon>
         </div>
 
     </nb-card-body>

@@ -98,6 +98,7 @@ export class SystemOperationComponent implements OnInit {
     public visible: Boolean = true;
     public hidden: Boolean = false;
     public position: object={ X: 'left', Y: 'top' };
+    public initialPage: Object;
 
     ngOnInit(): void {
       this.GetSystem();
@@ -106,7 +107,7 @@ export class SystemOperationComponent implements OnInit {
       this.filterOptions = {
         type: 'Menu',
      };
-     
+     this.initialPage = { pageSizes: true, pageSize: 5 };
     }
 
     close(){
@@ -172,7 +173,7 @@ export class SystemOperationComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:Zones[])=>{
       this.zone=res;
-      console.log('zonas: ', this.zone);
+      // console.log('zonas: ', this.zone);
     });
   }
 
@@ -228,16 +229,6 @@ export class SystemOperationComponent implements OnInit {
     this.changestest(idDevice)
   }
 
-  // changestest1(idDevices?: number){
-  //   this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
-  //   .pipe()
-  //   .subscribe((res: any)=>{
-  //     this.sFData=res;
-  //     this.ejDialog1.show();
-  //     // console.log('Zons:', res , 'states');
-  //   });
-  // }
-
   opentest1(idDevices?: number){
     // this.changestest1(idDevices)
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
@@ -245,7 +236,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any)=>{
       this.sFData=res;
       this.ejDialogSF.show();
-      this.ejDialogSF.position = { X: 212.33, Y: 99.14 };
+      this.ejDialogSF.position = { X: 570.312, Y: 153.125 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -287,7 +278,7 @@ export class SystemOperationComponent implements OnInit {
       }else{
       this.aLData=res;
       this.ejDialogAL.show();
-      this.ejDialogAL.position = { X: 167.33, Y: 178.14 };
+      this.ejDialogAL.position = { X: 85.4977, Y: 260.257 };
       }
       
       // console.log('Zons:', res , 'states');
@@ -301,7 +292,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any [])=>{
       this.sFCData=res;
       this.ejDialogSFC.show();
-      this.ejDialogSFC.position = { X: 85.33, Y: 100.14 };
+      this.ejDialogSFC.position = { X: 60.3009, Y: 16.6458 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -313,7 +304,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any [])=>{
       this.oSRData=res;
       this.ejDialogOSR.show();
-      this.ejDialogOSR.position = { X: 375.33, Y: 170.14 };
+      this.ejDialogOSR.position = { X: 678.323, Y: 153.312 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -337,21 +328,21 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any[])=>{
       this.mEData=res;
       this.ejDialogME.show();
-      this.ejDialogME.position = { X: 224.33, Y: 180.14 };
+      this.ejDialogME.position = { X: 120.312, Y: 348.125 };
       // console.log('Zons:', res , 'states');
     });
   }
 
   opentest9(idDevices?: number){
     // this.changestest1(idDevices)
-    debugger
+    // debugger
     this.http.get(this.api.apiUrlNode1 + '/apiZoneFrontConsume?zone='+ idDevices)
     .pipe()
     .subscribe((res: any[])=>{
       this.xOData=res;
       this.ejDialogXO.show();
       this.ejDialogXO.position = { X: 171.33, Y: 100.14 };
-      console.log('Zons:', res );
+      // console.log('Zons:', res );
     });
   }
 
@@ -359,7 +350,7 @@ export class SystemOperationComponent implements OnInit {
 
   ClicTX() {
     this.opentest(13);
-    this.close();
+    // this.close();
   }
 
   ClicSF() {
@@ -440,6 +431,36 @@ export class SystemOperationComponent implements OnInit {
 
    bhs10() {
     this.router.navigate(['/pages/conveyor/bhs10']);
+   }
+
+   closed(){
+    setTimeout(() => {
+      console.log('Cerrar Dialogs');
+      this.ejDialogTX.hide();
+      this.ejDialogSF.hide();
+      this.ejDialogSS.hide();
+      this.ejDialogMU.hide();
+      this.ejDialogAL.hide();
+      this.ejDialogSFC.hide();
+      this.ejDialogOSR.hide();
+      this.ejDialogCL.hide();
+      this.ejDialogME.hide();
+      this.ejDialogXO.hide();
+    }, 10000);
+  }
+
+   openDialogs(){
+    this.ClicTX();
+    this.ClicSF();
+    this.ClicSS();
+    this.ClicMU();
+    this.ClicAL();
+    this.ClicSFC();
+    this.ClicOSR();
+    this.ClicCL();
+    this.ClicME();
+    this.ClicXO();
+    this.closed();
    }
 
    ngOnDestroy() {

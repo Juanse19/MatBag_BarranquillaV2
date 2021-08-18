@@ -255,3 +255,9 @@ export interface consume {
     KWh?: number;
     porcent?: number;
 }
+
+export interface BagData {
+    CreatedDate: string;
+    Name: string;
+    Description: string;
+}
