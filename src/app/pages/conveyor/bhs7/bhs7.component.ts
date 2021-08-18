@@ -40,7 +40,7 @@ export class Bhs7Component implements OnInit {
 
   intervalSubscriptionStatusAlarm: Subscription;
 
-  @ViewChild(WindowComponent) dialog: WindowComponent;
+  @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
 
   constructor(
     private router: Router,
@@ -48,9 +48,10 @@ export class Bhs7Component implements OnInit {
     private api: HttpService) { }
 
   ngOnInit(): void {
-    this.bandaNameCharge();
+    // this.bandaNameCharge();
     this.bandaNameOsrCharge();
     this.chargeData();
+    this.bandaStateCharge();
     this.pageSettings = { pageSize: 5 };
     this.filterOptions = {
       type: 'Menu',
@@ -103,7 +104,7 @@ export class Bhs7Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(1000)
+    this.intervalSubscriptionStatusAlarm = interval(8000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona3')),
@@ -132,24 +133,60 @@ export class Bhs7Component implements OnInit {
     });
   }
 
+  //OSR1
+
+  ClicOSR1_1() {
+    this.dialog.opendevice1(106);
+    }
+
+  ClicOSR1_2() {
+    this.dialog.opendevice2(107);
+    }
+
+  ClicOSR1_3() {
+     this.dialog.opendevice3(105);
+    }
+
+  ClicOSR1_4() {
+      this.dialog.opendevice4(108);
+     }
+
+  ClicOSR1_5() {
+    this.dialog.opendevice5(109);
+    }
+  
+  ClicOSR1_6() {
+    this.dialog.opendevice6(104);
+    }
+
+    //OSR2
+  
+  ClicOSR2_1() {
+    this.dialog.opendevice7(98);
+    }
+  
+  ClicOSR2_2() {
+    this.dialog.opendevice8(99);
+    }
+
+  ClicOSR2_3() {
+    this.dialog.opendevice9(102);
+    }
+
+  ClicOSR2_4() {
+    this.dialog.opendevice10(100);
+    }
+
+  ClicOSR2_5() {
+    this.dialog.opendevice11(101);
+    }
+
+  ClicOSR2_6() {
+    this.dialog.opendevice12(103);
+    }
+
   ngOnDestroy() {
     this.alive = false;
   }
-
-  ClicME1() {
-    this.dialog.opendevice1(94);
-    }
-
-  ClicME2() {
-    this.dialog.opendevice2(95);
-    }
-
-   ClicME3() {
-     this.dialog.opendevice3(96);
-    }
-
-    ClicME4() {
-      this.dialog.opendevice4(97);
-     }
 
 }

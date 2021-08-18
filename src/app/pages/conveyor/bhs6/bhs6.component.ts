@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda6, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from './../window/window.component';
 
 @Component({
   selector: 'ngx-bhs6',
@@ -22,6 +23,8 @@ export class Bhs6Component implements OnInit {
   private alive = true;
 
   intervalSubscriptionStatusAlarm: Subscription;
+
+  @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
 
   // public dataBanda6: Banda6 = {
   //   b1: "",
@@ -119,7 +122,7 @@ export class Bhs6Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(1000)
+    this.intervalSubscriptionStatusAlarm = interval(8000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona4')),
@@ -129,6 +132,154 @@ export class Bhs6Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+  //CL1
+
+  ClicCL1_1() {
+    this.dialog.opendevice1(30);
+    }
+
+  ClicCL1_2() {
+    this.dialog.opendevice2(22);
+    }
+
+  ClicCL1_3() {
+    this.dialog.opendevice3(19);
+    }
+
+  ClicCL1_4() {
+    this.dialog.opendevice4(25);
+    }
+
+  ClicCL1_5() {
+    this.dialog.opendevice5(24);
+    }
+
+  ClicCL1_6() {
+    this.dialog.opendevice6(29);
+    }
+
+  ClicCL1_7() {
+    this.dialog.opendevice7(23);
+    }
+
+  ClicCL1_8() {
+    this.dialog.opendevice8(26);
+    }
+
+  ClicCL1_9() {
+    this.dialog.opendevice9(18);
+    }
+
+  ClicCL1_10() {
+    this.dialog.opendevice10(20);
+   }
+
+  ClicCL1_11() {
+    this.dialog.opendevice11(27);
+  }
+
+  ClicCL1_12() {
+    this.dialog.opendevice12(33);
+    }
+
+  ClicCL1_13() {
+    this.dialog.opendevice13(28);
+    }
+
+  ClicCL1_14() {
+    this.dialog.opendevice14(16);
+    }
+
+  ClicCL1_15() {
+    this.dialog.opendevice15(17);
+    }
+
+  ClicCL1_16() {
+    this.dialog.opendevice16(21);
+    }
+
+  ClicCL1_17() {
+    this.dialog.opendevice17(31);
+    }
+
+  ClicCL1_18() {
+    this.dialog.opendevice18(32);
+    }
+
+  // CL2
+
+  ClicCL2_1() {
+    this.dialog.opendevice19(34);
+    }
+
+  ClicCL2_2() {
+    this.dialog.opendevice20(48);
+    }
+
+  ClicCL2_3() {
+    this.dialog.opendevice21(37);
+    }
+
+  ClicCL2_4() {
+    this.dialog.opendevice22(49);
+    }
+
+  ClicCL2_5() {
+    this.dialog.opendevice23(38);
+    }
+
+  ClicCL2_6() {
+    this.dialog.opendevice24(39);
+    }
+
+  ClicCL2_7() {
+    this.dialog.opendevice25(51);
+    }
+
+  ClicCL2_8() {
+    this.dialog.opendevice26(40);
+    }
+
+  ClicCL2_9() {
+    this.dialog.opendevice27(50);
+    }
+
+  ClicCL2_10() {
+    this.dialog.opendevice28(46);
+   }
+
+  ClicCL2_11() {
+    this.dialog.opendevice29(41);
+  }
+
+  ClicCL2_12() {
+    this.dialog.opendevice30(52);
+    }
+
+  ClicCL2_13() {
+    this.dialog.opendevice31(43);
+    }
+
+  ClicCL2_14() {
+    this.dialog.opendevice32(35);
+    }
+
+  ClicCL2_15() {
+    this.dialog.opendevice33(36);
+    }
+
+  ClicCL2_16() {
+    this.dialog.opendevice34(47);
+    }
+
+  ClicCL2_17() {
+    this.dialog.opendevice35(44);
+    }
+
+  ClicCL2_18() {
+    this.dialog.opendevice36(32);
+    }
 
   ngOnDestroy() {
     this.alive = false;

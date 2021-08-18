@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { Banda3, states, teams, zons } from '../_interfaces/MatBag.model';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
+import { WindowComponent } from '../window/window.component';
 
 @Component({
   selector: 'ngx-bhs3',
@@ -22,6 +23,8 @@ export class Bhs3Component implements OnInit {
   private alive = true;
 
   intervalSubscriptionStatusAlarm: Subscription;
+
+  @ViewChild(WindowComponent, { static: true }) public dialog: WindowComponent;
  
   // public dataBanda3: Banda3 = {
   //   b1: "",
@@ -91,7 +94,7 @@ export class Bhs3Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(50000)
+    this.intervalSubscriptionStatusAlarm = interval(8000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona6')),
@@ -101,6 +104,50 @@ export class Bhs3Component implements OnInit {
         console.log('status:', res);
     });
   }
+
+  //MU1
+
+  ClicMU1_1() {
+    this.dialog.opendevice1(82);
+    }
+
+  ClicMU1_2() {
+    this.dialog.opendevice2(86);
+    }
+
+  ClicMU1_3() {
+    this.dialog.opendevice3(85);
+    }
+
+  ClicMU1_4() {
+    this.dialog.opendevice4(87);
+    }
+
+  ClicMU1_5() {
+    this.dialog.opendevice5(83);
+    }
+
+    // MU2
+
+  ClicMU2_1() {
+    this.dialog.opendevice6(91);
+    }
+
+  ClicMU2_2() {
+    this.dialog.opendevice7(89);
+    }
+
+  ClicMU2_3() {
+    this.dialog.opendevice8(88);
+    }
+
+  ClicMU2_4() {
+    this.dialog.opendevice9(90);
+    }
+
+  ClicMU2_5() {
+    this.dialog.opendevice10(92);
+    }
 
   ngOnDestroy() {
     this.alive = false;

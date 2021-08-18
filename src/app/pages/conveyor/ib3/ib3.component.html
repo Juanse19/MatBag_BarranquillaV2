@@ -2666,13 +2666,13 @@
                     />
                 </g>
                 
-                <text x="362.93" y="116.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
-                <text x="424.193" y="162.89" class="st4" [nbPopover]="card" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
-                <text x="419.193" y="121.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
-                <text x="398.93" y="84.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
-                <text x="379.93" y="50.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[4]?.idEquipo)">{{zone[4]?.Name}}</text>
-                <text x="352.93" y="40.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[5]?.idEquipo)">{{zone[5]?.Name}}</text>
-                <text x="333.93" y="28.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[6]?.idEquipo)">{{zone[6]?.Name}}</text>
+                <text x="362.93" y="116.89" class="st4" (click)="ClicIB3_1()">{{zone[0]?.Name}}</text>
+                <text x="424.193" y="162.89" class="st4" (click)="ClicIB3_2()">{{zone[1]?.Name}}</text>
+                <text x="419.193" y="121.89" class="st4" (click)="ClicIB3_3()">{{zone[2]?.Name}}</text>
+                <text x="398.93" y="84.89" class="st4" (click)="ClicIB3_4()">{{zone[3]?.Name}}</text>
+                <text x="379.93" y="50.89" class="st4" (click)="ClicIB3_5()">{{zone[4]?.Name}}</text>
+                <text x="352.93" y="40.89" class="st4" (click)="ClicIB3_6()">{{zone[5]?.Name}}</text>
+                <text x="333.93" y="28.89" class="st4" (click)="ClicIB3_7()">{{zone[6]?.Name}}</text>
                 
                 
             </svg>
@@ -2700,5 +2700,10 @@
             </ng-template>
 
         </div>
+
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
+
     </nb-card-body>
 </nb-card>

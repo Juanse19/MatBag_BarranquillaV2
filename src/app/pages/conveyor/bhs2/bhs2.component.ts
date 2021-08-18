@@ -38,7 +38,7 @@ export class Bhs2Component implements OnInit {
   ngOnInit(): void {
     // this.banda2NameCharge();
     this.bandaNameCharge();
-    this.bandaNameXOCharge();
+    // this.bandaNameXOCharge();
     this.bandaStateCharge();
   }
 
@@ -96,7 +96,7 @@ export class Bhs2Component implements OnInit {
       this.intervalSubscriptionStatusAlarm.unsubscribe();
     }
     
-    this.intervalSubscriptionStatusAlarm = interval(40000)
+    this.intervalSubscriptionStatusAlarm = interval(8000)
     .pipe(
       takeWhile(() => this.alive),
       switchMap(() => this.http.get(this.api.apiUrlNode1 + '/apizonestate?zone=zona1')),
@@ -107,10 +107,12 @@ export class Bhs2Component implements OnInit {
     });
   }
 
-  ClicSS1_1() {
-    debugger 
-    this.dialog.opentest();
-   }
+  // ClicSS1_1() {
+  //   debugger 
+  //   this.dialog.opentest();
+  //  }
+
+  // SF1
 
   ClicSF1_4() {
     debugger
@@ -120,11 +122,129 @@ export class Bhs2Component implements OnInit {
     this.dialog.opendevice2(130);
     }
   ClicSF1_6() {
-    this.dialog.opendevice1(139);
+    this.dialog.opendevice3(139);
       }
   ClicSF1_7() {
-    this.dialog.opendevice1(133);
+    this.dialog.opendevice4(133);
       }
+
+  ClicSF1_8() {
+    this.dialog.opendevice5(141);
+      }
+
+  ClicSF1_9() {
+    this.dialog.opendevice6(142);
+      }   
+  
+  ClicSF1_10() {
+    this.dialog.opendevice7(132);
+      }
+
+  ClicSF1_11() {
+    this.dialog.opendevice8(127);
+      }
+
+  ClicSF1_12() {
+   this.dialog.opendevice9(135);
+    }
+
+  // SF2
+
+  ClicSF2_4() {
+    this.dialog.opendevice10(120);
+      }
+
+  ClicSF2_5() {
+    this.dialog.opendevice11(114);
+     }
+
+  ClicSF2_6() {
+    this.dialog.opendevice12(110);
+    }
+
+  ClicSF2_7() {
+    this.dialog.opendevice13(122);
+    }
+
+  ClicSF2_8() {
+    this.dialog.opendevice14(111);
+    }
+
+  ClicSF2_9() {
+    this.dialog.opendevice15(117);
+    }
+
+  ClicSF2_10() {
+    this.dialog.opendevice16(119);
+    }
+
+  ClicSF2_11() {
+    this.dialog.opendevice17(113);
+    }
+
+  ClicSF2_12() {
+   this.dialog.opendevice18(116);
+    }
+
+    // SF3
+
+  ClicSF3_4() {
+    this.dialog.opendevice19(138);
+    }
+
+  ClicSF3_5() {
+   this.dialog.opendevice20(131);
+   }
+
+  ClicSF3_6() {
+   this.dialog.opendevice21(134);
+   }
+
+  ClicSF3_7() {
+   this.dialog.opendevice22(140);
+    }
+
+  ClicSF3_8() {
+  this.dialog.opendevice23(129);
+    }
+
+  ClicSF3_9() {
+  this.dialog.opendevice24(136);
+   }
+
+  ClicSF3_10() {
+   this.dialog.opendevice25(143);
+    }
+
+  ClicSF3_11() {
+   this.dialog.opendevice26(128);
+    }
+
+    // SF4
+
+  ClicSF4_4() {
+  this.dialog.opendevice27(121);
+    }
+
+  ClicSF4_5() {
+   this.dialog.opendevice28(115);
+    }
+
+  ClicSF4_6() {
+    this.dialog.opendevice29(123);
+    }
+
+  ClicSF4_7() {
+    this.dialog.opendevice30(112);
+    }
+
+  ClicSF4_8() {
+   this.dialog.opendevice31(118);
+    }
+
+  ClicSF4_9() {
+    this.dialog.opendevice32(124);
+  }
 
   ngOnDestroy() {
     this.alive = false;

@@ -2752,6 +2752,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _syncfusion_ej2_popups__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @syncfusion/ej2-popups */
     "./node_modules/@syncfusion/ej2-popups/dist/es6/ej2-popups.es2015.js");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! sweetalert2 */
+    "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default =
+    /*#__PURE__*/
+    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
 
     var ALARMAS = [];
 
@@ -3002,40 +3014,82 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function reconocer() {
           var _this14 = this;
 
-          debugger;
           this.accessChecker.isGranted('edit', 'ordertable').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(function () {
             return _this14.alive;
           })).subscribe(function (res) {
             if (res) {
-              var currentUserId = _this14.userStore.getUser().id;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire({
+                title: 'Desea reconocer alarmas?',
+                text: "\xA1Reconocer\xE1 todas las alarmas!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, Reconocer!'
+              }).then(function (result) {
+                debugger;
 
-              var respons = {
-                UserIdAcknow: currentUserId
-              };
+                if (result.value) {
+                  var currentUserId = _this14.userStore.getUser().id;
 
-              _this14.apiGetComp.PostJson(_this14.api.apiUrlNode1 + '/ResetAlarmAll', respons).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(function () {
-                return _this14.alive;
-              })).subscribe(function (res) {
-                if (res) {
-                  _this14.toastrService.success('', '¡Alarmas solucionadas!');
+                  var respons = {
+                    UserIdAcknow: currentUserId
+                  };
+
+                  _this14.apiGetComp.PostJson(_this14.api.apiUrlNode1 + '/ResetAlarmAll', respons).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(function () {
+                    return _this14.alive;
+                  })).subscribe(function (res) {
+                    _this14.source.refresh();
+
+                    _this14.Chargealarms();
+                  });
+
+                  sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire('¡Se Eliminó Exitosamente', 'success');
 
                   _this14.source.refresh();
-
-                  _this14.Chargealarms();
-
-                  _this14.select = true;
-                } else {
-                  _this14.toastrService.danger('', 'Algo salio mal.');
                 }
-
-                _this14.source.refresh();
               });
+
+              _this14.source.refresh();
+
+              _this14.select = false;
+              _this14.mostrar = false;
             } else {
               _this14.select = true;
               _this14.mostrar = true;
             }
           });
-        }
+        } // reconocer() {
+        //   debugger
+        //   this.accessChecker.isGranted('edit', 'ordertable')
+        //     .pipe(takeWhile(() => this.alive))
+        //     .subscribe((res: any) => {
+        //       if(res){ 
+        //     const currentUserId = this.userStore.getUser().id;
+        //         var respons = 
+        //           {
+        //             UserIdAcknow: currentUserId
+        //           };
+        //      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
+        //      .pipe(takeWhile(() => this.alive))
+        //      .subscribe((res: any) => {
+        //         if (res) {
+        //          this.toastrService.success('', '¡Alarmas solucionadas!');
+        //          this.source.refresh();
+        //          this.Chargealarms();
+        //          this.select=true;
+        //        } else {
+        //          this.toastrService.danger('', 'Algo salio mal.');
+        //        }
+        //        this.source.refresh();
+        //      });
+        //     }else {
+        //       this.select=true;
+        //       this.mostrar=true;
+        //     }
+        //   });
+        // }
+
       }, {
         key: "Chargealarms",
         value: function Chargealarms() {
@@ -3099,7 +3153,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([_syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["ToolbarService"], _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["EditService"], _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["PageService"]])],
       decls: 24,
       vars: 11,
-      consts: [["tabTitle", "Alarmas"], ["allowPaging", "true", "allowTextWrap", "true", "height", "400", 3, "dataSource", "pageSettings", "editSettings", "toolbar", "filterSettings", "allowFiltering", "toolbarClick", "actionComplete"], ["field", "Message", "headerText", "Mensaje", "width", "200", "isPrimaryKey", "true"], ["field", "Level", "headerText", "Nivel", "width", "85"], ["field", "UserId", "headerText", "Usuario", "width", "100"], ["field", "TimeStamp", "headerText", "Fecha", "width", "90"], ["tabTitle", "Historico Alarmas"], ["allowTextWrap", "true", "height", "400", 3, "dataSource", "allowPaging", "pageSettings", "filterSettings", "allowFiltering", "queryCellInfo"], ["field", "Message", "headerText", "Mensaje", "width", "180"], ["field", "Level", "headerText", "Nivel", "width", "75"], ["field", "UserId", "headerText", "Usuario", "width", "75"], ["field", "TimeStamp", "headerText", "Fecha", "width", "85"], ["field", "EDT", "headerText", "Fecha fin", "width", "100"], ["field", "UserIdAcknow", "headerText", "Usuario reco", "width", "85"]],
+      consts: [["tabTitle", "Alarmas"], ["allowPaging", "true", "allowTextWrap", "true", "height", "400", 3, "dataSource", "pageSettings", "editSettings", "toolbar", "filterSettings", "allowFiltering", "toolbarClick", "actionComplete"], ["field", "Message", "headerText", "Mensaje", "width", "180", "isPrimaryKey", "true"], ["field", "Level", "headerText", "Nivel", "width", "85"], ["field", "UserId", "headerText", "Usuario", "width", "100"], ["field", "TimeStamp", "headerText", "Fecha", "width", "90"], ["tabTitle", "Historico Alarmas"], ["allowTextWrap", "true", "height", "400", 3, "dataSource", "allowPaging", "pageSettings", "filterSettings", "allowFiltering", "queryCellInfo"], ["field", "Message", "headerText", "Mensaje", "width", "180"], ["field", "Level", "headerText", "Nivel", "width", "75"], ["field", "UserId", "headerText", "Usuario", "width", "75"], ["field", "TimeStamp", "headerText", "Fecha", "width", "85"], ["field", "EDT", "headerText", "Fecha fin", "width", "100"], ["field", "UserIdAcknow", "headerText", "Usuario reco", "width", "85"]],
       template: function AlarmsComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nb-card");
@@ -3287,15 +3341,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.service = service;
         this.settings = {
+          actions: {
+            add: true,
+            edit: true,
+            "delete": true
+          },
           add: {
             addButtonContent: '<i class="nb-plus"></i>',
             createButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>'
+            cancelButtonContent: '<i class="nb-close"></i>',
+            confirmCreate: true
           },
           edit: {
             editButtonContent: '<i class="nb-edit"></i>',
             saveButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>'
+            cancelButtonContent: '<i class="nb-close"></i>',
+            confirmSave: true
           },
           "delete": {
             deleteButtonContent: '<i class="nb-trash"></i>',
@@ -3304,27 +3365,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           columns: {
             id: {
               title: 'ID',
-              type: 'number'
+              type: 'number',
+              editable: false,
+              addable: false
             },
             firstName: {
               title: 'First Name',
-              type: 'string'
+              type: 'string',
+              filter: false
             },
             lastName: {
               title: 'Last Name',
-              type: 'string'
+              type: 'string',
+              filter: false,
+              editable: false,
+              addable: false
             },
             login: {
               title: 'Login',
-              type: 'string'
+              type: 'string',
+              filter: false,
+              editable: false,
+              addable: false
             },
             email: {
               title: 'E-mail',
-              type: 'string'
+              type: 'string',
+              filter: false,
+              editable: false,
+              addable: false
             },
             age: {
               title: 'Age',
-              type: 'number'
+              type: 'number',
+              filter: false,
+              editable: false,
+              addable: false
             }
           }
         };
@@ -3342,6 +3418,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             event.confirm.reject();
           }
         }
+      }, {
+        key: "onCreateConfirm",
+        value: function onCreateConfirm(event) {
+          // debugger
+          console.log('Create Event In Console');
+          console.log('insert', event);
+          console.log('id', event.newData.id, '&', 'alias', event.newData.firstName);
+          event.confirm.resolve();
+        }
+      }, {
+        key: "onSaveConfirm",
+        value: function onSaveConfirm(event) {
+          // debugger
+          console.log('Edit Event In Console');
+          console.log('update', event);
+          console.log('id', event.newData.id, '&', 'alias', event.newData.firstName);
+          event.confirm.resolve();
+        }
       }]);
 
       return SmartTableComponent;
@@ -3356,7 +3450,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["ngx-smart-table"]],
       decls: 5,
       vars: 2,
-      consts: [[1, "example-smart-table", 3, "settings", "source", "deleteConfirm"]],
+      consts: [[1, "example-smart-table", 3, "settings", "source", "deleteConfirm", "editConfirm", "createConfirm"]],
       template: function SmartTableComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nb-card");
@@ -3373,6 +3467,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("deleteConfirm", function SmartTableComponent_Template_ng2_smart_table_deleteConfirm_4_listener($event) {
             return ctx.onDeleteConfirm($event);
+          })("editConfirm", function SmartTableComponent_Template_ng2_smart_table_editConfirm_4_listener($event) {
+            return ctx.onSaveConfirm($event);
+          })("createConfirm", function SmartTableComponent_Template_ng2_smart_table_createConfirm_4_listener($event) {
+            return ctx.onCreateConfirm($event);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();

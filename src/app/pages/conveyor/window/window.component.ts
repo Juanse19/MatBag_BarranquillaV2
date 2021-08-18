@@ -42,6 +42,22 @@ export class WindowComponent implements OnInit {
   public divices18: teams[] = [];
   public divices19: teams[] = [];
   public divices20: teams[] = [];
+  public divices21: teams[] = [];
+  public divices22: teams[] = [];
+  public divices23: teams[] = [];
+  public divices24: teams[] = [];
+  public divices25: teams[] = [];
+  public divices26: teams[] = [];
+  public divices27: teams[] = [];
+  public divices28: teams[] = [];
+  public divices29: teams[] = [];
+  public divices30: teams[] = [];
+  public divices31: teams[] = [];
+  public divices32: teams[] = [];
+  public divices33: teams[] = [];
+  public divices34: teams[] = [];
+  public divices35: teams[] = [];
+  public divices36: teams[] = [];
 
   public showCloseIcon: Boolean = true;
 
@@ -71,6 +87,23 @@ export class WindowComponent implements OnInit {
     @ViewChild('device18') device18: DialogComponent;
     @ViewChild('device19') device19: DialogComponent;
     @ViewChild('device20') device20: DialogComponent;
+    @ViewChild('device21') device21: DialogComponent;
+    @ViewChild('device22') device22: DialogComponent;
+    @ViewChild('device23') device23: DialogComponent;
+    @ViewChild('device24') device24: DialogComponent;
+    @ViewChild('device25') device25: DialogComponent;
+    @ViewChild('device26') device26: DialogComponent;
+    @ViewChild('device27') device27: DialogComponent;
+    @ViewChild('device28') device28: DialogComponent;
+    @ViewChild('device29') device29: DialogComponent;
+    @ViewChild('device30') device30: DialogComponent;
+    @ViewChild('device31') device31: DialogComponent;
+    @ViewChild('device32') device32: DialogComponent;
+    @ViewChild('device33') device33: DialogComponent;
+    @ViewChild('device34') device34: DialogComponent;
+    @ViewChild('device35') device35: DialogComponent;
+    @ViewChild('device36') device36: DialogComponent;
+
     // Create element reference for dialog target element.
     @ViewChild('container', { read: ElementRef, static: true }) container: ElementRef;
     // The Dialog shows within the target element.
@@ -390,7 +423,7 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice19(idDevice?: number){
-      console.log('test...! 2');
+      console.log('test...! 19');
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
@@ -403,7 +436,7 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice20(idDevice?: number){
-      console.log('test...! 2');
+      console.log('test...! 20');
       debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
@@ -411,6 +444,214 @@ export class WindowComponent implements OnInit {
         this.divices20=res;
         // console.log('Zons:', res , 'states', this.states[0]?.Color);
         this.device20.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice21(idDevice?: number){
+      console.log('test...! 21');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices21=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device21.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice22(idDevice?: number){
+      console.log('test...! 22');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices22=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device22.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice23(idDevice?: number){
+      console.log('test...! 2');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices23=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device23.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice24(idDevice?: number){
+      console.log('test...! 2');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices24=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device24.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice25(idDevice?: number){
+      console.log('test...! 2');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices25=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device25.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice26(idDevice?: number){
+      console.log('test...! 26');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices26=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device26.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice27(idDevice?: number){
+      console.log('test...! 27');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices27=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device27.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice28(idDevice?: number){
+      console.log('test...! 28');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices28=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device28.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice29(idDevice?: number){
+      console.log('test...! 29');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices29=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device29.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice30(idDevice?: number){
+      console.log('test...! 30');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices30=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device30.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice31(idDevice?: number){
+      console.log('test...! 31');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices31=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device31.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice32(idDevice?: number){
+      console.log('test...! 32');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices32=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device32.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice33(idDevice?: number){
+      console.log('test...! 32');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices33=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device33.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice34(idDevice?: number){
+      console.log('test...! 32');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices34=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device34.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice35(idDevice?: number){
+      console.log('test...! 32');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices35=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device35.show();
+        // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
+      });
+    }
+
+    opendevice36(idDevice?: number){
+      console.log('test...! 32');
+      debugger
+      this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any)=>{
+        this.divices36=res;
+        // console.log('Zons:', res , 'states', this.states[0]?.Color);
+        this.device36.show();
         // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
       });
     }

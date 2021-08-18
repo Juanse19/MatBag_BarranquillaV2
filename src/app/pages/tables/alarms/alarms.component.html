@@ -14,7 +14,7 @@
                 <ejs-grid [dataSource]='Alarm' allowPaging='true' (toolbarClick)='clickHandler($event)' (actionComplete)="actionComplete($event)" allowTextWrap='true' [pageSettings]='pageSettings' [editSettings]='editSettings' [toolbar]='toolbar' [filterSettings]='filterOptions'
                     [allowFiltering]="true" height='400'>
                     <e-columns>
-                        <e-column field='Message' headerText='Mensaje' width=200 isPrimaryKey='true'></e-column>
+                        <e-column field='Message' headerText='Mensaje' width=180 isPrimaryKey='true'></e-column>
                         <e-column field='Level' headerText='Nivel' width=85></e-column>
                         <e-column field='UserId' headerText='Usuario' width=100></e-column>
                         <e-column field='TimeStamp' headerText='Fecha' width=90></e-column>

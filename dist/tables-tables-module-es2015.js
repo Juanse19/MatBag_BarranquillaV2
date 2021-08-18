@@ -1504,6 +1504,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @syncfusion/ej2-angular-grids */ "./node_modules/@syncfusion/ej2-angular-grids/__ivy_ngcc__/@syncfusion/ej2-angular-grids.js");
 /* harmony import */ var _core_stores_user_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../@core/stores/user.store */ "./src/app/@core/stores/user.store.ts");
 /* harmony import */ var _syncfusion_ej2_popups__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @syncfusion/ej2-popups */ "./node_modules/@syncfusion/ej2-popups/dist/es6/ej2-popups.es2015.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+
 
 
 
@@ -1733,29 +1736,38 @@ class AlarmsComponent {
         //  console.log("Evento: ", event);
     }
     reconocer() {
-        debugger;
         this.accessChecker.isGranted('edit', 'ordertable')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(() => this.alive))
             .subscribe((res) => {
             if (res) {
-                const currentUserId = this.userStore.getUser().id;
-                var respons = {
-                    UserIdAcknow: currentUserId
-                };
-                this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
-                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(() => this.alive))
-                    .subscribe((res) => {
-                    if (res) {
-                        this.toastrService.success('', '¡Alarmas solucionadas!');
+                sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire({
+                    title: 'Desea reconocer alarmas?',
+                    text: `¡Reconocerá todas las alarmas!`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Reconocer!'
+                }).then(result => {
+                    debugger;
+                    if (result.value) {
+                        const currentUserId = this.userStore.getUser().id;
+                        var respons = {
+                            UserIdAcknow: currentUserId
+                        };
+                        this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
+                            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(() => this.alive))
+                            .subscribe((res) => {
+                            this.source.refresh();
+                            this.Chargealarms();
+                        });
+                        sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire('¡Se Eliminó Exitosamente', 'success');
                         this.source.refresh();
-                        this.Chargealarms();
-                        this.select = true;
                     }
-                    else {
-                        this.toastrService.danger('', 'Algo salio mal.');
-                    }
-                    this.source.refresh();
                 });
+                this.source.refresh();
+                this.select = false;
+                this.mostrar = false;
             }
             else {
                 this.select = true;
@@ -1763,6 +1775,36 @@ class AlarmsComponent {
             }
         });
     }
+    // reconocer() {
+    //   debugger
+    //   this.accessChecker.isGranted('edit', 'ordertable')
+    //     .pipe(takeWhile(() => this.alive))
+    //     .subscribe((res: any) => {
+    //       if(res){ 
+    //     const currentUserId = this.userStore.getUser().id;
+    //         var respons = 
+    //           {
+    //             UserIdAcknow: currentUserId
+    //           };
+    //      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
+    //      .pipe(takeWhile(() => this.alive))
+    //      .subscribe((res: any) => {
+    //         if (res) {
+    //          this.toastrService.success('', '¡Alarmas solucionadas!');
+    //          this.source.refresh();
+    //          this.Chargealarms();
+    //          this.select=true;
+    //        } else {
+    //          this.toastrService.danger('', 'Algo salio mal.');
+    //        }
+    //        this.source.refresh();
+    //      });
+    //     }else {
+    //       this.select=true;
+    //       this.mostrar=true;
+    //     }
+    //   });
+    // }
     Chargealarms() {
         this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeWhile"])(() => this.alive))
@@ -1805,7 +1847,7 @@ class AlarmsComponent {
     }
 }
 AlarmsComponent.ɵfac = function AlarmsComponent_Factory(t) { return new (t || AlarmsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_nebular_security__WEBPACK_IMPORTED_MODULE_7__["NbAccessChecker"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_nebular_theme__WEBPACK_IMPORTED_MODULE_5__["NbToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_backend_common_api_apiGet_services__WEBPACK_IMPORTED_MODULE_3__["ApiGetService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_backend_common_api_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_stores_user_store__WEBPACK_IMPORTED_MODULE_10__["UserStore"])); };
-AlarmsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AlarmsComponent, selectors: [["ngx-alarms"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([_syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["ToolbarService"], _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["EditService"], _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["PageService"]])], decls: 24, vars: 11, consts: [["tabTitle", "Alarmas"], ["allowPaging", "true", "allowTextWrap", "true", "height", "400", 3, "dataSource", "pageSettings", "editSettings", "toolbar", "filterSettings", "allowFiltering", "toolbarClick", "actionComplete"], ["field", "Message", "headerText", "Mensaje", "width", "200", "isPrimaryKey", "true"], ["field", "Level", "headerText", "Nivel", "width", "85"], ["field", "UserId", "headerText", "Usuario", "width", "100"], ["field", "TimeStamp", "headerText", "Fecha", "width", "90"], ["tabTitle", "Historico Alarmas"], ["allowTextWrap", "true", "height", "400", 3, "dataSource", "allowPaging", "pageSettings", "filterSettings", "allowFiltering", "queryCellInfo"], ["field", "Message", "headerText", "Mensaje", "width", "180"], ["field", "Level", "headerText", "Nivel", "width", "75"], ["field", "UserId", "headerText", "Usuario", "width", "75"], ["field", "TimeStamp", "headerText", "Fecha", "width", "85"], ["field", "EDT", "headerText", "Fecha fin", "width", "100"], ["field", "UserIdAcknow", "headerText", "Usuario reco", "width", "85"]], template: function AlarmsComponent_Template(rf, ctx) { if (rf & 1) {
+AlarmsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AlarmsComponent, selectors: [["ngx-alarms"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([_syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["ToolbarService"], _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["EditService"], _syncfusion_ej2_angular_grids__WEBPACK_IMPORTED_MODULE_9__["PageService"]])], decls: 24, vars: 11, consts: [["tabTitle", "Alarmas"], ["allowPaging", "true", "allowTextWrap", "true", "height", "400", 3, "dataSource", "pageSettings", "editSettings", "toolbar", "filterSettings", "allowFiltering", "toolbarClick", "actionComplete"], ["field", "Message", "headerText", "Mensaje", "width", "180", "isPrimaryKey", "true"], ["field", "Level", "headerText", "Nivel", "width", "85"], ["field", "UserId", "headerText", "Usuario", "width", "100"], ["field", "TimeStamp", "headerText", "Fecha", "width", "90"], ["tabTitle", "Historico Alarmas"], ["allowTextWrap", "true", "height", "400", 3, "dataSource", "allowPaging", "pageSettings", "filterSettings", "allowFiltering", "queryCellInfo"], ["field", "Message", "headerText", "Mensaje", "width", "180"], ["field", "Level", "headerText", "Nivel", "width", "75"], ["field", "UserId", "headerText", "Usuario", "width", "75"], ["field", "TimeStamp", "headerText", "Fecha", "width", "85"], ["field", "EDT", "headerText", "Fecha fin", "width", "100"], ["field", "UserIdAcknow", "headerText", "Usuario reco", "width", "85"]], template: function AlarmsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nb-card");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "nb-tabset");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "nb-tab", 0);
@@ -1893,15 +1935,22 @@ class SmartTableComponent {
     constructor(service) {
         this.service = service;
         this.settings = {
+            actions: {
+                add: true,
+                edit: true,
+                delete: true,
+            },
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
                 createButtonContent: '<i class="nb-checkmark"></i>',
                 cancelButtonContent: '<i class="nb-close"></i>',
+                confirmCreate: true
             },
             edit: {
                 editButtonContent: '<i class="nb-edit"></i>',
                 saveButtonContent: '<i class="nb-checkmark"></i>',
                 cancelButtonContent: '<i class="nb-close"></i>',
+                confirmSave: true
             },
             delete: {
                 deleteButtonContent: '<i class="nb-trash"></i>',
@@ -1911,26 +1960,41 @@ class SmartTableComponent {
                 id: {
                     title: 'ID',
                     type: 'number',
+                    editable: false,
+                    addable: false
                 },
                 firstName: {
                     title: 'First Name',
                     type: 'string',
+                    filter: false,
                 },
                 lastName: {
                     title: 'Last Name',
                     type: 'string',
+                    filter: false,
+                    editable: false,
+                    addable: false
                 },
                 login: {
                     title: 'Login',
                     type: 'string',
+                    filter: false,
+                    editable: false,
+                    addable: false
                 },
                 email: {
                     title: 'E-mail',
                     type: 'string',
+                    filter: false,
+                    editable: false,
+                    addable: false
                 },
                 age: {
                     title: 'Age',
                     type: 'number',
+                    filter: false,
+                    editable: false,
+                    addable: false
                 },
             },
         };
@@ -1946,16 +2010,30 @@ class SmartTableComponent {
             event.confirm.reject();
         }
     }
+    onCreateConfirm(event) {
+        // debugger
+        console.log('Create Event In Console');
+        console.log('insert', event);
+        console.log('id', event.newData.id, '&', 'alias', event.newData.firstName);
+        event.confirm.resolve();
+    }
+    onSaveConfirm(event) {
+        // debugger
+        console.log('Edit Event In Console');
+        console.log('update', event);
+        console.log('id', event.newData.id, '&', 'alias', event.newData.firstName);
+        event.confirm.resolve();
+    }
 }
 SmartTableComponent.ɵfac = function SmartTableComponent_Factory(t) { return new (t || SmartTableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_interfaces_common_smart_table__WEBPACK_IMPORTED_MODULE_2__["SmartTableData"])); };
-SmartTableComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SmartTableComponent, selectors: [["ngx-smart-table"]], decls: 5, vars: 2, consts: [[1, "example-smart-table", 3, "settings", "source", "deleteConfirm"]], template: function SmartTableComponent_Template(rf, ctx) { if (rf & 1) {
+SmartTableComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SmartTableComponent, selectors: [["ngx-smart-table"]], decls: 5, vars: 2, consts: [[1, "example-smart-table", 3, "settings", "source", "deleteConfirm", "editConfirm", "createConfirm"]], template: function SmartTableComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nb-card");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "nb-card-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " Smart Table ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "nb-card-body");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ng2-smart-table", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("deleteConfirm", function SmartTableComponent_Template_ng2_smart_table_deleteConfirm_4_listener($event) { return ctx.onDeleteConfirm($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("deleteConfirm", function SmartTableComponent_Template_ng2_smart_table_deleteConfirm_4_listener($event) { return ctx.onDeleteConfirm($event); })("editConfirm", function SmartTableComponent_Template_ng2_smart_table_editConfirm_4_listener($event) { return ctx.onSaveConfirm($event); })("createConfirm", function SmartTableComponent_Template_ng2_smart_table_createConfirm_4_listener($event) { return ctx.onCreateConfirm($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();

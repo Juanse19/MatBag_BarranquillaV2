@@ -3062,14 +3062,14 @@
       />
     </g>
                 
-                    <text x="216.93" y="216.89" class="st4" [nbPopover]="card" nbPopoverPlacement="right" (click)="changeId(zone[0]?.idEquipo)">{{zone[0]?.Name}}</text>
-                    <text x="187.193" y="146.89" class="st4" [nbPopover]="card" (click)="changeId(zone[1]?.idEquipo)">{{zone[1]?.Name}}</text>
-                    <text x="168.193" y="108.89" class="st4" [nbPopover]="card" (click)="changeId(zone[2]?.idEquipo)">{{zone[2]?.Name}}</text>
-                    <text x="140.93" y="107.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[3]?.idEquipo)">{{zone[3]?.Name}}</text>
-                    <text x="89.93" y="115.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[4]?.idEquipo)">{{zone[4]?.Name}}</text>
-                    <text x="115.93" y="111.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[5]?.idEquipo)">{{zone[5]?.Name}}</text>
-                    <text x="36.93" y="137.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[6]?.idEquipo)">{{zone[6]?.Name}}</text>
-                    <text x="9.93" y="150.89" class="st4" [nbPopover]="card" nbPopoverPlacement="left" (click)="changeId(zone[7]?.idEquipo)">{{zone[7]?.Name}}</text>
+                    <text x="223.93" y="216.89" class="st4"  (click)="ClicIB1_1()">{{zone[0]?.Name}}</text>
+                    <text x="195.193" y="146.89" class="st4" (click)="ClicIB1_2()">{{zone[1]?.Name}}</text>
+                    <text x="178.193" y="108.89" class="st4" (click)="ClicIB1_3()">{{zone[2]?.Name}}</text>
+                    <text x="140.93" y="104.89" class="st4"  (click)="ClicIB1_4()">{{zone[3]?.Name}}</text>
+                    <text x="89.93" y="115.89" class="st4"   (click)="ClicIB1_5()">{{zone[4]?.Name}}</text>
+                    <text x="115.93" y="111.89" class="st4"  (click)="ClicIB1_6()">{{zone[5]?.Name}}</text>
+                    <text x="36.93" y="137.89" class="st4" (click)="ClicIB1_7()">{{zone[6]?.Name}}</text>
+                    <text x="9.93" y="150.89" class="st4" (click)="ClicIB1_8()">{{zone[7]?.Name}}</text>
             </svg>
 
             <ng-template #card>
@@ -3095,5 +3095,10 @@
             </ng-template>
 
         </div>
+
+        <div class='root-container'>
+            <ngx-window></ngx-window>
+        </div>
+
     </nb-card-body>
 </nb-card>
