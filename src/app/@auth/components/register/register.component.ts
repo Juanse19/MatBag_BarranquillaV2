@@ -57,9 +57,12 @@ export class NgxRegisterComponent implements OnInit {
     private api: HttpService,
     ) {
       
-      this.apiGetComp.GetJson(this.httpService.apiUrlMatbox+'/userrole/getroles')
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any) => {
+      // this.apiGetComp.GetJson(this.httpService.apiUrlMatbox+'/userrole/getroles')
+      // .pipe(takeWhile(() => this.alive))
+      // .subscribe((res: any) => {
+      //   this.listaRoles=res;
+      // });
+      this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getroles').subscribe((res: any) => {
         this.listaRoles=res;
       });
   }

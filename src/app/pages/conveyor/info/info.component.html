@@ -8608,7 +8608,7 @@ MDAwMDAwMFzJ+P8FGACXHc5AS/+n6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.2
             </ejs-dialog>
 
             <div #container class='root-container'></div>
-            <ejs-dialog id='ejDialog2' #ejDialog2 allowDragging='true' header='' [visible]='hidden' [position]='position' [target]='targetElement' width='250px' [showCloseIcon]='showCloseIcon'>
+            <ejs-dialog id='ejDialog2' #ejDialog2 allowDragging='true' header='' [visible]='hidden'  [target]='targetElement' width='250px' height="auto" left='100%' top='90%' [showCloseIcon]='showCloseIcon'>
                 <ng-template #content>
                     <!-- <ul *ngFor="let option of zoData">
                       <li>{{option.ZoneName}}</li>
@@ -8642,8 +8642,10 @@ MDAwMDAwMFzJ+P8FGACXHc5AS/+n6AAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.2
                 </ng-template>
             </ejs-dialog>
         </div>
+
         <div class="container">
           <nb-icon icon="book-open-outline" (click)="openDialogs()"></nb-icon>
         </div>
+
     </nb-card-body>
 </nb-card>

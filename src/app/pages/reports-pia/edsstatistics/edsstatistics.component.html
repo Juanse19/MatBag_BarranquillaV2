@@ -20,8 +20,8 @@
 
 
                     <button nbButton status="primary " class="btn btn-primary" (click)="date(airForm.controls.StartTime.value)">Cosultar</button>
-                    <button nbButton status="success " class="btn btn-success" (click)="generatePDF('open')">Abrir a PDF</button>
-                    <button type="button" class="btn btn-secondary" disabled="true" (click)="generatePDF('download')">Descargar pdf</button>
+                    <!-- <button nbButton status="success " class="btn btn-success" (click)="generatePDF('open')">Abrir a PDF</button>
+                    <button type="button" class="btn btn-secondary" disabled="true" (click)="generatePDF('download')">Descargar pdf</button> -->
                     <!-- <button nbButton status="info " [disabled]="false " hero>Atras</button> -->
                 </form>
             </nb-card-body>
@@ -40,69 +40,28 @@
 </nb-card-body> -->
 
 <nb-card>
-    <nb-card-header>
+    <!-- <nb-card-header>
+    </nb-card-header> -->
 
-
-
+        <nb-card-body>
         <div class="row ">
-            <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required</div>
-            <div *ngIf="airForm.controls[ 'StartTime'].value ">
-                <!-- <table>
-                    <tr>
-                        <td style="width:50% ">Selected value: </td>
-                        <td class="formtext ">{{ airForm.controls.StartTime.value | date:"yyyy-MM-dd " }}</td>
-                    </tr>
-                </table> -->
-
-
-                <ejs-grid [dataSource]='daDate' [allowPaging]="true " [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
-                    <e-columns>
-                        <e-column field='Name' headerText='Nombre' width=120></e-column>
+        
+            <ejs-grid #grid [dataSource]='daDate' [toolbar]='toolbar' (toolbarClick)='toolbarClick($event)' (toolbarClick)='clickHandler($event)' [allowPaging]="true " [pageSettings]='pageSettings'
+                 [filterSettings]='filterOptions' allowTextWrap='true' [allowExcelExport]='true' [allowFiltering]="true" [allowPdfExport]='true' height='380'>
+                <e-columns>
+                        <e-column field='Name' headerText='Nombre' width=120 type='string'></e-column>
                         <e-column field='CountStatudBagAlarm' headerText='Bag' width=100></e-column>
                         <e-column field='Total' headerText='Total' width=100></e-column>
                         <e-column field='PercAlarm' headerText='Alarm' width=100></e-column>
                         <e-column field='CountStatudBagClear' headerText='Clear' width=100></e-column>
                         <e-column field='PercClear' headerText='Clean' width=100></e-column>
-                    </e-columns>
-                </ejs-grid>
+                </e-columns>
+            </ejs-grid>
 
-
-            </div>
         </div>
-        <!-- <div class="row">
-            <nb-card-body>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Bag</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Alarm</th>
-                            <th scope="col">Clear</th>
-                            <th scope="col">Clean</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let option of daDate">
-                            <td>{{option.Name}}</td>
-                            <td>{{option.CountStatudBagAlarm}}</td>
-                            <td>{{option.Total}}</td>
-                            <td>{{option.PercAlarm}}</td>
-                            <td>{{option.CountStatudBagClear}}</td>
-                            <td>{{option.PercClear}}</td>
-                        </tr>
-                    </tbody> -->
-        <!-- <tfoot>
-                        <tr *ngFor="let option of daDate">
-                            <td colspan="4"><strong>Total</strong></td>
-                            <td class="text-right"><strong>{{option.Total}}</strong></td>
-                        </tr>
-                    </tfoot> -->
-        <!-- </table> -->
-        <!-- </nb-card-body>
-        </div> -->
-    </nb-card-header>
-    <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required
+    </nb-card-body>
+    
+    <!-- <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required
         <div *ngIf="airForm.controls[ 'StartTime'].value ">
             <nb-card-body>
                 <ejs-grid [dataSource]='daDate' [allowPaging]="true " [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true ">
@@ -117,5 +76,5 @@
                 </ejs-grid>
             </nb-card-body>
         </div>
-    </div>
+    </div> -->
 </nb-card>

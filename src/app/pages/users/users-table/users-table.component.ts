@@ -19,6 +19,7 @@ import {
 import { UserStore } from '../../../@core/stores/user.store';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { ApiGetService } from '../../../@core/backend/common/api/apiGet.services';
+import Swal from 'sweetalert2'; 
 
 @Component({
   selector: 'ngx-users-table',
@@ -113,13 +114,50 @@ export class UsersTableComponent implements OnDestroy {
   }
 
   onDelete($event: any) {
-    if (confirm('Are you sure wants to delete item?') && $event.data.id) {
-      this.usersService
-        .delete($event.data.id)
-        .pipe(takeWhile(() => this.alive))
-        .subscribe((res) => {
-          if (res) {
-          const currentUserId = this.userStore.getUser().id;
+//     if (confirm('Are you sure wants to delete item?') && $event.data.id) {
+//       this.usersService
+//         .delete($event.data.id)
+//         .pipe(takeWhile(() => this.alive))
+//         .subscribe((res) => {
+//           if (res) {
+//           const currentUserId = this.userStore.getUser().id;
+//           const currentUser = this.userStore.getUser().firstName;
+//   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
+//   var respons = 
+//   {
+//     user: currentUser,
+//     message:"Elimino un usuario",
+//     users: currentUserId,   
+// };
+//   this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/postSaveAlarmUser', respons)
+//     .pipe(takeWhile(() => this.alive))
+//     .subscribe((res: any) => {
+//         //  console.log("Envió: ", res);
+//       });
+//             this.toastrService.success('', 'Item deleted!');
+//             this.source.refresh(); 
+//           } else {
+//             this.toastrService.danger('', 'Algo salio mal.');
+//           }
+//         });
+//     }
+
+  Swal.fire({
+  title: '¿Estás seguro que quieres eliminar el Usuario?',
+  text: `¡Se eliminará el usuario!`,
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: '¡Sí, Eliminar!'
+}).then(result => {
+  debugger
+  if (result.value) {
+    this.usersService
+            .delete($event.data.id)
+            .pipe(takeWhile(() => this.alive))
+            .subscribe((res) => {
+    const currentUserId = this.userStore.getUser().id;
           const currentUser = this.userStore.getUser().firstName;
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);
   var respons = 
@@ -133,13 +171,15 @@ export class UsersTableComponent implements OnDestroy {
     .subscribe((res: any) => {
         //  console.log("Envió: ", res);
       });
-            this.toastrService.success('', 'Item deleted!');
-            this.source.refresh(); 
-          } else {
-            this.toastrService.danger('', 'Algo salio mal.');
-          }
-        });
-    }
+
+      Swal.fire('¡Se Eliminó Exitosamente', 'success');
+      this.source.refresh();
+  });
+  }
+
+    
+ });
+
   }
 
   add(){

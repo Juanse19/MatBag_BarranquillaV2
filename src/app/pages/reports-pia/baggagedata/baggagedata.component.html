@@ -20,8 +20,8 @@
 
 
                     <button nbButton status="primary " class="btn btn-primary" (click)="date(airForm.controls.StartTime.value)">Cosultar</button>
-                    <button nbButton status="success " class="btn btn-success" (click)="generatePDF('open')">Abrir PDF</button>
-                    <button type="button" class="btn btn-secondary" (click)="generatePDF('download')">Descargar pdf</button>
+                    <!-- <button nbButton status="success " class="btn btn-success" (click)="generatePDF('open')">Abrir PDF</button>
+                    <button type="button" class="btn btn-secondary" (click)="generatePDF('download')">Descargar pdf</button> -->
                     <!-- <button nbButton status="info " [disabled]="false " hero>Atras</button> -->
                 </form>
             </nb-card-body>
@@ -40,50 +40,25 @@
 </nb-card-body> -->
 
 <nb-card>
-    <nb-card-header>
+    <!-- <nb-card-header>
+    </nb-card-header> -->
 
+  <nb-card-body>
+    <div class="row ">
+            
 
+         <ejs-grid #grid [dataSource]='daDate' [toolbar]='toolbar' (toolbarClick)='clickHandler($event)' [allowPaging]="true " [pageSettings]='pageSettings'
+         [filterSettings]='filterOptions' [allowExcelExport]='true' allowTextWrap='true' [allowFiltering]="true" [allowPdfExport]='true' >
+            <e-columns>
+                <e-column field='ZoneName' headerText='Nombre' width=120></e-column>
+                <e-column field='NumberTag' headerText='NúmeroEtiqueta' width=100></e-column>
+            </e-columns>
+        </ejs-grid>
 
-        <div class="row ">
-            <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required</div>
-            <div *ngIf="airForm.controls[ 'StartTime'].value ">
-                <!-- <table>
-                    <tr>
-                        <td style="width:50% ">Selected value: </td>
-                        <td class="formtext ">{{ airForm.controls.StartTime.value | date:"yyyy-MM-dd " }}</td>
-                    </tr>
-                </table> -->
-
-                <ejs-grid [dataSource]='daDate' [allowPaging]="true" [allowSorting]='true' [filterSettings]='filterOptions' [allowFiltering]="true">
-                    <e-columns>
-                        <e-column field='ZoneName' headerText='Nombre' width=120></e-column>
-                        <e-column field='NumberTag' headerText='NúmeroEtiqueta' width=100></e-column>
-                    </e-columns>
-                </ejs-grid>
-
-            </div>
-        </div>
-
-        <!-- <div class="row">
-            <nb-card-body>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">NúmeroEtiqueta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let option of daDate">
-
-                            <td>{{option.ZoneName}}</td>
-                            <td>{{option.NumberTag}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </nb-card-body>
-        </div> -->
-    </nb-card-header>
+    </div>
+</nb-card-body>
+    
+    
 </nb-card>
 
 <!-- <nb-card> -->

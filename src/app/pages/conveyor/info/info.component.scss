@@ -142,6 +142,7 @@ img {
 }
 
 nb-card-body {
+    height: auto;
     margin: 0 -0.8rem;
     button,
     p {
@@ -163,4 +164,13 @@ svg {
 .popover-card {
     margin: 0;
     max-width: 18rem;
+}
+
+#positi {
+    max-height: 495px; 
+    z-index: 1011;
+     width: 250px; 
+     left: 73%; 
+     top: 20.218%;
+    position: absolute;
 }

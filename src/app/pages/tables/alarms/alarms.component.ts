@@ -13,7 +13,7 @@ import { UserStore } from '../../../@core/stores/user.store';
 import { Dialog, Tooltip } from '@syncfusion/ej2-popups';
 import { Browser } from '@syncfusion/ej2-base';
 import { ClickEventArgs } from '@syncfusion/ej2-navigations';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'; 
 
 interface Alarmas {
   Id: number;
@@ -49,7 +49,7 @@ export class AlarmsComponent implements OnDestroy {
   public editSettings: Object;
     // public toolbar: string[];
     public toolbar: ToolbarItems[] | object;
-
+ 
   public historyAlarmData: Alarmas[];
   public editparams: Object;
   public commands: CommandModel[];
@@ -313,7 +313,7 @@ Delete(event): void {
         this.Chargealarms();
        });
     
-          Swal.fire('¡Se Eliminó Exitosamente', 'success');
+          Swal.fire('¡Se Reconocieron Exitosamente', 'success');
           this.source.refresh();
       }
     });

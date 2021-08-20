@@ -141,7 +141,7 @@ export class InfoComponent implements OnInit {
       this.zoData=res;
       this.ejDialog2.show();
       // console.log('Zons:', res , 'states');
-      this.ejDialog2.position = { X: 685, Y: 321.219 };
+      this.ejDialog2.position = { X: 505.345, Y: 191};
     });
   }
 
@@ -179,7 +179,7 @@ export class InfoComponent implements OnInit {
       this.ejDialog.hide();
       this.ejDialog1.hide();
       this.ejDialog2.hide();
-    }, 10000);
+    }, 50000);
   }
 
    openDialogs(){

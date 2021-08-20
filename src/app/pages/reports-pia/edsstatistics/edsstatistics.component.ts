@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Inject, ViewChild } from '@angular/core';
-import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { GridComponent, PageSettingsModel, FilterService, FilterType, SortService, FilterSettingsModel, ToolbarItems,
+  ExcelExportService, PdfExportService, PageService, EditService, ToolbarService  } from '@syncfusion/ej2-angular-grids';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { HttpClient } from '@angular/common/http';
 import { takeWhile } from 'rxjs/operators';
@@ -8,7 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ButtonComponent } from '@syncfusion/ej2-angular-buttons';
 import pdfMake from "pdfmake/build/pdfmake";  
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { DatePipe } from '@angular/common';  
+import { DatePipe } from '@angular/common'; 
+import { NbToastrService } from '@nebular/theme';
+import { ClickEventArgs } from '@syncfusion/ej2-navigations'; 
 
 interface dataDate {
   StartTime: string;
@@ -40,6 +43,7 @@ export interface edsStatistics {
   selector: 'ngx-edsstatistics',
   templateUrl: './edsstatistics.component.html',
   styleUrls: ['./edsstatistics.component.scss'],
+  providers: [ToolbarService, PageService, ExcelExportService, PdfExportService],
   encapsulation: ViewEncapsulation.None
 })
 export class EdsstatisticsComponent implements OnInit {
@@ -52,9 +56,16 @@ export class EdsstatisticsComponent implements OnInit {
 
   public daDate: EdsSummary[]=[];
 
+  public filterOptions: FilterSettingsModel;
+
   public pageSettings: PageSettingsModel;
 
-  public filterOptions: FilterSettingsModel;
+  public toolbar: ToolbarItems[] | object;
+
+  public editSettings: Object;
+
+  @ViewChild('grid')
+    public grid: GridComponent;
 
   get StartTime() { return this.airForm.get('StartTime'); }
 
@@ -62,6 +73,7 @@ export class EdsstatisticsComponent implements OnInit {
     private fb: FormBuilder,
     private miDatePipe: DatePipe,
     private http: HttpClient,
+    private toastrService: NbToastrService,
     private api: HttpService) { }
 
   ngOnInit(): void {
@@ -71,6 +83,12 @@ export class EdsstatisticsComponent implements OnInit {
       type: 'Menu',
    };
    this.initForm();
+
+   this.toolbar = [
+    //  'ExcelExport', 'PdfExport',
+   { text: 'Exportar Pdf', tooltipText: 'Click', prefixIcon: 'far fa-file-pdf', id: 'Click' },
+   { text: 'Exportar Excel', tooltipText: 'Clicks', prefixIcon: 'far fa-file-excel', id: 'Clicks' }];
+
   } 
 
   initForm() {
@@ -81,7 +99,7 @@ export class EdsstatisticsComponent implements OnInit {
   }
 
   date(StartTime: string){ 
-    debugger
+    // debugger
 
     const fechaFormateada = this.miDatePipe.transform(StartTime, 'yyyy-MM-dd');
 
@@ -91,18 +109,269 @@ export class EdsstatisticsComponent implements OnInit {
     console.log('test: ', StartTime);
 
     if (fechaFormateada == null) {
-      alert('No hay date..!')
+      // this.toastrService.info('', 'No pusiste la fecha.');
+      this.toastrService.warning('', 'No pusiste la fecha.');
+      // this.toastrService.show('', 'No pusiste la fecha.');
+      // this.toastrService.primary('', 'No pusiste la fecha.');
+      // this.toastrService.default('', 'No pusiste la fecha.');
+      // this.toastrService.control('', 'No pusiste la fecha.');
     } else {
       this.http.get(this.api.apiUrlNode1 + '/GetEdsSummary?reportdate='+ fechaFormateada)
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
-      this.daDate=res;
-      console.log('Da:', res );
+      if (res.length == 0){
+        console.log("se encuentra vacío el arreglo")
+        this.toastrService.danger('', 'No ha data.');
+        }else {
+        // console.log("no lo esta")
+        
+        }
+        this.daDate=res;
+        console.log('Da:', res );
       
     });
     }
 
   }
+
+  toolbarClick(args: ClickEventArgs): void {
+    switch (args.item.text) {
+        /* tslint:disable */
+        case 'Excel Export':
+            this.grid?.excelExport(this.getExcelExportProperties());
+            break;
+        /* tslint:enable */
+        case 'PDF Export':
+            this.grid?.pdfExport(this.getPdfExportProperties());
+            break;
+    }
+}
+
+clickHandler(args: ClickEventArgs): void {
+  debugger 
+
+  let formulario = this.airForm.value;
+
+switch (args.item.text) {
+
+  case 'Exportar Pdf':
+
+if(formulario.StartTime === ""){
+
+  this.toastrService.warning('', 'No se puede exportar, no ha consultado.');
+
+} else if (this.daDate.length == 0) {
+
+  this.toastrService.danger('', 'No hay data, no se puede exportar..!');
+
+}else {
+
+  if (args.item.id === 'Click') {
+    console.log('click: ', args);
+    debugger
+    this.grid?.pdfExport(this.getPdfExportProperties());
+    console.log('Abrir pdf');
+      // alert('Custom Toolbar Click...');
+  }
+
+}
+
+break;
+
+case 'Exportar Excel':
+  
+if(formulario.StartTime === ""){
+
+  this.toastrService.warning('', 'No se puede exportar, no ha consultado.');
+
+} else if (this.daDate.length === 0) {
+
+  this.toastrService.danger('', 'No hay data, no se puede exportar..!');
+
+}else {
+  
+  if (args.item.id === 'Clicks') {
+    console.log('clicks: ', args);
+    debugger
+    // this.reconocer();
+    this.grid?.excelExport(this.getExcelExportProperties());
+    console.log('Descargar pdf');
+      // alert('Custom Toolbar Click...');
+  }
+
+}
+
+break;
+
+}
+
+}
+
+private getDate(): string {
+  let date: string = '';
+  date += ((new Date()).getMonth().toString()) + '/' + ((new Date()).getDate().toString());
+  return date += '/' + ((new Date()).getFullYear().toString());
+}
+private getExcelExportProperties(): any {
+  return {
+      header: {
+          headerRows: 7,
+          rows: [
+              {
+                  index: 1,
+                  cells: [
+                      /* tslint:disable-next-line:max-line-length */
+                      { index: 1, colSpan: 5, value: 'MatBag', style: { fontColor: '#71ACD2', fontSize: 25, hAlign: 'Center', bold: true } }
+                  ]
+              },
+              {
+                  index: 3,
+                  cells: [
+                      /* tslint:disable-next-line:max-line-length */
+                      { index: 1, colSpan: 2, value: 'Adventure Traders', style: { fontColor: '#C67878', fontSize: 15, bold: true } },
+                      { index: 4, value: 'INVOICE NUMBER', style: { fontColor: '#C67878', bold: true } },
+                      { index: 5, value: 'DATE', style: { fontColor: '#C67878', bold: true }, width: 150 }
+                  ]
+              },
+              {
+                  index: 4,
+                  cells: [
+                      { index: 1, colSpan: 2, value: '2501 Aerial Center Parkway' },
+                      { index: 4, value: 2034 },
+                      { index: 5, value: this.getDate(), width: 150 }
+                  ]
+              },
+              {
+                  index: 5,
+                  cells: [
+                      { index: 1, colSpan: 2, value: 'Tel +1 888.936.8638 Fax +1 919.573.0306' },
+                      { index: 4, value: 'CUSOTMER ID', style: { fontColor: '#C67878', bold: true } },
+                      { index: 5, value: 'TERMS', width: 150, style: { fontColor: '#C67878', bold: true } }
+                  ]
+              },
+              {
+                  index: 6,
+                  cells: [
+                      { index: 4, value: 564 },
+                      { index: 5, value: 'Net 30 days', width: 150 }
+                  ]
+              }
+          ]
+      },
+
+      footer: {
+          footerRows: 5,
+          rows: [
+              /* tslint:disable-next-line:max-line-length */
+              { cells: [{ colSpan: 6, value: 'Thank you for your business!', style: { fontColor: '#C67878', hAlign: 'Center', bold: true } }] },
+              { cells: [{ colSpan: 6, value: '!Visit Again!', style: { fontColor: '#C67878', hAlign: 'Center', bold: true } }] }
+          ]
+      },
+      
+      fileName: "exceldocument.xlsx"
+  };
+}
+/* tslint:disable-next-line:no-any */
+private getPdfExportProperties(): any {
+  return {
+      header: {
+          fromTop: 0,
+          height: 120,
+          contents: [
+              {
+                  type: 'Text',
+                  value: 'MatBag',
+                  position: { x: 280, y: 0 },
+                  style: { textBrushColor: '#71ACD2', fontSize: 25 },
+              },
+              {
+                  type: 'Text',
+                  value: 'INVOICE NUMBER',
+                  position: { x: 500, y: 30 },
+                  style: { textBrushColor: '#C67878', fontSize: 10 },
+              },
+              {
+                  type: 'Text',
+                  value: 'Date',
+                  position: { x: 600, y: 30 },
+                  style: { textBrushColor: '#C67878', fontSize: 10 },
+              }, {
+                  type: 'Text',
+                  value: '223344',
+                  position: { x: 500, y: 50 },
+                  style: { textBrushColor: '#000000', fontSize: 10 },
+              },
+              {
+                  type: 'Text',
+                  value: this.getDate(),
+                  position: { x: 600, y: 50 },
+                  style: { textBrushColor: '#000000', fontSize: 10 },
+              },
+              {
+                  type: 'Text',
+                  value: 'CUSTOMER ID',
+                  position: { x: 500, y: 70 },
+                  style: { textBrushColor: '#C67878', fontSize: 10 },
+              },
+              {
+                  type: 'Text',
+                  value: 'TERMS',
+                  position: { x: 600, y: 70 },
+                  style: { textBrushColor: '#C67878', fontSize: 10 },
+              }, {
+                  type: 'Text',
+                  value: '223',
+                  position: { x: 500, y: 90 },
+                  style: { textBrushColor: '#000000', fontSize: 10 },
+              },
+              {
+                  type: 'Text',
+                  value: 'Net 30 days',
+                  position: { x: 600, y: 90 },
+                  style: { textBrushColor: '#000000', fontSize: 10 },
+              },
+              {
+                  type: 'Text',
+                  value: 'Adventure Traders',
+                  position: { x: 20, y: 30 },
+                  style: { textBrushColor: '#C67878', fontSize: 20 }
+              },
+              {
+                  type: 'Text',
+                  value: '2501 Aerial Center Parkway',
+                  position: { x: 20, y: 65 },
+                  style: { textBrushColor: '#000000', fontSize: 11 }
+              },
+              {
+                  type: 'Text',
+                  value: 'Tel +1 888.936.8638 Fax +1 919.573.0306',
+                  position: { x: 20, y: 80 },
+                  style: { textBrushColor: '#000000', fontSize: 11 }
+              },
+          ]
+      },
+      footer: {
+          fromBottom: 160,
+          height: 100,
+          contents: [
+              {
+                  type: 'Text',
+                  value: 'Thank you for your business !',
+                  position: { x: 250, y: 20 },
+                  style: { textBrushColor: '#C67878', fontSize: 14 }
+              },
+              {
+                  type: 'Text',
+                  value: '! Visit Again !',
+                  position: { x: 300, y: 45 },
+                  style: { textBrushColor: '#C67878', fontSize: 14 }
+              }
+          ]
+      },
+      
+      fileName: "pdfdocument.pdf"
+  };
+}
 
   ChargeData() {
     this.http.get(this.api.apiUrlNode1 + '/eds')
