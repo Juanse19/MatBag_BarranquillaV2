@@ -3,7 +3,18 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   NgxFilterByNumberComponent,
 } from '../../../@components/custom-smart-table-components/filter-by-number/filter-by-number.component';
+import { HttpClient } from '@angular/common/http';
+import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { ApiGetService } from '../../../@core/backend/common/api/apiGet.services';
+import { HttpService } from '../../../@core/backend/common/api/http.service';
+import { takeWhile } from 'rxjs/operators';
+import { interval } from 'rxjs';
 
+export interface acumulation {
+  Conveyors: string;
+  Duración: string;
+  Estado: string;
+}
 
 @Component({
   selector: 'ngx-accumulation',
@@ -13,6 +24,14 @@ import {
 export class AccumulationComponent  {
 
   UspStoppagesByBaggage =  [];
+
+  public acumuData: acumulation[] = [];
+
+  public pageSettings: PageSettingsModel;
+
+  public filterOptions: FilterSettingsModel;
+
+  private alive = true;
 
   settings = {
     mode: 'external',
@@ -41,35 +60,40 @@ export class AccumulationComponent  {
     },
   };
 
-  // constructor(private UspStoppagesByBaggageService: UspStoppagesData) {}
+  constructor(
+    public apiGetComp: ApiGetService,
+    private http: HttpClient,
+    private api: HttpService
+    ) {}
 
  ngOnInit() {
-  // this.UspStoppagesByBaggageService.getUspData().subscribe((data: any[]) => {
-  //  this.UspStoppagesByBaggage = data;
-  // });
+   this.chargeData();
+  this.pageSettings = { pageSize: 5 };
+      this.filterOptions = {
+      type: 'Menu',
+   }
  }
 
-  // source: DataSource;
+ chargeData() {
+  this.http.get(this.api.apiUrlNode1 + '/aco')
+  .pipe(takeWhile(() => this.alive))
+  .subscribe((res: any) => {
+    // tslint:disable-next-line: no-console
+    console.log('acoData: ', res);
+    this.acumuData = res;
+  });
+  const contador = interval(40000)
+  contador.subscribe((n) => {
+    this.http.get(this.api.apiUrlNode1 + '/aco')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      this.acumuData = res;
+    });
+  });
+}
 
-  // constructor(private UspStoppagesByBaggageService: UspStoppagesData ,
-  //   private toastrService: NbToastrService) {
-  //   this.loaData();
-  // }
-
-  // loaData() {
-  //   this.source = this.UspStoppagesByBaggageService.UDataSource;
-  // }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
-
-  ngOnDestroy() {
-    
-  }
+ ngOnDestroy() {
+  this.alive = false;
+}
 
 }

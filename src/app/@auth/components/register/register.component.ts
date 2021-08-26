@@ -130,7 +130,7 @@ export class NgxRegisterComponent implements OnInit {
     .subscribe((res: any) => {
         //  console.log("Envió: ", res);
       });
-
+debugger
     this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
       if (result.isSuccess()) {
@@ -138,14 +138,14 @@ export class NgxRegisterComponent implements OnInit {
       } else {
         this.errors = result.getErrors();
       }
-
-      const redirect = result.getRedirect();
-      if (redirect) {
-        setTimeout(() => {
-          return this.router.navigateByUrl(redirect);
-        }, this.redirectDelay);
-      }
-      this.cd.detectChanges();
+      this.router.navigate(['/pages/users/list']);
+      // const redirect = result.getRedirect();
+      // if (redirect) {
+      //   setTimeout(() => {
+      //     return this.router.navigateByUrl(redirect);
+      //   }, this.redirectDelay);
+      // }
+      // this.cd.detectChanges();
     });
   }
 

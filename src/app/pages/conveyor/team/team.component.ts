@@ -9,6 +9,8 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { takeWhile } from 'rxjs/operators';
 import { NbAccessChecker } from '@nebular/security';
 import { interval } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
 
 export interface Team {
   desc: string;
@@ -18,6 +20,15 @@ export interface Team {
   failure: string;
 }
 
+
+export interface teams {
+  Conveyors: string;
+  Estado: string;
+  Energia: string;
+  Corriente: string;
+  Mensaje: string;
+}
+ 
 @Component({
   selector: 'ngx-team',
   templateUrl: './team.component.html',
@@ -26,6 +37,14 @@ export interface Team {
 export class TeamComponent implements OnInit {
 
   Team = [];
+
+  public teamsData: Team[] = [];
+
+  public pageSettings: PageSettingsModel;
+
+  public filterOptions: FilterSettingsModel;
+
+  private alive = true;
 
   settings = {
     mode: 'external',
@@ -67,45 +86,62 @@ export class TeamComponent implements OnInit {
   };
 
   source1: LocalDataSource = new LocalDataSource();
-  public teamData: Team[];
+  // public teamData: Team[];
 
   constructor(public apiGetComp: ApiGetService,
+    private http: HttpClient,
     private api: HttpService) {
-      this.ChargeTeamData();
+      
     }
 
-    ChargeTeamData() {
-      this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetEfficiency').subscribe((res: any) => {
-        //REPORTOCUPATION=res;
-        console.log("TeamData:", res);
-        this.teamData = res;
-        this.source1.load(res);
+    ngOnInit() {
+      // this.ChargeTeamData();
+      this.chargeData();
+      this.pageSettings = { pageSize: 10 };
+      this.filterOptions = {
+      type: 'Menu',
+   }
+      }
+
+    chargeData() {
+      this.http.get(this.api.apiUrlNode1 + '/api/team')
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((res: any) => {
+        // tslint:disable-next-line: no-console
+        console.log('teamsData: ', res);
+        this.teamsData = res;
       });
-      const contador = interval(60000)
+      const contador = interval(40000)
       contador.subscribe((n) => {
-        this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetEfficiency').subscribe((res: any) => {
-          //REPORTOCUPATION=res;
-          this.teamData = res;
-          this.source1.load(res);
+        this.http.get(this.api.apiUrlNode1 + '/api/team')
+        .pipe(takeWhile(() => this.alive))
+        .subscribe((res: any) => {
+          this.teamsData = res;
         });
       });
+    }
+
+    // ChargeTeamData() {
+    //   this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetEfficiency').subscribe((res: any) => {
+    //     //REPORTOCUPATION=res;
+    //     console.log("TeamData:", res);
+    //     this.teamData = res;
+    //     this.source1.load(res);
+    //   });
+    //   const contador = interval(60000)
+    //   contador.subscribe((n) => {
+    //     this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetEfficiency').subscribe((res: any) => {
+    //       //REPORTOCUPATION=res;
+    //       this.teamData = res;
+    //       this.source1.load(res);
+    //     });
+    //   });
   
-    }
-
-  ngOnInit() {
-  //  this.Dashboardv2Service.getTeamData().subscribe((data: any[]) => {
-  //   this.Team = data;
-  //  });
-  }
+    // }
 
 
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  ngOnDestroy() {
+    this.alive = false;
   }
 
 }

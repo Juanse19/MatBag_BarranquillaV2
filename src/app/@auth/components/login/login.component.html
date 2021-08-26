@@ -27,7 +27,7 @@
         <input nbInput fullWidth id="input-email" formControlName="email" [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'" [attr.aria-invalid]="email.invalid && email.touched ? true : null" placeholder="Email address" [(ngModel)]="correo">
         <ngx-validation-message label="Email address" [showPattern]="email?.hasError('pattern') && email.touched" [showRequired]="email?.errors?.required && email.touched"></ngx-validation-message>
     </div>
-
+ 
     <div class="form-control-group">
         <span class="label-with-link">
       <label class="label" for="input-password">Contraseña:</label>

@@ -22,6 +22,7 @@ import {UserStore} from '../../../@core/stores/user.store';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import {ApiGetService} from '../../../@auth/components/register/apiGet.services';
 import { NbAccessChecker } from '@nebular/security';
+import * as crypto from 'crypto-js'; 
 
 
 interface Roles {
@@ -40,6 +41,21 @@ interface states {
   Name: string;
 }
 
+interface licensActive {
+  Licens_id: number;
+}
+
+interface licen {
+  Value: string;
+}
+
+let LICENS: licen[] = [
+
+];
+
+let LICENDa: licen; 
+
+let IDLICEN: number;
 
 export enum UserFormMode {
   VIEW = 'View',
@@ -64,9 +80,15 @@ export class UserComponent implements OnInit, OnDestroy {
   listaRoles:Roles[]=[];
   listaLicens:states[]=[];
   listaUsers:states[]=[];
+  licenTotalData: licen[]=[];
+  licData = IDLICEN;
+  licenAcitveTotalData: licensActive[]=[];
   public select = false;
+  public selectLicen = false;
   private alive = true;
   mostrar: Boolean;
+  isDisabled: Boolean;
+  desPass: string = '1234';
 
   protected readonly unsubscribe$ = new Subject<void>();
 
@@ -113,6 +135,7 @@ export class UserComponent implements OnInit, OnDestroy {
               public resetPassword: NgxResetPasswordComponent) {
                 this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getroles').subscribe((res: any) => {
                   this.listaRoles=res;
+                  // console.log('roles', this.listaRoles.length);
                 });
 
                 // this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
@@ -122,10 +145,30 @@ export class UserComponent implements OnInit, OnDestroy {
                 this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getuserstate').subscribe((res: any) => {
                   this.listaUsers=res;
                   this.listaLicens=res;
-                  console.log('Status: ', this.listaUsers);
+                  // console.log('Status: ', this.listaUsers);
                 });
 
+                this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
+                  // this.licenTotalData=res;
+                  this.licData = crypto.AES.decrypt(res[0].Value.trim(), this.desPass.trim()).toString(crypto.enc.Utf8);
+                  
+                  console.log('Licencia Encriptada: ', res[0].Value);
+                  // console.log('Total Licens: ', this.licenTotalData[0]);
+                });
 
+                this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getvalidation').subscribe((res: any) => {
+                  this.licenAcitveTotalData=res;
+                  // console.log('Total Licens Activas: ', this.licenAcitveTotalData[0].Licens_id);
+                  // if (this.licenAcitveTotalData[0].Licens_id > this.licenTotalData[0].Value) {
+                  //   console.log('no tienes mas licencias');
+                  //   this.selectLicen=true;
+                  // }else{
+                  //   console.log('Aun te quedan licencias por asignar');
+                    
+                  // }
+                  console.log('asignadas', this.licenAcitveTotalData[0].Licens_id >= this.licData ?  'no asignar licencia' : 'Asignar licencia');
+                });
+                
                 this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
                   if(res){ 
                     this.select = false;
@@ -133,6 +176,8 @@ export class UserComponent implements OnInit, OnDestroy {
                   }else {
                     this.select=true;
                     this.mostrar=true;
+                    this.selectLicen = true;
+                    this.isDisabled = true;
                   }
                   
                 });
@@ -205,8 +250,19 @@ export class UserComponent implements OnInit, OnDestroy {
               }else {
                 user.role=res[0].name;
               }
+
+              if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
+                console.log('no tienes mas licencias');
+                if (user.licens_id == 2) {
+                  this.selectLicen=true;
+                }
+                
+                // alert('no se puede asignar más licencia')
+              }  
+
               // console.log('data rol:', user.role);
               console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
+             
             this.userForm.setValue({
               id: user.id ? user.id : '',
               role: user.role ? user.role : '',
@@ -234,13 +290,25 @@ export class UserComponent implements OnInit, OnDestroy {
             //   }else {
             //    user.licens_id=res[0].Id;
             //   }  
+            // if (this.licenAcitveTotalData[0].Licens_id >= this.licenTotalData[0].Value) {
+            //   console.log('no tienes mas licencias');
+            //   this.selectLicen=true;
+            //   alert('no se puede asignar más licencia')
+            // }
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
               if (res == undefined) {
                 return user.role = '';
               }else {
                 user.role=res[0].name;
               }
-                          
+              if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
+                console.log('no tienes mas licencias');
+                if (user.licens_id == 2) {
+                  this.selectLicen=true;
+                }
+                
+                // alert('no se puede asignar más licencia')
+              }  
               // console.log('data rol:', user.role);
               console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
             this.userForm.setValue({
@@ -282,7 +350,14 @@ export class UserComponent implements OnInit, OnDestroy {
 
   save() {
     const user: User = this.convertToUser(this.userForm.value);
-    debugger
+    // debugger
+    // if (this.licenAcitveTotalData[0].Licens_id >= this.licenTotalData[0].Value) {
+    //   console.log('no tienes mas licencias');
+    //   alert('no tienes mas licencia')
+    // }else{
+    //   console.log('Aun te quedan licencias por asignar');
+    //   // alert('Aun te quedan licencias por asignar')
+    // }
     let observable = new Observable<User>();
     if (this.mode === UserFormMode.EDIT_SELF) {
       const currentUserId = this.userStore.getUser().id;
@@ -300,6 +375,8 @@ export class UserComponent implements OnInit, OnDestroy {
         //  console.log("Envió: ", res);
           }); 
           
+          
+
       this.usersService.updateCurrent(user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((result: any) => {   
@@ -326,7 +403,7 @@ export class UserComponent implements OnInit, OnDestroy {
           IdUser:user.id,
           Role:user.role
         };
-        this.apiGetComp.PostJson(this.httpService.apiUrlMatbox + '/userrole/postupdateroleuser',userRole)
+        this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/userrole/postupdateroleuser',userRole)
         .pipe(takeWhile(() => this.alive))
         .subscribe();
           this.tokenService.set(new NbAuthOAuth2JWTToken(result, 'email', new Date()));
@@ -368,7 +445,7 @@ export class UserComponent implements OnInit, OnDestroy {
           IdUser:user.id,
           Role:user.role
         };
-        this.apiGetComp.PostJson(this.httpService.apiUrlMatbox + '/userrole/postupdateroleuser',userRole)
+        this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/userrole/postupdateroleuser',userRole)
         .pipe(takeWhile(() => this.alive))
         .subscribe();
 
@@ -377,6 +454,7 @@ export class UserComponent implements OnInit, OnDestroy {
       err => {
       this.handleWrongResponse();
     });
+  // }
   }
 
   handleSuccessResponse() {

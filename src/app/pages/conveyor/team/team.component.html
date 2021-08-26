@@ -4,11 +4,24 @@
     </nb-card-header>
   
     <nb-card-body>
-      <ng2-smart-table
+      <!-- <ng2-smart-table
       class="dash-smart-table"
       [settings]="settings"
       [source]="teamData"
       (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
+  -->
+
+      <ejs-grid [dataSource]='teamsData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+        <e-columns>
+            <e-column field='desc' headerText='Conveyors' width=130></e-column>
+            <e-column field='State' headerText='Estado' width=120></e-column>
+            <e-column field='power' headerText='Energia' width=100></e-column>
+            <e-column field='current' headerText='Corriente' width=100></e-column>
+            <!-- <e-column field='Mensaje' headerText='Log' width=100></e-column> -->
+        </e-columns>
+    </ejs-grid>
+
+    
       </nb-card-body>
-    </nb-card>
+    </nb-card> 

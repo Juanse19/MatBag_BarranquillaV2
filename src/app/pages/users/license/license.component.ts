@@ -5,6 +5,7 @@ import {ApiGetService} from '../../../@auth/components/register/apiGet.services'
 import { NbAccessChecker } from '@nebular/security';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NbDateService, NbToastrService } from '@nebular/theme';
+import * as crypto from 'crypto-js'; 
 
 
 interface licens {
@@ -17,7 +18,6 @@ let MAKEData: licens
 {
 
 };
-
 @Component({
   selector: 'ngx-license',
   templateUrl: './license.component.html',
@@ -33,6 +33,7 @@ export class LicenseComponent implements OnInit {
   private alive = true;
   mostrar: Boolean;
   public licesData: licens[]=[];
+  desPass: string = '1234';
 
   get Value() { return this.licenForm.get('Value'); }
 
@@ -48,13 +49,36 @@ export class LicenseComponent implements OnInit {
   ) { 
 
     this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
-      this.licesData.values=res[0].Value;
-      console.log('Numero de licencias: ', this.licesData.values);
-
+      // this.licesData.values = res[0].Value;
+      this.licesData.values = crypto.AES.decrypt(res[0].Value.trim(), this.desPass.trim()).toString(crypto.enc.Utf8);
+     
+      console.log('Licencia Encriptada: ', res[0].Value);
+      
+      console.log('Licencias Desencriptada: ', this.licesData.values);
       
 
-    });
+      // console.log('Data que se ha encriptado',crypto.SHA512(this.licesData.values).toString());
+      // console.log('Data que se ha encriptado',crypto.AES.encrypt(this.licesData.values).toString());
 
+      // try {
+      //   return crypto.AES.encrypt(JSON.stringify(this.licesData.values), SECRET_KEY).toString();
+      // } catch (e) {
+      //   console.log(e);
+      // }
+
+      // description
+      // try {
+      //   const bytes = crypto.AES.decrypt(this.licesData.values, this.desPass.trim()).toString(crypto.enc.Utf8);
+      //   if (bytes.toString()) {
+      //     return JSON.parse(bytes.toString(crypto.enc.Utf8));
+      //   }
+      //   return this.licesData.values;
+      // } catch (e) {
+      //   console.log(e);
+      // }
+
+    });
+    // console.log(crypto.SHA512("string a encriptar").toString()); 
     this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
       if(res){ 
         this.select = false;

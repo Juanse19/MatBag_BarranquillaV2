@@ -4,11 +4,21 @@
     </nb-card-header>
   
     <nb-card-body>
-      <ng2-smart-table
+      <!-- <ng2-smart-table
       class="dash-smart-table"
       [settings]="settings"
       [source]="funData"
       (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
+    </ng2-smart-table> -->
+
+    <ejs-grid [dataSource]='funData' [allowPaging]="true" [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true">
+      <e-columns>
+          <e-column field='Conveyor' headerText='Conveyor' width=130></e-column>
+          <e-column field='Fecha_Hora_Activ' headerText='Fecha Activación' type='date' format="dd/MM/yyyy hh:mm:ss a" width=120></e-column>
+          <e-column field='TiempoEncendido' headerText='Tiempo encendido' width=100></e-column>
+          <e-column field='tiempo_Paro' headerText='Tiempo parado' width=100></e-column>
+      </e-columns>
+  </ejs-grid>
+
       </nb-card-body>
     </nb-card>

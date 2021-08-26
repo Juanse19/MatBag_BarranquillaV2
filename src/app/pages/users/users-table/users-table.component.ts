@@ -101,7 +101,7 @@ export class UsersTableComponent implements OnDestroy {
 
   loadData() {
     this.source = this.usersService.gridDataSource;
-    console.log('Data: ', this.source);
+    // console.log('Data: ', this.source);
     
   }
 

@@ -31,7 +31,7 @@ export class InitUserService {
 
         ngOnInit(): void {
 
-          this.autoLogout;
+          // this.autoLogout;
         }
 
     initCurrentUser(): Observable<User> {
@@ -49,19 +49,19 @@ export class InitUserService {
             }));
     }
 
-    autoLogout(expirationData: number, strategy: string){
-      console.log(expirationData);
-      setTimeout(() => {
-        this.service.logout(strategy).subscribe((result: NbAuthResult) => {
-          const redirect = result.getRedirect();
-          if (redirect) {
-            setTimeout(() => {
-              return this.router.navigateByUrl(redirect);
-            }, this.redirectDelay);
-          }
-        });
-      }, expirationData, 300000);
-    }
+    // autoLogout(expirationData: number, strategy: string){
+    //   console.log(expirationData);
+    //   setTimeout(() => {
+    //     this.service.logout(strategy).subscribe((result: NbAuthResult) => {
+    //       const redirect = result.getRedirect();
+    //       if (redirect) {
+    //         setTimeout(() => {
+    //           return this.router.navigateByUrl(redirect);
+    //         }, this.redirectDelay);
+    //       }
+    //     });
+    //   }, expirationData, 300000);
+    // }
 
     getConfigValue(key: string): any {
       return getDeepFromObject(this.options, key, null);

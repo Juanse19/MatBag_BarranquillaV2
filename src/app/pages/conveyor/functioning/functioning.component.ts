@@ -9,14 +9,16 @@ import { HttpService } from '../../../@core/backend/common/api/http.service';
 import { takeWhile } from 'rxjs/operators';
 import { NbAccessChecker } from '@nebular/security';
 import { interval } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { GridComponent, PageSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
 
 export interface Fun {
-  conveyor: string;
-  fecha_Hora_Activ: string;
-  tiempoEncendido: number;
-  tiempo_Paro: number;
+  Conveyor: string;
+  Fecha_Hora_Activ: string;
+  TiempoEncendido: string;
+  tiempo_Paro: string;
 }
-
+ 
 @Component({
   selector: 'ngx-functioning',
   templateUrl: './functioning.component.html',
@@ -25,6 +27,14 @@ export interface Fun {
 export class FunctioningComponent implements OnInit {
 
   Fun = [];
+
+  public funData: Fun[] = [];
+
+  public pageSettings: PageSettingsModel;
+
+  public filterOptions: FilterSettingsModel;
+
+  private alive = true;
 
   settings = {
     mode: 'external',
@@ -62,12 +72,40 @@ export class FunctioningComponent implements OnInit {
   };
 
   source1: LocalDataSource = new LocalDataSource();
-  public funData: Fun[];
+  
 
   constructor(public apiGetComp: ApiGetService,
+    private http: HttpClient,
     private api: HttpService) {
-      this.ChargeFunData();
+      
     }
+
+    ngOnInit() {
+      // this.ChargeFunData();
+      this.chargeData();
+      this.pageSettings = { pageSize: 10 };
+      this.filterOptions = {
+      type: 'Menu',
+   }
+      }
+
+      chargeData() {
+        this.http.get(this.api.apiUrlNode1 + '/api/GetEfficiencyTimeExecConveyor')
+        .pipe(takeWhile(() => this.alive))
+        .subscribe((res: any) => {
+          // tslint:disable-next-line: no-console
+          console.log('funData: ', res);
+          this.funData = res;
+        });
+        const contador = interval(40000)
+        contador.subscribe((n) => {
+          this.http.get(this.api.apiUrlNode1 + '/api/GetEfficiencyTimeExecConveyor')
+          .pipe(takeWhile(() => this.alive))
+          .subscribe((res: any) => {
+            this.funData = res;
+          });
+        });
+      }
 
     ChargeFunData() {
       this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Dashboardv1/GetTimeEffic').subscribe((res: any) => {
@@ -87,18 +125,8 @@ export class FunctioningComponent implements OnInit {
   
     }
 
-  ngOnInit() {
-  //  this.Dashboardv2Service.getFunData().subscribe((data: any[]) => {
-  //   this.Fun = data;
-  //  });
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
+    ngOnDestroy() {
+      this.alive = false;
     }
-  }
 
 }

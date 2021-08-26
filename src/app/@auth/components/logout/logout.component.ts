@@ -22,7 +22,7 @@ export class NgxLogoutComponent implements OnInit {
   redirectDelay: number = this.getConfigValue('forms.logout.redirectDelay');
   strategy: string = this.getConfigValue('forms.logout.strategy');
   private alive = true;
-  public time: number = 5000;
+  public time: number = 1000;
 
 
   constructor(protected service: NbAuthService,
@@ -62,19 +62,7 @@ export class NgxLogoutComponent implements OnInit {
     });
   }
 
-  auto(data: any){
-    this.service.refreshToken(data);
-    setTimeout(() => {
-      this.logout;
-    }, data)
-  }
-
-  autoLogout(expirationData: number){
-    console.log(expirationData);
-    setTimeout(() => {
-      this.logout
-    }, expirationData)
-  }
+ 
 
   getConfigValue(key: string): any {
     return getDeepFromObject(this.options, key, null);
