@@ -25,7 +25,7 @@
                 <!-- </nb-card-body> -->
                 <!-- <nb-card-footer>
                     <button type="submit" nbButton status="primary" *ngIf="!mostrar" [disabled]="select" (click)="reconocer()" class="btn btn-primary">Reconocer alarmas</button>
-                    
+                    (queryCellInfo)='tooltip($event)'
                 </nb-card-footer> -->
             </nb-card>
         </nb-tab>
@@ -35,7 +35,7 @@
                     Historico Alarmas
                 </nb-card-header>
                 <!-- <nb-card-body> -->
-                <ejs-grid [dataSource]='historyAlarmData' [allowPaging]="true" allowTextWrap='true' (queryCellInfo)='tooltip($event)' [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='400'>
+                <ejs-grid [dataSource]='historyAlarmData' [allowPaging]="true" allowTextWrap='true'  [pageSettings]='pageSettings' [filterSettings]='filterOptions' [allowFiltering]="true" height='400'>
                     <e-columns>
                         <e-column field='Message' headerText='Mensaje' width=180></e-column>
                         <e-column field='Level' headerText='Nivel' width=75></e-column>

@@ -1,3 +1,4 @@
+
 // import { states } from './../../conveyor/_interfaces/MatBag.model';
 /*
  * Copyright (c) Akveo 2019. All Rights Reserved.
@@ -87,6 +88,7 @@ export class UserComponent implements OnInit, OnDestroy {
   public selectLicen = false;
   private alive = true;
   mostrar: Boolean;
+  ocultar: Boolean;
   isDisabled: Boolean;
   desPass: string = '1234';
 
@@ -152,7 +154,7 @@ export class UserComponent implements OnInit, OnDestroy {
                   // this.licenTotalData=res;
                   this.licData = crypto.AES.decrypt(res[0].Value.trim(), this.desPass.trim()).toString(crypto.enc.Utf8);
                   
-                  console.log('Licencia Encriptada: ', res[0].Value);
+                  // console.log('Licencia Encriptada: ', res[0].Value);
                   // console.log('Total Licens: ', this.licenTotalData[0]);
                 });
 
@@ -166,7 +168,7 @@ export class UserComponent implements OnInit, OnDestroy {
                   //   console.log('Aun te quedan licencias por asignar');
                     
                   // }
-                  console.log('asignadas', this.licenAcitveTotalData[0].Licens_id >= this.licData ?  'no asignar licencia' : 'Asignar licencia');
+                  // console.log('asignadas', this.licenAcitveTotalData[0].Licens_id >= this.licData ?  'no asignar licencia' : 'Asignar licencia');
                 });
                 
                 this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
@@ -191,7 +193,7 @@ export class UserComponent implements OnInit, OnDestroy {
   initUserForm() {
     this.userForm = this.fb.group({
       id: this.fb.control(''),
-      role: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20),Validators.required]),
+      role: this.fb.control(''),
       licens: this.fb.control('', [ Validators.min(1),
         Validators.max(120), Validators.pattern(NUMBERS_PATTERN)]),
       state: this.fb.control(''),
@@ -231,6 +233,8 @@ export class UserComponent implements OnInit, OnDestroy {
         this.loadUser(id);
       } else {
         this.setViewMode(UserFormMode.ADD);
+        this.ocultar=true;
+        
       }
     }
   }
@@ -241,24 +245,33 @@ export class UserComponent implements OnInit, OnDestroy {
     loadUser
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((user) => { 
-        // debugger
+        debugger
         if(user.licens_id === null )
           {
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
+              console.log('data Rols: ', res);
+              
               if (res == undefined) {
                 return user.role = '';
-              }else {
+              }  
+              else if (res.length == 0) {
+                console.log('No hay rol');
+              }
+              else {
                 user.role=res[0].name;
               }
-
-              if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
+              debugger
+              if (this.licenAcitveTotalData[0].Licens_id >= this.licData || user.licens_id == undefined ) {
                 console.log('no tienes mas licencias');
                 if (user.licens_id == 2) {
                   this.selectLicen=true;
+                } else if (user.licens_id == undefined) {
+                  this.selectLicen=true;
+                } else if (user.licens_id == 0) {
+                  this.selectLicen=true;
                 }
                 
-                // alert('no se puede asignar más licencia')
-              }  
+              } 
 
               // console.log('data rol:', user.role);
               console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
@@ -281,9 +294,7 @@ export class UserComponent implements OnInit, OnDestroy {
             });
           },
         );
-          } 
-          else 
-          {
+          }  else {
             // this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenbyuser?LicenID='+user.licens_id).subscribe((res: any) => {
             //   if (res == undefined) {
             //     user.licens_id = null;
@@ -296,18 +307,28 @@ export class UserComponent implements OnInit, OnDestroy {
             //   alert('no se puede asignar más licencia')
             // }
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
+              debugger
+              console.log('data Rols: ', res);
+              
               if (res == undefined) {
                 return user.role = '';
-              }else {
+              }  
+              else if (res.length == 0) {
+                console.log('No hay rol');
+              }
+              else {
                 user.role=res[0].name;
               }
               if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
                 console.log('no tienes mas licencias');
                 if (user.licens_id == 2) {
                   this.selectLicen=true;
+                } else if (user.licens_id == undefined) {
+                  this.selectLicen=true;
+                } else if (user.licens_id == 0) {
+                  this.selectLicen=true;
                 }
                 
-                // alert('no se puede asignar más licencia')
               }  
               // console.log('data rol:', user.role);
               console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
@@ -358,8 +379,20 @@ export class UserComponent implements OnInit, OnDestroy {
     //   console.log('Aun te quedan licencias por asignar');
     //   // alert('Aun te quedan licencias por asignar')
     // }
+    
+    if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
+      console.log('no tienes mas licencias');
+      if (user.licens_id == 2) {
+        this.selectLicen=true;
+      }
+    } else {
+      console.log('aun tenes licencias');
+      
+    }
+
     let observable = new Observable<User>();
     if (this.mode === UserFormMode.EDIT_SELF) {
+      debugger
       const currentUserId = this.userStore.getUser().id;
       const currentUser = this.userStore.getUser().firstName;
   // console.log("este es el usuario: ",this.userStore.getUser().firstName);

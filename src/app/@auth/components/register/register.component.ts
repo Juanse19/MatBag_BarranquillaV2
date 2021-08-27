@@ -138,14 +138,14 @@ debugger
       } else {
         this.errors = result.getErrors();
       }
-      this.router.navigate(['/pages/users/list']);
-      // const redirect = result.getRedirect();
-      // if (redirect) {
-      //   setTimeout(() => {
-      //     return this.router.navigateByUrl(redirect);
-      //   }, this.redirectDelay);
-      // }
-      // this.cd.detectChanges();
+      // this.router.navigate(['/pages/users/list']);
+      const redirect = result.getRedirect();
+      if (redirect) {
+        setTimeout(() => {
+          return this.router.navigateByUrl(redirect);
+        }, this.redirectDelay);
+      }
+      this.cd.detectChanges();
     });
   }
 

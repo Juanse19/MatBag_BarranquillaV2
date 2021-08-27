@@ -222,7 +222,7 @@ export class NgxLoginComponent implements OnInit {
             cancelButtonText: "No",
           }).then((result) => {
             if (result.value) {
-              let timers = 3500;
+              let timers = 4500;
 
               var respon = {
                 user: this.validData[0].Id,
@@ -241,7 +241,8 @@ export class NgxLoginComponent implements OnInit {
               //   'warning',
 
               Swal.fire({
-                title: "¡Loading!",
+                title: "¡Cargando!",
+                text: "Esperando que cerrar sesión",
                 allowEscapeKey: false,
                 allowOutsideClick: false,
                 timer: timers,
@@ -265,14 +266,14 @@ export class NgxLoginComponent implements OnInit {
 
                       if (this.validData[0].Lat == 1) {
                         Swal.fire({
-                          title: "CONTINUA!",
+                          title: "El usuario continua con la sesión, Vuelva ha intentar!",
                           icon: "warning",
                           timer: 2000,
                           showConfirmButton: false,
                         });
                       } else {
                         Swal.fire({
-                          title: "Finished!",
+                          title: "Se finalizó la seseón, Ya puede iniciar sesión!",
                           icon: "success",
                           timer: 2000,
                           showConfirmButton: false,

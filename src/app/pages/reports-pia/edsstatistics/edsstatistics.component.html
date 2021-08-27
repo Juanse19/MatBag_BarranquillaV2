@@ -24,6 +24,25 @@
                     <button type="button" class="btn btn-secondary" disabled="true" (click)="generatePDF('download')">Descargar pdf</button> -->
                     <!-- <button nbButton status="info " [disabled]="false " hero>Atras</button> -->
                 </form>
+
+                <div class="row ">
+        
+                    <ejs-grid #grid [dataSource]='daDate' [toolbar]='toolbar' (toolbarClick)='toolbarClick($event)' (toolbarClick)='clickHandler($event)' [allowPaging]="true " [pageSettings]='pageSettings'
+                         [filterSettings]='filterOptions' allowTextWrap='true' [allowExcelExport]='true' [allowFiltering]="true" [allowPdfExport]='true' height='380'>
+                        <e-columns>
+                                <e-column field='Name' headerText='Nombre' width=120 type='string'></e-column>
+                                <e-column field='CountStatudBagAlarm' headerText='Bag' width=100></e-column>
+                                <e-column field='Total' headerText='Total' width=100></e-column>
+                                <e-column field='PercAlarm' headerText='Alarm' width=100></e-column>
+                                <e-column field='CountStatudBagClear' headerText='Clear' width=100></e-column>
+                                <e-column field='PercClear' headerText='Clean' width=100></e-column>
+                        </e-columns>
+                    </ejs-grid>
+        
+                </div>
+                <br>
+                <div></div>
+                
             </nb-card-body>
         </nb-card>
     </div>
@@ -39,11 +58,11 @@
 
 </nb-card-body> -->
 
-<nb-card>
+<!-- <nb-card> -->
     <!-- <nb-card-header>
     </nb-card-header> -->
 
-        <nb-card-body>
+        <!-- <nb-card-body>
         <div class="row ">
         
             <ejs-grid #grid [dataSource]='daDate' [toolbar]='toolbar' (toolbarClick)='toolbarClick($event)' (toolbarClick)='clickHandler($event)' [allowPaging]="true " [pageSettings]='pageSettings'
@@ -59,7 +78,7 @@
             </ejs-grid>
 
         </div>
-    </nb-card-body>
+    </nb-card-body> -->
     
     <!-- <div *ngIf="airForm.controls[ 'StartTime'].hasError( 'required') && airForm.controls[ 'StartTime'].touched " class="alert alert-danger ">Date value is required
         <div *ngIf="airForm.controls[ 'StartTime'].value ">
@@ -77,4 +96,4 @@
             </nb-card-body>
         </div>
     </div> -->
-</nb-card>
+<!-- </nb-card> -->

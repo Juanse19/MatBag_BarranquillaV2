@@ -24,6 +24,22 @@
                     <button type="button" class="btn btn-secondary" (click)="generatePDF('download')">Descargar pdf</button> -->
                     <!-- <button nbButton status="info " [disabled]="false " hero>Atras</button> -->
                 </form>
+
+                
+                    <div class="row ">
+                            
+                
+                         <ejs-grid #grid [dataSource]='daDate' [toolbar]='toolbar' (toolbarClick)='clickHandler($event)' [allowPaging]="true " [pageSettings]='pageSettings'
+                         [filterSettings]='filterOptions' [allowExcelExport]='true' allowTextWrap='true' [allowFiltering]="true" [allowPdfExport]='true' >
+                            <e-columns>
+                                <e-column field='ZoneName' headerText='Nombre' width=120></e-column>
+                                <e-column field='NumberTag' headerText='NúmeroEtiqueta' width=100></e-column>
+                            </e-columns>
+                        </ejs-grid>
+                
+                    </div>
+                <br>
+
             </nb-card-body>
         </nb-card>
     </div>
@@ -39,11 +55,11 @@
 
 </nb-card-body> -->
 
-<nb-card>
+<!-- <nb-card> -->
     <!-- <nb-card-header>
     </nb-card-header> -->
 
-  <nb-card-body>
+  <!-- <nb-card-body>
     <div class="row ">
             
 
@@ -56,10 +72,10 @@
         </ejs-grid>
 
     </div>
-</nb-card-body>
+</nb-card-body> -->
     
     
-</nb-card>
+<!-- </nb-card> -->
 
 <!-- <nb-card> -->
 <!-- <nb-card-header>

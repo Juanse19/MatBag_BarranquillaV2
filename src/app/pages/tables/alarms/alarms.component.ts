@@ -177,13 +177,13 @@ clickHandler(args: ClickEventArgs): void {
   }
 }
 
-tooltip(args: QueryCellInfoEventArgs) {
-  const tooltip: Tooltip = new Tooltip({
-      content: args.data[args.column.field].toString()
+// tooltip(args: QueryCellInfoEventArgs) {
+//   const tooltip: Tooltip = new Tooltip({
+//       content: args.data[args.column.field].toString()
       
-  }, args.cell as HTMLTableCellElement);
-  // console.log('tool:', tooltip);
-}
+//   }, args.cell as HTMLTableCellElement);
+//   // console.log('tool:', tooltip);
+// }
 
 // actionComplete(args: DialogEditEventArgs): void {
 //   if ((args.requestType === 'beginEdit' || args.requestType === 'add')) {
