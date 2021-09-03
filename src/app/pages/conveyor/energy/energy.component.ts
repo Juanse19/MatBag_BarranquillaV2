@@ -84,7 +84,7 @@ export class EnergyComponent implements OnInit {
     .subscribe((res: any)=>{
       // debugger
       this.consuData = res;
-      console.log('consumo Energia: ', this.consuData);
+      // console.log('consumo Energia: ', this.consuData);
       // debugger
     });
   }

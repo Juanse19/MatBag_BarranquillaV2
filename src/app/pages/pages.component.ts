@@ -71,6 +71,12 @@ export class PagesComponent implements OnDestroy {
     
   }
 
+  // ngDoCheck(){
+  //   console.log('Deteccion de cambios');
+  //   console.log('- - - - - - - - - - - ');
+    
+  // }
+
   public AutoLogoutCharge(){
 
     if (this.intervalSubscriptionStatusSesion) {
@@ -113,15 +119,15 @@ export class PagesComponent implements OnDestroy {
                 .PostJson(this.api.apiUrlNode1 + '/updateSesion', respon)
                 .pipe(takeWhile(() => this.alive))
                 .subscribe((res: any) => {
-                   console.log("Envió: ", res);
+                  //  console.log("Envió: ", res);
                 })
               // this.intervalSubscriptionStatusSesion.unsubscribe();
               
-              console.log("Continua navegando: ", res);
+              // console.log("Continua navegando: ", res);
               this.AutoLogoutCharge();
         // Swal.fire('¡Se sincronizo Exitosamente', 'success');
             } else {
-              console.log('Se cierra por tiempo');
+              // console.log('Se cierra por tiempo');
               
               this.router.navigate(['/auth/logout']);
             }
@@ -132,7 +138,7 @@ export class PagesComponent implements OnDestroy {
 
         } else {
          
-           console.log('Continue con la sesion');
+          //  console.log('Continue con la sesion');
 
         }
     });

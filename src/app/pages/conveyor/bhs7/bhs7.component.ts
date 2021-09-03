@@ -52,7 +52,9 @@ export class Bhs7Component implements OnInit {
     this.bandaNameOsrCharge();
     this.chargeData();
     this.bandaStateCharge();
-    this.pageSettings = { pageSize: 5 };
+    this.pageSettings = { 
+      // pageSizes: true,
+      pageSize: 5 };
     this.filterOptions = {
       type: 'Menu',
    };
@@ -69,7 +71,7 @@ export class Bhs7Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      console.log('ss:', res , 'band with zones', this.zone[1].Name);
+      // console.log('ss:', res , 'band with zones', this.zone[1].Name);
       
     });
 
@@ -81,7 +83,7 @@ export class Bhs7Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zons=res;
-      console.log('Osr:', res , 'band with zones', this.zons[1].Name);
+      // console.log('Osr:', res , 'band with zones', this.zons[1].Name);
       
     });
 
@@ -93,7 +95,7 @@ export class Bhs7Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.divice=res;
-      console.log('Zons:', res , 'states');
+      // console.log('Zons:', res , 'states');
       
     });
   }
@@ -111,7 +113,7 @@ export class Bhs7Component implements OnInit {
     )
     .subscribe((res: any) => {
         this.states  = res;
-        console.log('status:', res);
+        // console.log('status:', res);
     });
   }
 
@@ -120,7 +122,7 @@ export class Bhs7Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
       // tslint:disable-next-line: no-console
-      console.log('bhsOsrData: ', res);
+      // console.log('bhsOsrData: ', res);
       this.osrData = res;
     });
     const contador = interval(40000)

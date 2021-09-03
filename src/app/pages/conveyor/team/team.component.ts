@@ -97,7 +97,7 @@ export class TeamComponent implements OnInit {
     ngOnInit() {
       // this.ChargeTeamData();
       this.chargeData();
-      this.pageSettings = { pageSize: 10 };
+      this.pageSettings = { pageSizes: true, pageSize: 10 };
       this.filterOptions = {
       type: 'Menu',
    }
@@ -108,7 +108,7 @@ export class TeamComponent implements OnInit {
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         // tslint:disable-next-line: no-console
-        console.log('teamsData: ', res);
+        // console.log('teamsData: ', res);
         this.teamsData = res;
       });
       const contador = interval(40000)

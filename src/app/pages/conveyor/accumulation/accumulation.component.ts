@@ -68,7 +68,7 @@ export class AccumulationComponent  {
 
  ngOnInit() {
    this.chargeData();
-  this.pageSettings = { pageSize: 5 };
+  this.pageSettings = { pageSizes: true, pageSize: 5 };
       this.filterOptions = {
       type: 'Menu',
    }
@@ -79,7 +79,7 @@ export class AccumulationComponent  {
   .pipe(takeWhile(() => this.alive))
   .subscribe((res: any) => {
     // tslint:disable-next-line: no-console
-    console.log('acoData: ', res);
+    // console.log('acoData: ', res);
     this.acumuData = res;
   });
   const contador = interval(40000)

@@ -75,7 +75,7 @@ export class Bhs4Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      console.log('Zons3:', res , 'band with zones', this.zone[1].Name);
+      // console.log('Zons3:', res , 'band with zones', this.zone[1].Name);
       
     });
 
@@ -87,7 +87,7 @@ export class Bhs4Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.divice=res;
-      console.log('Zons:', res , 'states');
+      // console.log('Zons:', res , 'states');
       
     });
   }
@@ -105,82 +105,82 @@ export class Bhs4Component implements OnInit {
     )
     .subscribe((res: any) => {
         this.states  = res;
-        console.log('status:', res);
+        // console.log('status:', res);
     });
   }
 
   ClicAL1_1() {
-    debugger
+    // // debugger
     this.dialog.opendevice1(8);
    }
 
    ClicAL1_2() {
-    debugger
+    // // debugger
     this.dialog.opendevice2(10);
    }
 
    ClicAL1_3() {
-    debugger
+    // // debugger
     this.dialog.opendevice3(1);
    }
 
    ClicAL1_4() {
-    debugger
+    // // debugger
     this.dialog.opendevice4(5);
    }
 
    ClicAL1_5() {
-    debugger
+    // // debugger
     this.dialog.opendevice5(4);
    }
 
    ClicAL1_6() {
-    debugger
+    // debugger
     this.dialog.opendevice6(2);
    }
 
    ClicAL1_7() {
-    debugger
+    // debugger
     this.dialog.opendevice7(3);
    }
 
    ClicAL1_8() {
-    debugger
+    // debugger
     this.dialog.opendevice8(6);
    }
 
    ClicAL1_9() {
-    debugger
+    // debugger
     this.dialog.opendevice9(11);
    }
 
    ClicAL1_10() {
-    debugger
+    // debugger
     this.dialog.opendevice10(9);
    }
 
    ClicAL1_11() {
-    debugger
+    // debugger
     this.dialog.opendevice11(7);
    }
 
    ClicAL2_1() {
-    debugger
+    // debugger
     this.dialog.opendevice12(13);
    }
    
    ClicAL2_2() {
-    debugger
+    // debugger
     this.dialog.opendevice13(12);
    }
 
    ClicAL2_3() {
-    debugger
+    // debugger
     this.dialog.opendevice14(14);
    }
 
    ClicAL2_4() {
-    debugger
+    // debugger
     this.dialog.opendevice15(15);
    }
 

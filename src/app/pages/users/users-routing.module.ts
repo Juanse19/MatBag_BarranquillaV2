@@ -12,6 +12,7 @@ import { UserComponent } from './user/user.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { AdminGuard } from '../../@auth/admin.guard';
 import { LicenseComponent } from './license/license.component'
+import { EditLicenComponent } from './edit-licen/edit-licen.component';
 
 const routes: Routes = [{
   path: '',
@@ -40,6 +41,11 @@ const routes: Routes = [{
       path: 'licenses',
       canActivate: [AdminGuard],
       component: LicenseComponent,
+    },
+    {
+      path: 'editlicen',
+      canActivate: [AdminGuard],
+      component: EditLicenComponent,
     },
   ],
 }];

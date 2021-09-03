@@ -8,7 +8,9 @@ import { NbToastrService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { NbAccessChecker } from '@nebular/security';
 import { HttpClient } from '@angular/common/http';
-import { GridComponent, PageSettingsModel, FilterSettingsModel, CommandClickEventArgs, EditService, CommandColumnService, CommandModel, ToolbarService, PageService, QueryCellInfoEventArgs, DialogEditEventArgs, ToolbarItems } from '@syncfusion/ej2-angular-grids';
+import { GridComponent, PageSettingsModel, FilterSettingsModel, CommandClickEventArgs, 
+  EditService, CommandColumnService, CommandModel, ToolbarService, PageService,
+   ToolbarItems } from '@syncfusion/ej2-angular-grids';
 import { UserStore } from '../../../@core/stores/user.store';
 import { Dialog, Tooltip } from '@syncfusion/ej2-popups';
 import { Browser } from '@syncfusion/ej2-base';
@@ -35,7 +37,7 @@ let ALARMAS: Alarmas[] = [
 @Component({
   selector: 'ngx-alarms',
   templateUrl: './alarms.component.html',
-  providers: [ToolbarService, EditService, PageService],
+  providers: [ToolbarService, EditService, PageService, CommandColumnService],
   styleUrls: ['./alarms.component.scss',]
 })
 export class AlarmsComponent implements OnDestroy {
@@ -106,7 +108,7 @@ export class AlarmsComponent implements OnDestroy {
   };
 
   source: LocalDataSource = new LocalDataSource();
-  public Alarm: Alarmas[];
+  public Alarm: Alarmas[]=[];
 
   constructor(
     public accessChecker: NbAccessChecker,
@@ -129,50 +131,50 @@ export class AlarmsComponent implements OnDestroy {
         this.mostrar=true;
       }
     });
+    
   }
 
   ngOnInit(): void {
-    this.Chargealarms();
-    this.ChargeHistoryData();
-    this.pageSettings = { pageSize: 10 };
+    this.editSettings = {
+      allowEditing: true,
+      allowAdding: true,
+      allowDeleting: true,
+      mode: 'Normal',
+      allowEditOnDblClick: false
+    };
+    
+    this.pageSettings = { pageSizes: true, pageSize: 10 };
     this.filterOptions = {
       type: 'Menu',
    };
-   this.editSettings = { allowEditing: true, allowAdding: false, allowDeleting: true , newRowPosition: 'Top' };
-   this.toolbar = [{text: 'Delete', prefixIcon: 'fas fa-check'},
+  //  this.editSettings = { allowEditing: false, allowAdding: false, allowDeleting: true , newRowPosition: 'Top' };
+  // this.editSettings = { allowEditing: false, allowDeleting: true};
+   this.toolbar = [
+    //  {text: 'Delete', prefixIcon: 'fas fa-check'},
    { text: 'Reconocer alarmas', tooltipText: 'Click', prefixIcon: 'fas fa-check-double', id: 'Click' }];
-//    this.editSettings = { allowEditing: false, allowDeleting: true };
-//    this.commands = [
-//   //  { type: 'Edit', buttonOption: { iconCss: ' e-icons e-edit', cssClass: 'e-flat' } },
-//    { type: 'Delete', buttonOption: { iconCss: 'e-icons e-delete', cssClass: 'e-flat' } },
-//   //  { type: 'Save', buttonOption: { iconCss: 'e-icons e-update', cssClass: 'e-flat' } },
-//   //  { type: 'Cancel', buttonOption: { iconCss: 'e-icons e-cancel-icon', cssClass: 'e-flat' } }
-// ];
+   this.Chargealarms();
+   this.ChargeHistoryData();
+   this.commands = [
+
+    // { type: 'Edit', buttonOption: { cssClass: 'e-flat', iconCss: 'e-edit e-icons' } },
+    { type: 'Delete', buttonOption: { cssClass: 'e-flat', iconCss: 'fas fa-check' } },
+    { type: 'Save', buttonOption: { cssClass: 'e-flat', iconCss: 'e-update e-icons' } },
+    { type: 'Cancel', buttonOption: { cssClass: 'e-flat', iconCss: 'e-cancel-icon e-icons' } }];
+  
   }
 
-  // onedit($event: any) {
-  //     this.apiGetComp.GetJson(this.api.apiUrlMatbox + '/Alarms/postalarm?IdAlarm' + $event.data.id).subscribe((res: any) => {
-  //       //REPORTOCUPATION=res;
-  //       console.log("alarmId", res);
-  //       // this.Alarm = res;
-  //       // this.source.load(res);
-  //     });
-    
-  // }
 
-  commandClick(args: CommandClickEventArgs): void {
-    debugger
-    alert(JSON.stringify(args.rowData));
+//   commandClick(args: CommandClickEventArgs): void {
+//     debugger
+//     alert(JSON.stringify(args.rowData));
     
-}
+// }
 
 clickHandler(args: ClickEventArgs): void {
   if (args.item.id === 'Click') {
-    console.log('click: ', args);
+    // console.log('click: ', args);
     debugger
     this.reconocer();
-    console.log('Se reconocieron todas las alarmas');
-    
       // alert('Custom Toolbar Click...');
   }
 }
@@ -185,20 +187,46 @@ clickHandler(args: ClickEventArgs): void {
 //   // console.log('tool:', tooltip);
 // }
 
-// actionComplete(args: DialogEditEventArgs): void {
-//   if ((args.requestType === 'beginEdit' || args.requestType === 'add')) {
-//       if (Browser.isDevice) {
-//           args.dialog.height = window.innerHeight - 90 + 'px';
-//           (<Dialog>args.dialog).dataBind();
-//       }
-//       // Set initail Focus
-//       if (args.requestType === 'beginEdit') {
-//           (args.form.elements.namedItem('CustomerName') as HTMLInputElement).focus();
-//       } else if (args.requestType === 'add') {
-//           (args.form.elements.namedItem('OrderID') as HTMLInputElement).focus();
-//       }
-//   }
-// }
+actionBegin(args) {
+  if (( args.requestType === 'delete')) {
+    // const Id = 'Id';
+    // console.log('Type Delete: ', args.data[0].Id);
+    this.accessChecker.isGranted('edit', 'ordertable')
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      if(res){ 
+        const currentUserId = this.userStore.getUser().id;
+        var respons = 
+          {
+          IdAlarm: args.data[0].Id,
+          UserIdAcknow: currentUserId
+          };
+        // let alarm = {IdAlarm: event.data.Id};
+    this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmId', respons)
+    
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      //  console.log("alarmId", res);
+       if (res) {
+        this.toastrService.success('', '¡Alarma solucionada!'); 
+        this.source.refresh();
+      } else {
+        this.toastrService.danger('', 'Algo salio mal.');
+      }
+    });
+        args.rowData.Id.resolve();
+        this.select = false;
+        this.mostrar = false;
+        args.cancel = true;
+      }else {
+        this.select=true;
+        this.mostrar=true;
+        args.cancel = true;
+      }
+    });
+  }
+
+}
 
 actionComplete(args) {
   if (( args.requestType === 'delete')) {
@@ -206,7 +234,7 @@ actionComplete(args) {
       debugger
       const Id = 'Id';
       // change the header of the dialog
-      console.log('Type: ', args.data[0].Id);
+      // console.log('Type: ', args.data[0].Id);
       // console.log('id: ', args.rowData.Id);
       // debugger
     
@@ -236,9 +264,11 @@ actionComplete(args) {
       // args.rowData.Id.resolve();
       //     this.select = false;
       //     this.mostrar = false;
+      args.cancel = true;
         }else {
           this.select=true;
           this.mostrar=true;
+          args.cancel = true;
         }
       });
       // dialog.header = args.requestType === 'beginEdit' ? 'Record of ' + args.rowData[CustomerID] : 'New Customer';
@@ -327,47 +357,16 @@ Delete(event): void {
       });
   }
 
-  // reconocer() {
-  //   debugger
-  //   this.accessChecker.isGranted('edit', 'ordertable')
-  //     .pipe(takeWhile(() => this.alive))
-  //     .subscribe((res: any) => {
-  //       if(res){ 
-  //     const currentUserId = this.userStore.getUser().id;
-  //         var respons = 
-  //           {
-  //             UserIdAcknow: currentUserId
-  //           };
-            
-  //      this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/ResetAlarmAll', respons)
-  //      .pipe(takeWhile(() => this.alive))
-  //      .subscribe((res: any) => {
-  //         if (res) {
-  //          this.toastrService.success('', '¡Alarmas solucionadas!');
-  //          this.source.refresh();
-  //          this.Chargealarms();
-  //          this.select=true;
-  //        } else {
-  //          this.toastrService.danger('', 'Algo salio mal.');
-  //        }
-  //        this.source.refresh();
-  //      });
-  //     }else {
-  //       this.select=true;
-  //       this.mostrar=true;
-  //     }
-  //   });
-       
-  // }
 
   Chargealarms() {
+    // debugger
     this.apiGetComp.GetJson(this.api.apiUrlNode1 + '/GetAlarms')
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
       this.Alarm = res;
       // console.log('test alarm: ', this.Alarm)
-      // this.source.load(res);
-      // this.source.refresh();
+      this.source.load(res);
+      this.source.refresh();
     });
     const contador = interval(30000)
     contador.subscribe((n) => {
@@ -375,8 +374,8 @@ Delete(event): void {
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         this.Alarm = res;
-        // this.source.load(res);
-        // this.source.refresh();
+        this.source.load(res);
+        this.source.refresh();
       });
     });
 

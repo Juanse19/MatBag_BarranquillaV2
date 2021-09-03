@@ -154,7 +154,7 @@ saveData(){
   
 } 
   
-  console.log('Data: ', MAKEData);
+  // console.log('Data: ', MAKEData);
 
 }
 

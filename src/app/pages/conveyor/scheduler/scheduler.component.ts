@@ -149,7 +149,7 @@ export class SchedulerComponent implements OnInit {
   open(){
    
       this.eventSettings
-      console.log('testDivaces', this.eventSettings);
+      // console.log('testDivaces', this.eventSettings);
   }
 
   public eventSettings: EventSettingsModel = { 

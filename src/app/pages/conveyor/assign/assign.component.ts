@@ -227,13 +227,13 @@ export class AssignComponent implements OnInit {
 
   receiveMessage($event) {
     this.selected = $event
-    console.log($event)
+    // console.log($event)
     // console.log(this.machine);
   }
 
   onClick(event) {
-    console.log(event);
-    console.log(event.srcElement.attributes.Id);
+    // console.log(event);
+    // console.log(event.srcElement.attributes.Id);
     // var idAttr = event.srcElement.attributes.id;
     // var value = idAttr.nodeValue;
     // console.log(value);

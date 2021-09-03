@@ -101,10 +101,10 @@ export class BaggagedataComponent implements OnInit {
 
     const fechaFormateada = this.miDatePipe.transform(StartTime, 'yyyy-MM-dd');
 
-    console.log('fecha: ', fechaFormateada);
+    // console.log('fecha: ', fechaFormateada);
     
 
-    console.log('test: ', StartTime);
+    // console.log('test: ', StartTime);
 
     if (fechaFormateada == null) {
       this.toastrService.warning('', 'No pusiste la fecha.');
@@ -113,13 +113,13 @@ export class BaggagedataComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       if (res.length == 0){
-        console.log("se encuentra vacío el arreglo")
+        // console.log("se encuentra vacío el arreglo")
         this.toastrService.danger('', 'No ha data.');
         }else {
         // console.log("no lo esta")
         }
       this.daDate=res;
-      console.log('Da:', res );
+      // console.log('Da:', res );
       
     });
     }
@@ -147,10 +147,10 @@ export class BaggagedataComponent implements OnInit {
   }else {
   
     if (args.item.id === 'Click') {
-      console.log('click: ', args);
-      debugger
+      // console.log('click: ', args);
+      // debugger
       this.grid?.pdfExport(this.getPdfExportProperties());
-      console.log('Abrir pdf');
+      // console.log('Abrir pdf');
         // alert('Custom Toolbar Click...');
     }
   
@@ -171,11 +171,11 @@ export class BaggagedataComponent implements OnInit {
   }else {
     
     if (args.item.id === 'Clicks') {
-      console.log('clicks: ', args);
+      // console.log('clicks: ', args);
       debugger
       // this.reconocer();
       this.grid?.excelExport(this.getExcelExportProperties());
-      console.log('Descargar pdf');
+      // console.log('Descargar pdf');
         // alert('Custom Toolbar Click...');
     }
   
@@ -495,7 +495,7 @@ private getPdfExportProperties(): any {
             widths: ['*', '*'],
             body: [
               ['Tag', 'Zona'],
-              ...this.daDate.map(p => ([p.ZoneName, p.NumberTag ])),
+              // ...this.daDate.map(p => ([p.ZoneName, p.NumberTag ])),
               // [{text: 'Total Amount', colSpan: 3}, {}, {}, this.daDate.products.reduce((sum, p)=> sum + (p.qty * p.price), 0).toFixed(2)]
             ]
           }
@@ -558,7 +558,7 @@ private getPdfExportProperties(): any {
     this.http.get(this.api.apiUrlNode1 + '/eq')
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any) => {
-      console.log("TeamData:", res);
+      // console.log("TeamData:", res);
       this.baggageData = res;
       // this.source.load(res);
     });

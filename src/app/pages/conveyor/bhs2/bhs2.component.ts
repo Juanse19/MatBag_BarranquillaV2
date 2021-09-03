@@ -64,7 +64,7 @@ export class Bhs2Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      console.log('Zons2:', res , 'band with zones', this.zone[1].Name);
+      // console.log('Zons2:', res , 'band with zones', this.zone[1].Name);
       
     });
   }
@@ -74,7 +74,7 @@ export class Bhs2Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zons=res;
-      console.log('Zons10:', res , 'band with zones', this.zone[1].Name);
+      // console.log('Zons10:', res , 'band with zones', this.zone[1].Name);
       
     });
   }
@@ -85,7 +85,7 @@ export class Bhs2Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.divice=res;
-      console.log('Zons:', res , 'states');
+      // console.log('Zons:', res , 'states');
       
     });
   }
@@ -103,7 +103,7 @@ export class Bhs2Component implements OnInit {
     )
     .subscribe((res: any) => {
         this.states  = res;
-        console.log('status:', res);
+        // console.log('status:', res);
     });
   }
 
@@ -115,7 +115,7 @@ export class Bhs2Component implements OnInit {
   // SF1
 
   ClicSF1_4() {
-    debugger
+    // debugger
     this.dialog.opendevice1(137);
     }
   ClicSF1_5() {

@@ -160,7 +160,7 @@ export class NgxLoginComponent implements OnInit {
             this.validData[0].States === 1) ||
           this.validData[0].Lat === null
         ) {
-          debugger;
+          // debugger;
           var respon = {
             user: this.validData[0].Id,
             sesion: 1,
@@ -251,7 +251,7 @@ export class NgxLoginComponent implements OnInit {
                 },
               }).then((result) => {
                 if (result.value === this.timer) {
-                  debugger;
+                  // debugger;
 
                   console.log("closed by timer!!!!");
                   this.apiGetComp

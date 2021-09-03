@@ -245,24 +245,24 @@ export class UserComponent implements OnInit, OnDestroy {
     loadUser
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((user) => { 
-        debugger
+        // debugger
         if(user.licens_id === null )
           {
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
-              console.log('data Rols: ', res);
+              // console.log('data Rols: ', res);
               
               if (res == undefined) {
                 return user.role = '';
               }  
               else if (res.length == 0) {
-                console.log('No hay rol');
+                // console.log('No hay rol');
               }
               else {
                 user.role=res[0].name;
               }
-              debugger
+              // debugger
               if (this.licenAcitveTotalData[0].Licens_id >= this.licData || user.licens_id == undefined ) {
-                console.log('no tienes mas licencias');
+                // console.log('no tienes mas licencias');
                 if (user.licens_id == 2) {
                   this.selectLicen=true;
                 } else if (user.licens_id == undefined) {
@@ -274,7 +274,7 @@ export class UserComponent implements OnInit, OnDestroy {
               } 
 
               // console.log('data rol:', user.role);
-              console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
+              // console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
              
             this.userForm.setValue({
               id: user.id ? user.id : '',
@@ -307,20 +307,20 @@ export class UserComponent implements OnInit, OnDestroy {
             //   alert('no se puede asignar más licencia')
             // }
             this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/userrole/getrolebyuser?idUser='+user.id).subscribe((res: any) => {
-              debugger
-              console.log('data Rols: ', res);
+              // debugger
+              // console.log('data Rols: ', res);
               
               if (res == undefined) {
                 return user.role = '';
               }  
               else if (res.length == 0) {
-                console.log('No hay rol');
+                // console.log('No hay rol');
               }
               else {
                 user.role=res[0].name;
               }
               if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
-                console.log('no tienes mas licencias');
+                // console.log('no tienes mas licencias');
                 if (user.licens_id == 2) {
                   this.selectLicen=true;
                 } else if (user.licens_id == undefined) {
@@ -331,7 +331,7 @@ export class UserComponent implements OnInit, OnDestroy {
                 
               }  
               // console.log('data rol:', user.role);
-              console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
+              // console.log('data rol:', user.role, 'DataLicens:', user.licens_id);
             this.userForm.setValue({
               id: user.id ? user.id : '',
               role: user.role ? user.role : '',
@@ -381,7 +381,7 @@ export class UserComponent implements OnInit, OnDestroy {
     // }
     
     if (this.licenAcitveTotalData[0].Licens_id >= this.licData) {
-      console.log('no tienes mas licencias');
+      // console.log('no tienes mas licencias');
       if (user.licens_id == 2) {
         this.selectLicen=true;
       }
@@ -417,9 +417,9 @@ export class UserComponent implements OnInit, OnDestroy {
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/update', user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
-        console.log('data update', user, res);
+        // console.log('data update', user, res);
       });
-      debugger
+      // debugger
       var respon = 
       {
           user: user.id,
@@ -458,10 +458,10 @@ export class UserComponent implements OnInit, OnDestroy {
       this.apiGetComp.PostJson(this.api.apiUrlNode1 + '/update', user)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
-        console.log('data update', user);
+        // console.log('data update', user);
       });
 
-      debugger
+      // debugger
       var respon = 
       {
           user: user.id,

@@ -97,7 +97,7 @@ export class Bhs1Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res:zons[]=[])=>{
       this.zone=res;
-      console.log('banda1:', res , 'band with zones', this.zone[1].idEquipo);
+      // console.log('banda1:', res , 'band with zones', this.zone[1].idEquipo);
     });
   }
 
@@ -107,7 +107,7 @@ export class Bhs1Component implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.divice=res;
-      console.log('Zons:', res , 'states', this.states[0]?.Color);
+      // console.log('Zons:', res , 'states', this.states[0]?.Color);
       
     });
   }
@@ -125,7 +125,7 @@ export class Bhs1Component implements OnInit {
     )
     .subscribe((res: any) => {
         this.states  = res;
-        console.log('status:', res);
+        // console.log('status:', res);
     });
  
   } 

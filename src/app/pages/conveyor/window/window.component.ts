@@ -182,17 +182,17 @@ export class WindowComponent implements OnInit {
     // }
 
     public opendevice1(idDevice?: number){
-      console.log('test...! 1');
-      debugger
+      // console.log('test...! 1');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
-        debugger
+        // debugger
         if(res === null){
           this.device1.hide();
         }else{
           this.divices1=res;
-          console.log('Test: ', this.divices1);
+          // console.log('Test: ', this.divices1);
           this.device1.show();
           // this.ejDialogTX.position = { X: 171.33, Y: 100.14 };
         }
@@ -201,8 +201,8 @@ export class WindowComponent implements OnInit {
     }
 
     public opendevice2(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -215,8 +215,8 @@ export class WindowComponent implements OnInit {
     }
 
     public opendevice3(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -228,8 +228,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice4(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -241,8 +241,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice5(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -254,8 +254,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice6(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -267,8 +267,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice7(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -280,8 +280,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice8(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -293,8 +293,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice9(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -306,8 +306,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice10(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any [])=>{
@@ -319,8 +319,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice11(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -332,8 +332,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice12(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -345,8 +345,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice13(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -358,8 +358,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice14(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -371,8 +371,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice15(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -384,8 +384,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice16(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -397,8 +397,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice17(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -410,8 +410,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice18(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -423,8 +423,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice19(idDevice?: number){
-      console.log('test...! 19');
-      debugger
+      // console.log('test...! 19');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -436,8 +436,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice20(idDevice?: number){
-      console.log('test...! 20');
-      debugger
+      // console.log('test...! 20');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -449,8 +449,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice21(idDevice?: number){
-      console.log('test...! 21');
-      debugger
+      // console.log('test...! 21');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -462,8 +462,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice22(idDevice?: number){
-      console.log('test...! 22');
-      debugger
+      // console.log('test...! 22');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -475,8 +475,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice23(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -488,8 +488,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice24(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -501,8 +501,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice25(idDevice?: number){
-      console.log('test...! 2');
-      debugger
+      // console.log('test...! 2');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -514,8 +514,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice26(idDevice?: number){
-      console.log('test...! 26');
-      debugger
+      // console.log('test...! 26');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -527,8 +527,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice27(idDevice?: number){
-      console.log('test...! 27');
-      debugger
+      // console.log('test...! 27');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -540,8 +540,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice28(idDevice?: number){
-      console.log('test...! 28');
-      debugger
+      // console.log('test...! 28');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -553,8 +553,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice29(idDevice?: number){
-      console.log('test...! 29');
-      debugger
+      // console.log('test...! 29');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -566,8 +566,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice30(idDevice?: number){
-      console.log('test...! 30');
-      debugger
+      // console.log('test...! 30');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -579,8 +579,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice31(idDevice?: number){
-      console.log('test...! 31');
-      debugger
+      // console.log('test...! 31');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -592,8 +592,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice32(idDevice?: number){
-      console.log('test...! 32');
-      debugger
+      // console.log('test...! 32');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -605,8 +605,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice33(idDevice?: number){
-      console.log('test...! 32');
-      debugger
+      // console.log('test...! 32');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -618,8 +618,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice34(idDevice?: number){
-      console.log('test...! 32');
-      debugger
+      // console.log('test...! 32');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -631,8 +631,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice35(idDevice?: number){
-      console.log('test...! 32');
-      debugger
+      // console.log('test...! 32');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{
@@ -644,8 +644,8 @@ export class WindowComponent implements OnInit {
     }
 
     opendevice36(idDevice?: number){
-      console.log('test...! 32');
-      debugger
+      // console.log('test...! 32');
+      // debugger
       this.http.get(this.api.apiUrlNode1 + '/apideviceconsume?DeviceId='+ idDevice)
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any)=>{

@@ -89,7 +89,7 @@ export class InfoComponent implements OnInit {
     .subscribe((res:Zones[])=>{
       this.zone=res;
       // console.log("zon", this.zone);
-      console.log("Res ", res);
+      // console.log("Res ", res);
       
     });
   }
@@ -99,7 +99,7 @@ export class InfoComponent implements OnInit {
     .pipe(takeWhile(() => this.alive))
     .subscribe((res: any)=>{
       this.consumezoneData=res;
-      console.log('Zons:', res , 'states');
+      // console.log('Zons:', res , 'states');
       
     });
   }
@@ -175,7 +175,7 @@ export class InfoComponent implements OnInit {
 
    close(){
     setTimeout(() => {
-      console.log('Cerrar Dialogs');
+      // console.log('Cerrar Dialogs');
       this.ejDialog.hide();
       this.ejDialog1.hide();
       this.ejDialog2.hide();

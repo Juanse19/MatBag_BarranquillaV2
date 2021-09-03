@@ -13,9 +13,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AuthModule } from './@auth/auth.module';
-import { ScheduleAllModule, RecurrenceEditorAllModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
-import { GridModule } from '@syncfusion/ej2-angular-grids';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
+// import { ScheduleAllModule, RecurrenceEditorAllModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+// import { GridModule } from '@syncfusion/ej2-angular-grids';
+// import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 
 import {
@@ -35,10 +35,10 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    ScheduleAllModule,
-    GridModule, 
-    DialogModule,
-    RecurrenceEditorAllModule,
+    // ScheduleAllModule,
+    // GridModule, 
+    // DialogModule,
+    // RecurrenceEditorAllModule,
 
     AuthModule.forRoot(),
 
@@ -55,7 +55,7 @@ import {
     ThemeModule.forRoot(),
   ],
   bootstrap: [AppComponent],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService],
+  // providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService],
 })
 export class AppModule {
 }

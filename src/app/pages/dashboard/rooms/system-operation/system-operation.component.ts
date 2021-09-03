@@ -112,7 +112,7 @@ export class SystemOperationComponent implements OnInit {
 
     close(){
       setTimeout(() => {
-        console.log('Cerrar Dialog', this.ejDialogTX.hide());
+        // console.log('Cerrar Dialog', this.ejDialogTX.hide());
         this.ejDialogTX.hide();
       }, 20000);
     }
@@ -435,7 +435,7 @@ export class SystemOperationComponent implements OnInit {
 
    closed(){
     setTimeout(() => {
-      console.log('Cerrar Dialogs');
+      // console.log('Cerrar Dialogs');
       this.ejDialogTX.hide();
       this.ejDialogSF.hide();
       this.ejDialogSS.hide();

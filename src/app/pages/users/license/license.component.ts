@@ -1,12 +1,13 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../../../@core/backend/common/api/http.service';
 import {ApiGetService} from '../../../@auth/components/register/apiGet.services';
 import { NbAccessChecker } from '@nebular/security';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NbDateService, NbToastrService } from '@nebular/theme';
+import { NbDateService, NbToastrService, NbWindowService } from '@nebular/theme';
 import * as crypto from 'crypto-js'; 
-
+import { EditLicenComponent } from '../edit-licen/edit-licen.component'
+import Swal from 'sweetalert2'; 
 
 interface licens {
   // Id: string;
@@ -37,6 +38,8 @@ export class LicenseComponent implements OnInit {
 
   get Value() { return this.licenForm.get('Value'); }
 
+  @ViewChild(EditLicenComponent, { static: true }) public modal: EditLicenComponent;
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -45,39 +48,20 @@ export class LicenseComponent implements OnInit {
     private apiGetComp: ApiGetService,
     public accessChecker: NbAccessChecker,
     private toasterService: NbToastrService,
+    private windowService: NbWindowService,
     protected dateService: NbDateService<Date>
   ) { 
 
-    this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
-      // this.licesData.values = res[0].Value;
-      this.licesData.values = crypto.AES.decrypt(res[0].Value.trim(), this.desPass.trim()).toString(crypto.enc.Utf8);
+    // this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
+    //   // this.licesData.values = res[0].Value;
+    //   this.licesData.values = crypto.AES.decrypt(res[0].Value.trim(), this.desPass.trim()).toString(crypto.enc.Utf8);
      
-      console.log('Licencia Encriptada: ', res[0].Value);
+    //   console.log('Licencia Encriptada: ', res[0].Value);
       
-      console.log('Licencias Desencriptada: ', this.licesData.values);
+    //   console.log('Licencias Desencriptada: ', this.licesData.values);
       
 
-      // console.log('Data que se ha encriptado',crypto.SHA512(this.licesData.values).toString());
-      // console.log('Data que se ha encriptado',crypto.AES.encrypt(this.licesData.values).toString());
-
-      // try {
-      //   return crypto.AES.encrypt(JSON.stringify(this.licesData.values), SECRET_KEY).toString();
-      // } catch (e) {
-      //   console.log(e);
-      // }
-
-      // description
-      // try {
-      //   const bytes = crypto.AES.decrypt(this.licesData.values, this.desPass.trim()).toString(crypto.enc.Utf8);
-      //   if (bytes.toString()) {
-      //     return JSON.parse(bytes.toString(crypto.enc.Utf8));
-      //   }
-      //   return this.licesData.values;
-      // } catch (e) {
-      //   console.log(e);
-      // }
-
-    });
+    // });
     // console.log(crypto.SHA512("string a encriptar").toString()); 
     this.accessChecker.isGranted('edit', 'users').subscribe((res: any) => {
       if(res){ 
@@ -93,6 +77,7 @@ export class LicenseComponent implements OnInit {
 
   ngOnInit(): void {
     this.initUserForm();
+    this.loadLices();
   }
 
   initUserForm() {
@@ -101,14 +86,28 @@ export class LicenseComponent implements OnInit {
       Value: this.fb.control('', [ Validators.min(1),Validators.max(120)]),
       
     }); 
-  }
+  } 
 
-  // loadLices(){
-    
-  //   this.licenForm.setValue({
-  //     Value: this.licesData[0].Value ? this.licesData[0].Value : '',
-  //   });
-  // }
+  loadLices(){
+
+    this.apiGetComp.GetJson(this.api.apiUrlNode1 +'/api/getlicenses').subscribe((res: any) => {
+      // this.licesData.values = res[0].Value;
+      this.licesData.values = crypto.AES.decrypt(res[0].Value.trim(), this.desPass.trim()).toString(crypto.enc.Utf8);
+     
+      // console.log('Licencia Encriptada: ', res[0].Value);
+      
+      // console.log('Licencias Desencriptada: ', this.licesData.values);
+      
+      this.licenForm.setValue({
+      Value: this.licesData.values ? this.licesData.values : ''
+    });
+
+    });
+
+    // this.licenForm.setValue({
+    //   Values: this.licesData.values ? this.licesData.values : ''
+    // });
+  }
 
   back() {
     // this.mostrar= false;
@@ -123,6 +122,54 @@ export class LicenseComponent implements OnInit {
   handleWrongResponse() {
     this.toasterService.danger('', 'Error almacenando ');
   }
+
+  edit(){
+    this.router.navigate(['/pages/users/editlicen']);
+  }
+
+  modals(){
+
+    let contraseña 
+
+    Swal.fire({
+      title: 'Ingresa contraseña',
+      input: 'password',
+      icon: 'warning',
+      inputLabel: 'contraseña',
+      inputPlaceholder: 'Ingresa contraseña',
+      inputValidator: (value) => {
+        if (!value) {
+          return '¡Necesitas escribir algo!'
+        }
+      }
+    }).then(result => {
+      // debugger
+      if (result.value) {
+        if (this.desPass.trim() === result.value) {
+          this.toasterService.success('', '¡Puede acceder a editar licencias!'); 
+          this.edit();
+        } else {
+          
+          Swal.fire(
+            'Error',
+            'No conincide la contraseña :)',
+            'error'
+          )
+        }
+        
+      }
+    
+        
+     });
+  }
+
+  ClicModal() {
+    this.modal.open();
+    }
+
+    openWindowForm() {
+      this.windowService.open(EditLicenComponent, { title: `` });
+    }
 
   saveData(){
   debugger
@@ -144,9 +191,7 @@ export class LicenseComponent implements OnInit {
   }
     
   } 
-    // alert('se agregó: ' +  MAKEData.Value)
-    // console.log('Data: ', MAKEData);
-    // this.back()
+    
   }
 
   ngOnDestroy(): void {
