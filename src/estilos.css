@@ -1,0 +1,42 @@
+
+    
+    /* @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+    @import '../node_modules/typeface-exo/index.css';
+    @import '../node_modules/roboto-fontface/css/roboto/roboto-fontface.css';
+    @import '../node_modules/ionicons/scss/ionicons.scss';
+    @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+    @import '../node_modules/socicon/css/socicon.css';
+    @import '../node_modules/nebular-icons/scss/nebular-icons.scss';
+    @import '../node_modules/pace-js/templates/pace-theme-flash.tmpl.css';
+    @import '../node_modules/leaflet/dist/leaflet.css';
+    @import '../src/app/@theme/styles/styles.scss'; */
+
+    
+
+/* @import '../node_modules/@syncfusion/ej2-buttons/styles/bootstrap.css';   */
+@import '../node_modules/@syncfusion/ej2-calendars/styles/bootstrap.css';  
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/bootstrap.css';  
+@import '../node_modules/@syncfusion/ej2-inputs/styles/bootstrap.css';  
+@import '../node_modules/@syncfusion/ej2-navigations/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/bootstrap.css';  
+@import '../node_modules/@syncfusion/ej2-angular-grids/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-angular-grids/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-angular-schedule/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-angular-popups/styles/bootstrap.css';
+@import "../node_modules/@syncfusion/ej2-base/styles/bootstrap.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/bootstrap.css";
+
+@import '../node_modules/@syncfusion/ej2-angular-buttons/styles/bootstrap.css';
+    
+/* {
+    "input": "./node_modules/@syncfusion/ej2-angular-buttons/styles/bootstrap4.css"
+
+  },
+  {
+    "input": "./node_modules/@syncfusion/ej2-angular-grids/styles/bootstrap4.css"
+  }, */
+
+
+
+    

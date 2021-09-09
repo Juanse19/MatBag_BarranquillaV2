@@ -11,6 +11,8 @@ nb-card {
 
 @import '../../../../@theme/styles/themes';
 @import '~@nebular/theme/styles/globals';
+@import '../../../../../assets/css/bootstrap4.css';
+
 @include nb-install() {
     @include nb-theme-global();
 }

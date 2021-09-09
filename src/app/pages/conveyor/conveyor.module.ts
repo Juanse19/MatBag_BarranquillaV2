@@ -31,7 +31,7 @@ import { Bhs6Component } from './bhs6/bhs6.component';
 import { Bhs7Component } from './bhs7/bhs7.component';
 import { Bhs8Component } from './bhs8/bhs8.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
-import {DxSchedulerModule} from 'devextreme-angular';
+// import {DxSchedulerModule} from 'devextreme-angular';
 import { ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
 import { FormsModule } from '@angular/forms';
 import { Ib1Component } from './ib1/ib1.component';
@@ -105,7 +105,7 @@ import { ProgressBarAllModule } from '@syncfusion/ej2-angular-progressbar';
     NbCardModule,
     NbIconModule,
     NbTabsetModule,
-    DxSchedulerModule,
+    // DxSchedulerModule,
     ScheduleAllModule,
     RecurrenceEditorAllModule,
     FormsModule,

@@ -1,5 +1,3 @@
-import { states } from './../../conveyor/_interfaces/MatBag.model';
-import { State } from './../../dashboard/_interfaces/MatBox.model';
 /*
  * Copyright (c) Akveo 2019. All Rights Reserved.
  * Licensed under the Single Application / Multi Application License.

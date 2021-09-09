@@ -214,7 +214,7 @@ actionBegin(args) {
         this.toastrService.danger('', 'Algo salio mal.');
       }
     });
-        args.rowData.Id.resolve();
+        // args.rowData.Id.resolve();
         this.select = false;
         this.mostrar = false;
         args.cancel = true;
@@ -328,7 +328,7 @@ Delete(event): void {
       cancelButtonColor: '#d33',
       confirmButtonText: '¡Sí, Reconocer!'
     }).then(result => {
-      debugger
+      debugger 
       if (result.value) {
       const currentUserId = this.userStore.getUser().id;
           var respons = 
