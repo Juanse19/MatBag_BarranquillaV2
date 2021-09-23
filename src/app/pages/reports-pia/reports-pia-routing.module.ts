@@ -7,7 +7,8 @@ import { BhsFaultsComponent } from './bhs-faults/bhs-faults.component';
 import { BhsEventsComponent } from './bhs-events/bhs-events.component';
 import { EdsstatisticsComponent } from './edsstatistics/edsstatistics.component';
 import { AtrperformanceComponent } from './atrperformance/atrperformance.component';
-import { BagtagTrackingComponent } from './bagtag-tracking/bagtag-tracking.component'
+import { BagtagTrackingComponent } from './bagtag-tracking/bagtag-tracking.component';
+import { CbisThroughputComponent } from './cbis-throughput/cbis-throughput.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: 'bagtracking',  
         component: BagtagTrackingComponent, 
+      },
+      {
+        path: 'throughput',  
+        component: CbisThroughputComponent, 
       },
     ],
   },

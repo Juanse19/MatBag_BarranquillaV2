@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef, ElementRef, Injectable  } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, ElementRef, Injectable, ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbPopoverDirective, NbWindowService } from '@nebular/theme';
 import { LocalDataSource } from 'ng2-smart-table';
@@ -20,7 +20,8 @@ import { ButtonComponent } from '@syncfusion/ej2-angular-buttons';
    ],
   selector: 'ngx-system-operation',
   templateUrl: './system-operation.component.html',
-  styleUrls: ['./system-operation.component.scss']
+  styleUrls: ['./system-operation.component.scss',],
+  
 })
 export class SystemOperationComponent implements OnInit {
 
@@ -94,7 +95,7 @@ export class SystemOperationComponent implements OnInit {
     // The Dialog shows within the target element.
     public targetElement: HTMLElement;
     // This will resize the dialog in all the directions.
-    public resizeHandleDirection: ResizeDirections[] = ['All'];
+    // public resizeHandleDirection: ResizeDirections[] = ['All'];
     public visible: Boolean = true;
     public hidden: Boolean = false;
     public position: object={ X: 'left', Y: 'top' };
@@ -120,7 +121,7 @@ export class SystemOperationComponent implements OnInit {
       // Initialize the Dialog component's target element.
       public initilaizeTarget: EmitType<object> = () => {
         this.targetElement = this.container.nativeElement.parentElement;
-        this.resizeHandleDirection = ['All'];
+        // this.resizeHandleDirection = ['All'];
           }
 
           public hideDialog: EmitType<object> = () =>  {
@@ -220,7 +221,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any)=>{
       this.tXData=res;
       this.ejDialogTX.show();
-      // this.ejDialogTX.position = { X: 141.33, Y: 135.14 };
+      this.ejDialogTX.position = { X: 90.3125, Y: 330.125 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -247,7 +248,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any)=>{
       this.sSData=res;
       this.ejDialogSS.show();
-      this.ejDialogSS.position = { X: 309.33, Y: 126.14 };
+      this.ejDialogSS.position = { X: 716.312, Y: 137.125 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -263,7 +264,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any)=>{
       this.mUData=res;
       this.ejDialogMU.show();
-      this.ejDialogMU.position = { X: 281.33, Y: 160.14 };
+      this.ejDialogMU.position = { X: 670.312, Y: 334.125 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -278,7 +279,7 @@ export class SystemOperationComponent implements OnInit {
       }else{
       this.aLData=res;
       this.ejDialogAL.show();
-      this.ejDialogAL.position = { X: 85.4977, Y: 260.257 };
+      this.ejDialogAL.position = { X: 186.479, Y: 465.25 };
       }
       
       // console.log('Zons:', res , 'states');
@@ -292,7 +293,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any [])=>{
       this.sFCData=res;
       this.ejDialogSFC.show();
-      this.ejDialogSFC.position = { X: 60.3009, Y: 16.6458 };
+      this.ejDialogSFC.position = { X: 99.2917, Y: 19.125 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -304,7 +305,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any [])=>{
       this.oSRData=res;
       this.ejDialogOSR.show();
-      this.ejDialogOSR.position = { X: 678.323, Y: 153.312 };
+      this.ejDialogOSR.position = { X: 968, Y: 260.292 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -316,7 +317,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any)=>{
       this.cLData=res;
       this.ejDialogCL.show();
-      this.ejDialogCL.position = { X: 278.33, Y: 192.14 };
+      this.ejDialogCL.position = { X: 715.313, Y: 547 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -328,7 +329,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any[])=>{
       this.mEData=res;
       this.ejDialogME.show();
-      this.ejDialogME.position = { X: 120.312, Y: 348.125 };
+      this.ejDialogME.position = { X: 455.292, Y: 535.125 };
       // console.log('Zons:', res , 'states');
     });
   }
@@ -341,7 +342,7 @@ export class SystemOperationComponent implements OnInit {
     .subscribe((res: any[])=>{
       this.xOData=res;
       this.ejDialogXO.show();
-      this.ejDialogXO.position = { X: 171.33, Y: 100.14 };
+      this.ejDialogXO.position = { X: 345.312, Y: 57.125 };
       // console.log('Zons:', res );
     });
   }

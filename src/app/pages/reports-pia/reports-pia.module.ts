@@ -21,10 +21,11 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { BagtagTrackingComponent } from './bagtag-tracking/bagtag-tracking.component';
+import { CbisThroughputComponent } from './cbis-throughput/cbis-throughput.component';
 
 
 @NgModule({
-  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent, BagtagTrackingComponent,],
+  declarations: [ReportsPiaComponent, BaggagedataComponent, PhotoelectricComponent, BhsFaultsComponent, BhsEventsComponent, EdsstatisticsComponent, AtrperformanceComponent, BagtagTrackingComponent, CbisThroughputComponent,],
   imports: [
     CommonModule,
     ReportsPiaRoutingModule,

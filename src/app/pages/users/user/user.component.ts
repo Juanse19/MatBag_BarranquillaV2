@@ -90,7 +90,7 @@ export class UserComponent implements OnInit, OnDestroy {
   mostrar: Boolean;
   ocultar: Boolean;
   isDisabled: Boolean;
-  desPass: string = '1234';
+  desPass: string = 'Matec2021*';
 
   protected readonly unsubscribe$ = new Subject<void>();
 
@@ -197,7 +197,7 @@ export class UserComponent implements OnInit, OnDestroy {
       licens: this.fb.control('', [ Validators.min(1),
         Validators.max(120), Validators.pattern(NUMBERS_PATTERN)]),
       state: this.fb.control(''),
-      firstName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
+      firstName: this.fb.control('',  [Validators.minLength(3), Validators.maxLength(20)]),
       lastName: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
       login: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
       age: this.fb.control('', [ Validators.min(1),

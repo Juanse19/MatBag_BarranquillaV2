@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input nbInput id="inputEmail" formControlName="email"  [status]="(email?.errors?.required || email?.hasError('pattern')) && email.touched ? 'danger' : 'primary'" class="form-control" placeholder="Email">
+                <input nbInput id="inputEmail" formControlName="email" [disabled]="isDisabled"  [status]="(email?.errors?.required || email?.hasError('pattern')) && email.touched ? 'danger' : 'primary'" class="form-control" placeholder="Email">
                 <ngx-validation-message label="Email" [showPattern]="email?.hasError('pattern') && email.touched" [showRequired]="email?.errors?.required && email.touched" min=1 max=120></ngx-validation-message>
             </div>
 

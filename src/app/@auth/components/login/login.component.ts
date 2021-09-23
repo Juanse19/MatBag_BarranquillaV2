@@ -242,7 +242,7 @@ export class NgxLoginComponent implements OnInit {
 
               Swal.fire({
                 title: "¡Cargando!",
-                text: "Esperando que cerrar sesión",
+                text: "Esperando que se cierre la sesión",
                 allowEscapeKey: false,
                 allowOutsideClick: false,
                 timer: timers,

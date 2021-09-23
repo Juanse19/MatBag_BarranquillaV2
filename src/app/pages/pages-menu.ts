@@ -440,6 +440,10 @@ export class PagesMenu {
           link: '/pages/reports-pia/baggagedata',
         }, 
         {
+          title: 'Rendimiento por hora CBIS',
+          link: '/pages/reports-pia/throughput',
+        },
+        {
           title: 'Seguimiento crítico de PEC',
           link: '/pages/reports-pia/bag',
         },
@@ -455,10 +459,7 @@ export class PagesMenu {
           title: 'Desempeño del ATR',
           link: '/pages/reports-pia/atrperformance',
         },
-        // {
-        //   title: 'Volumen del sistema de equipaje',
-        //   link: '/pages/charts/charts-report',
-        // },
+        
         // {
         //   title: 'Estadísticas del CBRA',
         //   link: '/pages/charts/report',

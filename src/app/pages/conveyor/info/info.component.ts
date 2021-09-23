@@ -40,7 +40,7 @@ export class InfoComponent implements OnInit {
     // The Dialog shows within the target element.
     public targetElement: HTMLElement;
     // This will resize the dialog in all the directions.
-    public resizeHandleDirection: ResizeDirections[] = ['All'];
+    // public resizeHandleDirection: ResizeDirections[] = ['All'];
     public visible: Boolean = true;
     public hidden: Boolean = false;
     public position: object={ X: 'left', Y: 'top' };
@@ -52,7 +52,7 @@ export class InfoComponent implements OnInit {
       // Initialize the Dialog component's target element.
       public initilaizeTarget: EmitType<object> = () => {
         this.targetElement = this.container.nativeElement.parentElement;
-        this.resizeHandleDirection = ['All'];
+        // this.resizeHandleDirection = ['All'];
           }
 
           public hideDialog: EmitType<object> = () =>  {
@@ -111,7 +111,7 @@ export class InfoComponent implements OnInit {
       this.consumezoneData=res;
       this.ejDialog.show();
       // console.log('Zons:', res , 'states');
-      this.ejDialog.position = { X: 73.4583, Y: 261.823 };
+      this.ejDialog.position = { X: 165.438, Y: 257.813 };
     });
   }
 
@@ -126,7 +126,7 @@ export class InfoComponent implements OnInit {
       this.zoneData=res;
       this.ejDialog1.show();
       // console.log('Zons:', res , 'states');
-      this.ejDialog1.position = { X: 429.458, Y: 118.219 };
+      this.ejDialog1.position = { X: 438.438, Y: 74.2083 };
     });
   }
 
@@ -141,7 +141,7 @@ export class InfoComponent implements OnInit {
       this.zoData=res;
       this.ejDialog2.show();
       // console.log('Zons:', res , 'states');
-      this.ejDialog2.position = { X: 505.345, Y: 191};
+      this.ejDialog2.position = { X: 807.313, Y: 317.208};
     });
   }
 

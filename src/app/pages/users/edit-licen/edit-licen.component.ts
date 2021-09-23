@@ -29,7 +29,7 @@ export class EditLicenComponent implements OnInit {
   enctexto: string;
   destexto: string;
   encPass: string;
-  desPass: string = '1234';
+  desPass: string = 'Matec2021*';
   textoEncriptado: string;
   textoDesencriptado: string;
   private alive = true;
