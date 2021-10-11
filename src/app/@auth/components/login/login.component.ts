@@ -42,8 +42,11 @@ interface dataLicens {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxLoginComponent implements OnInit {
-  correo = "mladmin@matec.com.co";
-  contrasena = "admin";
+  // correo = "mladmin@matec.com.co";
+  // contrasena = "admin";
+
+  correo = "admin@admin.admin";
+  contrasena = "!2e4S";
 
   intervalSubscriptionSesion: Subscription;
 
