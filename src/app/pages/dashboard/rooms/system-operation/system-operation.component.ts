@@ -103,7 +103,7 @@ export class SystemOperationComponent implements OnInit {
 
     ngOnInit(): void {
       this.GetSystem();
-      this.initilaizeTarget();
+      // this.initilaizeTarget();
       this.pageSettings = { pageSize: 5 };
       this.filterOptions = {
         type: 'Menu',

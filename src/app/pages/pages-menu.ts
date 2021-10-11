@@ -18,56 +18,56 @@ export class PagesMenu {
   getMenu(): Observable<NbMenuItem[]> {
     const dashboardMenu = [
       {
-        title: 'BHS Salida',
+        title: 'BHS',
         icon: 'monitor-outline',
         link: '/pages/iot-dashboard',
-        children: [
-          {
-            title: 'Dashboard Salida', 
-            link: '/pages/iot-dashboard',
-          },
-          { 
-            title: 'Security Feed Check In',
-            link: '/pages/conveyor/bhs5',
-          },
-          {
-            title: 'Security Feed',
-            link: '/pages/conveyor/bhs2',
-          },
-          {
-            title: 'Crossover',
-            link: '/pages/conveyor/bhs10',
-          },
+        // children: [
+        //   {
+        //     title: 'Dashboard Salida', 
+        //     link: '/pages/iot-dashboard',
+        //   },
+        //   { 
+        //     title: 'Security Feed Check In',
+        //     link: '/pages/conveyor/bhs5',
+        //   },
+        //   {
+        //     title: 'Security Feed',
+        //     link: '/pages/conveyor/bhs2',
+        //   },
+        //   {
+        //     title: 'Crossover',
+        //     link: '/pages/conveyor/bhs10',
+        //   },
 
-          {
-            title: 'Transfer Line',
-            link: '/pages/conveyor/bhs1',
-          },
-          {
-            title: 'Make Up',
-            link: '/pages/conveyor/bhs3',
-          },
-          {
-            title: 'Alarm Line',
-            link: '/pages/conveyor/bhs4',
-          },
-          {
-            title: 'Clear Line',
-            link: '/pages/conveyor/bhs6',
-          },
-          {
-            title: 'Security Shunt',
-            link: '/pages/conveyor/bhs9', 
-          },
-          {
-            title: 'On Screen Resolution Line',
-            link: '/pages/conveyor/bhs7', 
-          },
-          {
-            title: 'Manual Encode',
-            link: '/pages/conveyor/bhs8',
-          },
-        ],
+        //   {
+        //     title: 'Transfer Line',
+        //     link: '/pages/conveyor/bhs1',
+        //   },
+        //   {
+        //     title: 'Make Up',
+        //     link: '/pages/conveyor/bhs3',
+        //   },
+        //   {
+        //     title: 'Alarm Line',
+        //     link: '/pages/conveyor/bhs4',
+        //   },
+        //   {
+        //     title: 'Clear Line',
+        //     link: '/pages/conveyor/bhs6',
+        //   },
+        //   {
+        //     title: 'Security Shunt',
+        //     link: '/pages/conveyor/bhs9', 
+        //   },
+        //   {
+        //     title: 'On Screen Resolution Line',
+        //     link: '/pages/conveyor/bhs7', 
+        //   },
+        //   {
+        //     title: 'Manual Encode',
+        //     link: '/pages/conveyor/bhs8',
+        //   },
+        // ],
       },
     ];
 
@@ -536,7 +536,8 @@ export class PagesMenu {
           // return [...dashboardMenu, orderMenu, userMenu, ...menu,registerMenu];
           // return [...dashboardMenu, orderMenu, reportMenu, analyticsMenu, userMenu, alarmMenu, registerMenu];
           // return [...dashboardMenu, orderMenu, sicsyncroMenu, repoMenu, analyticsMenu, userMenu, alarmMenu];
-          return [...dashboardMenu, dassh2Menu, paraMenu, functionMenu, repocbisMenu, configurationMenu, alarmMenu];
+          // return [...dashboardMenu, dassh2Menu, paraMenu, functionMenu, repocbisMenu, configurationMenu, alarmMenu];
+          return [...dashboardMenu, paraMenu, functionMenu,  configurationMenu, alarmMenu];
         } else {
           //return [...dashboardMenu, ...menu];
           return [...dashboardMenu, alarmMenu];

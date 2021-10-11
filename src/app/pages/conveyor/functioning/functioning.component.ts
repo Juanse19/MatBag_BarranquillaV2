@@ -90,7 +90,7 @@ export class FunctioningComponent implements OnInit {
       }
 
       chargeData() {
-        this.http.get(this.api.apiUrlNode1 + '/api/GetEfficiencyTimeExecConveyor')
+        this.http.get(this.api.apiUrlNode1 + '/api/getoperation')
         .pipe(takeWhile(() => this.alive))
         .subscribe((res: any) => {
           // tslint:disable-next-line: no-console
@@ -99,7 +99,7 @@ export class FunctioningComponent implements OnInit {
         });
         const contador = interval(40000)
         contador.subscribe((n) => {
-          this.http.get(this.api.apiUrlNode1 + '/api/GetEfficiencyTimeExecConveyor')
+          this.http.get(this.api.apiUrlNode1 + '/api/getoperation')
           .pipe(takeWhile(() => this.alive))
           .subscribe((res: any) => {
             this.funData = res;

@@ -104,7 +104,7 @@ export class TeamComponent implements OnInit {
       }
 
     chargeData() {
-      this.http.get(this.api.apiUrlNode1 + '/api/team')
+      this.http.get(this.api.apiUrlNode1 + '/api/GetEfficiencyConveyors')
       .pipe(takeWhile(() => this.alive))
       .subscribe((res: any) => {
         // tslint:disable-next-line: no-console
@@ -113,7 +113,7 @@ export class TeamComponent implements OnInit {
       });
       const contador = interval(40000)
       contador.subscribe((n) => {
-        this.http.get(this.api.apiUrlNode1 + '/api/team')
+        this.http.get(this.api.apiUrlNode1 + '/api/GetEfficiencyConveyors')
         .pipe(takeWhile(() => this.alive))
         .subscribe((res: any) => {
           this.teamsData = res;
